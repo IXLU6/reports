@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿里巴巴国际站询盘复盘报告 4.7-4.13</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d1117;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #e6edf3;
+    min-height: 100vh;
+  }
+
+  .screenshot-container {
+    width: 900px;
+    margin: 0 auto;
+    background: #161b22;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1f2e 0%, #0f3460 50%, #1a1f2e 100%);
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(49,130,206,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 20px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(49,130,206,0.2);
+    border: 1px solid rgba(49,130,206,0.4);
+    color: #60a5fa;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #f0f6fc;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #8b949e;
+  }
+  .header-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .header-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 28px;
+  }
+  .header-stat {
+    text-align: center;
+  }
+  .header-stat .num {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .header-stat .label {
+    font-size: 12px;
+    color: #8b949e;
+    margin-top: 4px;
+  }
+
+  /* Section */
+  .section {
+    padding: 36px 60px;
+    border-bottom: 1px solid #21262d;
+  }
+  .section:last-child { border-bottom: none; }
+  .section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    background: linear-gradient(135deg, #3182ce, #38b2ac);
+    color: white;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  /* Module 1 overview */
+  .overview-box {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #c9d1d9;
+    margin-bottom: 24px;
+  }
+  .overview-box strong { color: #f0f6fc; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid #30363d; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead tr {
+    background: #1c2128;
+  }
+  th {
+    padding: 10px 14px;
+    text-align: left;
+    color: #8b949e;
+    font-weight: 600;
+    border-bottom: 1px solid #30363d;
+    white-space: nowrap;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #1c2128; }
+  .country-flag { font-size: 16px; margin-right: 6px; }
+  .country-name { color: #c9d1d9; }
+  .count-badge {
+    display: inline-block;
+    background: rgba(49,130,206,0.15);
+    color: #60a5fa;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .other-note {
+    font-size: 12px;
+    color: #8b949e;
+    font-style: italic;
+  }
+
+  /* Customer cards */
+  .customer-card {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .customer-card:last-child { margin-bottom: 0; }
+  .customer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .customer-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f6fc;
+  }
+  .customer-country {
+    font-size: 12px;
+    color: #8b949e;
+    margin-top: 2px;
+  }
+  .grade-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+  .grade-a {
+    background: rgba(52,211,153,0.15);
+    color: #34d399;
+    border: 1px solid rgba(52,211,153,0.3);
+  }
+  .grade-b {
+    background: rgba(251,191,36,0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251,191,36,0.3);
+  }
+  .grade-c {
+    background: rgba(148,163,184,0.15);
+    color: #94a3b8;
+    border: 1px solid rgba(148,163,184,0.3);
+  }
+  .customer-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px 14px;
+    font-size: 13px;
+  }
+  .customer-grid .label {
+    color: #8b949e;
+    white-space: nowrap;
+  }
+  .customer-grid .value { color: #c9d1d9; }
+  .customer-grid .value.highlight { color: #60a5fa; }
+  .customer-grid .value.green { color: #34d399; }
+  .signals { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+  .signal-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .signal-ok { background: rgba(52,211,153,0.15); color: #34d399; }
+  .signal-no { background: rgba(248,113,113,0.15); color: #f87171; }
+
+  /* Product ranking */
+  .product-rank {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .product-rank:last-child { margin-bottom: 0; }
+  .rank-num {
+    font-size: 24px;
+    font-weight: 800;
+    color: #30363d;
+    min-width: 32px;
+    text-align: center;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .rank-num.top { color: #f59e0b; }
+  .rank-num.second { color: #8b949e; }
+  .rank-info { flex: 1; }
+  .rank-name { font-size: 14px; font-weight: 600; color: #f0f6fc; }
+  .rank-detail { font-size: 12px; color: #8b949e; margin-top: 3px; }
+  .rank-count {
+    font-size: 22px;
+    font-weight: 800;
+    color: #60a5fa;
+    min-width: 50px;
+    text-align: right;
+    line-height: 1;
+  }
+  .trend {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .trend-up { background: rgba(52,211,153,0.15); color: #34d399; }
+  .trend-stable { background: rgba(148,163,184,0.15); color: #94a3b8; }
+  .trend-new { background: rgba(167,139,250,0.15); color: #a78bfa; }
+
+  /* Script suggestions */
+  .script-item {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .script-item:last-child { margin-bottom: 0; }
+  .script-scene {
+    font-size: 12px;
+    color: #60a5fa;
+    background: rgba(49,130,206,0.1);
+    border: 1px solid rgba(49,130,206,0.2);
+    padding: 2px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .script-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #c9d1d9;
+  }
+  .script-text.en { color: #8b949e; border-left: 3px solid #30363d; padding-left: 12px; margin-bottom: 8px; }
+  .script-text.cn { color: #f0f6fc; border-left: 3px solid #3182ce; padding-left: 12px; }
+
+  /* Improvement */
+  .improvement-item {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #c9d1d9;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .improvement-item:last-child { margin-bottom: 0; }
+  .improvement-num {
+    background: rgba(49,130,206,0.15);
+    color: #60a5fa;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  /* Follow-up table */
+  .followup-row {
+    display: grid;
+    grid-template-columns: 140px 70px 60px 1fr 1fr 1fr;
+    gap: 0;
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .followup-row.header-row {
+    background: #21262d;
+    font-weight: 700;
+    font-size: 11px;
+    color: #8b949e;
+    border: none;
+    margin-bottom: 0;
+  }
+  .followup-cell {
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #c9d1d9;
+    border-right: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+  }
+  .followup-cell:last-child { border-right: none; }
+  .followup-row.header-row .followup-cell { border-color: #30363d; }
+
+  /* Conclusion */
+  .conclusion-box {
+    background: linear-gradient(135deg, rgba(49,130,206,0.08), rgba(16,185,129,0.08));
+    border: 1px solid rgba(49,130,206,0.3);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .conclusion-title {
+    font-size: 12px;
+    color: #60a5fa;
+    font-weight: 700;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .conclusion-text {
+    font-size: 13px;
+    color: #c9d1d9;
+    line-height: 1.7;
+  }
+  .action-list {
+    list-style: none;
+    padding: 0;
+  }
+  .action-list li {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #c9d1d9;
+    line-height: 1.6;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .action-list li:last-child { margin-bottom: 0; }
+  .action-arrow { color: #60a5fa; font-weight: 700; white-space: nowrap; }
+
+  /* Footer */
+  .footer {
+    padding: 24px 60px;
+    background: #0d1117;
+    text-align: center;
+    font-size: 11px;
+    color: #484f58;
+  }
+
+  /* Insight */
+  .insight-box {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #8b949e;
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+  .insight-box strong { color: #60a5fa; }
+
+  /* B/C Table compact */
+  .compact-table { font-size: 12px; }
+  .compact-table td { padding: 7px 12px; }
+  .status-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  .dot-green { background: #34d399; }
+  .dot-yellow { background: #fbbf24; }
+  .dot-gray { background: #8b949e; }
+
+  @media print {
+    body { background: white; }
+    .screenshot-container { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screenshot-container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#60a5fa" stroke-width="1.5"/><path d="M5 3v2.5L6.5 7" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Ali Alibaba · 运营数据
+    </div>
+    <h1>阿里巴巴国际站询盘复盘报告</h1>
+    <div class="header-meta">
+      <span>📅 统计周期：2026年4月7日（周一）～ 2026年4月13日（周日）</span>
+      <span>🕐 生成时间：2026-04-14</span>
+      <span>📡 数据来源：阿里巴巴国际站（询盘+TM消息）</span>
+    </div>
+    <div class="header-stats">
+      <div class="header-stat">
+        <div class="num">61</div>
+        <div class="label">总询盘条数</div>
+      </div>
+      <div class="header-stat">
+        <div class="num">32</div>
+        <div class="label">涉及国家/地区</div>
+      </div>
+      <div class="header-stat">
+        <div class="num">20</div>
+        <div class="label">询盘 Inquiry</div>
+      </div>
+      <div class="header-stat">
+        <div class="num">41</div>
+        <div class="label">TM 消息</div>
+      </div>
+      <div class="header-stat">
+        <div class="num">3</div>
+        <div class="label">A级重点客户</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块一 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块一</span>询盘总览</div>
+    <div class="overview-box">
+      本周共 <strong>61条</strong>（询盘 20条 / TM 41条），涉及 <strong>32个国家</strong>，以TM跟进为主。
+      A级 <strong>3位</strong>（印度 Laxmi / 美国 Lovia Hall / 英国 Andleeb Tahir），整体意向偏弱，多数B级客户处于目录索取/初步了解阶段。
+      Alexey Semkin（俄罗斯 / Katherine）本周继续跟进，属重点延续客户。
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>国家 / 地区</th>
+            <th>条数</th>
+            <th>主要业务员</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="country-flag">🇮🇳</span><span class="country-name">印度</span></td><td><span class="count-badge">4</span></td><td>Aget / Jaime</td></tr>
+          <tr><td><span class="country-flag">🇵🇰</span><span class="country-name">巴基斯坦</span></td><td><span class="count-badge">4</span></td><td>Jaime</td></tr>
+          <tr><td><span class="country-flag">🇺🇸</span><span class="country-name">美国</span></td><td><span class="count-badge">3</span></td><td>Naiya / Jaime</td></tr>
+          <tr><td><span class="country-flag">🇷🇺</span><span class="country-name">俄罗斯</span></td><td><span class="count-badge">2</span></td><td>Jaime / Katherine</td></tr>
+          <tr><td><span class="country-flag">🇦🇷</span><span class="country-name">阿根廷</span></td><td><span class="count-badge">2</span></td><td>Naiya / Jaime</td></tr>
+          <tr><td><span class="country-flag">🇮🇩</span><span class="country-name">印度尼西亚</span></td><td><span class="count-badge">2</span></td><td>Jaime</td></tr>
+          <tr><td><span class="country-flag">🇳🇬</span><span class="country-name">尼日利亚</span></td><td><span class="count-badge">1</span></td><td>Aget</td></tr>
+          <tr><td><span class="country-flag">🇬🇧</span><span class="country-name">英国</span></td><td><span class="count-badge">1</span></td><td>Tracey</td></tr>
+          <tr><td><span class="country-flag">🇦🇫</span><span class="country-name">阿富汗</span></td><td><span class="count-badge">1</span></td><td>Christy</td></tr>
+          <tr><td><span class="country-flag">🇫🇷</span><span class="country-name">法国</span></td><td><span class="count-badge">1</span></td><td>Jaime</td></tr>
+          <tr><td><span class="country-flag">🇨🇦</span><span class="country-name">加拿大</span></td><td><span class="count-badge">1</span></td><td>Christy</td></tr>
+          <tr><td><td colspan="2"><span class="other-note">其他（科特迪瓦/阿塞拜疆/塞内加尔/希腊/黑山/拉脱维亚/哥伦比亚/肯尼亚/摩洛哥/越南/荷兰/伊拉克/坦桑尼亚/马来西亚/安哥拉/巴西/智利等）约 17 条</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 模块二：客户全览 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块二</span>客户全览</div>
+
+    <!-- A级客户 -->
+    <div style="margin-bottom: 24px;">
+      <div style="font-size:13px;font-weight:700;color:#34d399;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <span style="width:4px;height:16px;background:#34d399;border-radius:2px;display:inline-block;"></span>
+        A级客户（重点跟进）
+      </div>
+
+      <div class="customer-card">
+        <div class="customer-header">
+          <div>
+            <div class="customer-name">1. Laxmi Suryawanshi</div>
+            <div class="customer-country">🇮🇳 印度</div>
+          </div>
+          <span class="grade-badge grade-a">A级</span>
+        </div>
+        <div class="customer-grid">
+          <span class="label">咨询产品</span><span class="value">慕川琦洗发水护发素套装</span>
+          <span class="label">需求量</span><span class="value highlight">100件</span>
+          <span class="label">内容摘要</span><span class="value">询问产品详情，业务员已发工厂介绍+样品+价格</span>
+          <span class="label">采购信号</span>
+          <div class="signals">
+            <span class="signal-tag signal-ok">价格✓</span>
+            <span class="signal-tag signal-ok">MOQ✓</span>
+            <span class="signal-tag signal-ok">样品✓</span>
+            <span class="signal-tag signal-no">交货期✗</span>
+            <span class="signal-tag signal-no">认证✗</span>
+          </div>
+          <span class="label">当前状态</span><span class="value green">已回复，等待客户确认</span>
+          <span class="label">跟进业务</span><span class="value">Aget Huang</span>
+          <span class="label">建议行动</span><span class="value highlight">等待客户确认</span>
+        </div>
+      </div>
+
+      <div class="customer-card">
+        <div class="customer-header">
+          <div>
+            <div class="customer-name">2. Lovia Hall</div>
+            <div class="customer-country">🇺🇸 美国</div>
+          </div>
+          <span class="grade-badge grade-a">A级</span>
+        </div>
+        <div class="customer-grid">
+          <span class="label">咨询产品</span><span class="value">领秀一洗黑染发洗发水</span>
+          <span class="label">需求量</span><span class="value highlight">5箱起</span>
+          <span class="label">内容摘要</span><span class="value">询问是否接受5盒MOQ，业务员已回复规格范围</span>
+          <span class="label">采购信号</span>
+          <div class="signals">
+            <span class="signal-tag signal-ok">价格✓</span>
+            <span class="signal-tag signal-ok">MOQ✓</span>
+            <span class="signal-tag signal-ok">样品✓</span>
+            <span class="signal-tag signal-no">交货期✗</span>
+            <span class="signal-tag signal-no">认证✗</span>
+          </div>
+          <span class="label">当前状态</span><span class="value green">洽谈MOQ中</span>
+          <span class="label">跟进业务</span><span class="value">Naiya Ding</span>
+          <span class="label">建议行动</span><span class="value highlight">明确最小接单量，若达不到推荐样品方案</span>
+        </div>
+      </div>
+
+      <div class="customer-card">
+        <div class="customer-header">
+          <div>
+            <div class="customer-name">3. Andleeb Tahir</div>
+            <div class="customer-country">🇬🇧 英国</div>
+          </div>
+          <span class="grade-badge grade-a">A级</span>
+        </div>
+        <div class="customer-grid">
+          <span class="label">咨询产品</span><span class="value">慕川琦角蛋白发膜</span>
+          <span class="label">需求量</span><span class="value highlight">100件</span>
+          <span class="label">内容摘要</span><span class="value">要100件发英国，询问营销图片/视频，咨询DDP价格</span>
+          <span class="label">采购信号</span>
+          <div class="signals">
+            <span class="signal-tag signal-ok">价格✓</span>
+            <span class="signal-tag signal-ok">MOQ✓</span>
+            <span class="signal-tag signal-no">样品✗</span>
+            <span class="signal-tag signal-no">交货期✗</span>
+            <span class="signal-tag signal-no">认证✗</span>
+          </div>
+          <span class="label">当前状态</span><span class="value green">已回复，明日发资料</span>
+          <span class="label">跟进业务</span><span class="value">Tracey Zhang</span>
+          <span class="label">建议行动</span><span class="value highlight">明日跟进发图片视频，确认下单</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B级客户 -->
+    <div style="margin-bottom: 24px;">
+      <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <span style="width:4px;height:16px;background:#fbbf24;border-radius:2px;display:inline-block;"></span>
+        B级客户（次要跟进）
+      </div>
+
+      <div class="table-wrap">
+        <table class="compact-table">
+          <thead>
+            <tr>
+              <th>#</th><th>客户名</th><th>国家</th><th>咨询产品</th><th>内容摘要</th><th>需求量</th><th>当前状态</th><th>跟进业务</th><th>建议行动</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="count-badge">1</span></td>
+              <td><strong>MR N</strong></td><td>尼日利亚</td><td>慕川琦染发膏</td>
+              <td>索取目录，业务员已发PDF</td><td>待定</td>
+              <td><span class="status-dot dot-green"></span>已发目录</td>
+              <td>Aget Huang</td><td>跟进目录查阅结果，推荐热销色号</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">2</span></td>
+              <td><strong>Irina Volskaya</strong></td><td>俄罗斯</td><td>慕川琦品牌</td>
+              <td>询问品牌信息</td><td>待定</td>
+              <td><span class="status-dot dot-green"></span>初步咨询</td>
+              <td>Tracey Zhang</td><td>发品牌介绍+产品目录</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">3</span></td>
+              <td><strong>Sohaib Khan</strong></td><td>巴基斯坦</td><td>染发膏色卡</td>
+              <td>询问色卡，业务员询问颜色偏好</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待客户回复</td>
+              <td>Katherine Chan</td><td>发色卡，推荐热销色号</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">4</span></td>
+              <td><strong>AlineJesus Lima</strong></td><td>法国</td><td>染发膏</td>
+              <td>询问20件还是20箱，业务员澄清</td><td>20件或20箱</td>
+              <td><span class="status-dot dot-yellow"></span>待客户确认</td>
+              <td>Naiya Ding</td><td>确认数量，发报价</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">5</span></td>
+              <td><strong>Absa Der</strong></td><td>塞内加尔</td><td>护发产品</td>
+              <td>业务员询问需求量</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待客户回复</td>
+              <td>Katherine Chan</td><td>等待回复，跟进</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">7</span></td>
+              <td><strong>lamprini pipsou</strong></td><td>希腊</td><td>染发膏74色系</td>
+              <td>询问74色系详情</td><td>待定</td>
+              <td><span class="status-dot dot-green"></span>初步了解</td>
+              <td>Katherine Chan</td><td>发74色系目录+报价</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">8</span></td>
+              <td><strong>Ali Sher</strong></td><td>巴基斯坦</td><td>染发膏</td>
+              <td>业务员询问感兴趣颜色</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待客户回复</td>
+              <td>Katherine Chan</td><td>等待回复，发色卡</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">9</span></td>
+              <td><strong>Michelle Lynch</strong></td><td>美国</td><td>空玻璃瓶</td>
+              <td>询问是否可单买空瓶</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待确认</td>
+              <td>Katherine Chan</td><td>明确是否供空瓶，推OEM方案</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">10</span></td>
+              <td><strong>Solvita Rajecka</strong></td><td>拉脱维亚</td><td>护发产品</td>
+              <td>索取产品信息</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待客户回复</td>
+              <td>Naiya Ding</td><td>发产品目录+报价</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">11</span></td>
+              <td><strong>carolyne mahinda</strong></td><td>肯尼亚</td><td>护发产品</td>
+              <td>业务员询问需求量</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待客户回复</td>
+              <td>Katherine Chan</td><td>等待回复</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">12</span></td>
+              <td><strong>laktaoui abdelwahed</strong></td><td>摩洛哥</td><td>双氧奶（12%）</td>
+              <td>询问是否有12%双氧奶</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待确认规格</td>
+              <td>Katherine Chan</td><td>确认双氧奶规格，发报价</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">13</span></td>
+              <td><strong>Pravesh verma</strong></td><td>印度</td><td>洗发水+护发素</td>
+              <td>询问护发素配套</td><td>待定</td>
+              <td><span class="status-dot dot-green"></span>初步了解</td>
+              <td>Katherine Chan</td><td>发洗护套组介绍+报价</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">15</span></td>
+              <td><strong>Alexey Semkin</strong></td><td>俄罗斯</td><td>无氨染膏</td>
+              <td>本周继续跟进（发图片）</td><td>待定</td>
+              <td><span class="status-dot dot-green"></span>持续跟进中</td>
+              <td>Katherine Chan</td><td>跟进无氨研发进度，及时更新客户</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">16</span></td>
+              <td><strong>Asma Rajput</strong></td><td>巴基斯坦</td><td>其他品牌</td>
+              <td>推荐其他品牌</td><td>待定</td>
+              <td><span class="status-dot dot-green"></span>已推荐</td>
+              <td>Christy</td><td>跟进品牌接受情况</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">17</span></td>
+              <td><strong>patricia amaral</strong></td><td>巴西</td><td>代理咨询</td>
+              <td>询问加拿大代理</td><td>待定</td>
+              <td><span class="status-dot dot-green"></span>已告知</td>
+              <td>Christy</td><td>评估代理合作可能</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">19</span></td>
+              <td><strong>R Rajji Khaira</strong></td><td>加拿大</td><td>护发产品</td>
+              <td>发图片</td><td>待定</td>
+              <td><span class="status-dot dot-gray"></span>初步接触</td>
+              <td>Aget Huang</td><td>跟进具体需求</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">20</span></td>
+              <td><strong>Orkhan Hajiyev</strong></td><td>阿塞拜疆</td><td>护发产品</td>
+              <td>发图片</td><td>待定</td>
+              <td><span class="status-dot dot-gray"></span>初步接触</td>
+              <td>Aget Huang</td><td>跟进具体需求</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">21</span></td>
+              <td><strong>S Solange kouadio</strong></td><td>科特迪瓦</td><td>护发产品</td>
+              <td>发图片</td><td>待定</td>
+              <td><span class="status-dot dot-gray"></span>初步接触</td>
+              <td>Naiya Ding</td><td>跟进具体需求</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">22</span></td>
+              <td><strong>Mahmood Zawak</strong></td><td>阿富汗</td><td>护发产品</td>
+              <td>发图片</td><td>待定</td>
+              <td><span class="status-dot dot-gray"></span>初步接触</td>
+              <td>Christy Kam</td><td>跟进具体需求</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">23</span></td>
+              <td><strong>Rama Desih</strong></td><td>印度尼西亚</td><td>护发产品</td>
+              <td>询问是否可接受</td><td>待定</td>
+              <td><span class="status-dot dot-yellow"></span>待客户确认</td>
+              <td>Tracey Zhang</td><td>跟进确认</td>
+            </tr>
+            <tr>
+              <td><span class="count-badge">24</span></td>
+              <td><strong>KhaledAl-Zubaidi</strong></td><td>伊拉克</td><td>护发产品</td>
+              <td>提到无人懂阿拉伯语</td><td>待定</td>
+              <td><span class="status-dot dot-gray"></span>沟通障碍</td>
+              <td>Christy Kam</td><td>用英文/图片沟通，发目录</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- C级客户 -->
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#94a3b8;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <span style="width:4px;height:16px;background:#94a3b8;border-radius:2px;display:inline-block;"></span>
+        C级客户（无需特别跟进 / 核实中）
+      </div>
+      <div class="table-wrap">
+        <table class="compact-table">
+          <thead>
+            <tr><th>#</th><th>客户名</th><th>国家</th><th>摘要</th><th>跟进业务</th><th>建议行动</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>User name</td><td>待核实</td><td>hello</td><td>Naiya Ding</td><td>无需特别跟进</td></tr>
+            <tr><td>2</td><td>ah leang</td><td>待核实</td><td>hello</td><td>Naiya Ding</td><td>无需特别跟进</td></tr>
+            <tr><td>3</td><td>mnw mr</td><td>待核实</td><td>you're welcome</td><td>Christy Kam</td><td>无需特别跟进</td></tr>
+            <tr><td>4</td><td>Xingming Li</td><td>待核实</td><td>Hi</td><td>Katherine Chan</td><td>无需特别跟进</td></tr>
+            <tr><td>5</td><td>Allan Lau Kian Seng</td><td>待核实</td><td>对leaderhair洗发水感兴趣</td><td>Christy Kam</td><td>可主动发目录试探需求</td></tr>
+            <tr><td>6</td><td>mohit sh</td><td>待核实</td><td>looking forward to your arrival</td><td>Naiya Ding</td><td>确认是否指TARUN GARG来华，协助接待</td></tr>
+            <tr><td>7</td><td>Sarah Alshammri</td><td>待核实</td><td>Hello</td><td>Naiya Ding</td><td>无需特别跟进</td></tr>
+            <tr><td>8</td><td>Anastasia Yakunina</td><td>待核实</td><td>Hi dear</td><td>Jaime Wu</td><td>无需特别跟进</td></tr>
+            <tr><td>9</td><td>chunlai yu</td><td>待核实</td><td>你好</td><td>Aget Huang</td><td>无需特别跟进</td></tr>
+            <tr><td>10</td><td>Andleeb Tahir</td><td>待核实</td><td>Let me sent some to you tomorrow</td><td>Tracey Zhang</td><td>已在B级跟进</td></tr>
+            <tr><td>11</td><td>Jean Pierre Mata</td><td>智利</td><td>发文件</td><td>Aget Huang</td><td>确认文件内容，视情况升级跟进</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块三：深度对话分析 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块三</span>深度对话分析（A级 + 重点B级）</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0;">
+
+      <div class="customer-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#f0f6fc;">Laxmi Suryawanshi</div>
+            <div style="font-size:12px;color:#8b949e;margin-top:2px;">🇮🇳 印度 · A级</div>
+          </div>
+          <span class="grade-badge grade-a">A级</span>
+        </div>
+        <div class="customer-grid">
+          <span class="label">咨询产品</span><span class="value">慕川琦洗发水+护发素套装</span>
+          <span class="label">需求量</span><span class="value highlight">100件</span>
+          <span class="label">询问原文</span><span class="value" style="font-style:italic;color:#8b949e;">"Hi, could you provide more details about this product?"</span>
+          <span class="label">采购信号</span>
+          <div class="signals">
+            <span class="signal-tag signal-ok">价格✓</span>
+            <span class="signal-tag signal-ok">MOQ✓</span>
+            <span class="signal-tag signal-ok">样品✓</span>
+            <span class="signal-tag signal-no">交货期✗</span>
+            <span class="signal-tag signal-no">认证✗</span>
+          </div>
+          <span class="label">我方回复</span><span class="value">Aget Huang 已回复，发工厂介绍+价格+样品信息</span>
+          <span class="label">建议</span><span class="value highlight">缩短首次回复时间；今日跟进确认样品意向，推动寄样</span>
+        </div>
+      </div>
+
+      <div class="customer-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#f0f6fc;">Lovia Hall</div>
+            <div style="font-size:12px;color:#8b949e;margin-top:2px;">🇺🇸 美国 · A级</div>
+          </div>
+          <span class="grade-badge grade-a">A级</span>
+        </div>
+        <div class="customer-grid">
+          <span class="label">咨询产品</span><span class="value">领秀一洗黑染发洗发水</span>
+          <span class="label">需求量</span><span class="value highlight">5盒起</span>
+          <span class="label">询问原文</span><span class="value" style="font-style:italic;color:#8b949e;">"Do you accept our MOQ of 5 boxes?"</span>
+          <span class="label">采购信号</span>
+          <div class="signals">
+            <span class="signal-tag signal-ok">价格✓</span>
+            <span class="signal-tag signal-ok">MOQ✓</span>
+            <span class="signal-tag signal-ok">样品✓</span>
+            <span class="signal-tag signal-no">交货期✗</span>
+            <span class="signal-tag signal-no">认证✗</span>
+          </div>
+          <span class="label">我方回复</span><span class="value">Naiya Ding 已回复，告知规格范围</span>
+          <span class="label">建议</span><span class="value highlight">明确最低接单数量，若5盒无法满足则推荐样品订单过渡</span>
+        </div>
+      </div>
+
+      <div class="customer-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#f0f6fc;">Andleeb Tahir</div>
+            <div style="font-size:12px;color:#8b949e;margin-top:2px;">🇬🇧 英国 · A级</div>
+          </div>
+          <span class="grade-badge grade-a">A级</span>
+        </div>
+        <div class="customer-grid">
+          <span class="label">咨询产品</span><span class="value">慕川琦角蛋白发膜 100件</span>
+          <span class="label">询问原文</span><span class="value" style="font-style:italic;color:#8b949e;">"I want 100 pieces delivery in uk. And do you provide any pictures and videos of product for marketing?"</span>
+          <span class="label">采购信号</span>
+          <div class="signals">
+            <span class="signal-tag signal-ok">价格✓</span>
+            <span class="signal-tag signal-ok">MOQ✓</span>
+            <span class="signal-tag signal-no">样品✗</span>
+            <span class="signal-tag signal-no">交货期✗</span>
+            <span class="signal-tag signal-no">认证✗</span>
+          </div>
+          <span class="label">我方回复</span><span class="value">Tracey Zhang 回复，承诺明日发资料</span>
+          <span class="label">建议</span><span class="value highlight">Tracey今日务必发图片+视频+报价，跟进确认下单意向</span>
+        </div>
+      </div>
+
+      <div class="customer-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <div>
+            <div style="font-size:14px;font-weight:700;color:#f0f6fc;">Alexey Semkin</div>
+            <div style="font-size:12px;color:#8b949e;margin-top:2px;">🇷🇺 俄罗斯 · B级（延续重点）</div>
+          </div>
+          <span class="grade-badge grade-b">B级</span>
+        </div>
+        <div class="customer-grid">
+          <span class="label">咨询产品</span><span class="value">无氨染膏（遮白发）</span>
+          <span class="label">本周进展</span><span class="value green">继续跟进中，发图片</span>
+          <span class="label">采购信号</span>
+          <div class="signals">
+            <span class="signal-tag signal-ok" style="background:rgba(251,191,36,0.15);color:#fbbf24;">持续关注无氨研发进度</span>
+          </div>
+          <span class="label">跟进业务</span><span class="value">Katherine Chan</span>
+          <span class="label">建议</span><span class="value highlight">跟进王工研发进度，给客户一个明确时间节点</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 模块四：产品热度 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块四</span>产品热度分析</div>
+
+    <div class="product-rank">
+      <div class="rank-num top">🥇</div>
+      <div class="rank-info">
+        <div class="rank-name">慕川琦洗护套装（洗发水/护发素）</div>
+        <div class="rank-detail">🇮🇳 印度 / 🇬🇧 英国 / 🇫🇷 法国 / 🇷🇺 俄罗斯</div>
+        <span class="trend trend-up">↑ 持续热门</span>
+      </div>
+      <div class="rank-count">12</div>
+    </div>
+
+    <div class="product-rank">
+      <div class="rank-num">🥈</div>
+      <div class="rank-info">
+        <div class="rank-name">护发产品（泛询）</div>
+        <div class="rank-detail">全球各地</div>
+        <span class="trend trend-stable">→ 稳定（质量偏低）</span>
+      </div>
+      <div class="rank-count">15</div>
+    </div>
+
+    <div class="product-rank">
+      <div class="rank-num second">🥉</div>
+      <div class="rank-info">
+        <div class="rank-name">染发膏/色系（含一洗黑）</div>
+        <div class="rank-detail">🇳🇬 尼日利亚 / 🇵🇰 巴基斯坦 / 🇬🇷 希腊 / 🇲🇦 摩洛哥 / 🇺🇸 美国</div>
+        <span class="trend trend-stable">→ 稳定</span>
+      </div>
+      <div class="rank-count">10</div>
+    </div>
+
+    <div class="product-rank">
+      <div class="rank-num" style="color:#a78bfa;">#4</div>
+      <div class="rank-info">
+        <div class="rank-name">双氧奶（12%）</div>
+        <div class="rank-detail">🇲🇦 摩洛哥</div>
+        <span class="trend trend-new">↗ 新出现规格需求</span>
+      </div>
+      <div class="rank-count" style="color:#a78bfa;">1</div>
+    </div>
+
+    <div class="product-rank">
+      <div class="rank-num" style="color:#8b949e;">#5</div>
+      <div class="rank-info">
+        <div class="rank-name">空玻璃瓶（OEM配套）</div>
+        <div class="rank-detail">🇺🇸 美国</div>
+        <span class="trend trend-stable">→ 持平</span>
+      </div>
+      <div class="rank-count" style="color:#8b949e;">1</div>
+    </div>
+
+    <div class="insight-box">
+      <strong>📌 产品洞察：</strong>本周慕川琦洗护套装仍是最热品类，染发膏色系询盘分布于多个市场。摩洛哥客户首次出现 <strong>12%双氧奶规格</strong> 询问，可关注中东/非洲双氧奶市场需求。
+    </div>
+  </div>
+
+  <!-- 模块五：话术建议 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块五</span>话术建议（3条，中英双语）</div>
+
+    <div class="script-item">
+      <div class="script-scene">场景 1：客户索取目录（如 MR N）</div>
+      <div class="script-text en">EN: "Thank you for your interest! Please find our latest MOCHEQI catalogue attached. Our best-selling shades are #1B, #2, #3, and #4 — which market are you targeting? I can recommend the most popular colors for your region."</div>
+      <div class="script-text cn">中：感谢关注！慕川琦最新目录已附上。我们最畅销色号是#1B/#2/#3/#4，请问您主要做哪个市场？我可以为您推荐最适合当地的颜色。</div>
+    </div>
+
+    <div class="script-item">
+      <div class="script-scene">场景 2：MOQ谈判（如 Lovia Hall / Andleeb Tahir）</div>
+      <div class="script-text en">EN: "Our standard MOQ is [X] pcs. For smaller quantities, we offer a sample order at [Y] pcs first — this helps you test the market before committing to a full order. Would that work for you?"</div>
+      <div class="script-text cn">中：我们标准起订量是[X]件。对于小批量，我们可以先安排[Y]件样品订单，帮您测试市场再决定正式采购量，您看可以吗？</div>
+    </div>
+
+    <div class="script-item">
+      <div class="script-scene">场景 3：客户询问图片/视频营销素材（如 Andleeb Tahir）</div>
+      <div class="script-text en">EN: "Of course! I'll send you our product photos and marketing videos tomorrow. We also have ready-made social media content you can use directly for promotion. Would you like the English version or do you need another language?"</div>
+      <div class="script-text cn">中：当然！我明天发给您产品图片和营销视频。我们还有现成的社媒素材可以直接用于推广，请问您需要英文版还是其他语言版本？</div>
+    </div>
+  </div>
+
+  <!-- 模块六：改进建议 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块六</span>改进建议（5条）</div>
+
+    <div class="improvement-item">
+      <span class="improvement-num">建议 1</span>
+      <div>Andleeb Tahir（英国/100件发膜）承诺"明日发资料"，<strong style="color:#fbbf24;">Tracey 需今日跟进</strong>兑现承诺，避免失约影响信任</div>
+    </div>
+    <div class="improvement-item">
+      <span class="improvement-num">建议 2</span>
+      <div>KhaledAl-Zubaidi（伊拉克）提到无人懂阿拉伯语，建议准备<strong style="color:#60a5fa;">阿拉伯语版产品简介图</strong>（图文混排，无需翻译全文），降低沟通障碍</div>
+    </div>
+    <div class="improvement-item">
+      <span class="improvement-num">建议 3</span>
+      <div>本周C级客户11条中有多条"Hi/hello"，建议设置<strong style="color:#34d399;">智能自动回复模板</strong>，自动发送目录+询问需求量，减少人工处理</div>
+    </div>
+  </div>
+
+  <!-- 模块七：客户跟进状态 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块七</span>本周客户跟进状态</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>客户</th><th>国家</th><th>意向</th><th>咨询产品</th><th>本周进展</th><th>下周行动</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Laxmi Suryawanshi</strong></td><td>🇮🇳 印度</td>
+            <td><span class="grade-badge grade-a">A级</span></td>
+            <td>慕川琦洗护套装</td>
+            <td>已回复发工厂介绍，等待客户确认</td>
+            <td><strong style="color:#60a5fa;">Aget：</strong>跟进样品意向，推动寄样</td>
+          </tr>
+          <tr>
+            <td><strong>Lovia Hall</strong></td><td>🇺🇸 美国</td>
+            <td><span class="grade-badge grade-a">A级</span></td>
+            <td>领秀一洗黑</td>
+            <td>MOQ洽谈中（5盒）</td>
+            <td><strong style="color:#60a5fa;">Naiya：</strong>确认最小接单量，推样品方案</td>
+          </tr>
+          <tr>
+            <td><strong>Andleeb Tahir</strong></td><td>🇬🇧 英国</td>
+            <td><span class="grade-badge grade-b">B级</span></td>
+            <td>慕川琦发膜100件</td>
+            <td>已回复，承诺发图片视频</td>
+            <td><strong style="color:#fbbf24;">Tracey：</strong>今日务必发资料，推进下单</td>
+          </tr>
+          <tr>
+            <td><strong>MR N</strong></td><td>🇳🇬 尼日利亚</td>
+            <td><span class="grade-badge grade-b">B级</span></td>
+            <td>慕川琦染发膏</td>
+            <td>已发目录（2分钟极速）</td>
+            <td><strong style="color:#60a5fa;">Aget：</strong>跟进目录查阅，推荐热销色号</td>
+          </tr>
+          <tr>
+            <td><strong>Alexey Semkin</strong></td><td>🇷🇺 俄罗斯</td>
+            <td><span class="grade-badge grade-b">B级</span></td>
+            <td>无氨染膏</td>
+            <td>持续跟进中，本周发图片</td>
+            <td><strong style="color:#60a5fa;">Katherine：</strong>跟进研发进度，给客户时间节点</td>
+          </tr>
+          <tr>
+            <td><strong>lamprini pipsou</strong></td><td>🇬🇷 希腊</td>
+            <td><span class="grade-badge grade-b">B级</span></td>
+            <td>染发膏74色系</td>
+            <td>初步了解</td>
+            <td><strong style="color:#60a5fa;">Jaime：</strong>发74色系完整目录+报价</td>
+          </tr>
+          <tr>
+            <td><strong>laktaoui abdelwahed</strong></td><td>🇲🇦 摩洛哥</td>
+            <td><span class="grade-badge grade-b">B级</span></td>
+            <td>双氧奶12%</td>
+            <td>询问规格</td>
+            <td><strong style="color:#60a5fa;">Jaime：</strong>确认规格并报价</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 模块八：核心结论 -->
+  <div class="section">
+    <div class="section-title"><span class="num">模块八</span>本周核心结论</div>
+
+    <div class="conclusion-box">
+      <div class="conclusion-title">💰 最大商机</div>
+      <div class="conclusion-text">
+        <strong>Andleeb Tahir（🇬🇧 英国，100件发膜，需今日跟进兑现承诺）</strong><br>
+        <strong>Laxmi Suryawanshi（🇮🇳 印度，100件洗护套装，推动寄样）</strong>
+      </div>
+    </div>
+
+    <div style="font-size:14px;font-weight:700;color:#f0f6fc;margin:16px 0 12px;">📋 下周重点行动</div>
+    <ul class="action-list">
+      <li><span class="action-arrow">1. Tracey → Andleeb Tahir：</span>今日发图片/视频+报价，推进100件发膜下单</li>
+      <li><span class="action-arrow">2. Aget → Laxmi Suryawanshi：</span>跟进样品意向，推动寄样确认</li>
+      <li><span class="action-arrow">3. Naiya → Lovia Hall：</span>确认最小接单量，给出弹性方案</li>
+      <li><span class="action-arrow">4. Katherine → Alexey Semkin：</span>跟进无氨研发进度，给客户明确时间节点</li>
+      <li><span class="action-arrow">5. Jaime → lamprini pipsou / laktaoui abdelwahed：</span>发74色系目录及12%双氧奶规格报价</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    肇庆凯乔科技有限公司 · Kaijoe Technology Co., Ltd. · Ali Alibaba 国际站询盘复盘报告 · 统计周期：2026-04-07 ~ 2026-04-13
+  </div>
+
+</div>
+
+</body>
+</html>
