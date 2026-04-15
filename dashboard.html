@@ -653,7 +653,7 @@ const categories = [
   {id:'entertainment', name:'🎬 影音娱乐', icon:'fa-film', color:'linear-gradient(135deg,#0984e3,#74b9ff)', desc:'影视资源'}
 ];
 
-let tools = {
+const DEFAULT_TOOLS = {
   reports: [
     {name:'📑 Karseell 品牌调研', url:'https://ixlu6.github.io/reports/karseell-brand-report-v2.html', desc:'卡塞尔美发品牌深度分析', emoji:'📑'},
     {name:'🔬 美发热门成分调研', url:'https://ixlu6.github.io/reports/global-ingredients-report.html', desc:'全球热门成分趋势报告', emoji:'🔬'},
@@ -1184,6 +1184,26 @@ let tools = {
   ]
 };
 
+// ===== localStorage 持久化 =====
+const STORAGE_KEY = 'kaijie_tools_v1';
+let tools = null; // 运行时数据，首次由 loadTools() 初始化
+
+function loadTools() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (parsed && typeof parsed === 'object') return parsed;
+    }
+  } catch(e) {}
+  // 无数据时深拷贝默认数据
+  return JSON.parse(JSON.stringify(DEFAULT_TOOLS));
+}
+
+function saveTools() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(tools)); } catch(e) {}
+}
+
 let currentDeleteTarget = null;
 const CORRECT_PASSWORD = '124578';
 
@@ -1240,6 +1260,7 @@ const ZHIHU_FALLBACK = [
 ];
 
 function init() {
+  tools = loadTools(); // 优先从 localStorage 加载，无数据时用默认数据
   renderNav();
   renderContent();
   setupScrollSpy();
@@ -1607,6 +1628,7 @@ function handleDrop(event, targetCatId, targetIndex) {
   arr.splice(targetIndex, 0, item);
 
   dragSource = null;
+  saveTools(); // 持久化
   renderContent();
   renderNav();
   updateTotal();
@@ -1664,6 +1686,7 @@ function saveEdit() {
     tools[newCatId].push(updated);
   }
 
+  saveTools(); // 持久化
   renderNav();
   renderContent();
   updateTotal();
@@ -1812,6 +1835,7 @@ function addTool() {
   if (!tools[cat]) tools[cat] = [];
   tools[cat].push({ name: emoji ? `${emoji} ${name}` : name, url, desc: desc || '暂无描述', emoji: emoji || '🔧' });
 
+  saveTools(); // 持久化
   renderNav();
   renderContent();
   updateTotal();
@@ -1824,6 +1848,7 @@ function confirmDelete() {
   if (pw !== CORRECT_PASSWORD) { alert('密码错误！'); return; }
   if (currentDeleteTarget) {
     tools[currentDeleteTarget.catId].splice(currentDeleteTarget.index, 1);
+    saveTools(); // 持久化
     renderNav();
     renderContent();
     updateTotal();
