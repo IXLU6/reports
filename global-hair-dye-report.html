@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球染膏新兴品牌深度调研报告</title>
+<style>
+  :root {
+    --bg: #0b0a0f;
+    --card: #141218;
+    --card2: #1c1922;
+    --border: #252030;
+    --text: #eee8f5;
+    --muted: #8a8396;
+    --accent: #e07040;
+    --accent2: #c060d0;
+    --red: #e05050;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 15px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 80px;
+    background:
+      radial-gradient(ellipse at 15% 50%, rgba(224,112,64,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 30%, rgba(192,96,208,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 85%, rgba(100,180,140,0.05) 0%, transparent 50%),
+      #0b0a0f;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(224,112,64,0.3), transparent);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(224,112,64,0.1);
+    border: 1px solid rgba(224,112,64,0.25);
+    color: var(--accent);
+    padding: 4px 20px;
+    border-radius: 50px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 6vw, 54px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .hero h1 span {
+    display: block;
+    font-size: clamp(18px, 3vw, 32px);
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0;
+    margin-top: 8px;
+  }
+  .hero-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(224,112,64,0.2));
+    border-radius: 2px;
+    margin: 24px auto;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .hero-brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    max-width: 900px;
+  }
+  .hero-chip {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* ── STICKY NAV ── */
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,10,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-item {
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .nav-item:hover, .nav-item.active {
+    border-color: rgba(224,112,64,0.4);
+    color: var(--accent);
+    background: rgba(224,112,64,0.06);
+  }
+
+  /* ── TREND ── */
+  .trend-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .section-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .section-header p { color: var(--muted); font-size: 14px; }
+  .trend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .trend-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .trend-card:hover { transform: translateY(-3px); border-color: rgba(224,112,64,0.3); }
+  .trend-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+  }
+  .trend-card:nth-child(1)::before { background: linear-gradient(90deg, #e07040, #ff9060); }
+  .trend-card:nth-child(2)::before { background: linear-gradient(90deg, #c060d0, #e080ff); }
+  .trend-card:nth-child(3)::before { background: linear-gradient(90deg, #40a070, #60d090); }
+  .trend-num {
+    font-size: 52px;
+    font-weight: 900;
+    color: rgba(224,112,64,0.08);
+    position: absolute;
+    top: 8px; right: 24px;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .trend-icon { font-size: 32px; margin-bottom: 14px; }
+  .trend-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--accent); }
+  .trend-card p { font-size: 13px; color: var(--muted); line-height: 1.85; }
+
+  /* ── BRAND SECTION ── */
+  .brand-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+  .brand-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  /* brand hero gradients - one per brand */
+  .brand-hero { padding: 40px 40px 32px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .brand-hero.shrine   { background: linear-gradient(135deg, #1a0500, #2a0a00, #1a0500); }
+  .brand-hero.hally     { background: linear-gradient(135deg, #001a05, #002a0a, #001a05); }
+  .brand-hero.arctic   { background: linear-gradient(135deg, #00101a, #001828, #00101a); }
+  .brand-hero.xmondo    { background: linear-gradient(135deg, #100018, #1a0028, #100018); }
+  .brand-hero.madison   { background: linear-gradient(135deg, #1a0005, #2a0008, #1a0005); }
+  .brand-hero.lunar     { background: linear-gradient(135deg, #0a001a, #12002a, #0a001a); }
+  .brand-hero.bleach    { background: linear-gradient(135deg, #1a1a00, #2a2a00, #1a1a00); }
+  .brand-hero.lime      { background: linear-gradient(135deg, #1a001a, #2a002a, #1a001a); }
+
+  .brand-num {
+    position: absolute; top: 16px; right: 28px;
+    font-size: 76px; font-weight: 900;
+    font-family: Georgia, serif;
+    opacity: 0.06; color: #fff; line-height: 1;
+  }
+  .brand-emoji { font-size: 40px; margin-bottom: 14px; }
+  .brand-title { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+  .brand-subtitle { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .brand-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .brand-tag {
+    font-size: 11px; padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.05);
+    letter-spacing: 0.5px;
+  }
+
+  /* images gallery */
+  .brand-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 24px 32px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-img-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--card2);
+    border: 1px solid var(--border);
+  }
+  .brand-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+  .brand-img-wrap:hover img { transform: scale(1.05); }
+  .brand-img-label {
+    font-size: 11px; color: var(--muted);
+    text-align: center; padding: 8px 0 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* info grid */
+  .brand-info {
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-cell {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .info-cell .label {
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .info-cell .value { font-size: 14px; font-weight: 600; line-height: 1.6; }
+  .info-cell.highlight {
+    background: rgba(224,112,64,0.06);
+    border-color: rgba(224,112,64,0.2);
+  }
+
+  /* insight cards */
+  .insight-row {
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .insight-card {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .insight-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .insight-label.tiktok { color: #ff6b9d; }
+  .insight-label.insight { color: var(--accent); }
+  .insight-card p { font-size: 13px; color: var(--muted); line-height: 1.85; }
+
+  /* ── COMPARISON ── */
+  .comp-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+  }
+  .comp-table-wrap {
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .comp-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px; min-width: 800px;
+  }
+  .comp-table th {
+    padding: 14px 16px;
+    font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; text-align: left;
+    border-bottom: 2px solid var(--border);
+    color: var(--muted);
+  }
+  .comp-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top; line-height: 1.7;
+    color: var(--muted);
+  }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .comp-table td:first-child { color: var(--text); font-weight: 700; white-space: nowrap; }
+  .val { color: var(--text) !important; font-size: 14px; }
+  .stars { color: var(--accent); letter-spacing: 2px; font-size: 14px; }
+
+  /* ── ADVICE ── */
+  .advice-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 100px;
+  }
+  .advice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .advice-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .advice-card:hover { transform: translateY(-3px); border-color: rgba(224,112,64,0.3); }
+  .advice-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(224,112,64,0.2));
+  }
+  .advice-num {
+    font-size: 40px; font-weight: 900;
+    color: rgba(224,112,64,0.1);
+    position: absolute; top: 10px; right: 20px;
+    font-family: Georgia, serif;
+  }
+  .advice-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--accent); }
+  .advice-card p { font-size: 13px; color: var(--muted); line-height: 1.85; }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted); font-size: 12px;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  /* ── SCROLL TOP ── */
+  #scrollTop {
+    position: fixed; bottom: 30px; right: 30px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--accent); color: #0b0a0f;
+    border: none; cursor: pointer;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s; z-index: 200; font-weight: 900;
+  }
+  #scrollTop.visible { opacity: 1; }
+
+  @media (max-width: 768px) {
+    .brand-images { grid-template-columns: 1fr 1fr; padding: 16px; }
+    .insight-row { grid-template-columns: 1fr; }
+    .brand-hero { padding: 28px 20px; }
+    .brand-info { grid-template-columns: 1fr 1fr; }
+    .comp-table { min-width: 600px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<div class="nav-bar">
+  <div class="nav-inner">
+    <a href="#trend" class="nav-item">📈 市场趋势</a>
+    <a href="#brand1" class="nav-item">💧 SHRINE</a>
+    <a href="#brand2" class="nav-item">🦊 Hally Hair</a>
+    <a href="#brand3" class="nav-item">🧊 Arctic Fox</a>
+    <a href="#brand4" class="nav-item">💇‍♂️ XMONDO</a>
+    <a href="#brand5" class="nav-item">🏠 Madison Reed</a>
+    <a href="#brand6" class="nav-item">🌙 Lunar Tides</a>
+    <a href="#brand7" class="nav-item">🇬🇧 Bleach London</a>
+    <a href="#brand8" class="nav-item">🦄 Lime Crime</a>
+    <a href="#comparison" class="nav-item">📊 品牌对比</a>
+    <a href="#advice" class="nav-item">💡 OEM开发建议</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Hair Dye Research Report · 2025–2026</div>
+  <h1>全球染膏新兴品牌深度调研报告<span>Global Emerging Hair Dye Brands Research</span></h1>
+  <div class="hero-divider"></div>
+  <div class="hero-sub">形态创新 · 键合修复 · DIY色彩美学 · 白牌机会</div>
+  <div class="hero-brands">
+    <span class="hero-chip">SHRINE DROP IT</span>
+    <span class="hero-chip">Hally Hair</span>
+    <span class="hero-chip">Arctic Fox</span>
+    <span class="hero-chip">XMONDO Color</span>
+    <span class="hero-chip">Madison Reed</span>
+    <span class="hero-chip">Lunar Tides</span>
+    <span class="hero-chip">Bleach London</span>
+    <span class="hero-chip">Lime Crime</span>
+  </div>
+</div>
+
+<!-- MARKET TRENDS -->
+<div class="trend-wrap" id="trend">
+  <div class="section-header">
+    <h2>一、市场趋势背景</h2>
+    <p>全球染发品类正经历三大结构性变革（2024–2026）</p>
+  </div>
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-num">01</div>
+      <div class="trend-icon">💧</div>
+      <h3>形态革命：滴剂 · 泡沫 · 膏体</h3>
+      <p>传统碗+刷的染发模式正在被瓦解。SHRINE滴剂、Hally泡沫打破了染发的"化学感壁垒"，将DIY染发变成一种解压、有趣、可分享的仪式体验。</p>
+    </div>
+    <div class="trend-card">
+      <div class="trend-num">02</div>
+      <div class="trend-icon">🔬</div>
+      <h3>键合修复：从染发到"色彩护理"</h3>
+      <p>Olaplex带动的"键合修复"浪潮已蔓延至染发品类。XMONDO将Bond Repair科技植入染膏，将低频染发变成高频"色彩护理"，重新定义产品价值。</p>
+    </div>
+    <div class="trend-card">
+      <div class="trend-num">03</div>
+      <div class="trend-icon">🇨🇳</div>
+      <h3>中国OEM白牌机会窗口</h3>
+      <p>Spes诗裴丝证明了中国供应链在"形态创新+内容营销"上的实力。染发品类的滴剂、泡沫、固态形态均存在大量白牌/OEM机会，出口跨境空间巨大。</p>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 1: SHRINE -->
+<div class="brand-wrap" id="brand1">
+  <div class="brand-card">
+    <div class="brand-hero shrine">
+      <div class="brand-num">01</div>
+      <div class="brand-emoji">💧</div>
+      <div class="brand-title">SHRINE (DROP IT)</div>
+      <div class="brand-subtitle">全球首创"滴剂"染发 —— 形态创新的巅峰</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇬🇧 英国</span>
+        <span class="brand-tag">2016年创立</span>
+        <span class="brand-tag">Walmart/ASOS</span>
+        <span class="brand-tag">月营收£50万</span>
+        <span class="brand-tag">TikTok顶流</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image1.jpeg" alt="SHRINE产品图1"></div>
+        <div class="brand-img-label">标志性滴剂瓶身</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image2.jpeg" alt="SHRINE产品图2"></div>
+        <div class="brand-img-label">色彩展示</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image3.jpeg" alt="SHRINE产品图3"></div>
+        <div class="brand-img-label">DIY使用场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2016年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇬🇧 英国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">月营收约 £50万；全球 TikTok 爆款</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">Walmart / ASOS / 品牌官网 / Amazon</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">SHRINE DROP IT — Concentrated Multi-Use Hair Dye Drops</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$19.00 / 20ml（一瓶可使用多达30次）</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">高浓缩色素，需混合护发素使用；不含氨、不含过氧化物</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【极致差异化】非传统膏状，而是高浓缩滴剂。消费者通过调节滴数控制颜色深浅（从马卡龙色到高饱和色），一瓶多用。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>#ShrineDropIt 话题超10亿次播放。视频核心：展示滴入护发素搅拌变色的过程，极具解压感和DIY诱惑力。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>这是目前染发品类中<strong style="color:var(--text)">最值得OEM借鉴的形态</strong>。它极大地降低了物流重量，且"调色盘"式的使用体验在社交媒体上极易病毒式传播。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 2: HALLY -->
+<div class="brand-wrap" id="brand2">
+  <div class="brand-card">
+    <div class="brand-hero hally">
+      <div class="brand-num">02</div>
+      <div class="brand-emoji">🦊</div>
+      <div class="brand-title">Hally Hair</div>
+      <div class="brand-subtitle">首款"无氨泡沫"染膏 —— Gen Z 的入门级选择</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2021年创立</span>
+        <span class="brand-tag">Target/Walmart</span>
+        <span class="brand-tag">数百万美元融资</span>
+        <span class="brand-tag">泡沫创新</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image4.jpeg" alt="Hally产品图1"></div>
+        <div class="brand-img-label">Color Cloud 泡沫系列</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image5.jpeg" alt="Hally产品图2"></div>
+        <div class="brand-img-label">产品包装</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image6.png" alt="Hally产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2021年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">获数百万美元融资；2024年进入 Target 全美门店</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">Target / Walmart / Amazon / Ulta</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Color Cloud (Ammonia-Free Foam Hair Dye)</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$15.00 / 套装</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">洋甘菊、薰衣草、人参提取物；无氨、无对苯二胺 (PPD-Free)</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【使用门槛最低】像挤慕斯一样直接涂抹。包装采用类似"外卖盒"或"零食袋"的趣味设计，彻底消除了传统染发剂的"化学感"。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>#HallyHair 播放量超5亿。以"轻松、无污染、自染不翻车"为核心卖点，吸引大量首次染发的青少年。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>针对"新手恐惧症"。通过泡沫形态解决了染发不均和滴漏的痛点。对于国内工厂，开发稳定的泡沫泵头和无氨配方是切入该市场的关键。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 3: ARCTIC FOX -->
+<div class="brand-wrap" id="brand3">
+  <div class="brand-card">
+    <div class="brand-hero arctic">
+      <div class="brand-num">03</div>
+      <div class="brand-emoji">🧊</div>
+      <div class="brand-title">Arctic Fox</div>
+      <div class="brand-subtitle">纯素染发界的"Supreme" —— 极致色彩与价值观营销</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2014年创立</span>
+        <span class="brand-tag">Hot Topic/Ulta</span>
+        <span class="brand-tag">年营收超$5000万</span>
+        <span class="brand-tag">Amazon Top1</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image7.png" alt="Arctic Fox产品图1"></div>
+        <div class="brand-img-label">标志性粉绿瓶身</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image8.jpeg" alt="Arctic Fox产品图2"></div>
+        <div class="brand-img-label">色彩全家福</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image9.jpeg" alt="Arctic Fox产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2014年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">年营收超 $5000万；半永久染发剂 Amazon 长期 Top 1</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">Hot Topic / Ulta / Sally Beauty / Amazon</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Semi-Permanent Hair Color (Vegan & Cruelty-Free)</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$11.99 / 4oz；$18.99 / 8oz</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">无氨、无乙醇、无过氧化物；添加护发素成分，染发时同步滋润</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【色彩高饱和】以极端鲜艳的颜色（电蓝、幻紫、大红）著称。具有标志性的葡萄香味。15%利润捐赠给动物保护组织。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>#ArcticFoxHairColor 播放量超30亿。内容多为极致夸张的色彩变换，深受亚文化、二次元及 Gen Z 喜爱。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>该品牌的成功在于"粉丝忠诚度"。它不只是卖染膏，是卖一种"不顺从"的个性标签。白牌复刻时应关注其高粘度的配方（不易流挂）和标志性香气。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 4: XMONDO -->
+<div class="brand-wrap" id="brand4">
+  <div class="brand-card">
+    <div class="brand-hero xmondo">
+      <div class="brand-num">04</div>
+      <div class="brand-emoji">💇‍♂️</div>
+      <div class="brand-title">XMONDO Color</div>
+      <div class="brand-subtitle">顶流发型师驱动的"键合修复"染膏</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2020年创立</span>
+        <span class="brand-tag">Brad Mondo创立</span>
+        <span class="brand-tag">千万订阅</span>
+        <span class="brand-tag">键合修复</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image10.jpeg" alt="XMONDO产品图1"></div>
+        <div class="brand-img-label">透明银色工业风</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image11.png" alt="XMONDO产品图2"></div>
+        <div class="brand-img-label">Bond Repair技术</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image12.jpeg" alt="XMONDO产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2020年（Brad Mondo 创立）</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">由千万级订阅网红 Brad Mondo 创立；上线即断货</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">主要通过独立站与 Amazon 销售</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">XMONDO Hair Healing Semi-Permanent Color</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$28.00 / 8oz（溢价能力极高）</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">添加 Bond Boosting 键合修复科技 + 透明质酸 + 蔬菜蛋白</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【染护一体】强调修复受损二硫键。透明银色工业风包装，专业感极强。色彩不仅鲜艳，更强调染后的光泽度（Gloss）。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>Brad Mondo 本人账号有千万粉丝。通过"吐槽染发翻车视频"并展示 XMONDO 的专业效果，实现极高转化。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>这是"成分升级"的典型。在染发剂中加入护发素和键合修复剂（类似 Olaplex），将低频的染发变成了高频的"色彩护理"。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 5: MADISON REED -->
+<div class="brand-wrap" id="brand5">
+  <div class="brand-card">
+    <div class="brand-hero madison">
+      <div class="brand-num">05</div>
+      <div class="brand-emoji">🏠</div>
+      <div class="brand-title">Madison Reed</div>
+      <div class="brand-subtitle">染发界的"独角兽" —— 高端 D2C 订阅制先驱</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2013年创立</span>
+        <span class="brand-tag">Ulta/Target</span>
+        <span class="brand-tag">$1.5亿营收</span>
+        <span class="brand-tag">80+线下Hair Color Bar</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image13.png" alt="Madison Reed产品图1"></div>
+        <div class="brand-img-label">专业工具包</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image14.jpeg" alt="Madison Reed产品图2"></div>
+        <div class="brand-img-label">Hair Color Bar</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image15.jpeg" alt="Madison Reed产品图3"></div>
+        <div class="brand-img-label">产品全家福</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2013年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2025年营收突破 $1.5亿；全球拥有 80+ 线下染发吧</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">Ulta / Target / 自营线下 Hair Color Bar</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Radiant Permanent Hair Color Kit</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$30.00 / 套装</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">"八无"配方（无氨、无间苯二酚、无PPD等）；添加角蛋白、摩洛哥坚果油</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【服务化产品】通过 AI 测肤色选号，提供个性化染发方案。提供全套专业工具包（包含防护膏、清洁湿巾等）。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>偏向于成熟女性。视频内容多为"如何遮盖白发""在家染出沙龙级效果"。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>它证明了"专业工具包"和"选号引导"在染发品类中的重要性。国内 OEM 可以尝试整合更专业的染发辅助工具包。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 6: LUNAR TIDES -->
+<div class="brand-wrap" id="brand6">
+  <div class="brand-card">
+    <div class="brand-hero lunar">
+      <div class="brand-num">06</div>
+      <div class="brand-emoji">🌙</div>
+      <div class="brand-title">Lunar Tides</div>
+      <div class="brand-subtitle">"丝绒美学"调色大师 —— 高级感的半永久专家</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2013年创立</span>
+        <span class="brand-tag">独立站精品</span>
+        <span class="brand-tag">纯素认证</span>
+        <span class="brand-tag">高级色调</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image16.jpeg" alt="Lunar Tides产品图1"></div>
+        <div class="brand-img-label">丝绒深色系列</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image17.jpeg" alt="Lunar Tides产品图2"></div>
+        <div class="brand-img-label">Pastel Collection</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image18.jpeg" alt="Lunar Tides产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2013年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">独立精品品牌，在 Instagram/TikTok 有极高调性</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">主要通过独立站销售</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Deep Velvet Series / Pastel Collection</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$13.99 / 4oz</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">纯素、无残忍；不含损伤性化学物质</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【色调高级】擅长调制"灰调、丝绒调、莫兰迪调"的冷门高级色。包装为黑色极简矮瓶。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>视觉效果极佳。博主常展示多种颜色的拼色染（Split Dye）。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>白牌可以参考其"冷门色系"的开发策略。目前市面上高饱和原色已饱和，但高级的低饱和色染膏仍有较大空间。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 7: BLEACH LONDON -->
+<div class="brand-wrap" id="brand7">
+  <div class="brand-card">
+    <div class="brand-hero bleach">
+      <div class="brand-num">07</div>
+      <div class="brand-emoji">🇬🇧</div>
+      <div class="brand-title">Bleach London</div>
+      <div class="brand-subtitle">英国伦敦的"反叛"沙龙品牌</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇬🇧 英国</span>
+        <span class="brand-tag">2010年创立</span>
+        <span class="brand-tag">Boots/Superdrug</span>
+        <span class="brand-tag">漂发套装行业标杆</span>
+        <span class="brand-tag">2025大规模扩张</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image19.jpeg" alt="Bleach London产品图1"></div>
+        <div class="brand-img-label">Total Bleach Kit</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image20.jpeg" alt="Bleach London产品图2"></div>
+        <div class="brand-img-label">Reincarnation Mask</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image21.webp" alt="Bleach London产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2010年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇬🇧 英国（伦敦）</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2025年大规模扩张至美国及欧洲市场；英国最强沙龙品牌</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">Boots / Superdrug / Walmart / Amazon</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Total Bleach Kit / Reincarnation Mask</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">Bleach Kit: $12.00；Dye: $10.00</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">可持续包装；添加 Reincarnation 键合修复配方</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【专业级底色处理】其漂发套装（Bleach Kit）是全球公认的行业标杆。强调"先漂后染"的专业流程。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>内容非常"朋克"，展示大胆的色彩实验和发型改造。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>如果卖染膏，必须同时卖好"漂发膏"。Bleach London 的成功在于解决了染发的前置步骤（如何让头发白得彻底但不伤发）。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 8: LIME CRIME -->
+<div class="brand-wrap" id="brand8">
+  <div class="brand-card">
+    <div class="brand-hero lime">
+      <div class="brand-num">08</div>
+      <div class="brand-emoji">🦄</div>
+      <div class="brand-title">Lime Crime (Unicorn Hair)</div>
+      <div class="brand-subtitle">"独角兽"美学的鼻祖</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2008年创立</span>
+        <span class="brand-tag">Ulta/Amazon</span>
+        <span class="brand-tag">纯素无残忍</span>
+        <span class="brand-tag">梦幻美学</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image22.jpeg" alt="Lime Crime产品图1"></div>
+        <div class="brand-img-label">Unicorn Hair系列</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image23.jpeg" alt="Lime Crime产品图2"></div>
+        <div class="brand-img-label">梦幻粉紫包装</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="dye_report_images/image24.jpeg" alt="Lime Crime产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2008年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">曾风靡全球；目前产品线包含 Tint (薄透型) 和 Full Coverage (全覆型)</div></div>
+      <div class="info-cell"><div class="label">分销渠道</div><div class="value">Ulta / Amazon / 品牌官网</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Unicorn Hair Full Coverage Semi-Permanent Hair Color</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$17.00 / 6.7oz</div></div>
+      <div class="info-cell"><div class="label">创新成分</div><div class="value">纯素、无残忍；含护发成分，染后散发清淡香味</div></div>
+      <div class="info-cell highlight"><div class="label">差异化卖点</div><div class="value">【包装美学】粉紫色半透明包装，极度梦幻。</div></div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-label tiktok">📱 TikTok 热度</div>
+        <p>#UnicornHair 播放量持续走高。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label insight">💡 市场洞察</div>
+        <p>这是"视觉系"染膏的鼻祖。虽然近年来被 Arctic Fox 超越，但其在包装色彩心理学上的运用仍值得学习。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON -->
+<div class="comp-wrap" id="comparison">
+  <div class="section-header">
+    <h2>二、八大品牌综合对比矩阵</h2>
+    <p>8大新兴品牌 · 7大维度系统性横向对比</p>
+  </div>
+  <div class="comp-table-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>品牌</th>
+          <th>国家</th>
+          <th>营收/融资</th>
+          <th>产品定位</th>
+          <th>核心渠道</th>
+          <th>TikTok热度</th>
+          <th>白牌机会</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SHRINE DROP IT</td><td>🇬🇧 英国</td><td class="val">月£50万</td><td>滴剂型/DIY</td><td>Walmart/ASOS</td><td class="stars">★★★★★</td><td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td>Hally Hair</td><td>🇺🇸 美国</td><td class="val">数百万美元融资</td><td>泡沫型/无氨</td><td>Target/Walmart</td><td class="stars">★★★★</td><td class="stars">★★★★</td>
+        </tr>
+        <tr>
+          <td>Arctic Fox</td><td>🇺🇸 美国</td><td class="val">年$5000万+</td><td>纯素高饱和</td><td>Hot Topic/Ulta</td><td class="stars">★★★★★</td><td class="stars">★★★★</td>
+        </tr>
+        <tr>
+          <td>XMONDO Color</td><td>🇺🇸 美国</td><td class="val">Brad Mondo创立</td><td>键合修复型</td><td>独立站/Amazon</td><td class="stars">★★★★★</td><td class="stars">★★★</td>
+        </tr>
+        <tr>
+          <td>Madison Reed</td><td>🇺🇸 美国</td><td class="val">$1.5亿营收</td><td>专业工具包</td><td>Ulta/Target</td><td class="stars">★★★</td><td class="stars">★★★★</td>
+        </tr>
+        <tr>
+          <td>Lunar Tides</td><td>🇺🇸 美国</td><td class="val">独立精品</td><td>高级调色</td><td>独立站</td><td class="stars">★★★</td><td class="stars">★★★★</td>
+        </tr>
+        <tr>
+          <td>Bleach London</td><td>🇬🇧 英国</td><td class="val">英国最强沙龙</td><td>漂发套装</td><td>Boots/Superdrug</td><td class="stars">★★★</td><td class="stars">★★★</td>
+        </tr>
+        <tr>
+          <td>Lime Crime</td><td>🇺🇸 美国</td><td class="val">成熟品牌</td><td>视觉系/梦幻</td><td>Ulta/Amazon</td><td class="stars">★★★★</td><td class="stars">★★★</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- OEM ADVICE -->
+<div class="advice-wrap" id="advice">
+  <div class="section-header">
+    <h2>三、对 OEM/ODM 工厂的选品与开发建议</h2>
+    <p>基于8大新兴品牌成功路径提炼的5大可执行战略方向</p>
+  </div>
+  <div class="advice-grid">
+    <div class="advice-card">
+      <div class="advice-num">01</div>
+      <h3>极致形态差异化：染发滴剂 (Drops)</h3>
+      <p>参考 <strong style="color:var(--text)">SHRINE</strong>。这是目前最具爆发力的形态。优点：包装极小、物流成本极低、解压式体验。工厂需攻克高浓度色素悬浮稳定性，以及与常规护发素的配伍性。</p>
+    </div>
+    <div class="advice-card">
+      <div class="advice-num">02</div>
+      <h3>"染护一体"：键合修复染膏</h3>
+      <p>参考 <strong style="color:var(--text)">XMONDO</strong>。单纯的染膏已是红海，加入"Bond Repair"科技是提升单价和溢价的关键。在半永久染发膏中添加马来酸或类似键合修护成分，定位"色彩修护面膜"。</p>
+    </div>
+    <div class="advice-card">
+      <div class="advice-num">03</div>
+      <h3>傻瓜式体验：云朵泡沫 (Foam)</h3>
+      <p>参考 <strong style="color:var(--text)">Hally</strong>。针对 16-22 岁的年轻人，他们害怕翻车。开发稳定的气泡泵头，配合无氨温和配方，将"染发"包装成"洗头"一样简单。</p>
+    </div>
+    <div class="advice-card">
+      <div class="advice-num">04</div>
+      <h3>高级调色：丝绒莫兰迪色系</h3>
+      <p>参考 <strong style="color:var(--text)">Lunar Tides</strong>。避开廉价的大红大绿，开发灰调（Dusty）、雾感（Smoky）、丝绒感的高级色。这类色系在独立站和精品美妆店非常受欢迎。</p>
+    </div>
+    <div class="advice-card">
+      <div class="advice-num">05</div>
+      <h3>漂发套装的系统化</h3>
+      <p>参考 <strong style="color:var(--text)">Bleach London</strong>。不要只卖染膏，要卖系统。开发高性能、低损伤的漂发膏+双氧奶套装，作为染膏的引流品，能极大地提升用户复购和客单价。</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>本报告综合品牌官网、Incidecoder成分数据库、EWG数据库、TikTok趋势数据及公开市场研究报告整理。</p>
+  <p style="margin-top:8px;">全球染膏新兴品牌深度调研报告 · 2025–2026 · 形态创新 · 键合修复 · DIY色彩美学</p>
+</div>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+  const tocItems = document.querySelectorAll('.nav-item');
+  const sections = document.querySelectorAll('[id^="brand"], [id="trend"], [id="comparison"], [id="advice"]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocItems.forEach(i => i.classList.remove('active'));
+        const active = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
