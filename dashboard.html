@@ -7,17 +7,16 @@
 <style>
   :root {
     --bg: #f0f4ff;
-    --bg2: #e8effe;
     --surface: #ffffff;
-    --surface2: #f8faff;
-    --surface3: #eef3ff;
+    --surface2: #f5f7ff;
     --border: #dde6f8;
     --accent: #5b8df8;
     --accent2: #8b7cf8;
-    --accent3: #f8719d;
     --gold: #f5a623;
     --teal: #0ea5e9;
     --green: #22c55e;
+    --pink: #f8719d;
+    --orange: #fb923c;
     --red: #ef4444;
     --text: #1a2332;
     --text2: #5a6a8a;
@@ -34,14 +33,12 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
 
   /* ── Header ── */
   header {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.94);
     backdrop-filter: blur(16px);
     border-bottom: 2px solid var(--border);
     padding: 0 28px;
@@ -62,39 +59,27 @@
     font-size: 15px; font-weight: 900; color: #fff;
     box-shadow: 0 4px 12px rgba(91,141,248,0.3);
   }
-  .header-brand .badge {
-    font-size: 11px; font-weight: 600;
-    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-    color: var(--gold);
-    padding: 3px 10px;
-    border-radius: 20px;
-    border: 1px solid #ffe0b2;
-    font-weight: 700;
-  }
   .header-right { display: flex; align-items: center; gap: 10px; }
   .stat-pill {
     font-size: 12px; color: var(--text2);
     background: var(--surface2);
     border: 1px solid var(--border);
-    padding: 5px 14px;
-    border-radius: 20px;
+    padding: 5px 14px; border-radius: 20px;
   }
   .stat-pill span { color: var(--accent); font-weight: 800; }
 
   /* ── Layout ── */
-  .layout { display: flex; flex: 1; max-width: 1400px; margin: 0 auto; width: 100%; }
+  .layout { display: flex; max-width: 1440px; margin: 0 auto; width: 100%; }
 
   /* ── Sidebar ── */
   .sidebar {
-    width: 210px;
-    flex-shrink: 0;
-    padding: 20px 0;
-    position: sticky;
-    top: 60px;
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 60px;
     height: calc(100vh - 60px);
     overflow-y: auto;
     border-right: 1px solid var(--border);
     background: var(--surface);
+    padding: 16px 0;
   }
   .sidebar::-webkit-scrollbar { width: 3px; }
   .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
@@ -106,496 +91,487 @@
     color: var(--text3);
     padding: 8px 16px 4px;
   }
-  .sidebar-nav { display: flex; flex-direction: column; }
   .sidebar-btn {
-    display: flex; align-items: center; gap: 9px;
+    display: flex; align-items: center; gap: 8px;
     padding: 8px 16px;
-    font-size: 13px; color: var(--text2);
-    cursor: pointer;
-    border: none; background: none;
+    font-size: 12.5px; color: var(--text2);
+    cursor: pointer; border: none; background: none;
     text-align: left; width: 100%;
     border-left: 3px solid transparent;
     transition: all 0.15s;
-    font-family: inherit;
-    text-decoration: none;
-    border-radius: 0;
+    font-family: inherit; text-decoration: none;
   }
   .sidebar-btn:hover { color: var(--accent); background: rgba(91,141,248,0.05); }
-  .sidebar-btn.active {
-    color: var(--accent);
-    background: rgba(91,141,248,0.08);
-    border-left-color: var(--accent);
-    font-weight: 700;
-  }
-  .sidebar-btn .s-icon { font-size: 14px; width: 20px; text-align: center; }
+  .sidebar-btn.active { color: var(--accent); background: rgba(91,141,248,0.08); border-left-color: var(--accent); font-weight: 700; }
+  .sidebar-btn .s-icon { font-size: 13px; width: 18px; text-align: center; }
   .sidebar-btn .s-count {
-    margin-left: auto; font-size: 10px;
-    background: var(--surface3); color: var(--text3);
-    padding: 2px 6px; border-radius: 10px;
+    margin-left: auto; font-size: 9px;
+    background: var(--surface2); color: var(--text3);
+    padding: 2px 5px; border-radius: 8px;
   }
   .sidebar-btn.active .s-count { background: rgba(91,141,248,0.15); color: var(--accent); }
 
   /* ── Main ── */
-  .main { flex: 1; min-width: 0; padding: 28px 32px 80px; }
+  .main { flex: 1; min-width: 0; padding: 24px 28px 80px; }
 
   /* ── Hero ── */
   .hero {
     background: linear-gradient(135deg, #eef3ff 0%, #fce7f3 50%, #fff7ed 100%);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 28px 32px;
-    margin-bottom: 32px;
-    position: relative;
-    overflow: hidden;
+    padding: 24px 28px; margin-bottom: 28px;
+    position: relative; overflow: hidden;
   }
-  .hero::after {
-    content: '';
-    position: absolute; right: -20px; top: -20px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(91,141,248,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero h1 {
-    font-size: 28px; font-weight: 900; color: var(--text);
-    margin-bottom: 8px;
-  }
+  .hero h1 { font-size: 26px; font-weight: 900; color: var(--text); margin-bottom: 6px; }
   .hero h1 span { color: var(--accent); }
-  .hero p { font-size: 14px; color: var(--text2); }
-  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .hero p { font-size: 13px; color: var(--text2); }
+  .hero-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
   .hero-badge {
-    font-size: 12px; font-weight: 600;
-    padding: 4px 12px; border-radius: 20px;
-    font-family: inherit; cursor: pointer;
+    font-size: 11px; font-weight: 600;
+    padding: 4px 11px; border-radius: 20px;
+    background: var(--surface); color: var(--text2);
     border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--text2);
-    text-decoration: none;
+    cursor: pointer; text-decoration: none;
     transition: all 0.15s;
   }
   .hero-badge:hover { transform: translateY(-1px); box-shadow: var(--shadow); color: var(--accent); border-color: var(--accent); }
 
+  /* ── Source banner ── */
+  .source-banner {
+    background: linear-gradient(90deg, #fef3c7, #fff7ed);
+    border: 1px solid #fde68a;
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    margin-bottom: 24px;
+    font-size: 12px; color: #92400e;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .source-banner strong { font-weight: 700; }
+
   /* ── Section ── */
-  .section-wrap { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-wrap { margin-bottom: 40px; scroll-margin-top: 76px; }
   .section-header {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
   }
   .section-icon {
-    width: 36px; height: 36px; border-radius: 10px;
+    width: 32px; height: 32px; border-radius: 9px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 17px; flex-shrink: 0;
+    font-size: 15px; flex-shrink: 0;
   }
-  .section-header h2 { font-size: 17px; font-weight: 800; color: var(--text); }
+  .section-header h2 { font-size: 16px; font-weight: 800; color: var(--text); }
   .section-count {
-    font-size: 11px; color: var(--text3);
-    background: var(--surface3);
-    padding: 3px 10px; border-radius: 20px;
-    border: 1px solid var(--border);
+    font-size: 10px; color: var(--text3);
+    background: var(--surface2); padding: 3px 8px;
+    border-radius: 20px; border: 1px solid var(--border);
   }
-  .section-header .line {
-    flex: 1; height: 1px;
-    background: linear-gradient(90deg, var(--border), transparent);
-  }
+  .section-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
 
   /* ── Cards Grid ── */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px;
-  }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 9px; }
   .tool-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 14px 16px;
-    transition: all 0.2s;
-    display: flex; flex-direction: column; gap: 6px;
-    text-decoration: none;
-    color: inherit;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 12px 14px;
+    transition: all 0.2s; display: flex; flex-direction: column; gap: 5px;
+    text-decoration: none; color: inherit;
   }
-  .tool-card:hover {
-    border-color: var(--accent);
-    background: rgba(91,141,248,0.03);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow2);
-  }
-  .tool-card-top { display: flex; align-items: center; gap: 8px; }
+  .tool-card:hover { border-color: var(--accent); background: rgba(91,141,248,0.03); transform: translateY(-2px); box-shadow: var(--shadow2); }
+  .tool-card-top { display: flex; align-items: center; gap: 7px; }
   .tool-favicon {
-    width: 28px; height: 28px; border-radius: 6px;
-    background: var(--surface3);
+    width: 26px; height: 26px; border-radius: 6px;
+    background: var(--surface2);
     display: flex; align-items: center; justify-content: center;
-    font-size: 13px; flex-shrink: 0; overflow: hidden;
+    font-size: 12px; flex-shrink: 0; overflow: hidden;
   }
-  .tool-favicon img { width: 16px; height: 16px; object-fit: contain; }
-  .tool-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.3; flex: 1; }
-  .tool-desc { font-size: 11px; color: var(--text2); line-height: 1.4; }
-  .tool-url { font-size: 10px; color: var(--text3); word-break: break-all; }
+  .tool-favicon img { width: 15px; height: 15px; object-fit: contain; }
+  .tool-name { font-size: 12.5px; font-weight: 600; color: var(--text); line-height: 1.3; flex: 1; }
+  .tool-desc { font-size: 10.5px; color: var(--text2); line-height: 1.4; }
+  .tool-url { font-size: 9.5px; color: var(--text3); word-break: break-all; }
+
+  /* ── Book Cards ── */
+  .book-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 12px 14px;
+    transition: all 0.2s;
+  }
+  .book-card:hover { border-color: var(--gold); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(245,166,35,0.1); }
+  .book-name { font-size: 12.5px; font-weight: 700; margin-bottom: 4px; }
+  .book-rating { font-size: 11px; color: var(--gold); font-weight: 600; }
 
   /* ── Report Cards ── */
   .report-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 16px;
-    transition: all 0.2s;
-    text-decoration: none; color: inherit;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 14px;
+    transition: all 0.2s; text-decoration: none; color: inherit;
   }
-  .report-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(245,166,35,0.1);
-  }
-  .report-type {
-    font-size: 10px; font-weight: 800;
-    text-transform: uppercase; letter-spacing: 0.5px;
-    color: var(--gold); margin-bottom: 7px;
-  }
-  .report-name { font-size: 13px; font-weight: 700; margin-bottom: 5px; line-height: 1.4; }
-  .report-desc { font-size: 11px; color: var(--text2); margin-bottom: 10px; line-height: 1.5; }
+  .report-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(245,166,35,0.1); }
+  .report-type { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gold); margin-bottom: 6px; }
+  .report-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; line-height: 1.4; }
+  .report-desc { font-size: 11px; color: var(--text2); margin-bottom: 10px; line-height: 1.4; }
   .report-footer { display: flex; align-items: center; justify-content: space-between; }
-  .report-date { font-size: 11px; color: var(--text3); }
+  .report-date { font-size: 10px; color: var(--text3); }
   .btn-report {
-    padding: 5px 14px; border-radius: 6px;
-    border: 1px solid rgba(245,166,35,0.4);
-    background: rgba(245,166,35,0.08);
-    color: var(--gold); font-size: 12px; font-weight: 700;
-    text-decoration: none; font-family: inherit;
-    transition: all 0.15s;
+    padding: 4px 12px; border-radius: 6px;
+    border: 1px solid rgba(245,166,35,0.4); background: rgba(245,166,35,0.08);
+    color: var(--gold); font-size: 11px; font-weight: 700;
+    text-decoration: none; font-family: inherit; transition: all 0.15s;
   }
   .btn-report:hover { background: rgba(245,166,35,0.18); }
 
   /* ── Footer ── */
-  footer {
-    text-align: center; padding: 20px;
-    color: var(--text3); font-size: 11px;
-    border-top: 1px solid var(--border);
-  }
+  footer { text-align: center; padding: 18px; color: var(--text3); font-size: 11px; border-top: 1px solid var(--border); margin-top: 20px; }
 
-  /* ── Responsive ── */
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { padding: 16px; }
     .cards-grid { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: 22px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ── Header ── -->
 <header>
-  <a class="header-brand" href="#top">
+  <a class="header-brand" href="#">
     <div class="logo">凯</div>
     IXLU 运营中枢
-    <span class="badge">🫡 AI 驱动</span>
   </a>
   <div class="header-right">
-    <div class="stat-pill">🔗 全站 <span id="stat-total">0</span> 个工具</div>
+    <div class="stat-pill">🔗 <span id="stat-total">0</span> 个工具</div>
   </div>
 </header>
 
-<!-- ── Layout ── -->
 <div class="layout">
 
-  <!-- Sidebar (anchor nav) -->
+  <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-section">
-      <div class="sidebar-label">直达</div>
+      <div class="sidebar-label">报告</div>
       <div class="sidebar-nav">
-        <a class="sidebar-btn active" href="#reports" onclick="smoothScroll(this)">
-          <span class="s-icon">📊</span> 报告存档
-        </a>
-        <a class="sidebar-btn" href="#alibaba-tools" onclick="smoothScroll(this)">
-          <span class="s-icon">🅰️</span> 阿里工具
-          <span class="s-count">26</span>
-        </a>
-        <a class="sidebar-btn" href="#alibaba-admin" onclick="smoothScroll(this)">
-          <span class="s-icon">⚙️</span> 后台入口
-          <span class="s-count">25</span>
-        </a>
-        <a class="sidebar-btn" href="#amazon" onclick="smoothScroll(this)">
-          <span class="s-icon">📦</span> 亚马逊
-          <span class="s-count">9</span>
-        </a>
-        <a class="sidebar-btn" href="#google" onclick="smoothScroll(this)">
-          <span class="s-icon">🌐</span> 谷歌建站
-          <span class="s-count">28</span>
-        </a>
-        <a class="sidebar-btn" href="#ai" onclick="smoothScroll(this)">
-          <span class="s-icon">🤖</span> AI 工具
-          <span class="s-count">28</span>
-        </a>
-        <a class="sidebar-btn" href="#plugins" onclick="smoothScroll(this)">
-          <span class="s-icon">🧩</span> 浏览器插件
-          <span class="s-count">12</span>
-        </a>
-        <a class="sidebar-btn" href="#translate" onclick="smoothScroll(this)">
-          <span class="s-icon">🌍</span> 翻译工具
-          <span class="s-count">5</span>
-        </a>
-        <a class="sidebar-btn" href="#design" onclick="smoothScroll(this)">
-          <span class="s-icon">🎨</span> 设计网站
-          <span class="s-count">17</span>
-        </a>
-        <a class="sidebar-btn" href="#common" onclick="smoothScroll(this)">
-          <span class="s-icon">🔧</span> 常用工具
-          <span class="s-count">20</span>
-        </a>
-        <a class="sidebar-btn" href="#social" onclick="smoothScroll(this)">
-          <span class="s-icon">📱</span> 社交媒体
-          <span class="s-count">10</span>
-        </a>
-        <a class="sidebar-btn" href="#business" onclick="smoothScroll(this)">
-          <span class="s-icon">💼</span> 业务常用
-          <span class="s-count">20</span>
-        </a>
-        <a class="sidebar-btn" href="#logistics" onclick="smoothScroll(this)">
-          <span class="s-icon">🚚</span> 物流相关
-          <span class="s-count">12</span>
-        </a>
-        <a class="sidebar-btn" href="#payment" onclick="smoothScroll(this)">
-          <span class="s-icon">💳</span> 跨境收款
-          <span class="s-count">7</span>
-        </a>
-        <a class="sidebar-btn" href="#company" onclick="smoothScroll(this)">
-          <span class="s-icon">🏢</span> 各国企查
-          <span class="s-count">10</span>
-        </a>
-        <a class="sidebar-btn" href="#ip" onclick="smoothScroll(this)">
-          <span class="s-icon">⚖️</span> 侵权查询
-          <span class="s-count">6</span>
-        </a>
-        <a class="sidebar-btn" href="#email" onclick="smoothScroll(this)">
-          <span class="s-icon">✉️</span> 话术邮件
-          <span class="s-count">6</span>
-        </a>
-        <a class="sidebar-btn" href="#exhibition" onclick="smoothScroll(this)">
-          <span class="s-icon">🏛️</span> 展会相关
-          <span class="s-count">7</span>
-        </a>
+        <a class="sidebar-btn active" href="#reports" onclick="smoothScroll(event,this)"><span class="s-icon">📊</span> 报告存档</a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">跨境电商</div>
+      <div class="sidebar-nav">
+        <a class="sidebar-btn" href="#alibaba-tools" onclick="smoothScroll(event,this)"><span class="s-icon">🅰️</span> 阿里工具<span class="s-count">51</span></a>
+        <a class="sidebar-btn" href="#amazon" onclick="smoothScroll(event,this)"><span class="s-icon">📦</span> 亚马逊<span class="s-count">9</span></a>
+        <a class="sidebar-btn" href="#ecommerce" onclick="smoothScroll(event,this)"><span class="s-icon">🛒</span> 货源平台<span class="s-count">18</span></a>
+        <a class="sidebar-btn" href="#blacktech" onclick="smoothScroll(event,this)"><span class="s-icon">⚡</span> 跨境黑科技<span class="s-count">30+</span></a>
+        <a class="sidebar-btn" href="#payment" onclick="smoothScroll(event,this)"><span class="s-icon">💳</span> 收款/支付<span class="s-count">11</span></a>
+        <a class="sidebar-btn" href="#logistics" onclick="smoothScroll(event,this)"><span class="s-icon">🚚</span> 跨境物流<span class="s-count">12</span></a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">运营 & 建站</div>
+      <div class="sidebar-nav">
+        <a class="sidebar-btn" href="#google" onclick="smoothScroll(event,this)"><span class="s-icon">🌐</span> 谷歌&建站<span class="s-count">33</span></a>
+        <a class="sidebar-btn" href="#social" onclick="smoothScroll(event,this)"><span class="s-icon">📱</span> 社媒推广<span class="s-count">13</span></a>
+        <a class="sidebar-btn" href="#operation" onclick="smoothScroll(event,this)"><span class="s-icon">📈</span> 运营工具<span class="s-count">21</span></a>
+        <a class="sidebar-btn" href="#ip" onclick="smoothScroll(event,this)"><span class="s-icon">⚖️</span> 侵权商标<span class="s-count">7</span></a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">工具箱</div>
+      <div class="sidebar-nav">
+        <a class="sidebar-btn" href="#ai" onclick="smoothScroll(event,this)"><span class="s-icon">🤖</span> AI 工具<span class="s-count">30</span></a>
+        <a class="sidebar-btn" href="#design" onclick="smoothScroll(event,this)"><span class="s-icon">🎨</span> 设计素材<span class="s-count">25</span></a>
+        <a class="sidebar-btn" href="#online-tools" onclick="smoothScroll(event,this)"><span class="s-icon">🔧</span> 在线工具<span class="s-count">25</span></a>
+        <a class="sidebar-btn" href="#translate" onclick="smoothScroll(event,this)"><span class="s-icon">🌍</span> 翻译工具<span class="s-count">7</span></a>
+        <a class="sidebar-btn" href="#plugins" onclick="smoothScroll(event,this)"><span class="s-icon">🧩</span> 浏览器插件<span class="s-count">12</span></a>
+        <a class="sidebar-btn" href="#business" onclick="smoothScroll(event,this)"><span class="s-icon">💼</span> 业务常用<span class="s-count">21</span></a>
+        <a class="sidebar-btn" href="#company" onclick="smoothScroll(event,this)"><span class="s-icon">🏢</span> 各国企查<span class="s-count">10</span></a>
+        <a class="sidebar-btn" href="#email" onclick="smoothScroll(event,this)"><span class="s-icon">✉️</span> 话术邮件<span class="s-count">6</span></a>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">其他</div>
+      <div class="sidebar-nav">
+        <a class="sidebar-btn" href="#common" onclick="smoothScroll(event,this)"><span class="s-icon">🔧</span> 电脑工具<span class="s-count">18</span></a>
+        <a class="sidebar-btn" href="#exhibition" onclick="smoothScroll(event,this)"><span class="s-icon">🏛️</span> 展会相关<span class="s-count">7</span></a>
+        <a class="sidebar-btn" href="#books" onclick="smoothScroll(event,this)"><span class="s-icon">📚</span> 推荐书单<span class="s-count">16</span></a>
+        <a class="sidebar-btn" href="#entertainment" onclick="smoothScroll(event,this)"><span class="s-icon">🎬</span> 影音娱乐<span class="s-count">28</span></a>
       </div>
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <main class="main" id="main-content">
+  <!-- Main -->
+  <main class="main">
 
-    <!-- Hero -->
-    <div class="hero" id="top">
+    <div class="hero">
       <h1>IXLU <span>运营中枢</span> 👋</h1>
-      <p>外贸运营工具箱 · 持续更新 · 261 个精选工具 · 点击左侧直达对应分类</p>
+      <p>外贸运营工具箱 · IXLU × SuperAli 双站合一 · 点击左侧直达分类</p>
       <div class="hero-badges">
-        <a class="hero-badge" href="#alibaba-tools">🅰️ 阿里国际站</a>
+        <a class="hero-badge" href="#alibaba-tools">🅰️ 阿里工具</a>
+        <a class="hero-badge" href="#blacktech">⚡ 跨境黑科技</a>
         <a class="hero-badge" href="#ai">🤖 AI 工具</a>
         <a class="hero-badge" href="#google">🌐 谷歌建站</a>
-        <a class="hero-badge" href="#social">📱 社媒平台</a>
-        <a class="hero-badge" href="#business">💼 业务工具</a>
-        <a class="hero-badge" href="#reports">📊 我的报告</a>
+        <a class="hero-badge" href="#social">📱 社媒推广</a>
+        <a class="hero-badge" href="#operation">📈 运营工具</a>
+        <a class="hero-badge" href="#payment">💳 收款支付</a>
       </div>
     </div>
 
-    <!-- ── 报告存档 ── -->
+    <div class="source-banner">
+      🔥 内容来源：superali.top（跨境黑科技等） + ixlu6.github.io/reports（原IXLU内容）
+    </div>
+
+    <!-- 报告存档 -->
     <div class="section-wrap" id="reports">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fff7ed,#ffe0b2);">📊</div>
+        <div class="section-icon" style="background:#fff7ed;">📊</div>
         <h2>报告存档</h2>
         <div class="section-count" id="count-reports">0 份</div>
-        <div class="line"></div>
+        <div class="section-line"></div>
       </div>
       <div class="cards-grid" id="reports-grid"></div>
     </div>
 
-    <!-- ── 阿里国际站制作工具 ── -->
+    <!-- 阿里国际站制作工具 -->
     <div class="section-wrap" id="alibaba-tools">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">🅰️</div>
-        <h2>阿里国际站制作工具</h2>
-        <div class="section-count">26 个</div>
-        <div class="line"></div>
+        <div class="section-icon" style="background:#fef3c7;">🅰️</div>
+        <h2>阿里国际站工具</h2>
+        <div class="section-count">51 个</div>
+        <div class="section-line"></div>
       </div>
       <div class="cards-grid" id="grid-alibaba-tools"></div>
     </div>
 
-    <!-- ── 阿里后台快捷入口 ── -->
-    <div class="section-wrap" id="alibaba-admin">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">⚙️</div>
-        <h2>阿里后台快捷入口</h2>
-        <div class="section-count">25 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-alibaba-admin"></div>
-    </div>
-
-    <!-- ── 亚马逊 ── -->
+    <!-- 亚马逊 -->
     <div class="section-wrap" id="amazon">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fef3c7,#fcd34d);">📦</div>
+        <div class="section-icon" style="background:#fef9c3;">📦</div>
         <h2>亚马逊</h2>
         <div class="section-count">9 个</div>
-        <div class="line"></div>
+        <div class="section-line"></div>
       </div>
       <div class="cards-grid" id="grid-amazon"></div>
     </div>
 
-    <!-- ── 谷歌 & 自建站 ── -->
-    <div class="section-wrap" id="google">
+    <!-- 货源平台 -->
+    <div class="section-wrap" id="ecommerce">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);">🌐</div>
-        <h2>谷歌 & 自建站</h2>
-        <div class="section-count">28 个</div>
-        <div class="line"></div>
+        <div class="section-icon" style="background:#dcfce7;">🛒</div>
+        <h2>货源平台</h2>
+        <div class="section-count">18 个</div>
+        <div class="section-line"></div>
       </div>
-      <div class="cards-grid" id="grid-google"></div>
+      <div class="cards-grid" id="grid-ecommerce"></div>
     </div>
 
-    <!-- ── AI 工具 ── -->
-    <div class="section-wrap" id="ai">
+    <!-- 跨境黑科技 -->
+    <div class="section-wrap" id="blacktech">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);">🤖</div>
-        <h2>AI 人工智能</h2>
-        <div class="section-count">28 个</div>
-        <div class="line"></div>
+        <div class="section-icon" style="background:#fce7f3;">⚡</div>
+        <h2>跨境黑科技</h2>
+        <div class="section-count">30+ 个</div>
+        <div class="section-line"></div>
       </div>
-      <div class="cards-grid" id="grid-ai"></div>
+      <div class="cards-grid" id="grid-blacktech"></div>
     </div>
 
-    <!-- ── 浏览器插件 ── -->
-    <div class="section-wrap" id="plugins">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);">🧩</div>
-        <h2>浏览器插件</h2>
-        <div class="section-count">12 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-plugins"></div>
-    </div>
-
-    <!-- ── 翻译网站 ── -->
-    <div class="section-wrap" id="translate">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd);">🌍</div>
-        <h2>翻译网站</h2>
-        <div class="section-count">5 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-translate"></div>
-    </div>
-
-    <!-- ── 设计网站 ── -->
-    <div class="section-wrap" id="design">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fce7f3,#f9a8d4);">🎨</div>
-        <h2>设计网站</h2>
-        <div class="section-count">17 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-design"></div>
-    </div>
-
-    <!-- ── 常用工具 ── -->
-    <div class="section-wrap" id="common">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe);">🔧</div>
-        <h2>常用工具</h2>
-        <div class="section-count">20 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-common"></div>
-    </div>
-
-    <!-- ── 社交媒体 ── -->
-    <div class="section-wrap" id="social">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#ccfbf1,#99f6e4);">📱</div>
-        <h2>社交媒体</h2>
-        <div class="section-count">10 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-social"></div>
-    </div>
-
-    <!-- ── 业务常用 ── -->
-    <div class="section-wrap" id="business">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#cffafe,#a5f3fc);">💼</div>
-        <h2>业务常用</h2>
-        <div class="section-count">20 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-business"></div>
-    </div>
-
-    <!-- ── 物流相关 ── -->
-    <div class="section-wrap" id="logistics">
-      <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7);">🚚</div>
-        <h2>物流相关</h2>
-        <div class="section-count">12 个</div>
-        <div class="line"></div>
-      </div>
-      <div class="cards-grid" id="grid-logistics"></div>
-    </div>
-
-    <!-- ── 跨境收款 ── -->
+    <!-- 收款/支付 -->
     <div class="section-wrap" id="payment">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fef3c7,#fcd34d);">💳</div>
-        <h2>跨境收款</h2>
-        <div class="section-count">7 个</div>
-        <div class="line"></div>
+        <div class="section-icon" style="background:#fef3c7;">💳</div>
+        <h2>跨境收款 & 支付</h2>
+        <div class="section-count">11 个</div>
+        <div class="section-line"></div>
       </div>
       <div class="cards-grid" id="grid-payment"></div>
     </div>
 
-    <!-- ── 各国企查查 ── -->
-    <div class="section-wrap" id="company">
+    <!-- 跨境物流 -->
+    <div class="section-wrap" id="logistics">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#e0e7ff,#818cf8);">🏢</div>
-        <h2>各国企查查</h2>
-        <div class="section-count">10 个</div>
-        <div class="line"></div>
+        <div class="section-icon" style="background:#d1fae5;">🚚</div>
+        <h2>跨境物流</h2>
+        <div class="section-count">12 个</div>
+        <div class="section-line"></div>
       </div>
-      <div class="cards-grid" id="grid-company"></div>
+      <div class="cards-grid" id="grid-logistics"></div>
     </div>
 
-    <!-- ── 侵权商标专利 ── -->
+    <!-- 谷歌 & 建站 -->
+    <div class="section-wrap" id="google">
+      <div class="section-header">
+        <div class="section-icon" style="background:#dbeafe;">🌐</div>
+        <h2>谷歌 & 自建站</h2>
+        <div class="section-count">33 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-google"></div>
+    </div>
+
+    <!-- 社媒推广 -->
+    <div class="section-wrap" id="social">
+      <div class="section-header">
+        <div class="section-icon" style="background:#ede9fe;">📱</div>
+        <h2>社媒推广</h2>
+        <div class="section-count">13 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-social"></div>
+    </div>
+
+    <!-- 运营工具 -->
+    <div class="section-wrap" id="operation">
+      <div class="section-header">
+        <div class="section-icon" style="background:#cffafe;">📈</div>
+        <h2>运营技术 & 选品</h2>
+        <div class="section-count">21 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-operation"></div>
+    </div>
+
+    <!-- 侵权商标 -->
     <div class="section-wrap" id="ip">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fee2e2,#fca5a5);">⚖️</div>
-        <h2>侵权商标专利</h2>
-        <div class="section-count">6 个</div>
-        <div class="line"></div>
+        <div class="section-icon" style="background:#fee2e2;">⚖️</div>
+        <h2>侵权查询 & 商标专利</h2>
+        <div class="section-count">7 个</div>
+        <div class="section-line"></div>
       </div>
       <div class="cards-grid" id="grid-ip"></div>
     </div>
 
-    <!-- ── 话术 & 邮件 ── -->
+    <!-- AI 工具 -->
+    <div class="section-wrap" id="ai">
+      <div class="section-header">
+        <div class="section-icon" style="background:#ede9fe;">🤖</div>
+        <h2>AI 人工智能</h2>
+        <div class="section-count">30 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-ai"></div>
+    </div>
+
+    <!-- 设计素材 -->
+    <div class="section-wrap" id="design">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fce7f3;">🎨</div>
+        <h2>设计 & 素材</h2>
+        <div class="section-count">25 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-design"></div>
+    </div>
+
+    <!-- 在线工具 -->
+    <div class="section-wrap" id="online-tools">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e0e7ff;">🔧</div>
+        <h2>在线工具 & 图片处理</h2>
+        <div class="section-count">25 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-online-tools"></div>
+    </div>
+
+    <!-- 翻译 -->
+    <div class="section-wrap" id="translate">
+      <div class="section-header">
+        <div class="section-icon" style="background:#dbeafe;">🌍</div>
+        <h2>翻译工具</h2>
+        <div class="section-count">7 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-translate"></div>
+    </div>
+
+    <!-- 插件 -->
+    <div class="section-wrap" id="plugins">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fce7f3;">🧩</div>
+        <h2>浏览器插件</h2>
+        <div class="section-count">12 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-plugins"></div>
+    </div>
+
+    <!-- 业务常用 -->
+    <div class="section-wrap" id="business">
+      <div class="section-header">
+        <div class="section-icon" style="background:#cffafe;">💼</div>
+        <h2>业务常用工具</h2>
+        <div class="section-count">21 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-business"></div>
+    </div>
+
+    <!-- 各国企查 -->
+    <div class="section-wrap" id="company">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e0e7ff;">🏢</div>
+        <h2>各国企业查询</h2>
+        <div class="section-count">10 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-company"></div>
+    </div>
+
+    <!-- 话术邮件 -->
     <div class="section-wrap" id="email">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#fef9c3,#fef08a);">✉️</div>
+        <div class="section-icon" style="background:#fef9c3;">✉️</div>
         <h2>话术 & 邮件</h2>
         <div class="section-count">6 个</div>
-        <div class="line"></div>
+        <div class="section-line"></div>
       </div>
       <div class="cards-grid" id="grid-email"></div>
     </div>
 
-    <!-- ── 展会相关 ── -->
+    <!-- 电脑工具 -->
+    <div class="section-wrap" id="common">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e0e7ff;">💻</div>
+        <h2>电脑工具 & 软件</h2>
+        <div class="section-count">18 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-common"></div>
+    </div>
+
+    <!-- 展会 -->
     <div class="section-wrap" id="exhibition">
       <div class="section-header">
-        <div class="section-icon" style="background:linear-gradient(135deg,#d1fae5,#34d399);">🏛️</div>
+        <div class="section-icon" style="background:#d1fae5;">🏛️</div>
         <h2>展会相关</h2>
         <div class="section-count">7 个</div>
-        <div class="line"></div>
+        <div class="section-line"></div>
       </div>
       <div class="cards-grid" id="grid-exhibition"></div>
+    </div>
+
+    <!-- 推荐书单 -->
+    <div class="section-wrap" id="books">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fef3c7;">📚</div>
+        <h2>推荐书单</h2>
+        <div class="section-count">16 本</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-books"></div>
+    </div>
+
+    <!-- 影音娱乐 -->
+    <div class="section-wrap" id="entertainment">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fce7f3;">🎬</div>
+        <h2>影音娱乐</h2>
+        <div class="section-count">28 个</div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid" id="grid-entertainment"></div>
     </div>
 
   </main>
 </div>
 
-<footer>IXLU 运营中枢 · 工具来源：qianpuyun.com · 由 WorkBuddy AI 驱动</footer>
+<footer>IXLU 运营中枢 · IXLU × SuperAli · 由 WorkBuddy AI 驱动</footer>
 
 <script>
 // ── 工具数据 ──
@@ -604,56 +580,54 @@ const TOOLS = {
     {name:'国际站榜单查询',url:'https://qianpuyun.com/tools/bdcx.html',desc:'国际站各类榜单规则查询入口'},
     {name:'谷歌搜索客户开发-背调',url:'https://qianpuyun.com/tools/googlesou.html',desc:'通过谷歌搜索目标客户并背调'},
     {name:'阿拉伯数字转中文大写',url:'https://qianpuyun.com/tools/albzzw.html',desc:'外贸报价必备数字转换工具'},
-    {name:'智能文字大小写转换',url:'https://qianpuyun.com/tools/dxxzh/dxxzh.html',desc:'一键转换英文大小写'},
     {name:'AI国际站标题关键词助手',url:'https://qianpuyun.com/tools/dpbiaoti.php',desc:'AI生成国际站产品标题和关键词'},
-    {name:'AI国际站标题组合工具',url:'https://qianpuyun.com/tools/btzh.html',desc:'组合生成爆款产品标题'},
-    {name:'AI覆盖关键词生成爆款标题',url:'https://qianpuyun.com/tools/bkbt.php',desc:'基于关键词覆盖生成标题'},
     {name:'热搜词下载',url:'https://qianpuyun.com/tools/rscxz.html',desc:'下载国际站热搜关键词数据'},
     {name:'词频分析',url:'https://qianpuyun.com/tools/cipinfx.html',desc:'分析标题和关键词词频'},
-    {name:'产品标题/关键词处理工具',url:'https://qianpuyun.com/tools/nkey.php',desc:'批量处理标题和关键词'},
-    {name:'生成单个产品询盘跳转链接',url:'https://qianpuyun.com/tools/xptzlj.html',desc:'生成带追踪参数的询盘链接'},
-    {name:'查询国家所属大洲',url:'https://qianpuyun.com/tools/dazhou.php',desc:'快速查询国家所属大洲'},
-    {name:'产品ID提取&链接生成',url:'https://qianpuyun.com/tools/idtq.php',desc:'批量提取产品ID生成链接'},
     {name:'关键词覆盖检查',url:'https://qianpuyun.com/tools/keyfg.php',desc:'检查产品关键词覆盖情况'},
-    {name:'P4P无询盘国家筛选',url:'https://qianpuyun.com/tools/xpsx.html',desc:'筛选P4P中无询盘的目标国家'},
-    {name:'一键替换文本及字符',url:'https://qianpuyun.com/tools/tihuan.php',desc:'批量替换文本内容'},
-    {name:'VPN梯子目录',url:'https://qianpuyun.com/tools/tizi.php',desc:'VPN工具目录导航'},
-    {name:'多语言站点',url:'https://qianpuyun.com/tools/dyy.html',desc:'阿里国际站多语言站点入口'},
-    {name:'批量打开搜索页',url:'https://qianpuyun.com/tools/pldk.php',desc:'批量打开多个搜索页面'},
     {name:'旺铺悬浮联系代码生成器',url:'https://qianpuyun.com/tools/xuanfu.php',desc:'生成旺铺右侧悬浮代码'},
-    {name:'最后一级类目近180天数据',url:'https://qianpuyun.com/tools/cpdb.php',desc:'查看各类目近180天数据'},
-    {name:'offer.alibaba.com',url:'https://qianpuyun.com/tools/offer.php',desc:'阿里巴巴offer入口'},
-    {name:'智能工资计算器',url:'https://qianpuyun.com/tools/xinzi.html',desc:'计算员工工资（出口通适用）'},
-    {name:'阿里官方测试店铺①',url:'https://aliqatest01.en.alibaba.com/',desc:'阿里官方测试店铺入口①'},
-    {name:'阿里官方测试店铺②',url:'https://allin07.en.alibaba.com/',desc:'阿里官方测试店铺入口②'},
-    {name:'全国际站榜单规则',url:'https://xg1qhummn1.feishu.cn/wiki/QsiNWic4si2kIikFthsc0OxQn2e',desc:'飞书文档：国际站各类榜单规则'},
-  ],
-  'alibaba-admin': [
     {name:'阿里主后台',url:'https://www.alibaba.com/',desc:'阿里巴巴主后台'},
-    {name:'支付手续费及到账时间查询',url:'https://cashier.alibaba.com/settlementDetail.htm',desc:'查询交易手续费和到账时间'},
-    {name:'阿里帮助中心',url:'https://so.alibaba.com/query/1688%E5%B8%82%E6%B0%91%E6%89%8B%E5%86%8C',desc:'官方帮助文档'},
+    {name:'支付手续费及到账查询',url:'https://cashier.alibaba.com/settlementDetail.htm',desc:'查询交易手续费和到账时间'},
     {name:'国际站规则查询',url:'https://rulechannel.alibaba.com/',desc:'国际站最新规则公告'},
-    {name:'店铺操作记录查询',url:'https://hz-productposting.alibaba.com/product/recycle/getRecycleList.htm',desc:'查询产品操作历史记录'},
-    {name:'投诉商家',url:'https://yc.alibaba.com/complaint/complaintHome.htm',desc:'投诉不良商家入口'},
-    {name:'查询同行公司信息',url:'https://credit.alibaba.com/',desc:'查询供应商信用信息'},
     {name:'外贸云课堂',url:'https://peixun.alibaba.com/',desc:'官方运营培训课程'},
-    {name:'全网发布会系列课',url:'https://peixun.alibaba.com/series/1280003090574802944',desc:'官方直播课程回放'},
-    {name:'国际站按类目直播排名榜',url:'https://watch.alibaba.com/',desc:'各品类直播排名实时数据'},
-    {name:'阿里卖家下载',url:'https://alisupplier.alibaba.com/',desc:'阿里卖家PC客户端下载'},
-    {name:'客户当地时间查询',url:'https://message.alibaba.com/alibaba.do?action=language',desc:'查询客户当地时区和时间'},
-    {name:'国际站关键词规划师',url:'https://www.alibaba.com/ajax/awardKeywordService/keywordPlanDefault.json',desc:'关键词搜索量规划工具'},
     {name:'黄金罗盘（选品）',url:'https://zaihuadong.alibaba.com/',desc:'官方选品数据分析工具'},
-    {name:'商品副标题规则',url:'https://www.yuque.com/liangdan-5gae1/cq8g9t/rgp2g0h2gzfg6g0d',desc:'副标题撰写规范文档'},
+    {name:'阿里卖家下载',url:'https://alisupplier.alibaba.com/',desc:'阿里卖家PC客户端'},
     {name:'网页版阿里卖家',url:'https://onetalk.alibaba.com/',desc:'阿里卖家网页版'},
-    {name:'EPR合规服务',url:'https://onetouch.alibaba.com/',desc:'欧盟生产者责任延伸合规'},
-    {name:'重复铺货规则',url:'https://www.yuque.com/liangdan-5gae1/nszqeu/lg6q9f6z9y2f8y0y',desc:'重复铺货判定规则说明'},
     {name:'欧代合规要求',url:'https://rulechannel.alibaba.com/icpEu',desc:'欧盟授权代表合规指南'},
-    {name:'Alibaba.com新品运营',url:'https://www.yuque.com/muxin99/kf8szv',desc:'新品从0到1运营指南'},
+    {name:'EPR合规服务',url:'https://onetouch.alibaba.com/',desc:'欧盟生产者责任延伸合规'},
+    {name:'国际站按类目直播排名榜',url:'https://watch.alibaba.com/',desc:'各品类直播排名实时数据'},
+    {name:'中国制造网',url:'https://cn.made-in-china.com/',desc:'外贸B2B平台'},
+    {name:'1688跨境专供',url:'https://sale.1688.com/sale/kuajing/global/index.html',desc:'1688跨境货源'},
+    {name:'阿里巴巴国际站',url:'https://www.alibaba.com/',desc:'阿里国际站主站'},
+    {name:'P4P无询盘国家筛选',url:'https://qianpuyun.com/tools/xpsx.html',desc:'筛选P4P无询盘国家'},
+    {name:'智能工资计算器',url:'https://qianpuyun.com/tools/xinzi.html',desc:'计算员工工资'},
+    {name:'多语言站点',url:'https://qianpuyun.com/tools/dyy.html',desc:'国际站多语言站点'},
+    {name:'店铺操作记录查询',url:'https://hz-productposting.alibaba.com/product/recycle/getRecycleList.htm',desc:'查询产品操作历史'},
+    {name:'国际站新品运营指南',url:'https://www.yuque.com/muxin99/kf8szv',desc:'新品从0到1运营指南'},
     {name:'国际站知识体系',url:'https://www.yuque.com/zhangyiliang-aqgsd/',desc:'国际站运营知识库'},
     {name:'出口通会员成长手册',url:'https://www.yuque.com/youyang-xo5vz/ygp8kb',desc:'会员成长路径指南'},
-    {name:'阿里巴巴数字营销广告',url:'https://www.yuque.com/chaike/yingxiao',desc:'数字营销学习资料'},
+    {name:'阿里官方测试店铺①',url:'https://aliqatest01.en.alibaba.com/',desc:'官方测试店铺①'},
+    {name:'阿里官方测试店铺②',url:'https://allin07.en.alibaba.com/',desc:'官方测试店铺②'},
+    {name:'全国际站榜单规则',url:'https://xg1qhummn1.feishu.cn/wiki/QsiNWic4si2kIikFthsc0OxQn2e',desc:'飞书：国际站各类榜单规则'},
     {name:'一达通拍档联系方式',url:'https://onetouch.alibaba.com/',desc:'一达通本地拍档查找'},
-    {name:'自主绑定一达通拍档',url:'https://onetouch.alibaba.com/selforder/index',desc:'线上自主绑定拍档'},
+    {name:'阿里帮助中心',url:'https://so.alibaba.com/query/1688%E5%B8%82%E6%B0%91%E6%89%8B%E5%86%8C',desc:'官方帮助文档'},
+    {name:'查询同行公司信息',url:'https://credit.alibaba.com/',desc:'查询供应商信用信息'},
+    {name:'重复铺货规则',url:'https://www.yuque.com/liangdan-5gae1/nszqeu/lg6q9f6z9y2f8y0y',desc:'重复铺货判定规则'},
+    {name:'产品ID提取&链接生成',url:'https://qianpuyun.com/tools/idtq.php',desc:'批量提取产品ID'},
+    {name:'智能文字大小写转换',url:'https://qianpuyun.com/tools/dxxzh/dxxzh.html',desc:'一键转换英文大小写'},
+    {name:'批量打开搜索页',url:'https://qianpuyun.com/tools/pldk.php',desc:'批量打开多个搜索页'},
+    {name:'AI国际站标题组合工具',url:'https://qianpuyun.com/tools/btzh.html',desc:'组合生成爆款标题'},
+    {name:'VPN梯子目录',url:'https://qianpuyun.com/tools/tizi.php',desc:'VPN工具目录导航'},
+    {name:'查询国家所属大洲',url:'https://qianpuyun.com/tools/dazhou.php',desc:'快速查询国家所属大洲'},
+    {name:'产品标题关键词处理',url:'https://qianpuyun.com/tools/nkey.php',desc:'批量处理标题和关键词'},
+    {name:'最后一级类目近180天数据',url:'https://qianpuyun.com/tools/cpdb.php',desc:'查看各类目近180天数据'},
+    {name:'生成询盘跳转链接',url:'https://qianpuyun.com/tools/xptzlj.html',desc:'生成带追踪参数的询盘链接'},
+    {name:'客户当地时间查询',url:'https://message.alibaba.com/alibaba.do?action=language',desc:'查询客户当地时区和时间'},
+    {name:'offer.alibaba.com',url:'https://qianpuyun.com/tools/offer.php',desc:'阿里巴巴offer入口'},
+    {name:'投诉商家',url:'https://yc.alibaba.com/complaint/complaintHome.htm',desc:'投诉不良商家入口'},
+    {name:'国际站关键词规划师',url:'https://www.alibaba.com/ajax/awardKeywordService/keywordPlanDefault.json',desc:'关键词搜索量规划'},
+    {name:'全网发布会系列课',url:'https://peixun.alibaba.com/series/1280003090574802944',desc:'官方直播课程回放'},
+    {name:'商品副标题规则',url:'https://www.yuque.com/liangdan-5gae1/cq8g9t/rgp2g0h2gzfg6g0d',desc:'副标题撰写规范'},
+    {name:'一键替换文本字符',url:'https://qianpuyun.com/tools/tihuan.php',desc:'批量替换文本内容'},
   ],
   'amazon': [
     {name:'亚马逊美国站',url:'https://www.amazon.com/',desc:'Amazon.com主站'},
@@ -666,161 +640,70 @@ const TOOLS = {
     {name:'英国站销售榜',url:'https://www.amazon.co.uk/Best-Sellers/zgbs/',desc:'英国畅销榜单'},
     {name:'德国站销售榜',url:'https://www.amazon.de/gp/bestsellers',desc:'德国畅销榜单'},
   ],
-  'google': [
-    {name:'IP所在地查询',url:'https://www.ip138.com/',desc:'查询任意IP归属地'},
-    {name:'高精度IP归属地查询',url:'https://ping0.cc/',desc:'更精准的IP地理位置查询'},
-    {name:'CKEditor4在线编辑器',url:'https://tools.jb51.net/aideddesign/ckeditor4',desc:'在线富文本HTML编辑器'},
-    {name:'Alexa网站排名查询',url:'http://www.alexa.cn/rank/',desc:'查询网站全球排名'},
-    {name:'Semrush查网站流量',url:'https://zh.semrush.com/',desc:'分析竞品网站流量数据'},
-    {name:'谷歌浏览器官网',url:'https://www.google.cn/intl/zh-CN/chrome/',desc:'下载Chrome浏览器'},
-    {name:'谷歌搜索',url:'https://www.google.com.hk/',desc:'Google搜索引擎'},
-    {name:'谷歌趋势',url:'https://trends.google.com/',desc:'关键词热度趋势分析'},
-    {name:'谷歌 Ads 广告平台',url:'https://ads.google.com/aw/overview',desc:'Google广告投放管理'},
-    {name:'chinaz 站长工具',url:'https://seo.chinaz.com/',desc:'SEO综合查询工具'},
-    {name:'在线生成Ico图标',url:'https://www.ico51.cn/',desc:'上传PNG生成网站favicon'},
-    {name:'GTmetrix网站测速',url:'https://gtmetrix.com/',desc:'检测网站加载速度'},
-    {name:'PageSpeed Insights',url:'https://pagespeed.web.dev/',desc:'谷歌官方网站性能测试'},
-    {name:'网站时光机',url:'https://web.archive.org/',desc:'查看网站历史版本快照'},
-    {name:'百度统计',url:'https://tongji.baidu.com/web5/welcome/login',desc:'网站访客统计分析'},
-    {name:'Google Analytics',url:'https://analytics.google.com/',desc:'谷歌官方网站分析工具'},
-    {name:'Google Adsense',url:'https://adsense.google.com/start/',desc:'网站广告收益申请'},
-    {name:'Cloudflare',url:'https://dash.cloudflare.com/',desc:'免费CDN加速&DNS管理'},
-    {name:'Google标签管理器',url:'https://tagmanager.google.com',desc:'管理网站追踪代码'},
-    {name:'Google Search Console',url:'https://search.google.com/search-console/about',desc:'网站搜索表现监控'},
-    {name:'51.LA网站统计',url:'https://www.51.la/',desc:'国内网站统计工具'},
-    {name:'Shopify 建站平台',url:'https://www.shopify.com/',desc:'全球最大SaaS建站平台'},
-    {name:'WordPress 官网',url:'https://wordpress.org/',desc:'开源建站程序官网'},
-    {name:'Bluehost 主机',url:'https://www.bluehost.com/',desc:'WordPress官方推荐主机'},
-    {name:'SiteGround 主机',url:'https://www.siteground.com/',desc:'高速WordPress托管'},
-    {name:'Cloudways 云主机',url:'https://www.cloudways.com/',desc:'云服务器托管平台'},
-    {name:'Ahrefs网站流量检查',url:'https://ahrefs.com/zh/traffic-checker',desc:'查看任意网站流量数据'},
-    {name:'WebPageTest',url:'https://www.webpagetest.org/',desc:'多地区网站加载速度测试'},
+  'ecommerce': [
+    {name:'拼多多批发',url:'https://pifa.pinduoduo.com/',desc:'拼多多批发频道'},
+    {name:'1688跨境专供',url:'https://sale.1688.com/sale/kuajing/global/index.html',desc:'1688跨境货源'},
+    {name:'义乌购',url:'https://www.yiwugo.com/',desc:'义乌小商品批发'},
+    {name:'1688阿里巴巴',url:'https://www.1688.com/',desc:'阿里巴巴1688'},
+    {name:'中国制造网',url:'https://cn.made-in-china.com/',desc:'外贸B2B平台'},
+    {name:'一起做网店(广州服装)',url:'https://gz.17zwd.com/',desc:'广州服装批发'},
+    {name:'拼多多',url:'http://mobile.yangkeduo.com/',desc:'拼多多主站'},
+    {name:'衣联(服装货源)',url:'https://www.eelly.com/',desc:'服装货源批发'},
+    {name:'91家纺网',url:'http://www.91jf.com/',desc:'家纺批发货源'},
+    {name:'包牛牛(箱包)',url:'http://www.bao66.cn/web/',desc:'箱包批发货源'},
+    {name:'工邦邦(工业)',url:'https://www.gongbangbang.com/',desc:'工业用品批发'},
+    {name:'娜拉美妆',url:'https://www.nala.com.cn/',desc:'美妆货源批发'},
+    {name:'四季星座网',url:'https://www.571xz.com/',desc:'服装批发'},
+    {name:'网商园',url:'https://www.wsy.com/',desc:'服装批发货源'},
+    {name:'个秀名妆',url:'https://www.geshow.com/',desc:'美妆货源批发'},
+    {name:'开山网(女鞋)',url:'http://www.k3.cn/web/welcome',desc:'女鞋货源批发'},
+    {name:'跨境电商选品工具',url:'https://qianpuyun.com/',desc:'选品数据分析'},
+    {name:'SuperAli导航',url:'https://superali.top/',desc:'跨境人专属导航'},
   ],
-  'ai': [
-    {name:'ChatGPT',url:'https://chatgpt.com/',desc:'OpenAI官方GPT-4对话AI'},
-    {name:'DeepSeek',url:'https://www.deepseek.com/',desc:'国产大模型DeepSeek官网'},
-    {name:'Claude',url:'https://claude.ai/',desc:'Anthropic公司AI助手'},
-    {name:'Gemini',url:'https://gemini.google.com',desc:'谷歌官方AI助手'},
-    {name:'Grok',url:'https://grok.com/',desc:'xAI推出的AI助手'},
-    {name:'豆包',url:'https://www.doubao.com/',desc:'字节跳动AI工具'},
-    {name:'腾讯元宝',url:'https://yuanbao.tencent.com/',desc:'腾讯AI助手'},
-    {name:'扣子 Coze',url:'https://www.coze.cn/',desc:'字节AI应用开发平台'},
-    {name:'OpenClaw',url:'https://openclaw.ai/',desc:'AI电商运营工具'},
-    {name:'QClaw',url:'https://qclaw.qq.com/',desc:'腾讯AI电商工具'},
-    {name:'AutoClaw',url:'https://autoglm.zhipuai.cn/autoclaw/',desc:'智谱AutoGLM浏览器自动化'},
-    {name:'天工AI',url:'https://www.tiangong.cn/',desc:'昆仑万维AI搜索助手'},
-    {name:'悟空AI',url:'https://wukong.dingtalk.com/',desc:'钉钉AI助手'},
-    {name:'ChatGPT免费镜像',url:'https://x.aichatoszx.com/',desc:'国内可访问ChatGPT镜像'},
-    {name:'Midjourney AI绘画',url:'https://www.midjourney.com/home',desc:'AI图像生成工具'},
-    {name:'Stable Diffusion',url:'https://stability.ai/',desc:'开源AI图像生成模型'},
-    {name:'腾讯智影',url:'https://zenvideo.qq.com/',desc:'腾讯AI视频生成工具'},
-    {name:'图片去背景 remove.bg',url:'https://www.remove.bg/zh',desc:'AI一键抠图去背景'},
-    {name:'在线水印移除',url:'https://www.watermarkremover.io/zh',desc:'AI去除图片水印'},
-    {name:'阿里云图片翻译',url:'https://www.aliyun.com/product/ai/alimt/',desc:'翻译图片内文字'},
-    {name:'PDF24 PDF处理',url:'https://tools.pdf24.org/zh/',desc:'PDF合并分割转换工具'},
-    {name:'在线配音工具',url:'https://ttsmaker.cn/',desc:'AI文字转语音配音'},
-    {name:'GIF图片编辑器',url:'https://ezgif.com/',desc:'在线GIF制作和编辑'},
-    {name:'AI图片放大',url:'https://bigjpg.com/zh',desc:'AI图片无损放大'},
-    {name:'腾讯ARC图片修复',url:'https://arc.tencent.com/zh/ai-demos/faceRestoration',desc:'腾讯AI人像修复工具'},
-    {name:'DeepSeek问小白',url:'https://www.wenxiaobai.com/chat/tourist',desc:'DeepSeek国内镜像'},
-    {name:'AI图片生视频',url:'https://dovideo.io/image-to-video',desc:'图片转视频AI工具'},
-    {name:'Piccopilot产品海报',url:'https://www.piccopilot.com/',desc:'免费生成电商产品海报'},
+  'blacktech': [
+    {name:'谷歌/Hotmail邮箱购买',url:'https://www.youxiang555.com/',desc:'购买国外邮箱账号'},
+    {name:'snapmail邮箱',url:'https://www.snapmail.cc/',desc:'临时邮箱服务'},
+    {name:'脆球邮箱',url:'https://mail.cuiqiu.com/',desc:'临时邮箱服务'},
+    {name:'Getnada',url:'https://getnada.com/',desc:'免费临时邮箱'},
+    {name:'FakeMailGenerator',url:'http://www.fakemailgenerator.com/',desc:'一次性临时邮箱'},
+    {name:'Tempail',url:'https://tempail.com/',desc:'临时邮箱服务'},
+    {name:'MyTrashMail',url:'http://www.mytrashmail.com/',desc:'临时邮箱服务'},
+    {name:'Mailinator',url:'https://www.mailinator.com/',desc:'免费临时邮箱'},
+    {name:'Guerrillamail',url:'https://www.guerrillamail.com/',desc:'临时邮箱服务'},
+    {name:'InboxKitten',url:'https://inboxkitten.com/',desc:'临时邮箱服务'},
+    {name:'Crazymailing',url:'https://mail7.net/',desc:'临时邮箱服务'},
+    {name:'Temp Mail',url:'https://tempmail100.com',desc:'临时邮箱服务'},
+    {name:'虚拟信用卡-Privacy',url:'https://privacy.com/',desc:'美国虚拟信用卡'},
+    {name:'虚拟信用卡-Depay',url:'https://depay.de/',desc:'加密货币虚拟卡'},
+    {name:'虚拟信用卡-Revolut',url:'https://www.revolut.com/',desc:'英国虚拟银行卡'},
+    {name:'虚拟身份生成',url:'https://www.fakeaddressgenerator.com/',desc:'生成国外虚拟身份信息'},
+    {name:'虚拟资料生成',url:'https://www.thispersondoesnotexist.com/',desc:'AI生成虚拟头像'},
+    {name:'指纹浏览器-Multilogin',url:'https://multilogin.com/',desc:'多账号防关联浏览器'},
+    {name:'指纹浏览器-AdsPower',url:'https://www.adspower.net/',desc:'跨境电商防关联浏览器'},
+    {name:'指纹浏览器-Dolphin{anty}',url:'https://dolphin-anty.com/',desc:'反指纹浏览器'},
+    {name:'住宅IP代理-SmartProxy',url:'https://smartproxy.com/',desc:'住宅IP代理服务'},
+    {name:'IP代理-Luminati',url:'https://luminati-china.com/',desc:'全球IP代理服务'},
+    {name:'短信接码-SMS-Activate',url:'https://sms-activate.org/',desc:'全球短信接码平台'},
+    {name:'短信接码-TextNow',url:'https://textnow.com/',desc:'虚拟美国手机号'},
+    {name:'短信接码-Twilio',url:'https://www.twilio.com/',desc:'全球短信API服务'},
+    {name:'科学上网-Vultr',url:'https://www.vultr.com/',desc:'海外VPS服务器'},
+    {name:'科学上网-DigitalOcean',url:'https://www.digitalocean.com/',desc:'云服务器'},
+    {name:'网络加速器-1.1.1.1',url:'https://1.1.1.1/',desc:'Cloudflare DNS加速'},
+    {name:'指纹检测',url:'https://bot.sannysoft.com/',desc:'检测浏览器指纹特征'},
+    {name:'Whoer.net指纹检测',url:'https://whoer.net/',desc:'检测IP和浏览器指纹'},
   ],
-  'plugins': [
-    {name:'Crx搜搜',url:'https://www.crxsoso.com/',desc:'Chrome插件搜索下载'},
-    {name:'极简插件',url:'https://chrome.zzzmh.cn/',desc:'国内Chrome插件镜像'},
-    {name:'Chrome应用商店',url:'https://chromewebstore.google.com/',desc:'Chrome官方插件商店'},
-    {name:'CrxDL插件下载',url:'https://crxdl.com/',desc:'在线下载Chrome插件'},
-    {name:'AliPrice购物助手-1688',url:'https://chromewebstore.google.com/detail/aliprice%E8%B4%AD%E7%89%A9%E5%8A%A9%E6%89%8B-1688/dioeaejkipkfjoljnecgcgfhjcdpfpad',desc:'1688同款货源图搜索'},
-    {name:'1688以图搜货',url:'https://chromewebstore.google.com/detail/1688%E4%BB%A5%E5%9B%BE%E6%90%9C%E8%B4%A7/alibaba-image-search/jpigaejfkpignhcgcicaoamojjekapo',desc:'1688图片搜索同款货源'},
-    {name:'Alibaba Search by Image',url:'https://chromewebstore.google.com/detail/alibaba-com-search-by-ima/klkanpnlhcfpekejgcdcbjmkoopgkpj',desc:'阿里国际站以图搜图'},
-    {name:'GetEmail获取邮箱',url:'https://chromewebstore.google.com/detail/getemail%E9%82%AE%E7%AE%B1%E8%8E%8E%E5%8F%96%E5%B7%A5%E5%85%B7/odhpclgigbbljhnpjifaoobgkphdpdpc',desc:'一键抓取网页邮箱地址'},
-    {name:'Instant Data Scraper',url:'https://chromewebstore.google.com/detail/instant-data-scraper/efaerngfljkmfodmlnjanhaibmfplfpf',desc:'自动提取网页表格数据'},
-    {name:'豆包AI助手',url:'https://chromewebstore.google.com/detail/豆包pc%E7%89%88%E6%9C%AC/chpkicpcfdbjdikpijlghibdgoponabo',desc:'豆包浏览器AI助手插件'},
-    {name:'油猴 Tampermonkey',url:'https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo',desc:'脚本管理器，运行用户脚本'},
-    {name:'视频下载器 CocoCut',url:'https://chromewebstore.google.com/detail/cocobut-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%99%A8/liglcopgcbnpncgbidpgndofnbnbpgfa',desc:'网页视频下载插件'},
-  ],
-  'translate': [
-    {name:'DeepL翻译',url:'https://www.deepl.com/zh/translator',desc:'最精准的AI翻译工具（支持文档）'},
-    {name:'谷歌翻译',url:'https://translate.google.com/',desc:'谷歌官方翻译工具'},
-    {name:'有道翻译',url:'https://fanyi.youdao.com/',desc:'网易有道在线翻译'},
-    {name:'阿里翻译',url:'https://translate.alibaba.com/',desc:'阿里官方多语言翻译'},
-    {name:'火山翻译',url:'https://translate.volcengine.com/',desc:'字节跳动翻译工具'},
-  ],
-  'design': [
-    {name:'一秒美工助手',url:'https://1miaozhong.com/tool/alibaba/index.php',desc:'电商主图详情页在线制作'},
-    {name:'疯狂美工',url:'https://www.fkdmg.com/gongju/alibaba/',desc:'阿里国际站图片工具'},
-    {name:'店酷',url:'https://www.zzcoder.com/',desc:'在线图片处理工具'},
-    {name:'Pacdora包装盒设计',url:'https://www.pacdora.cn/',desc:'3D包装盒在线设计'},
-    {name:'堆友',url:'https://d.design/',desc:'阿里旗下设计素材平台'},
-    {name:'万彩商图',url:'https://shopping.kezhan365.com/scene/draw',desc:'AI商图在线生成'},
-    {name:'U钙网 Logo设计',url:'https://www.uugai.com/',desc:'免费在线Logo设计'},
-    {name:'标智客 Logo设计',url:'https://www.logomaker.com.cn/',desc:'AI生成品牌Logo'},
-    {name:'千图网',url:'https://www.58pic.com/',desc:'设计素材下载网站'},
-    {name:'昵图网',url:'https://www.nipic.com/index.html',desc:'原创设计素材平台'},
-    {name:'包图网',url:'https://ibaotu.com/',desc:'视频/图片/平面素材'},
-    {name:'花瓣网',url:'https://huaban.com/',desc:'设计灵感采集网站'},
-    {name:'千库网',url:'https://588ku.com/so/',desc:'PNG免抠素材下载'},
-    {name:'站酷网',url:'https://www.zcool.com.cn/',desc:'设计师互动社区'},
-    {name:'无版权图片搜索',url:'https://duososo.com/site/pic/',desc:'免费无版权图片素材'},
-    {name:'查询字体版权',url:'https://fonts.safe.360.cn/',desc:'查询字体是否有版权'},
-    {name:'AI一键抠图',url:'https://zh.bgsub.com/webapp/',desc:'无需登录的在线抠图工具'},
-  ],
-  'common': [
-    {name:'飞书-国际站资料库',url:'https://xg1qhummn1.feishu.cn/wiki/space/7459606349516079105',desc:'Jason整理的国际站&独立站资料'},
-    {name:'玩转国际站插件下载',url:'https://xg1qhummn1.feishu.cn/wiki/QsINWic4si2kIikFthsc0OxQn2e',desc:'千蒲云浏览器插件下载地址'},
-    {name:'ChatGPT',url:'https://chatgpt.com/',desc:'OpenAI官方AI对话'},
-    {name:'DeepSeek',url:'https://www.deepseek.com/',desc:'国产大模型'},
-    {name:'Claude',url:'https://claude.ai/',desc:'Anthropic AI助手'},
-    {name:'Gemini',url:'https://gemini.google.com',desc:'谷歌AI助手'},
-    {name:'Grok',url:'https://grok.com/',desc:'xAI AI助手'},
-    {name:'豆包',url:'https://www.doubao.com/',desc:'字节AI助手'},
-    {name:'腾讯元宝',url:'https://yuanbao.tencent.com/',desc:'腾讯AI助手'},
-    {name:'扣子 Coze',url:'https://www.coze.cn/',desc:'字节AI应用平台'},
-    {name:'OpenClaw',url:'https://openclaw.ai/',desc:'AI电商工具'},
-    {name:'JVS Claw',url:'https://jvsclaw.aliyun.com/',desc:'阿里云AI工具'},
-    {name:'Accio Work',url:'https://www.accio.com/work',desc:'AI搜索工作平台'},
-    {name:'悟空AI',url:'https://wukong.dingtalk.com/',desc:'钉钉AI助手'},
-    {name:'在线白板',url:'https://tool.mkblog.cn/whiteboard/',desc:'协作白板工具'},
-    {name:'AI一键抠图',url:'https://zh.bgsub.com/webapp/',desc:'无需登录的在线抠图'},
-    {name:'无版权图片搜索',url:'https://duososo.com/site/pic/',desc:'免费图片素材'},
-    {name:'Screaming Frog SEO',url:'https://www.screamingfrog.co.uk/seo-spider/',desc:'网站SEO爬虫分析工具'},
-    {name:'Steam',url:'https://store.steampowered.com/about/',desc:'游戏平台'},
-    {name:'在线免费听歌',url:'https://tool.liumingye.cn/music/',desc:'免费音乐在线听'},
-  ],
-  'social': [
-    {name:'YouTube',url:'https://www.youtube.com/',desc:'全球最大视频平台'},
-    {name:'Facebook',url:'https://www.facebook.com/',desc:'全球最大社交网络'},
-    {name:'Twitter (X)',url:'https://x.com/',desc:'实时社交资讯平台'},
-    {name:'LinkedIn',url:'https://www.linkedin.com/',desc:'职业社交平台/B2B获客'},
-    {name:'Instagram',url:'https://www.instagram.com/',desc:'图片社交平台'},
-    {name:'Snapchat',url:'https://www.snapchat.com/',desc:'短视频社交APP'},
-    {name:'Reddit',url:'https://www.reddit.com/',desc:'全球社区论坛'},
-    {name:'Quora',url:'https://www.quora.com/',desc:'问答社区平台'},
-    {name:'Tumblr',url:'https://www.tumblr.com/',desc:'轻博客社交平台'},
-    {name:'TikTok',url:'https://www.tiktok.com/',desc:'全球短视频平台'},
-  ],
-  'business': [
-    {name:'WhatsApp网页版',url:'https://web.whatsapp.com/',desc:'即时通讯工具'},
-    {name:'HS编码查询',url:'https://www.hsbianma.com/',desc:'海关商品编码查询'},
-    {name:'汇率换算',url:'http://www.webmasterhome.cn/huilv/',desc:'实时汇率快速换算'},
-    {name:'中国银行外汇牌价',url:'https://www.boc.cn/sourcedb/whpj/',desc:'央行官方外汇汇率'},
-    {name:'世界港口查询',url:'http://gangkou.00cha.net/',desc:'全球主要港口信息查询'},
-    {name:'外贸英文缩写查询',url:'https://www.allacronyms.com/',desc:'外贸/商业英文缩写含义'},
-    {name:'FOB价格计算器',url:'https://www.liaosam.com/tools/fobprice.html',desc:'外贸FOB/CIF报价计算'},
-    {name:'退税计算',url:'https://onetouch.alibaba.com/taxRefund/main',desc:'出口退税金额计算'},
-    {name:'税务总局退税率查询',url:'https://hd.chinatax.gov.cn/nszx/InitChukou.html',desc:'官方退税率数据库'},
-    {name:'进出口税率查询',url:'https://wmsw.mofcom.gov.cn/wmsw/',desc:'进出口关税税率查询'},
-    {name:'海关办事查询',url:'https://online.customs.gov.cn/',desc:'海关业务在线办理'},
-    {name:'联合国贸易数据库',url:'https://www.trademap.org/Index.aspx',desc:'各国进出口贸易数据'},
-    {name:'原产地证书查询',url:'https://origin.customs.gov.cn/',desc:'原产地证书在线申请'},
-    {name:'各国节假日查询',url:'https://www.timeanddate.com/holidays/',desc:'查询客户国家节假日'},
-    {name:'邮编库',url:'https://www.youbianku.com/',desc:'全球邮编查询'},
-    {name:'各国清关指南',url:'https://www.b2bers.com/guide/',desc:'各国进口清关要求指南'},
-    {name:'EDM邮件页面制作',url:'https://beefree.io/templates',desc:'外贸邮件模板设计'},
-    {name:'外贸英文缩写',url:'https://www.allacronyms.com/',desc:'外贸常用英文缩写查询'},
-    {name:'产品反倾销查询',url:'https://cacs.mofcom.gov.cn/index.shtml',desc:'各国反倾销税查询'},
-    {name:'邮箱质量验证',url:'https://www.neverbounce.com/',desc:'验证客户邮箱有效性'},
+  'payment': [
+    {name:'PayPal',url:'https://www.paypal.com/hk/home',desc:'全球最常用在线支付'},
+    {name:'Payoneer派安盈',url:'https://www.payoneer.com.cn/',desc:'跨境收款&万用币'},
+    {name:'PingPong',url:'https://www.pingpongx.com/',desc:'国产跨境支付平台'},
+    {name:'连连支付',url:'https://global.lianlianpay.com/',desc:'跨境支付解决方案'},
+    {name:'Alipay Global',url:'https://global.alipay.com/platform/site/ihome',desc:'支付宝国际版'},
+    {name:'XTransfer',url:'https://www.xtransfer.cn/',desc:'外贸B2B跨境收款'},
+    {name:'Alibaba.com Pay',url:'https://payment.alibaba.com/',desc:'阿里巴巴官方支付'},
+    {name:'Stripe',url:'https://stripe.com/',desc:'全球在线支付网关'},
+    {name:'Payoneer万事达卡',url:'https://www.payoneer.com.cn/card/',desc:'预付万事达卡'},
+    {name:'WorldFirst',url:'https://www.worldfirst.com.cn/',desc:'跨境支付收款'},
+    {name:'空中云汇',url:'https://www.airwallex.com/',desc:'全球支付平台'},
   ],
   'logistics': [
     {name:'17TRACK全球物流查询',url:'https://www.17track.net/zh-cn',desc:'支持全球400+快递追踪'},
@@ -836,14 +719,218 @@ const TOOLS = {
     {name:'全球国际邮编查询',url:'https://www.youbianku.com/',desc:'各国邮政编码查询'},
     {name:'偏远地区查询',url:'https://www.51tracking.com/remote_area-cn',desc:'快递偏远地区附加费查询'},
   ],
-  'payment': [
-    {name:'PayPal',url:'https://www.paypal.com/hk/home',desc:'全球最常用在线支付'},
-    {name:'Payoneer派安盈',url:'https://www.payoneer.com.cn/',desc:'跨境收款&万用币'},
-    {name:'PingPong',url:'https://www.pingpongx.com/',desc:'国产跨境支付平台'},
-    {name:'连连支付',url:'https://global.lianlianpay.com/',desc:'跨境支付解决方案'},
-    {name:'Alipay Global',url:'https://global.alipay.com/platform/site/ihome',desc:'支付宝国际版'},
-    {name:'XTransfer',url:'https://www.xtransfer.cn/',desc:'外贸B2B跨境收款'},
-    {name:'Alibaba.com Pay',url:'https://payment.alibaba.com/',desc:'阿里巴巴官方支付'},
+  'google': [
+    {name:'IP所在地查询',url:'https://www.ip138.com/',desc:'查询任意IP归属地'},
+    {name:'高精度IP归属地查询',url:'https://ping0.cc/',desc:'更精准的IP地理位置查询'},
+    {name:'Alexa网站排名查询',url:'http://www.alexa.cn/rank/',desc:'查询网站全球排名'},
+    {name:'Semrush查网站流量',url:'https://zh.semrush.com/',desc:'分析竞品网站流量数据'},
+    {name:'谷歌浏览器官网',url:'https://www.google.cn/intl/zh-CN/chrome/',desc:'下载Chrome浏览器'},
+    {name:'谷歌搜索',url:'https://www.google.com.hk/',desc:'Google搜索引擎'},
+    {name:'谷歌趋势',url:'https://trends.google.com/',desc:'关键词热度趋势分析'},
+    {name:'谷歌 Ads 广告平台',url:'https://ads.google.com/aw/overview',desc:'Google广告投放管理'},
+    {name:'chinaz 站长工具',url:'https://seo.chinaz.com/',desc:'SEO综合查询工具'},
+    {name:'GTmetrix网站测速',url:'https://gtmetrix.com/',desc:'检测网站加载速度'},
+    {name:'PageSpeed Insights',url:'https://pagespeed.web.dev/',desc:'谷歌官方网站性能测试'},
+    {name:'网站时光机',url:'https://web.archive.org/',desc:'查看网站历史版本快照'},
+    {name:'Cloudflare',url:'https://dash.cloudflare.com/',desc:'免费CDN加速&DNS管理'},
+    {name:'Google Search Console',url:'https://search.google.com/search-console/about',desc:'网站搜索表现监控'},
+    {name:'Google Analytics',url:'https://analytics.google.com/',desc:'谷歌官方网站分析工具'},
+    {name:'Shopify 建站平台',url:'https://www.shopify.com/',desc:'全球最大SaaS建站平台'},
+    {name:'WordPress 官网',url:'https://wordpress.org/',desc:'开源建站程序官网'},
+    {name:'Bluehost 主机',url:'https://www.bluehost.com/',desc:'WordPress官方推荐主机'},
+    {name:'SiteGround 主机',url:'https://www.siteground.com/',desc:'高速WordPress托管'},
+    {name:'Cloudways 云主机',url:'https://www.cloudways.com/',desc:'云服务器托管平台'},
+    {name:'Ahrefs网站流量检查',url:'https://ahrefs.com/zh/traffic-checker',desc:'查看任意网站流量数据'},
+    {name:'WebPageTest',url:'https://www.webpagetest.org/',desc:'多地区网站加载速度测试'},
+    {name:'Namesilo 域名注册',url:'https://www.namesilo.com/',desc:'便宜域名注册商'},
+    {name:'Namecheap 域名',url:'https://www.namecheap.com/',desc:'域名注册和托管'},
+    {name:'GoDaddy 域名',url:'https://www.godaddy.com/',desc:'全球最大域名注册商'},
+    {name:'Cloudflare WARP',url:'https://1.1.1.1/',desc:'网络加速DNS'},
+    {name:'CKEditor4编辑器',url:'https://tools.jb51.net/aideddesign/ckeditor4',desc:'在线HTML编辑器'},
+    {name:'百度统计',url:'https://tongji.baidu.com/web5/welcome/login',desc:'网站访客统计分析'},
+    {name:'51.LA网站统计',url:'https://www.51.la/',desc:'国内网站统计工具'},
+    {name:'在线ICO图标生成',url:'https://www.ico51.cn/',desc:'上传PNG生成favicon'},
+    {name:'Google标签管理器',url:'https://tagmanager.google.com',desc:'管理网站追踪代码'},
+    {name:'Google Adsense',url:'https://adsense.google.com/start/',desc:'网站广告收益申请'},
+    {name:'SiteGround主机(独立站)',url:'https://www.siteground.com/',desc:'独立站推荐主机'},
+  ],
+  'social': [
+    {name:'YouTube',url:'https://www.youtube.com/',desc:'全球最大视频平台'},
+    {name:'Facebook',url:'https://www.facebook.com/',desc:'全球最大社交网络'},
+    {name:'Twitter (X)',url:'https://x.com/',desc:'实时社交资讯平台'},
+    {name:'LinkedIn',url:'https://www.linkedin.com/',desc:'职业社交平台/B2B获客'},
+    {name:'Instagram',url:'https://www.instagram.com/',desc:'图片社交平台'},
+    {name:'Snapchat',url:'https://www.snapchat.com/',desc:'短视频社交APP'},
+    {name:'Reddit',url:'https://www.reddit.com/',desc:'全球社区论坛'},
+    {name:'Quora',url:'https://www.quora.com/',desc:'问答社区平台'},
+    {name:'Tumblr',url:'https://www.tumblr.com/',desc:'轻博客社交平台'},
+    {name:'TikTok',url:'https://www.tiktok.com/',desc:'全球短视频平台'},
+    {name:'Pinterest',url:'https://www.pinterest.com/',desc:'图片社交平台'},
+    {name:'VK(俄罗斯)',url:'https://vk.com/',desc:'俄罗斯最大社交平台'},
+    {name:'WhatsApp网页版',url:'https://web.whatsapp.com/',desc:'即时通讯工具'},
+  ],
+  'operation': [
+    {name:'HS编码查询',url:'https://www.hsbianma.com/',desc:'海关商品编码查询'},
+    {name:'汇率换算',url:'http://www.webmasterhome.cn/huilv/',desc:'实时汇率快速换算'},
+    {name:'中国银行外汇牌价',url:'https://www.boc.cn/sourcedb/whpj/',desc:'央行官方外汇汇率'},
+    {name:'世界港口查询',url:'http://gangkou.00cha.net/',desc:'全球主要港口信息查询'},
+    {name:'外贸英文缩写查询',url:'https://www.allacronyms.com/',desc:'外贸/商业英文缩写含义'},
+    {name:'FOB价格计算器',url:'https://www.liaosam.com/tools/fobprice.html',desc:'外贸FOB/CIF报价计算'},
+    {name:'退税计算',url:'https://onetouch.alibaba.com/taxRefund/main',desc:'出口退税金额计算'},
+    {name:'税务总局退税率查询',url:'https://hd.chinatax.gov.cn/nszx/InitChukou.html',desc:'官方退税率数据库'},
+    {name:'进出口税率查询',url:'https://wmsw.mofcom.gov.cn/wmsw/',desc:'进出口关税税率查询'},
+    {name:'海关办事查询',url:'https://online.customs.gov.cn/',desc:'海关业务在线办理'},
+    {name:'联合国贸易数据库',url:'https://www.trademap.org/Index.aspx',desc:'各国进出口贸易数据'},
+    {name:'原产地证书查询',url:'https://origin.customs.gov.cn/',desc:'原产地证书在线申请'},
+    {name:'各国节假日查询',url:'https://www.timeanddate.com/holidays/',desc:'查询客户国家节假日'},
+    {name:'邮编库',url:'https://www.youbianku.com/',desc:'全球邮编查询'},
+    {name:'各国清关指南',url:'https://www.b2bers.com/guide/',desc:'各国进口清关要求指南'},
+    {name:'产品反倾销查询',url:'https://cacs.mofcom.gov.cn/index.shtml',desc:'各国反倾销税查询'},
+    {name:'各国B2B企业目录',url:'https://www.europages.co.uk/',desc:'欧洲B2B企业目录'},
+    {name:'AMZ123选品工具',url:'https://www.amz123.com/',desc:'亚马逊选品数据分析'},
+    {name:'卖家精灵选品',url:'https://www.sellersprite.com/',desc:'亚马逊选品工具'},
+    {name:'Helium10选品',url:'https://www.helium10.com/',desc:'亚马逊专业选品工具'},
+    {name:'Jungle Scout',url:'https://www.junglescout.com/',desc:'亚马逊选品&运营工具'},
+  ],
+  'ip': [
+    {name:'SooPAT专利搜索',url:'https://www.soopat.com/',desc:'中国专利检索数据库'},
+    {name:'中国商标网',url:'https://cas.sbj.cnipa.gov.cn/',desc:'国家知识产权局商标查询'},
+    {name:'专利检索分析系统',url:'https://pss-system.cponline.cnipa.gov.cn/',desc:'中国官方专利检索'},
+    {name:'品牌检索工具',url:'https://hz-productposting.alibaba.com/brandprotect/index.htm',desc:'阿里国际站品牌保护'},
+    {name:'Trademarkia商标查询',url:'https://www.trademarkia.com/',desc:'全球商标数据库查询'},
+    {name:'谷歌专利查询',url:'https://patents.google.com/',desc:'Google Patents全球专利'},
+    {name:'欧盟商标查询',url:'https://euipo.europa.eu/',desc:'欧盟商标数据库'},
+  ],
+  'ai': [
+    {name:'ChatGPT',url:'https://chatgpt.com/',desc:'OpenAI官方GPT-4对话AI'},
+    {name:'DeepSeek',url:'https://www.deepseek.com/',desc:'国产大模型DeepSeek官网'},
+    {name:'Claude',url:'https://claude.ai/',desc:'Anthropic公司AI助手'},
+    {name:'Gemini',url:'https://gemini.google.com',desc:'谷歌官方AI助手'},
+    {name:'Grok',url:'https://grok.com/',desc:'xAI推出的AI助手'},
+    {name:'豆包',url:'https://www.doubao.com/',desc:'字节跳动AI工具'},
+    {name:'腾讯元宝',url:'https://yuanbao.tencent.com/',desc:'腾讯AI助手'},
+    {name:'扣子 Coze',url:'https://www.coze.cn/',desc:'字节AI应用开发平台'},
+    {name:'OpenClaw',url:'https://openclaw.ai/',desc:'AI电商运营工具'},
+    {name:'QClaw',url:'https://qclaw.qq.com/',desc:'腾讯AI电商工具'},
+    {name:'Midjourney AI绘画',url:'https://www.midjourney.com/home',desc:'AI图像生成工具'},
+    {name:'Stable Diffusion',url:'https://stability.ai/',desc:'开源AI图像生成模型'},
+    {name:'腾讯智影',url:'https://zenvideo.qq.com/',desc:'腾讯AI视频生成工具'},
+    {name:'图片去背景 remove.bg',url:'https://www.remove.bg/zh',desc:'AI一键抠图去背景'},
+    {name:'在线水印移除',url:'https://www.watermarkremover.io/zh',desc:'AI去除图片水印'},
+    {name:'AI图片放大',url:'https://bigjpg.com/zh',desc:'AI图片无损放大'},
+    {name:'腾讯ARC图片修复',url:'https://arc.tencent.com/zh/ai-demos/faceRestoration',desc:'腾讯AI人像修复'},
+    {name:'在线配音工具',url:'https://ttsmaker.cn/',desc:'AI文字转语音配音'},
+    {name:'AI图片生视频',url:'https://dovideo.io/image-to-video',desc:'图片转视频AI工具'},
+    {name:'Piccopilot产品海报',url:'https://www.piccopilot.com/',desc:'免费生成电商产品海报'},
+    {name:'DeepSeek问小白',url:'https://www.wenxiaobai.com/chat/tourist',desc:'DeepSeek国内镜像'},
+    {name:'ChatGPT免费镜像',url:'https://x.aichatoszx.com/',desc:'国内可访问ChatGPT镜像'},
+    {name:'AutoClaw',url:'https://autoglm.zhipuai.cn/autoclaw/',desc:'智谱AutoGLM浏览器自动化'},
+    {name:'天工AI',url:'https://www.tiangong.cn/',desc:'昆仑万维AI搜索助手'},
+    {name:'悟空AI',url:'https://wukong.dingtalk.com/',desc:'钉钉AI助手'},
+    {name:'PDF24 PDF处理',url:'https://tools.pdf24.org/zh/',desc:'PDF合并分割转换'},
+    {name:'GIF图片编辑器',url:'https://ezgif.com/',desc:'在线GIF制作和编辑'},
+    {name:'风车Ai图片翻译',url:'https://www.fengchefanyi.com',desc:'跨境图片翻译工具'},
+    {name:'火山引擎图片',url:'https://www.volcengine.com/product/image',desc:'火山图片处理'},
+    {name:'阿里云图片翻译',url:'https://www.aliyun.com/product/ai/alimt/',desc:'翻译图片内文字'},
+  ],
+  'design': [
+    {name:'一秒美工助手',url:'https://1miaozhong.com/tool/alibaba/index.php',desc:'电商主图详情页在线制作'},
+    {name:'疯狂美工',url:'https://www.fkdmg.com/gongju/alibaba/',desc:'阿里国际站图片工具'},
+    {name:'店酷',url:'https://www.zzcoder.com/',desc:'在线图片处理工具'},
+    {name:'Pacdora包装盒设计',url:'https://www.pacdora.cn/',desc:'3D包装盒在线设计'},
+    {name:'堆友',url:'https://d.design/',desc:'阿里旗下设计素材平台'},
+    {name:'U钙网 Logo设计',url:'https://www.uugai.com/',desc:'免费在线Logo设计'},
+    {name:'千图网',url:'https://www.58pic.com/',desc:'设计素材下载网站'},
+    {name:'包图网',url:'https://ibaotu.com/',desc:'视频/图片/平面素材'},
+    {name:'花瓣网',url:'https://huaban.com/',desc:'设计灵感采集网站'},
+    {name:'站酷网',url:'https://www.zcool.com.cn/',desc:'设计师互动社区'},
+    {name:'无版权图片搜索',url:'https://duososo.com/site/pic/',desc:'免费无版权图片素材'},
+    {name:'查询字体版权',url:'https://fonts.safe.360.cn/',desc:'查询字体是否有版权'},
+    {name:'AI一键抠图',url:'https://zh.bgsub.com/webapp/',desc:'无需登录的在线抠图'},
+    {name:'逼格PPT',url:'http://www.tretars.com/',desc:'PPT素材模板'},
+    {name:'稻壳儿',url:'https://www.docer.com/s/wpp/12',desc:'WPS稻壳PPT模板'},
+    {name:'Beautiful.AI(AI生成PPT)',url:'https://www.beautiful.ai/',desc:'AI自动生成PPT'},
+    {name:'PPT 超级市场',url:'https://www.pptsupermarket.com/',desc:'PPT素材下载'},
+    {name:'第1PPT',url:'https://www.1ppt.com/',desc:'免费PPT模板'},
+    {name:'优品PPT',url:'https://www.ypppt.com/',desc:'免费PPT模板下载'},
+    {name:'HiPPTER',url:'http://www.hippter.com/',desc:'PPT资源导航'},
+    {name:'千库网',url:'https://588ku.com/so/',desc:'PNG免抠素材下载'},
+    {name:'IconFont图标库',url:'https://www.iconfont.cn/',desc:'阿里巴巴图标素材库'},
+    {name:'Unsplash无版权图',url:'https://unsplash.com/',desc:'高质量无版权图片'},
+    {name:'Pexels无版权视频图',url:'https://www.pexels.com/',desc:'免费素材图片视频'},
+    {name:'Pixabay免费素材',url:'https://pixabay.com/',desc:'免费图片视频素材'},
+  ],
+  'online-tools': [
+    {name:'PicGo图床软件',url:'https://molunerfinn.com/PicGo/',desc:'图床上传工具'},
+    {name:'Snipaste截图神器',url:'https://zh.snipaste.com/',desc:'截图+贴图工具'},
+    {name:'ToDesk远程操控',url:'https://www.todesk.com/',desc:'远程桌面控制'},
+    {name:'IDM下载器',url:'https://www.423down.com/575.html',desc:'多线程下载工具'},
+    {name:'7-zip解压缩',url:'https://www.7-zip.org/',desc:'免费解压缩软件'},
+    {name:'CopyTranslator翻译',url:'https://copytranslator.github.io/download/',desc:'开源翻译工具'},
+    {name:'Listen1音乐',url:'http://listen1.github.io/listen1/',desc:'跨平台音乐播放'},
+    {name:'Flameshot截图',url:'https://flameshot.org/',desc:'截图工具'},
+    {name:'PixPin截图贴图',url:'https://pixpinapp.com/',desc:'截图+贴图工具'},
+    {name:'Unison跨设备传输',url:'https://apps.microsoft.com/store/detail/intel%C2%AE-unison%E2%84%A2/9PP9GZM2GN26',desc:'跨设备文件传输'},
+    {name:'Pandownload网盘',url:'https://wwt.lanzoue.com/i7E480gyurwf',desc:'百度网盘下载助手'},
+    {name:'filecr破解软件',url:'https://filecr.com/windows',desc:'Windows软件资源'},
+    {name:'Quicker鼠标工具箱',url:'https://getquicker.net/',desc:'鼠标快捷操作工具'},
+    {name:'UTool效率工具',url:'https://u.tools/',desc:'新一代效率工具'},
+    {name:'多译翻译效率',url:'https://duoyiapp.com/',desc:'翻译效率工具'},
+    {name:'逻辑流程图绘制',url:'https://www.processon.com/',desc:'在线流程图绘制'},
+    {name:'Canva在线设计',url:'https://www.canva.com/',desc:'在线图形设计平台'},
+    {name:'图怪兽在线作图',url:'https://818ps.com/',desc:'在线图片制作'},
+    {name:'创可贴在线设计',url:'https://www.chuangkit.com/',desc:'在线图片设计'},
+    {name:'腾讯问卷',url:'https://wj.qq.com/',desc:'在线问卷调查'},
+    {name:'问卷星',url:'https://www.wjx.cn/',desc:'在线问卷平台'},
+    {name:'腾讯文档',url:'https://docs.qq.com/',desc:'在线协作文档'},
+    {name:'飞书文档',url:'https://www.feishu.cn/',desc:'字节在线协作工具'},
+    {name:'Notion',url:'https://www.notion.so/',desc:'笔记和协作工具'},
+    {name:'Excalidraw白板',url:'https://excalidraw.com/',desc:'手绘风格白板工具'},
+  ],
+  'translate': [
+    {name:'DeepL翻译',url:'https://www.deepl.com/zh/translator',desc:'最精准的AI翻译工具'},
+    {name:'谷歌翻译',url:'https://translate.google.com/',desc:'谷歌官方翻译'},
+    {name:'谷歌翻译镜像-备用',url:'https://translate.3822808.com/',desc:'国内可用谷歌翻译'},
+    {name:'谷歌翻译镜像-备用2',url:'https://fsoufsou.com/translate',desc:'国内可用谷歌翻译'},
+    {name:'有道翻译',url:'https://fanyi.youdao.com/',desc:'网易有道翻译'},
+    {name:'阿里翻译',url:'https://translate.alibaba.com/',desc:'阿里官方多语言翻译'},
+    {name:'火山翻译',url:'https://translate.volcengine.com/',desc:'字节跳动翻译工具'},
+  ],
+  'plugins': [
+    {name:'Crx搜搜',url:'https://www.crxsoso.com/',desc:'Chrome插件搜索下载'},
+    {name:'极简插件',url:'https://chrome.zzzmh.cn/',desc:'国内Chrome插件镜像'},
+    {name:'Chrome应用商店',url:'https://chromewebstore.google.com/',desc:'Chrome官方插件商店'},
+    {name:'AliPrice购物助手-1688',url:'https://chromewebstore.google.com/detail/aliprice%E8%B4%AD%E7%89%A9%E5%8A%A9%E6%89%8B-1688/dioeaejkipkfjoljnecgcgfhjcdpfpad',desc:'1688同款货源图搜索'},
+    {name:'1688以图搜货',url:'https://chromewebstore.google.com/detail/1688%E4%BB%A5%E5%9B%BE%E6%90%9C%E8%B4%A7/alibaba-image-search/jpigaejfkpignhcgcicaoamojjekapo',desc:'1688图片搜索同款'},
+    {name:'Alibaba以图搜图',url:'https://chromewebstore.google.com/detail/alibaba-com-search-by-ima/klkanpnlhcfpekejgcdcbjmkoopgkpj',desc:'阿里国际站以图搜图'},
+    {name:'GetEmail获取邮箱',url:'https://chromewebstore.google.com/detail/getemail%E9%82%AE%E7%AE%B1%E8%8E%8E%E5%8F%96%E5%B7%A5%E5%85%B7/odhpclgigbbljhnpjifaoobgkphdpdpc',desc:'一键抓取网页邮箱'},
+    {name:'Instant Data Scraper',url:'https://chromewebstore.google.com/detail/instant-data-scraper/efaerngfljkmfodmlnjanhaibmfplfpf',desc:'自动提取网页表格数据'},
+    {name:'豆包AI助手',url:'https://chromewebstore.google.com/detail/豆包pc%E7%89%88%E6%9C%AC/chpkicpcfdbjdikpijlghibdgoponabo',desc:'豆包浏览器AI助手'},
+    {name:'油猴 Tampermonkey',url:'https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo',desc:'脚本管理器'},
+    {name:'视频下载器 CocoCut',url:'https://chromewebstore.google.com/detail/cocobut-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%99%A8/liglcopgcbnpncgbidpgndofnbnbpgfa',desc:'网页视频下载插件'},
+  ],
+  'business': [
+    {name:'外贸英文缩写查询',url:'https://www.allacronyms.com/',desc:'外贸常用英文缩写'},
+    {name:'EDM邮件页面制作',url:'https://beefree.io/templates',desc:'外贸邮件模板设计'},
+    {name:'邮件签名生成器',url:'https://mysignature.io/editor',desc:'美化邮件签名'},
+    {name:'邮箱质量验证',url:'https://www.neverbounce.com/',desc:'验证客户邮箱有效性'},
+    {name:'邮件标题检查器',url:'https://coschedule.com/headline-analyzer',desc:'分析邮件标题评分'},
+    {name:'QuillBot语法检查',url:'https://quillbot.com/',desc:'邮件/话术语法纠错'},
+    {name:'红板砖开发信',url:'https://hongbanzhuan.com/',desc:'外贸开发信模板工具'},
+    {name:'祝福话术生成器',url:'https://www.wishesmsg.com/',desc:'各类节日祝福语英文版'},
+    {name:'Good Email Copy',url:'https://goodemailcopy.com/',desc:'各品牌优秀邮件文案'},
+    {name:'各国企查-OpenCorporates',url:'https://opencorporates.com/',desc:'全球企业信息免费查询'},
+    {name:'英国企业查询House',url:'https://find-and-update.company-information.service.gov.uk/',desc:'英国官方公司注册局'},
+    {name:'美国Dun & Bradstreet',url:'https://www.dnb.com/',desc:'美国企业信用评估'},
+    {name:'Crunchbase融资数据',url:'https://www.crunchbase.com/',desc:'美国科技公司融资'},
+    {name:'Manta小企业数据库',url:'https://www.manta.com/',desc:'美国小企业数据库'},
+    {name:'澳洲企业查询',url:'https://au.companiesdb.net/',desc:'澳大利亚公司查询'},
+    {name:'东南亚Keepital',url:'https://www.keepital.com/',desc:'东南亚企业目录'},
+    {name:'中东Dubiki',url:'https://www.dubiki.com/en/',desc:'中东企业信息查询'},
+    {name:'广交会官网',url:'https://www.cantonfair.org.cn/',desc:'中国进出口商品交易会'},
+    {name:'世展网',url:'https://www.shifair.com/',desc:'全球展会信息平台'},
+    {name:'砺展展览',url:'https://www.expodmc.com/',desc:'国际展会服务商'},
+    {name:'10Times展会网',url:'https://www.10times.com/',desc:'全球展会日历'},
   ],
   'company': [
     {name:'OpenCorporates全球企业',url:'https://opencorporates.com/',desc:'全球企业信息免费查询'},
@@ -857,14 +944,6 @@ const TOOLS = {
     {name:'中东Dubiki',url:'https://www.dubiki.com/en/',desc:'中东企业信息查询'},
     {name:'澳洲企业查询',url:'https://au.companiesdb.net/',desc:'澳大利亚公司信息查询'},
   ],
-  'ip': [
-    {name:'SooPAT专利搜索',url:'https://www.soopat.com/',desc:'中国专利检索数据库'},
-    {name:'中国商标网',url:'https://cas.sbj.cnipa.gov.cn/',desc:'国家知识产权局商标查询'},
-    {name:'专利检索分析系统',url:'https://pss-system.cponline.cnipa.gov.cn/',desc:'中国官方专利检索'},
-    {name:'品牌检索工具',url:'https://hz-productposting.alibaba.com/brandprotect/index.htm',desc:'阿里国际站品牌保护'},
-    {name:'Trademarkia商标查询',url:'https://www.trademarkia.com/',desc:'全球商标数据库查询'},
-    {name:'谷歌专利查询',url:'https://patents.google.com/',desc:'Google Patents全球专利'},
-  ],
   'email': [
     {name:'祝福话术生成器',url:'https://www.wishesmsg.com/',desc:'各类节日祝福语英文版'},
     {name:'Good Email Copy',url:'https://goodemailcopy.com/',desc:'各品牌优秀邮件文案参考'},
@@ -872,6 +951,26 @@ const TOOLS = {
     {name:'QuillBot语法检查',url:'https://quillbot.com/',desc:'邮件/话术语法纠错'},
     {name:'邮件签名生成器',url:'https://mysignature.io/editor',desc:'美化邮件签名'},
     {name:'邮件标题检查器',url:'https://coschedule.com/headline-analyzer',desc:'分析邮件标题吸引力评分'},
+  ],
+  'common': [
+    {name:'filecr破解软件',url:'https://filecr.com/windows',desc:'Windows软件资源下载'},
+    {name:'Pandownload网盘',url:'https://wwt.lanzoue.com/i7E480gyurwf',desc:'百度网盘下载助手'},
+    {name:'UTool效率工具',url:'https://u.tools/',desc:'新一代效率工具'},
+    {name:'Quicker鼠标工具箱',url:'https://getquicker.net/',desc:'鼠标快捷操作工具'},
+    {name:'多译翻译效率',url:'https://duoyiapp.com/',desc:'翻译效率工具'},
+    {name:'Listen1跨平台音乐',url:'http://listen1.github.io/listen1/',desc:'跨平台音乐播放'},
+    {name:'Snipaste截图神器',url:'https://zh.snipaste.com/',desc:'截图+贴图工具'},
+    {name:'IDM下载器',url:'https://www.423down.com/575.html',desc:'多线程下载工具'},
+    {name:'CopyTranslator开源翻译',url:'https://copytranslator.github.io/download/',desc:'开源翻译工具'},
+    {name:'PicGo图床软件',url:'https://molunerfinn.com/PicGo/',desc:'图床上传工具'},
+    {name:'7-zip解压缩',url:'https://www.7-zip.org/',desc:'免费解压缩软件'},
+    {name:'ToDesk远程操控',url:'https://www.todesk.com/',desc:'远程桌面控制'},
+    {name:'Unison跨设备传输',url:'https://apps.microsoft.com/store/detail/intel%C2%AE-unison%E2%84%A2/9PP9GZM2GN26',desc:'跨设备文件传输'},
+    {name:'PixPin截图贴图',url:'https://pixpinapp.com/',desc:'截图+贴图工具'},
+    {name:'Flameshot截图',url:'https://flameshot.org/',desc:'截图工具支持MAC/Win'},
+    {name:'在线转盘',url:'https://wheelpage.com/zh/',desc:'随机选择工具'},
+    {name:'Steam游戏平台',url:'https://store.steampowered.com/about/',desc:'游戏平台'},
+    {name:'在线免费听歌',url:'https://tool.liumingye.cn/music/',desc:'免费音乐在线听'},
   ],
   'exhibition': [
     {name:'广交会官网',url:'https://www.cantonfair.org.cn/',desc:'中国进出口商品交易会'},
@@ -882,57 +981,102 @@ const TOOLS = {
     {name:'EventsEye展会目录',url:'https://www.eventseye.com/',desc:'欧洲展会数据库'},
     {name:'Trade Fair Dates',url:'https://www.tradefairdates.com/',desc:'全球贸易展会日历'},
   ],
+  'books': [
+    {name:'社会心理学',url:'https://book.douban.com/subject/33457842/',desc:'豆瓣 9.4分'},
+    {name:'营销管理',url:'https://book.douban.com/subject/33442312/',desc:'豆瓣 9.0分'},
+    {name:'心理学与生活',url:'https://book.douban.com/subject/33441908/',desc:'豆瓣 9.2分'},
+    {name:'沟通的艺术',url:'https://book.douban.com/subject/33442208/',desc:'豆瓣 8.8分'},
+    {name:'影响力',url:'https://book.douban.com/subject/33441882/',desc:'豆瓣 8.7分'},
+    {name:'高效能人士的七个习惯',url:'https://book.douban.com/subject/33441976/',desc:'豆瓣 8.5分'},
+    {name:'自控力',url:'https://book.douban.com/subject/33441982/',desc:'豆瓣 8.2分'},
+    {name:'金字塔原理',url:'https://book.douban.com/subject/33442032/',desc:'豆瓣 8.1分'},
+    {name:'思考，快与慢',url:'https://book.douban.com/subject/33441974/',desc:'豆瓣 8.1分'},
+    {name:'乌合之众',url:'https://book.douban.com/subject/33441900/',desc:'豆瓣 8.1分'},
+    {name:'习惯的力量',url:'https://book.douban.com/subject/33442000/',desc:'豆瓣 8.0分'},
+    {name:'怪诞行为学',url:'https://book.douban.com/subject/33442001/',desc:'豆瓣 7.9分'},
+    {name:'刻意练习',url:'https://book.douban.com/subject/33442002/',desc:'豆瓣 7.8分'},
+    {name:'引爆点',url:'https://book.douban.com/subject/33442003/',desc:'豆瓣 7.6分'},
+    {name:'上瘾',url:'https://book.douban.com/subject/33442004/',desc:'豆瓣 7.4分'},
+    {name:'牛奶可乐经济学',url:'https://book.douban.com/subject/33442005/',desc:'豆瓣 6.8分'},
+  ],
+  'entertainment': [
+    {name:'555电影',url:'https://www.555k9.com/',desc:'高清电影在线观看'},
+    {name:'影视工厂',url:'https://www.iysgc.com/',desc:'影视资源平台'},
+    {name:'Browse TikToks',url:'https://tik.fail/',desc:'TikTok国内镜像'},
+    {name:'河狸影视',url:'https://www.heli999.com/',desc:'影视在线观看'},
+    {name:'茶杯狐',url:'https://cupfox.app/',desc:'影视搜索聚合'},
+    {name:'鸭奈飞Netflix追剧',url:'https://yanetflix.com/',desc:'Netflix追剧资源'},
+    {name:'在线之家',url:'https://www.zxzjhd.com/',desc:'高清影视资源'},
+    {name:'电影先生',url:'https://dianyi.ng/',desc:'电影推荐平台'},
+    {name:'哔哩哔哩',url:'https://www.bilibili.com/',desc:'B站视频弹幕'},
+    {name:'厂长资源',url:'https://www.czzyhd.com/',desc:'影视资源站'},
+    {name:'莫扎兔',url:'https://www.mozhatu.com/',desc:'影视资源'},
+    {name:'喜马拉雅',url:'https://www.ximalaya.com/',desc:'音频知识平台'},
+    {name:'此刻(每日一部电影)',url:'https://www.cikeee.com/',desc:'每日推荐一部电影'},
+    {name:'白噪音魔盒',url:'http://a.huasen.cc/server/public/app/white-noise/index.html',desc:'白噪音助专注'},
+    {name:'好好看影视',url:'https://www.hhkan0.com/',desc:'在线影视'},
+    {name:'发现TV',url:'https://faxiantv.com/',desc:'在线电视直播'},
+    {name:'LIBOVIO',url:'https://libvio.link/',desc:'影视资源'},
+    {name:'HDmoli',url:'https://www.hdmoli.pro/',desc:'高清影视'},
+    {name:'电影猫推荐',url:'https://www.mvcat.com',desc:'电影推荐引擎'},
+    {name:'bttwo',url:'https://bttwoo.com/',desc:'影视资源'},
+    {name:'注视影视',url:'https://gaze.run/',desc:'在线观影'},
+    {name:'5点电影',url:'https://www.5.movie/',desc:'高清电影'},
+    {name:'爱美剧',url:'https://www.imeijutv.cc/',desc:'美剧资源'},
+    {name:'努努影院',url:'https://nnyy.la/',desc:'在线影院'},
+    {name:'FREEOK综艺',url:'https://freeok.lol/label/hot.html',desc:'综艺电视剧'},
+    {name:'电影狗',url:'https://www.dianyinggou.com/',desc:'影视搜索'},
+    {name:'抖音',url:'https://www.douyin.com/',desc:'短视频平台'},
+    {name:'快手',url:'https://www.kuaishou.com/',desc:'短视频平台'},
+  ],
 };
 
 // ── 本地报告存储 ──
-const REPORTS_KEY = 'ixlu_reports_v3';
+const REPORTS_KEY = 'ixlu_reports_v4';
 const REPORTS_INIT = [
   {name:'Karseell 卡塞尔品牌调研报告',url:'https://ixlu6.github.io/reports/karseell-brand-report.html',type:'品牌',desc:'深海军蓝+琥珀金 · Intelligence风格',date:'2026-04-15'},
   {name:'全球美发热门成分调研报告',url:'https://ixlu6.github.io/reports/global-ingredients-report.html',type:'成分',desc:'深蓝绿+薄荷绿 · 科技健康风格',date:'2026-04-15'},
-  {name:'全球沐浴露身体乳调研报告',url:'https://ixlu6.github.io/reports/bath-body-report.html',type:'市场',desc:'珊瑚粉+暖橙色 · 沐浴露专属风格',date:'2026-04-15'},
+  {name:'全球沐浴露身体乳调研报告',url:'https://ixlu6.github.io/reports/bath-body-report.html',type:'市场',desc:'珊瑚粉+暖橙色',date:'2026-04-15'},
   {name:'洗发水新兴品牌调研报告',url:'https://ixlu6.github.io/reports/shampoo-brand-report.html',type:'品牌',desc:'新增',date:'2026-04-15'},
 ];
 function getReports() {
-  try {
-    const s = JSON.parse(localStorage.getItem(REPORTS_KEY));
-    if (s && s.length > 0) return s;
-  } catch(e) {}
-  localStorage.setItem(REPORTS_KEY, JSON.stringify(REPORTS_INIT));
-  return REPORTS_INIT;
+  try { const s = JSON.parse(localStorage.getItem(REPORTS_KEY)); if (s && s.length > 0) return s; } catch(e) {}
+  localStorage.setItem(REPORTS_KEY, JSON.stringify(REPORTS_INIT)); return REPORTS_INIT;
 }
 function saveReports(arr) { localStorage.setItem(REPORTS_KEY, JSON.stringify(arr)); }
 
 // ── 工具函数 ──
-function escHtml(s) {
-  if (!s) return '';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function escHtml(s) { if (!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function getHost(url) { try { return new URL(url).hostname; } catch { return url; } }
 
-function getHostname(url) {
-  try { return new URL(url).hostname; } catch { return url; }
-}
-
-function makeToolCard(t) {
+function makeCard(t) {
   return `<a class="tool-card" href="${escHtml(t.url)}" target="_blank">
     <div class="tool-card-top">
       <div class="tool-favicon">
-        <img src="https://www.google.com/s2/favicons?domain=${encodeURIComponent(getHostname(t.url))}&sz=32"
+        <img src="https://www.google.com/s2/favicons?domain=${encodeURIComponent(getHost(t.url))}&sz=32"
              onerror="this.style.display='none';this.parentElement.textContent='🔗'">
       </div>
       <div class="tool-name">${escHtml(t.name)}</div>
     </div>
     ${t.desc ? `<div class="tool-desc">${escHtml(t.desc)}</div>` : ''}
-    <div class="tool-url">${escHtml(getHostname(t.url))}</div>
+    <div class="tool-url">${escHtml(getHost(t.url))}</div>
   </a>`;
 }
 
-// ── 渲染报告 ──
+function makeBookCard(b) {
+  return `<a class="book-card" href="${escHtml(b.url)}" target="_blank">
+    <div class="book-name">${escHtml(b.name)}</div>
+    <div class="book-rating">⭐ ${escHtml(b.desc)}</div>
+  </a>`;
+}
+
+// ── 渲染 ──
 function renderReports() {
   const reports = getReports();
   document.getElementById('count-reports').textContent = reports.length + ' 份';
   const grid = document.getElementById('reports-grid');
   grid.innerHTML = reports.length === 0
-    ? '<p style="color:var(--text3);font-size:13px;padding:20px 0;">还没有报告，发给我即可自动添加到这里</p>'
+    ? '<p style="color:var(--text3);font-size:13px;padding:16px 0;">还没有报告，发给我即可自动添加</p>'
     : reports.map((r,i) => `
         <div class="report-card">
           <div class="report-type">${escHtml(r.type)}报告</div>
@@ -942,42 +1086,53 @@ function renderReports() {
             <span class="report-date">${r.date||''}</span>
             <a class="btn-report" href="${escHtml(r.url)}" target="_blank">查看 →</a>
           </div>
-          <div style="text-align:right;margin-top:6px;">
-            <button onclick="delReport(${i})" style="background:none;border:none;color:var(--text3);font-size:11px;cursor:pointer;font-family:inherit;">🗑 删除</button>
+          <div style="text-align:right;margin-top:5px;">
+            <button onclick="delReport(${i})" style="background:none;border:none;color:var(--text3);font-size:10px;cursor:pointer;font-family:inherit;">🗑 删除</button>
           </div>
         </div>`).join('');
 }
+function delReport(i) { const a=getReports();a.splice(i,1);saveReports(a);renderReports(); }
 
-function delReport(i) {
-  const arr = getReports(); arr.splice(i,1); saveReports(arr); renderReports();
-}
-
-// ── 渲染所有工具分类 ──
+// ── 渲染所有分类 ──
 Object.keys(TOOLS).forEach(key => {
   const grid = document.getElementById('grid-' + key);
-  if (grid) grid.innerHTML = TOOLS[key].map(makeToolCard).join('');
+  if (grid) grid.innerHTML = TOOLS[key].map(makeCard).join('');
 });
+// 书单单独处理
+const booksGrid = document.getElementById('grid-books');
+if (booksGrid) booksGrid.innerHTML = TOOLS['books'].map(makeBookCard).join('');
 
 // ── 统计 ──
 let total = 0;
-Object.values(TOOLS).forEach(arr => total += arr.length);
+Object.values(TOOLS).forEach(a => total += a.length);
 document.getElementById('stat-total').textContent = total;
 
 // ── 侧边栏滚动高亮 ──
 const sections = document.querySelectorAll('.section-wrap');
 const sidebarBtns = document.querySelectorAll('.sidebar-btn');
-
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
       sidebarBtns.forEach(b => b.classList.remove('active'));
-      const btn = document.querySelector(`.sidebar-btn[href="#${entry.target.id}"]`);
+      const btn = document.querySelector(`.sidebar-btn[href="#${e.target.id}"]`);
       if (btn) btn.classList.add('active');
     }
   });
-}, { rootMargin: '-60px 0px -60% 0px', threshold: 0 });
-
+}, { rootMargin: '-60px 0px -65% 0px', threshold: 0 });
 sections.forEach(s => obs.observe(s));
+
+// ── 滚动定位 ──
+function smoothScroll(e, el) {
+  e.preventDefault();
+  const id = el.getAttribute('href').slice(1);
+  const target = document.getElementById(id);
+  if (target) {
+    const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+  sidebarBtns.forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
 
 // ── 初始化 ──
 renderReports();
