@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凯乔运营中心</title>
+<style>
+  :root {
+    --bg: #080c14;
+    --surface: #0f1623;
+    --surface2: #162033;
+    --border: #1e2d45;
+    --accent: #4a9eff;
+    --accent2: #7c6aff;
+    --gold: #f0b94a;
+    --text: #e0e8f4;
+    --text2: #7a90b0;
+    --green: #34d399;
+    --red: #f87171;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(74,158,255,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 20%, rgba(124,106,255,0.08) 0%, transparent 50%);
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(8,12,20,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .header-brand {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 18px; font-weight: 700;
+    color: var(--text);
+  }
+  .header-brand .logo {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: #fff;
+  }
+  .header-brand span { color: var(--text2); font-weight: 400; font-size: 14px; }
+  .header-actions { display: flex; gap: 10px; }
+  .header-actions a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .header-actions a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 64px 32px 48px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 40%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .hero p { color: var(--text2); font-size: 15px; line-height: 1.6; }
+
+  /* ── Container ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ── Section ── */
+  .section { margin-bottom: 56px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .section-header h2 { font-size: 18px; font-weight: 700; }
+  .section-header .count {
+    font-size: 12px; color: var(--text2);
+    background: var(--surface2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+  .section-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  /* ── Add Form ── */
+  .add-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .form-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .form-row input, .form-row select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 14px;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+  }
+  .form-row input:focus, .form-row select:focus {
+    border-color: var(--accent);
+  }
+  .form-row input.url-input { flex: 1; min-width: 200px; }
+  .form-row input.name-input { width: 160px; }
+  .form-row input.desc-input { flex: 1; min-width: 200px; }
+  .form-row select { width: 140px; }
+  .form-row input::placeholder { color: var(--text2); }
+  .btn {
+    padding: 9px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(74,158,255,0.3); }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text2);
+  }
+  .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── Cards Grid ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  /* ── Link Card ── */
+  .link-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .link-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .link-card:hover::before { opacity: 1; }
+
+  .link-card .card-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .link-card .card-favicon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: var(--surface2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .link-card .card-favicon img { width: 20px; height: 20px; object-fit: contain; }
+  .link-card .card-tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .tag-tool { background: rgba(74,158,255,0.15); color: var(--accent); }
+  .tag-report { background: rgba(240,185,74,0.15); color: var(--gold); }
+  .tag-social { background: rgba(52,211,153,0.15); color: var(--green); }
+  .tag-other { background: rgba(122,144,176,0.15); color: var(--text2); }
+  .link-card .card-title {
+    font-size: 15px; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .link-card .card-url {
+    font-size: 12px;
+    color: var(--text2);
+    word-break: break-all;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .link-card .card-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .link-card .card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .link-card .card-date { font-size: 11px; color: var(--text2); }
+  .link-card .card-actions { display: flex; gap: 6px; }
+  .card-actions a, .card-actions button {
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text2);
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .card-actions a:hover, .card-actions button:hover { color: var(--accent); border-color: var(--accent); }
+  .card-actions .del-btn:hover { color: var(--red); border-color: var(--red); }
+
+  /* ── Report Card ── */
+  .report-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .report-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .report-card .report-type {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .report-card .report-title {
+    font-size: 15px; font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .report-card .report-date {
+    font-size: 12px; color: var(--text2);
+    margin-bottom: 14px;
+  }
+  .report-card .report-footer { display: flex; align-items: center; justify-content: space-between; }
+  .btn-report {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--gold);
+    background: rgba(240,185,74,0.1);
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-report:hover { background: rgba(240,185,74,0.2); transform: translateY(-1px); }
+
+  /* ── Empty State ── */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text2);
+  }
+  .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.4; }
+  .empty-state p { font-size: 14px; }
+
+  /* ── Stats Bar ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .stat-card .stat-num {
+    font-size: 32px; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .stat-card .stat-label { font-size: 13px; color: var(--text2); }
+  .stat-card:nth-child(2) .stat-num { background: linear-gradient(135deg, var(--gold), #ff9a3c); -webkit-text-fill-color: transparent; }
+  .stat-card:nth-child(3) .stat-num { background: linear-gradient(135deg, var(--green), #6ee7b7); -webkit-text-fill-color: transparent; }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--text2);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 26px; }
+    .stats-bar { grid-template-columns: 1fr; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .form-row { flex-direction: column; }
+    .form-row input, .form-row select { width: 100% !important; }
+    header { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div class="header-brand">
+    <div class="logo">凯</div>
+    <div>
+      凯乔运营中心
+      <span>· 个人工具仪表盘</span>
+    </div>
+  </div>
+  <div class="header-actions">
+    <a href="https://ixlu6.github.io/reports/" target="_blank">📁 所有报告</a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <h1>Welcome Back 👋</h1>
+  <p>你的专属运营工具箱。把常用链接和报告永久收藏在这里，随时访问永不丢失。<br>发链接给我 → 自动添加到这里</p>
+</div>
+
+<div class="container">
+
+  <!-- ── Stats ── -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-num" id="stat-links">0</div>
+      <div class="stat-label">常用工具链接</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-reports">0</div>
+      <div class="stat-label">报告存档</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-date"></div>
+      <div class="stat-label">最后更新</div>
+    </div>
+  </div>
+
+  <!-- ── 常用链接 ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(74,158,255,0.15);">🔗</div>
+      <h2>常用工具</h2>
+      <div class="count" id="count-links">0 个</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="add-form" id="link-form">
+      <div class="form-row">
+        <input class="url-input" id="inp-url" placeholder="https://..." type="url">
+        <input class="name-input" id="inp-name" placeholder="名称（如：阿里国际站）">
+        <select id="inp-tag">
+          <option value="tool">工具</option>
+          <option value="social">社交媒体</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <input class="desc-input" id="inp-desc" placeholder="简短描述（可选）">
+        <button class="btn btn-primary" onclick="addLink()">➕ 添加链接</button>
+      </div>
+    </div>
+    <div class="cards-grid" id="links-grid">
+      <!-- 动态渲染 -->
+    </div>
+  </div>
+
+  <!-- ── 报告存档 ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(240,185,74,0.15);">📊</div>
+      <h2>报告存档</h2>
+      <div class="count" id="count-reports">0 份</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="add-form" id="report-form">
+      <div class="form-row">
+        <input class="url-input" id="inp-report-url" placeholder="https://ixlu6.github.io/reports/..." type="url">
+        <input class="name-input" id="inp-report-name" placeholder="报告名称">
+        <select id="inp-report-type">
+          <option value="运营">运营数据</option>
+          <option value="品牌">品牌竞调</option>
+          <option value="成分">成分调研</option>
+          <option value="市场">市场调研</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <input class="desc-input" id="inp-report-desc" placeholder="备注（可选）">
+        <button class="btn btn-primary" onclick="addReport()">➕ 添加报告</button>
+      </div>
+    </div>
+    <div class="cards-grid" id="reports-grid">
+      <!-- 动态渲染 -->
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  凯乔运营中心 · 广州市程熙化妆品有限公司<br>
+  由 WorkBuddy AI 驱动 · <a href="https://ixlu6.github.io/reports/" target="_blank">GitHub Pages</a>
+</footer>
+
+<script>
+// ── 数据（由外部JSON文件加载，这里做兜底）──
+const LINKS_KEY = 'kaijoe_links';
+const REPORTS_KEY = 'kaijoe_reports';
+
+function getLinks() {
+  try { return JSON.parse(localStorage.getItem(LINKS_KEY)) || defaultLinks(); }
+  catch { return defaultLinks(); }
+}
+function getReports() {
+  try { return JSON.parse(localStorage.getItem(REPORTS_KEY)) || defaultReports(); }
+  catch { return defaultReports(); }
+}
+
+function defaultLinks() { return []; }
+function defaultReports() { return []; }
+
+function saveLinks(arr) { localStorage.setItem(LINKS_KEY, JSON.stringify(arr)); }
+function saveReports(arr) { localStorage.setItem(REPORTS_KEY, JSON.stringify(arr)); }
+
+// ── 渲染 ──
+function render() {
+  const links = getLinks();
+  const reports = getReports();
+
+  // Stats
+  document.getElementById('stat-links').textContent = links.length;
+  document.getElementById('stat-reports').textContent = reports.length;
+  document.getElementById('count-links').textContent = links.length + ' 个';
+  document.getElementById('count-reports').textContent = reports.length + ' 份';
+  const today = new Date();
+  document.getElementById('stat-date').textContent = (today.getMonth()+1) + '/' + today.getDate();
+
+  // Links
+  const linksGrid = document.getElementById('links-grid');
+  if (links.length === 0) {
+    linksGrid.innerHTML = '<div class="empty-state"><div class="empty-icon">🔗</div><p>还没有链接，填写上方表单添加吧</p></div>';
+  } else {
+    linksGrid.innerHTML = links.map((l, i) => `
+      <div class="link-card">
+        <div class="card-top">
+          <div class="card-favicon">
+            <img src="https://www.google.com/s2/favicons?domain=${encodeURIComponent(l.url)}&sz=32" onerror="this.style.display='none';this.parentElement.textContent='🔗'">
+          </div>
+          <span class="card-tag tag-${l.tag}">${tagLabel(l.tag)}</span>
+        </div>
+        <div class="card-title">${escHtml(l.name)}</div>
+        <div class="card-url">${escHtml(l.url)}</div>
+        ${l.desc ? `<div class="card-desc">${escHtml(l.desc)}</div>` : ''}
+        <div class="card-footer">
+          <span class="card-date">${l.date || ''}</span>
+          <div class="card-actions">
+            <a href="${escHtml(l.url)}" target="_blank">打开</a>
+            <button class="del-btn" onclick="delLink(${i})">删除</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Reports
+  const reportsGrid = document.getElementById('reports-grid');
+  if (reports.length === 0) {
+    reportsGrid.innerHTML = '<div class="empty-state"><div class="empty-icon">📊</div><p>还没有报告，发给我即可自动添加到这里</p></div>';
+  } else {
+    reportsGrid.innerHTML = reports.map((r, i) => `
+      <div class="report-card">
+        <div class="report-type">${escHtml(r.type)}报告</div>
+        <div class="report-title">${escHtml(r.name)}</div>
+        ${r.desc ? `<div class="card-desc" style="font-size:12px;color:var(--text2);margin-bottom:10px;">${escHtml(r.desc)}</div>` : ''}
+        <div class="report-footer">
+          <span class="report-date">${r.date || ''}</span>
+          <a class="btn-report" href="${escHtml(r.url)}" target="_blank">查看报告 →</a>
+        </div>
+        <div style="margin-top:10px;text-align:right;">
+          <button class="del-btn" style="font-size:11px;" onclick="delReport(${i})">删除</button>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function tagLabel(tag) {
+  return {tool:'工具',social:'社交',other:'其他'}[tag] || '工具';
+}
+function escHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function addLink() {
+  const url = document.getElementById('inp-url').value.trim();
+  const name = document.getElementById('inp-name').value.trim();
+  const tag = document.getElementById('inp-tag').value;
+  const desc = document.getElementById('inp-desc').value.trim();
+  if (!url || !name) { alert('请填写链接和名称'); return; }
+  const links = getLinks();
+  links.unshift({ url, name, tag, desc, date: new Date().toLocaleDateString('zh-CN') });
+  saveLinks(links);
+  render();
+  document.getElementById('inp-url').value = '';
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-desc').value = '';
+}
+function addReport() {
+  const url = document.getElementById('inp-report-url').value.trim();
+  const name = document.getElementById('inp-report-name').value.trim();
+  const type = document.getElementById('inp-report-type').value;
+  const desc = document.getElementById('inp-report-desc').value.trim();
+  if (!url || !name) { alert('请填写报告链接和名称'); return; }
+  const reports = getReports();
+  reports.unshift({ url, name, type, desc, date: new Date().toLocaleDateString('zh-CN') });
+  saveReports(reports);
+  render();
+  document.getElementById('inp-report-url').value = '';
+  document.getElementById('inp-report-name').value = '';
+  document.getElementById('inp-report-desc').value = '';
+}
+function delLink(i) { const links = getLinks(); links.splice(i,1); saveLinks(links); render(); }
+function delReport(i) { const reports = getReports(); reports.splice(i,1); saveReports(reports); render(); }
+
+// 回车快捷提交
+document.getElementById('inp-url').addEventListener('keydown', e => { if(e.key==='Enter') addLink(); });
+document.getElementById('inp-name').addEventListener('keydown', e => { if(e.key==='Enter') addLink(); });
+document.getElementById('inp-report-url').addEventListener('keydown', e => { if(e.key==='Enter') addReport(); });
+document.getElementById('inp-report-name').addEventListener('keydown', e => { if(e.key==='Enter') addReport(); });
+
+// 初始化（预填已有报告）
+const _initReports = [
+  { name: 'Karseell 卡塞尔品牌深度调研报告', url: 'https://ixlu6.github.io/reports/karseell-brand-report.html', type: '品牌', desc: '卡塞尔品牌竞调 · 海军蓝+琥珀金风格', date: '2026-04-15' },
+  { name: '全球美发热门成分调研报告', url: 'https://ixlu6.github.io/reports/global-ingredients-report.html', type: '成分', desc: '蓝绿科技健康风格', date: '2026-04-15' },
+  { name: '全球沐浴露身体乳升级版调研报告', url: 'https://ixlu6.github.io/reports/bath-body-report.html', type: '市场', desc: '珊瑚粉+暖橙色风格', date: '2026-04-15' },
+  { name: '洗发水新兴品牌深度调研报告', url: 'https://ixlu6.github.io/reports/shampoo-brand-report.html', type: '品牌', desc: '新增 · 2026-04-15', date: '2026-04-15' },
+];
+const existing = getReports();
+if (existing.length === 0) {
+  saveReports(_initReports);
+}
+
+render();
+</script>
+</body>
+</html>
