@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球美发热门成分调研报告 2026年3月</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Serif SC', 'Lora', serif;
+  background: #F5F0E8;
+  color: #2C1810;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(74, 124, 89, 0.97);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.nav-title {
+  color: #F5F0E8;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nav-link {
+  color: rgba(245,240,232,0.85);
+  text-decoration: none;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-link:hover { background: rgba(255,255,255,0.2); color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #2D5A27 0%, #4A7C59 40%, #7A9E6B 70%, #C8956C 100%);
+  color: #fff;
+  padding: 100px 60px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,149,108,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; left: -10%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(74,124,89,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(200,149,108,0.9);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  font-family: 'Lora', serif;
+}
+.hero h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+.hero-meta {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.hero-meta-item {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 14px 22px;
+  backdrop-filter: blur(5px);
+}
+.hero-meta-item .label {
+  font-size: 11px;
+  opacity: 0.75;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+.hero-meta-item .value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ── INTRO ── */
+.intro-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 30px;
+}
+.intro-text {
+  background: linear-gradient(135deg, #fff 0%, #FAF7F2 100%);
+  border-left: 4px solid #4A7C59;
+  border-radius: 0 16px 16px 0;
+  padding: 28px 32px;
+  font-size: 15px;
+  color: #3D2B1F;
+  box-shadow: 0 4px 20px rgba(74,124,89,0.08);
+}
+.intro-text p { margin-bottom: 12px; }
+.legend-box {
+  background: linear-gradient(135deg, #4A7C59, #7A9E6B);
+  color: #fff;
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin-top: 16px;
+  font-size: 13.5px;
+}
+.legend-box strong { color: #F5D9A8; }
+
+/* ── SECTION ── */
+.section { padding: 60px 30px; max-width: 1100px; margin: 0 auto; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+.section-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #2C1810;
+}
+.section-title-en {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: #8B6343;
+  font-style: italic;
+  margin-top: 2px;
+}
+.section-desc {
+  font-size: 14px;
+  color: #6B5040;
+  margin-top: 4px;
+  max-width: 700px;
+}
+.section-divider {
+  height: 2px;
+  background: linear-gradient(to right, currentColor, transparent);
+  opacity: 0.2;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* ── TABLE ── */
+.table-wrap {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(74,124,89,0.1);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+thead th {
+  background: linear-gradient(135deg, #4A7C59, #5C946E);
+  color: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+thead th:first-child { width: 40px; text-align: center; }
+tbody tr { border-bottom: 1px solid #F0EBE3; transition: background 0.15s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #F9F6F0; }
+td { padding: 13px 16px; vertical-align: top; }
+td:first-child { text-align: center; font-weight: 700; color: #8B6343; font-size: 13px; }
+.name-cn { font-weight: 600; color: #2C1810; margin-bottom: 2px; }
+.name-en { font-size: 11.5px; color: #8B6343; font-family: 'Lora', serif; font-style: italic; }
+.stars { color: #C8956C; letter-spacing: 1px; font-size: 14px; }
+.stars-low { color: #D4B896; }
+.tag {
+  display: inline-block;
+  background: #F0EBE3;
+  color: #6B5040;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  margin: 1px;
+}
+.tag-primary { background: #E8F4EB; color: #4A7C59; }
+
+/* ── PRODUCT GUIDE ── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(74,124,89,0.1);
+  transition: transform 0.2s;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card-header {
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.product-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.product-card-title { font-size: 16px; font-weight: 700; color: #2C1810; }
+.product-card-subtitle { font-size: 11px; color: #8B6343; font-family: 'Lora', serif; font-style: italic; margin-top: 2px; }
+.product-list { list-style: none; padding: 0 22px 20px; }
+.product-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #F0EBE3;
+  font-size: 12.5px;
+}
+.product-list li:last-child { border-bottom: none; }
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #C8956C;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ── REGULATORY ── */
+.reg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.reg-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 24px rgba(74,124,89,0.1);
+  border-top: 4px solid #4A7C59;
+}
+.reg-card-na { border-top-color: #C8956C; }
+.reg-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2C1810;
+  margin-bottom: 6px;
+}
+.reg-code { font-size: 11px; color: #8B6343; font-family: 'Lora', serif; margin-bottom: 14px; display: block; }
+.reg-item {
+  font-size: 13px;
+  color: #4A3828;
+  padding: 6px 0;
+  border-bottom: 1px dashed #F0EBE3;
+  display: flex;
+  gap: 8px;
+}
+.reg-item:last-child { border-bottom: none; }
+.reg-bullet {
+  color: #C8956C;
+  font-size: 16px;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+/* ── GLOBAL SECTION H ── */
+.global-section {
+  background: linear-gradient(135deg, #2D5A27 0%, #3D6B37 50%, #4A7C59 100%);
+  color: #fff;
+  padding: 70px 30px;
+  position: relative;
+  overflow: hidden;
+}
+.global-section::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.global-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.global-badge {
+  display: inline-block;
+  background: #C8956C;
+  color: #fff;
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.global-section .section-title { color: #fff; font-size: 30px; }
+.global-section .section-title-en { color: rgba(255,255,255,0.7); }
+.global-section .table-wrap { background: rgba(255,255,255,0.95); }
+.global-section thead th { background: linear-gradient(135deg, #C8956C, #D4A574); color: #fff; }
+.global-section td { color: #2C1810; }
+
+/* ── FOOTER ── */
+.footer {
+  background: #2D5A27;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 40px 30px;
+  font-size: 13px;
+}
+.footer strong { color: #F5D9A8; }
+
+/* ── SECTION BACKGROUNDS per region ── */
+.bg-north { background: linear-gradient(180deg, #F0F4F8 0%, #E8EEF4 100%); }
+.bg-europe { background: linear-gradient(180deg, #F8F4EF 0%, #F2EDE5 100%); }
+.bg-asia { background: linear-gradient(180deg, #F5F8F2 0%, #EDF5EA 100%); }
+.bg-africa { background: linear-gradient(180deg, #F8F5F0 0%, #F2EBE2 100%); }
+.bg-oceania { background: linear-gradient(180deg, #F0F8F5 0%, #E5F2ED 100%); }
+.bg-south { background: linear-gradient(180deg, #F8F2EF 0%, #F2EBE6 100%); }
+.bg-central { background: linear-gradient(180deg, #F5F2E8 0%, #EDE8DF 100%); }
+.bg-product { background: linear-gradient(180deg, #F5F8F2 0%, #EEF5ED 100%); padding-top: 60px; }
+.bg-regulatory { background: #F5F0E8; }
+
+/* ── SCROLL SPACER ── */
+.spacer { height: 56px; }
+
+/* ── TOC ── */
+.toc-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 30px;
+}
+.toc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: #8B6343;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.toc-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #2C1810;
+  font-size: 13.5px;
+  box-shadow: 0 2px 12px rgba(74,124,89,0.08);
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+.toc-item:hover { border-left-color: #4A7C59; transform: translateX(3px); }
+.toc-icon { font-size: 20px; flex-shrink: 0; }
+.toc-num {
+  font-size: 11px;
+  color: #8B6343;
+  font-family: 'Lora', serif;
+}
+
+/* ── STAR BADGE LEGEND ── */
+.star-legend {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.star-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6B5040;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-title">🌿 全球美发成分调研报告 · 2026年3月</span>
+  <div class="nav-links">
+    <a href="#intro" class="nav-link">报告说明</a>
+    <a href="#sec-a" class="nav-link">北美</a>
+    <a href="#sec-b" class="nav-link">欧洲</a>
+    <a href="#sec-c" class="nav-link">亚洲</a>
+    <a href="#sec-d" class="nav-link">非洲</a>
+    <a href="#sec-e" class="nav-link">大洋洲</a>
+    <a href="#sec-f" class="nav-link">南美</a>
+    <a href="#sec-g" class="nav-link">中亚</a>
+    <a href="#sec-h" class="nav-link">全球通用</a>
+    <a href="#sec-i" class="nav-link">产品指南</a>
+    <a href="#sec-reg" class="nav-link">法规</a>
+  </div>
+</nav>
+
+<div class="spacer"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🌱 GLOBAL RESEARCH REPORT</div>
+  <h1>全球美发热门成分调研报告</h1>
+  <div class="hero-sub">Global Hair Care Ingredient Trend Report · 2026 March</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="label">报告周期</span>
+      <span class="value">2026年3月（第1期）</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">发布日期</span>
+      <span class="value">2026年3月27日</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">编制人</span>
+      <span class="value">刘锦禄</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">覆盖区域</span>
+      <span class="value">8大区域 · 7大产品线</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="label">下一期</span>
+      <span class="value">2026年5月1日</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="intro-section">
+  <div class="intro-text">
+    <p>本报告基于全球市场调研数据，涵盖<strong>北美洲、欧洲、亚洲、非洲、大洋洲、南美洲、中亚五国</strong>及全球通用成分八大板块，旨在为美发产品的研发、配方升级及市场布局提供前瞻性的数据支持。</p>
+    <p>报告覆盖产品类别：<strong>染膏、洗发水、发膜、护发精油、烫液、双氧奶、造型产品</strong>。</p>
+    <div class="legend-box">
+      <strong>🌟 市场热度分级说明</strong>：★越多代表该成分在当前区域的搜索量、应用频率及趋势强度越高。<br>
+      ★★★★★ = 最高热度（全球爆款）&nbsp;&nbsp; ★☆☆☆☆ = 最低热度（区域小众）
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-section">
+  <div class="toc-title">目 录 · Contents</div>
+  <div class="toc-grid">
+    <a href="#sec-a" class="toc-item"><span class="toc-icon">🇺🇸</span><div><div>北美洲</div><div class="toc-num">North America</div></div></a>
+    <a href="#sec-b" class="toc-item"><span class="toc-icon">🇪🇺</span><div><div>欧洲</div><div class="toc-num">Europe</div></div></a>
+    <a href="#sec-c" class="toc-item"><span class="toc-icon">🌏</span><div><div>亚洲</div><div class="toc-num">Asia</div></div></a>
+    <a href="#sec-d" class="toc-item"><span class="toc-icon">🌍</span><div><div>非洲</div><div class="toc-num">Africa</div></div></a>
+    <a href="#sec-e" class="toc-item"><span class="toc-icon">🌏</span><div><div>大洋洲</div><div class="toc-num">Oceania</div></div></a>
+    <a href="#sec-f" class="toc-item"><span class="toc-icon">🌎</span><div><div>南美洲</div><div class="toc-num">South America</div></div></a>
+    <a href="#sec-g" class="toc-item"><span class="toc-icon">🏔️</span><div><div>中亚五国</div><div class="toc-num">Central Asia</div></div></a>
+    <a href="#sec-h" class="toc-item"><span class="toc-icon">🌐</span><div><div>全球通用成分</div><div class="toc-num">Global</div></div></a>
+    <a href="#sec-i" class="toc-item"><span class="toc-icon">🧴</span><div><div>产品类别指南</div><div class="toc-num">Products</div></div></a>
+    <a href="#sec-reg" class="toc-item"><span class="toc-icon">📋</span><div><div>法规合规提示</div><div class="toc-num">Regulatory</div></div></a>
+  </div>
+</div>
+
+<!-- SECTION A: NORTH AMERICA -->
+<div id="sec-a" class="section bg-north">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#3A6EA5,#4A8AC7);">🇺🇸</div>
+    <div>
+      <div class="section-title">SECTION A · 北美洲</div>
+      <div class="section-title-en">North America — Clean Beauty Driven</div>
+      <div class="section-desc">北美市场以科技驱动型护发成分为主导，Clean Beauty运动深刻影响消费偏好。头皮微生态、键修复技术及生物活性肽是当前最强劲的增长趋势。</div>
+      <div class="section-divider" style="color:#3A6EA5;"></div>
+    </div>
+  </div>
+  <div class="star-legend">
+    <div class="star-legend-item"><span class="stars">★★★★★</span> 最高热度</div>
+    <div class="star-legend-item"><span class="stars">★★★★☆</span> 高热度</div>
+    <div class="star-legend-item"><span class="stars-low">★★★☆☆</span> 中热度</div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="name-cn">双(氨基丙基)二甘醇二马来酸酯</div><div class="name-en">Bis-Aminopropyl Diglycol Dimaleate</div></td><td><span class="stars">★★★★★</span></td><td>键修复技术核心成分，从分子层面修复二硫键，逆转化学损伤，恢复发丝弹性与强度</td><td><span class="tag tag-primary">发膜</span><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>2</td><td><div class="name-cn">生物素</div><div class="name-en">Biotin (Vitamin B7)</div></td><td><span class="stars">★★★★★</span></td><td>促进角蛋白合成，强韧发根，减少断裂脱落，是北美防脱市场标配成分</td><td><span class="tag tag-primary">洗发水</span><span class="tag">护发精油</span></td></tr>
+        <tr><td>3</td><td><div class="name-cn">咖啡因</div><div class="name-en">Caffeine</div></td><td><span class="stars">★★★★☆</span></td><td>刺激毛囊血液循环，延长生长期，抑制DHT对毛囊萎缩的影响</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>4</td><td><div class="name-cn">角蛋白</div><div class="name-en">Keratin</div></td><td><span class="stars">★★★★☆</span></td><td>补充发丝流失的结构蛋白，填补毛鳞片空隙，提升光泽度与梳理性</td><td><span class="tag">发膜</span><span class="tag">护发素</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>5</td><td><div class="name-cn">透明质酸</div><div class="name-en">Hyaluronic Acid</div></td><td><span class="stars">★★★★☆</span></td><td>强效保湿锁水，渗透发芯补充水分，改善干枯毛躁，提升柔顺度</td><td><span class="tag">发膜</span><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>6</td><td><div class="name-cn">摩洛哥坚果油</div><div class="name-en">Argan Oil</div></td><td><span class="stars">★★★★☆</span></td><td>富含维E与不饱和脂肪酸，深层滋养修护，抗氧化，提升光泽与柔软度</td><td><span class="tag">护发精油</span><span class="tag">发膜</span><span class="tag">造型产品</span></td></tr>
+        <tr><td>7</td><td><div class="name-cn">烟酰胺</div><div class="name-en">Niacinamide (Vitamin B3)</div></td><td><span class="stars">★★★★☆</span></td><td>改善头皮屏障功能，调节皮脂分泌，抗炎舒缓，促进毛囊微循环</td><td><span class="tag tag-primary">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>8</td><td><div class="name-cn">水杨酸</div><div class="name-en">Salicylic Acid</div></td><td><span class="stars">★★★★☆</span></td><td>BHA成分深入毛孔溶解油脂与角质堆积，净化头皮，改善头屑与脂溢性问题</td><td><span class="tag">洗发水</span><span class="tag">头皮磨砂膏</span></td></tr>
+        <tr><td>9</td><td><div class="name-cn">铜肽</div><div class="name-en">Copper Peptides (GHK-Cu)</div></td><td><span class="stars">★★★★☆</span></td><td>激活毛囊干细胞，促进胶原蛋白合成，延缓毛囊老化，支持新发生长</td><td><span class="tag">头皮精华</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>10</td><td><div class="name-cn">头皮益生菌/益生元</div><div class="name-en">Scalp Probiotics/Prebiotics</div></td><td><span class="stars">★★★★☆</span></td><td>平衡头皮微生态，抑制有害菌群，缓解敏感炎症，强化头皮天然防御</td><td><span class="tag">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>11</td><td><div class="name-cn">茶树精油</div><div class="name-en">Tea Tree Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>天然抗菌抗真菌，清洁毛囊，控油去屑，缓解头皮瘙痒与炎症</td><td><span class="tag">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>12</td><td><div class="name-cn">蓖麻油</div><div class="name-en">Castor Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>蓖麻油酸深层滋养毛囊，促进血液循环，加速头发生长，增加发量感</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>13</td><td><div class="name-cn">苹果醋</div><div class="name-en">Apple Cider Vinegar</div></td><td><span class="stars">★★★☆☆</span></td><td>平衡头皮pH值，温和去除产品残留，收紧毛鳞片，增强自然光泽</td><td><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+        <tr><td>14</td><td><div class="name-cn">神经酰胺</div><div class="name-en">Ceramides</div></td><td><span class="stars">★★★☆☆</span></td><td>修复发丝脂质屏障，锁住水分，减少热损伤与化学损伤导致的毛糙</td><td><span class="tag">发膜</span><span class="tag">护发素</span><span class="tag">护发精油</span></td></tr>
+        <tr><td>15</td><td><div class="name-cn">角鲨烷</div><div class="name-en">Squalane</div></td><td><span class="stars">★★★☆☆</span></td><td>轻盈保湿不油腻，模拟天然皮脂，柔软发丝，适合细软发质使用</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION B: EUROPE -->
+<div id="sec-b" class="section bg-europe">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#4A6FA5,#7B9EC9);">🇪🇺</div>
+    <div>
+      <div class="section-title">SECTION B · 欧洲</div>
+      <div class="section-title-en">Europe — Natural & Sustainable</div>
+      <div class="section-desc">欧洲市场以天然有机、可持续发展为核心价值导向。欧盟严格的ECHA法规推动了清洁配方创新，北欧极简主义与法式奢护美学并驾齐驱。</div>
+      <div class="section-divider" style="color:#4A6FA5;"></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="name-cn">摩洛哥坚果油</div><div class="name-en">Argan Oil</div></td><td><span class="stars">★★★★★</span></td><td>欧洲市场最经典的护发油脂，富含ω-6/9脂肪酸与维E，滋养修护防分叉</td><td><span class="tag tag-primary">护发精油</span><span class="tag">发膜</span><span class="tag">造型产品</span></td></tr>
+        <tr><td>2</td><td><div class="name-cn">角蛋白</div><div class="name-en">Keratin</div></td><td><span class="stars">★★★★★</span></td><td>欧洲烫染修护的核心成分，修补受损角质层，恢复发丝弹性与光泽</td><td><span class="tag">发膜</span><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+        <tr><td>3</td><td><div class="name-cn">燕麦蛋白/胶体燕麦</div><div class="name-en">Oat Protein / Colloidal Oatmeal</div></td><td><span class="stars">★★★★☆</span></td><td>温和舒缓敏感头皮，形成保护膜减少刺激，深层保湿，增强发丝韧性</td><td><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+        <tr><td>4</td><td><div class="name-cn">荨麻提取物</div><div class="name-en">Nettle Extract</div></td><td><span class="stars">★★★★☆</span></td><td>欧洲传统草本，富含硅与铁，强健发根，调节皮脂分泌，减少脱发</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>5</td><td><div class="name-cn">迷迭香精油</div><div class="name-en">Rosemary Oil</div></td><td><span class="stars">★★★★☆</span></td><td>促进头皮血液循环，临床研究证实与米诺地尔防脱效果相当，抗氧化</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span><span class="tag">护发精油</span></td></tr>
+        <tr><td>6</td><td><div class="name-cn">洋甘菊提取物</div><div class="name-en">Chamomile Extract</div></td><td><span class="stars">★★★★☆</span></td><td>天然提亮金发色泽，抗炎舒缓敏感头皮，温和抗氧化</td><td><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+        <tr><td>7</td><td><div class="name-cn">透明质酸</div><div class="name-en">Hyaluronic Acid</div></td><td><span class="stars">★★★★☆</span></td><td>分子级保湿明星，锁住发丝1000倍水分，改善弹性与柔顺度</td><td><span class="tag">发膜</span><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>8</td><td><div class="name-cn">泛醇</div><div class="name-en">Panthenol (Pro-Vitamin B5)</div></td><td><span class="stars">★★★★☆</span></td><td>深层渗透保湿，增加发丝弹性，修复受损毛鳞片，德系护发经典成分</td><td><span class="tag">洗发水</span><span class="tag">护发素</span><span class="tag">发膜</span></td></tr>
+        <tr><td>9</td><td><div class="name-cn">头皮益生菌/后生元</div><div class="name-en">Scalp Probiotics/Postbiotics</div></td><td><span class="stars">★★★★☆</span></td><td>微生态平衡理念在欧洲引领潮流，强化头皮屏障，抗炎抗敏</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>10</td><td><div class="name-cn">海藻/海带提取物</div><div class="name-en">Seaweed / Kelp Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>富含碘、锌及多种微量元素，深层滋养头皮，促进健康生长</td><td><span class="tag">洗发水</span><span class="tag">发膜</span></td></tr>
+        <tr><td>11</td><td><div class="name-cn">桦树汁液</div><div class="name-en">Birch Sap</div></td><td><span class="stars">★★★☆☆</span></td><td>北欧特色成分，富含矿物质与氨基酸，强韧发根，保湿调理头皮</td><td><span class="tag">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>12</td><td><div class="name-cn">沙棘油</div><div class="name-en">Sea Buckthorn Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>超级抗氧化浆果油，修复紫外线损伤，深层滋养，促进头皮细胞再生</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>13</td><td><div class="name-cn">接骨木花提取物</div><div class="name-en">Elderflower Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>英式传统植物成分，抗氧化抗炎，柔软亮泽，增添自然花香</td><td><span class="tag">护发素</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>14</td><td><div class="name-cn">月见草油</div><div class="name-en">Evening Primrose Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>富含γ-亚麻酸(GLA)，调节头皮油脂平衡，抗炎修护，改善脂溢性问题</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>15</td><td><div class="name-cn">橄榄角鲨烷</div><div class="name-en">Olive Squalane</div></td><td><span class="stars">★★★☆☆</span></td><td>地中海天然保湿成分，轻盈渗透不油腻，修护发丝脂质层</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION C: ASIA -->
+<div id="sec-c" class="section bg-asia">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#C0392B,#E74C3C);">🌏</div>
+    <div>
+      <div class="section-title">SECTION C · 亚洲</div>
+      <div class="section-title-en">Asia — Traditional Wisdom & Tech Innovation</div>
+      <div class="section-desc">亚洲市场兼具深厚的传统草本智慧与前沿科技创新。日韩"头皮护肤化"理念引领全球，中国中草药成分在现代科技加持下焕发新生。</div>
+      <div class="section-divider" style="color:#C0392B;"></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="name-cn">人参提取物</div><div class="name-en">Ginseng Extract</div></td><td><span class="stars">★★★★★</span></td><td>促进头皮血液循环，激活毛乳头细胞，人参皂苷抗氧化抗衰，东亚防脱经典</td><td><span class="tag tag-primary">洗发水</span><span class="tag">头皮精华</span><span class="tag">护发精油</span></td></tr>
+        <tr><td>2</td><td><div class="name-cn">山茶花油</div><div class="name-en">Camellia Oil (Tsubaki)</div></td><td><span class="stars">★★★★★</span></td><td>日本千年护发传统，油酸含量极高，深层渗透滋养，赋予发丝镜面光泽</td><td><span class="tag tag-primary">护发精油</span><span class="tag">发膜</span><span class="tag">护发素</span></td></tr>
+        <tr><td>3</td><td><div class="name-cn">米糠油/淘米水</div><div class="name-en">Rice Bran Oil / Rice Water</div></td><td><span class="stars">★★★★★</span></td><td>富含谷维素与神经酰胺前体，强韧发丝，提升弹性光泽，亚洲古法智慧</td><td><span class="tag">洗发水</span><span class="tag">护发素</span><span class="tag">发膜</span></td></tr>
+        <tr><td>4</td><td><div class="name-cn">何首乌提取物</div><div class="name-en">He Shou Wu (Fo-Ti Root) Extract</div></td><td><span class="stars">★★★★☆</span></td><td>中医经典乌发成分，含卵磷脂与大黄素，滋养肝肾，促进黑色素合成</td><td><span class="tag tag-primary">洗发水</span><span class="tag">护发精油</span></td></tr>
+        <tr><td>5</td><td><div class="name-cn">生姜提取物</div><div class="name-en">Ginger Extract</div></td><td><span class="stars">★★★★☆</span></td><td>姜辣素刺激头皮微循环，温热激活毛囊，去屑止痒，中国防脱明星成分</td><td><span class="tag tag-primary">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>6</td><td><div class="name-cn">侧柏叶提取物</div><div class="name-en">Platycladus Orientalis Leaf Extract</div></td><td><span class="stars">★★★★☆</span></td><td>中草药防脱经典，凉血祛风，促进毛囊血液供应，减少异常脱发</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>7</td><td><div class="name-cn">绿茶提取物</div><div class="name-en">Green Tea Extract (EGCG)</div></td><td><span class="stars">★★★★☆</span></td><td>强效抗氧化，EGCG抑制5α-还原酶，延缓毛囊退化，调节皮脂分泌</td><td><span class="tag tag-primary">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>8</td><td><div class="name-cn">椰子油</div><div class="name-en">Coconut Oil</div></td><td><span class="stars">★★★★☆</span></td><td>月桂酸深层渗透发芯，减少蛋白质流失，东南亚经典护发油脂</td><td><span class="tag">护发精油</span><span class="tag">发膜</span><span class="tag">护发素</span></td></tr>
+        <tr><td>9</td><td><div class="name-cn">积雪草提取物</div><div class="name-en">Centella Asiatica (CICA)</div></td><td><span class="stars">★★★★☆</span></td><td>K-beauty明星成分登陆护发领域，羟基积雪草苷修复头皮屏障，舒缓敏感</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>10</td><td><div class="name-cn">韩方酵母/发酵滤液</div><div class="name-en">Fermented Yeast / Galactomyces</div></td><td><span class="stars">★★★★☆</span></td><td>韩国发酵科技应用于护发，小分子营养深层渗透，强韧发根，提升光泽</td><td><span class="tag">洗发水</span><span class="tag">发膜</span></td></tr>
+        <tr><td>11</td><td><div class="name-cn">竹炭/备长炭</div><div class="name-en">Bamboo Charcoal / Binchotan</div></td><td><span class="stars">★★★☆☆</span></td><td>强效吸附头皮多余油脂与毒素，深层净化毛囊，改善油性头皮问题</td><td><span class="tag">洗发水</span><span class="tag">头皮磨砂</span></td></tr>
+        <tr><td>12</td><td><div class="name-cn">灵芝提取物</div><div class="name-en">Reishi Mushroom Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>灵芝多糖与三萜类化合物增强头皮免疫力，抗炎抗氧化，促进健康生长</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>13</td><td><div class="name-cn">辣木籽油</div><div class="name-en">Moringa Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>轻盈渗透性强，富含抗氧化物与油酸，清洁头皮污染物，东南亚新兴成分</td><td><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>14</td><td><div class="name-cn">当归提取物</div><div class="name-en">Angelica Sinensis Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>中医补血养发经典，含阿魏酸促进血液循环，滋养毛囊，改善发质脆弱</td><td><span class="tag">洗发水</span><span class="tag">护发精油</span></td></tr>
+        <tr><td>15</td><td><div class="name-cn">黑芝麻提取物</div><div class="name-en">Black Sesame Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>富含维E、锌、铁，传统乌发食材入妆，滋养毛囊，促进色素合成</td><td><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION D: AFRICA -->
+<div id="sec-d" class="section bg-africa">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#8B6914,#C8960C);">🌍</div>
+    <div>
+      <div class="section-title">SECTION D · 非洲</div>
+      <div class="section-title-en">Africa — Natural Oils & Butters Heritage</div>
+      <div class="section-desc">非洲市场以天然油脂与黄油类成分为核心，服务于全球最丰富的卷曲发质群体。乳木果脂、牙买加黑蓖麻油等标志性成分已形成全球影响力。</div>
+      <div class="section-divider" style="color:#8B6914;"></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="name-cn">乳木果脂</div><div class="name-en">Shea Butter</div></td><td><span class="stars">★★★★★</span></td><td>非洲护发圣品，深层滋润密封水分，软化卷曲发质，抗炎修护干燥头皮</td><td><span class="tag tag-primary">发膜</span><span class="tag">护发素</span><span class="tag">造型产品</span></td></tr>
+        <tr><td>2</td><td><div class="name-cn">牙买加黑蓖麻油</div><div class="name-en">Jamaican Black Castor Oil (JBCO)</div></td><td><span class="stars">★★★★★</span></td><td>烤制工艺富含灰分，促进血液循环与毛发生长，深层滋养4C卷发</td><td><span class="tag tag-primary">护发精油</span><span class="tag">头皮精华</span><span class="tag">发膜</span></td></tr>
+        <tr><td>3</td><td><div class="name-cn">椰子油</div><div class="name-en">Coconut Oil</div></td><td><span class="stars">★★★★☆</span></td><td>月桂酸穿透发芯减少蛋白流失，软化粗硬发质，高密封性保湿</td><td><span class="tag">护发精油</span><span class="tag">发膜</span><span class="tag">护发素</span></td></tr>
+        <tr><td>4</td><td><div class="name-cn">可可脂</div><div class="name-en">Cocoa Butter</div></td><td><span class="stars">★★★★☆</span></td><td>天然保湿密封剂，深层滋润极度干燥发质，增加柔软度与弹性定义</td><td><span class="tag">发膜</span><span class="tag">造型产品</span></td></tr>
+        <tr><td>5</td><td><div class="name-cn">猴面包树油</div><div class="name-en">Baobab Oil</div></td><td><span class="stars">★★★★☆</span></td><td>非洲超级食物，富含ω-3/6/9脂肪酸与维A/D/E，深层修护受损发质</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>6</td><td><div class="name-cn">马鲁拉油</div><div class="name-en">Marula Oil</div></td><td><span class="stars">★★★★☆</span></td><td>南非明星油脂，抗氧化能力超橄榄油60%，快速吸收不油腻，滋润提亮</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>7</td><td><div class="name-cn">芒果脂</div><div class="name-en">Mango Butter</div></td><td><span class="stars">★★★☆☆</span></td><td>天然润肤剂，富含维A与脂肪酸，软化发丝，减少干燥断裂</td><td><span class="tag">发膜</span><span class="tag">造型产品</span></td></tr>
+        <tr><td>8</td><td><div class="name-cn">蓖麻油</div><div class="name-en">Castor Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>蓖麻油酸促进血液循环，加速生长，涂抹于边缘发际线修复牵引性脱发</td><td><span class="tag">护发精油</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>9</td><td><div class="name-cn">摩洛哥坚果油</div><div class="name-en">Argan Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>北非传统液态黄金，轻盈滋养，增添光泽，适合各种卷曲发质日常使用</td><td><span class="tag">护发精油</span><span class="tag">造型产品</span></td></tr>
+        <tr><td>10</td><td><div class="name-cn">黑皂提取物</div><div class="name-en">African Black Soap Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>西非传统清洁成分，温和去除堆积物，不过度清洁天然油脂，平衡头皮</td><td><span class="tag tag-primary">洗发水</span></td></tr>
+        <tr><td>11</td><td><div class="name-cn">芙蓉花提取物</div><div class="name-en">Hibiscus Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>天然AHA温和去角质，促进胶原蛋白合成，强韧发根，减少脱落</td><td><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+        <tr><td>12</td><td><div class="name-cn">辣木油</div><div class="name-en">Moringa Oil</div></td><td><span class="stars">★★☆☆☆</span></td><td>轻质润发油，清洁头皮毛孔污物，抗氧化保护，东非新兴成分</td><td><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION E: OCEANIA -->
+<div id="sec-e" class="section bg-oceania">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#16A085,#27AE60);">🌏</div>
+    <div>
+      <div class="section-title">SECTION E · 大洋洲</div>
+      <div class="section-title-en">Oceania — Clean, Native & Sustainable</div>
+      <div class="section-desc">大洋洲市场以澳洲本土天然植物为特色，崇尚清洁配方与可持续采购。茶树油、坚果油等经典成分持续领跑，卡卡杜李等超级食物成分正成为高端护发的差异化卖点。</div>
+      <div class="section-divider" style="color:#16A085;"></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="name-cn">茶树精油</div><div class="name-en">Tea Tree Oil</div></td><td><span class="stars">★★★★★</span></td><td>澳洲国宝级成分，强效抗菌抗真菌，深层净化头皮，治疗头屑头痒</td><td><span class="tag tag-primary">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>2</td><td><div class="name-cn">澳洲坚果油</div><div class="name-en">Macadamia Oil</div></td><td><span class="stars">★★★★★</span></td><td>棕榈油酸含量极高，亲肤性强，深层滋养不油腻，修护受损发质</td><td><span class="tag tag-primary">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>3</td><td><div class="name-cn">卡卡杜李提取物</div><div class="name-en">Kakadu Plum Extract</div></td><td><span class="stars">★★★★☆</span></td><td>全球最高天然维C来源（含量超橙子100倍），强效抗氧化，促进胶原合成</td><td><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+        <tr><td>4</td><td><div class="name-cn">尤加利精油</div><div class="name-en">Eucalyptus Oil</div></td><td><span class="stars">★★★★☆</span></td><td>清凉通透，促进头皮血液循环，抗菌消炎，深层清洁油性头皮</td><td><span class="tag">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>5</td><td><div class="name-cn">荷荷巴油</div><div class="name-en">Jojoba Oil</div></td><td><span class="stars">★★★★☆</span></td><td>分子结构最接近人体皮脂的液态蜡，平衡油脂分泌，温和保湿不致痘</td><td><span class="tag">护发精油</span><span class="tag">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>6</td><td><div class="name-cn">麦卢卡蜂蜜</div><div class="name-en">Manuka Honey</div></td><td><span class="stars">★★★★☆</span></td><td>新西兰独特蜂蜜，MGO抗菌活性修护头皮创口，深层保湿滋养</td><td><span class="tag">发膜</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>7</td><td><div class="name-cn">袋鼠爪花提取物</div><div class="name-en">Kangaroo Paw Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>澳洲独有植物，富含类黄酮与多糖，保湿抗氧化，增添发丝柔顺感</td><td><span class="tag">护发素</span><span class="tag">发膜</span></td></tr>
+        <tr><td>8</td><td><div class="name-cn">檀香木油</div><div class="name-en">Sandalwood Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>澳洲檀香品种，镇静舒缓头皮炎症，促进细胞更新，高端护发香氛成分</td><td><span class="tag">头皮精华</span><span class="tag">护发精油</span></td></tr>
+        <tr><td>9</td><td><div class="name-cn">指橙提取物</div><div class="name-en">Finger Lime Extract (Caviar Lime)</div></td><td><span class="stars">★★★☆☆</span></td><td>天然AHA果酸温和去角质，促进头皮细胞更新，提亮发色光泽</td><td><span class="tag">洗发水</span><span class="tag">护发素</span></td></tr>
+        <tr><td>10</td><td><div class="name-cn">昆士兰坚果油</div><div class="name-en">Queensland Nut Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>丰富不饱和脂肪酸与植物甾醇，修护毛鳞片，增强发丝弹性</td><td><span class="tag">发膜</span><span class="tag">护发精油</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION F: SOUTH AMERICA -->
+<div id="sec-f" class="section bg-south">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#2E7D32,#66BB6A);">🌎</div>
+    <div>
+      <div class="section-title">SECTION F · 南美洲</div>
+      <div class="section-title-en">South America — Amazon Rainforest Treasure</div>
+      <div class="section-desc">南美洲拥有亚马逊雨林这座天然成分宝库，巴西坚果、巴巴苏油、穆鲁穆鲁脂等独特热带植物油脂在抗湿防毛躁领域具有不可替代的优势。</div>
+      <div class="section-divider" style="color:#2E7D32;"></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="name-cn">巴西坚果油</div><div class="name-en">Brazil Nut Oil</div></td><td><span class="stars">★★★★★</span></td><td>亚马逊超级油脂，硒含量极高，深层修护受损发质，增加强韧度与光泽</td><td><span class="tag tag-primary">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>2</td><td><div class="name-cn">巴巴苏油</div><div class="name-en">Babassu Oil</div></td><td><span class="stars">★★★★★</span></td><td>巴西棕榈油脂，遇热融化快速吸收，深层保湿不黏腻，卷发护理首选</td><td><span class="tag tag-primary">护发精油</span><span class="tag">发膜</span><span class="tag">护发素</span></td></tr>
+        <tr><td>3</td><td><div class="name-cn">穆鲁穆鲁脂</div><div class="name-en">Murumuru Butter</div></td><td><span class="stars">★★★★☆</span></td><td>亚马逊棕榈果脂，富含月桂酸与油酸，高效密封水分，定义卷曲纹理</td><td><span class="tag tag-primary">造型产品</span><span class="tag">发膜</span></td></tr>
+        <tr><td>4</td><td><div class="name-cn">库普阿苏脂</div><div class="name-en">Cupuacu Butter</div></td><td><span class="stars">★★★★☆</span></td><td>超强吸水能力（可吸收自身重量240%水分），深层保湿修护极度干燥发质</td><td><span class="tag">发膜</span><span class="tag">护发素</span></td></tr>
+        <tr><td>5</td><td><div class="name-cn">阿萨伊浆果提取物</div><div class="name-en">Acai Berry Extract</div></td><td><span class="stars">★★★★☆</span></td><td>超级抗氧化浆果，花青素保护发色不褪色，增添光泽活力</td><td><span class="tag">洗发水</span><span class="tag">护发素</span><span class="tag">染后护理</span></td></tr>
+        <tr><td>6</td><td><div class="name-cn">巴西莓果油</div><div class="name-en">Buriti Oil</div></td><td><span class="stars">★★★★☆</span></td><td>全球最高β-胡萝卜素植物油之一，天然紫外线防护，修护光损伤</td><td><span class="tag">护发精油</span><span class="tag">造型产品</span></td></tr>
+        <tr><td>7</td><td><div class="name-cn">西番莲籽油</div><div class="name-en">Passion Fruit Seed Oil (Maracuja)</div></td><td><span class="stars">★★★☆☆</span></td><td>亚油酸含量极高，轻盈保湿不油腻，调节皮脂分泌，适合油性头皮</td><td><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>8</td><td><div class="name-cn">巴西棕榈蜡</div><div class="name-en">Carnauba Wax</div></td><td><span class="stars">★★★☆☆</span></td><td>天然定型蜡，提供自然持久的定型效果，增添光泽，不产生白色残留</td><td><span class="tag tag-primary">造型产品</span></td></tr>
+        <tr><td>9</td><td><div class="name-cn">安第斯藜麦蛋白</div><div class="name-en">Quinoa Protein</div></td><td><span class="stars">★★★☆☆</span></td><td>完全蛋白质来源，氨基酸谱完整，修复受损角质层，增强发丝弹性</td><td><span class="tag">发膜</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>10</td><td><div class="name-cn">瓜拉纳提取物</div><div class="name-en">Guarana Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>天然咖啡因来源（含量为咖啡2倍），促进头皮微循环，激活毛囊活力</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION G: CENTRAL ASIA -->
+<div id="sec-g" class="section bg-central">
+  <div class="section-header">
+    <div class="section-icon" style="background:linear-gradient(135deg,#795548,#A1887F);">🏔️</div>
+    <div>
+      <div class="section-title">SECTION G · 中亚五国</div>
+      <div class="section-title-en">Central Asia — Russian Heritage & Steppe Herbs</div>
+      <div class="section-desc">中亚五国市场融合了俄罗斯美容传统与本土草药智慧，棉籽油、沙棘油等地域特色成分与国际流行成分共同构成市场格局。</div>
+      <div class="section-divider" style="color:#795548;"></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="name-cn">沙棘油</div><div class="name-en">Sea Buckthorn Oil</div></td><td><span class="stars">★★★★★</span></td><td>中亚特色超级浆果油，ω-7脂肪酸含量极高，深层修护极端气候损伤</td><td><span class="tag tag-primary">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>2</td><td><div class="name-cn">荨麻提取物</div><div class="name-en">Nettle Extract</div></td><td><span class="stars">★★★★☆</span></td><td>中亚草原传统草本，富含硅、铁、锌，强健发根，减少脱发，俄系影响</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>3</td><td><div class="name-cn">棉籽油</div><div class="name-en">Cottonseed Oil</div></td><td><span class="stars">★★★★☆</span></td><td>中亚特色油脂（乌兹别克斯坦棉花大国），富含亚油酸与维E，保湿柔软</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>4</td><td><div class="name-cn">牛蒡根提取物</div><div class="name-en">Burdock Root Extract</div></td><td><span class="stars">★★★★☆</span></td><td>俄系传统防脱成分，促进头皮血液循环，清洁毛囊，调节皮脂分泌</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+        <tr><td>5</td><td><div class="name-cn">角蛋白</div><div class="name-en">Keratin</div></td><td><span class="stars">★★★★☆</span></td><td>中亚烫染市场快速增长，角蛋白修护需求旺盛，修复化学损伤</td><td><span class="tag">发膜</span><span class="tag">护发素</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>6</td><td><div class="name-cn">杏仁油</div><div class="name-en">Apricot Kernel Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>中亚特产水果（费尔干纳河谷），轻盈滋养，富含维A与E，柔软亮泽</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>7</td><td><div class="name-cn">核桃油</div><div class="name-en">Walnut Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>吉尔吉斯斯坦/塔吉克斯坦特产，ω-3丰富，滋养毛囊，改善干燥脆弱</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+        <tr><td>8</td><td><div class="name-cn">蜂蜜</div><div class="name-en">Honey</div></td><td><span class="stars">★★★☆☆</span></td><td>哈萨克斯坦优质蜂蜜产区，天然保湿剂与抗菌剂，修护滋养头皮</td><td><span class="tag">发膜</span><span class="tag">洗发水</span></td></tr>
+        <tr><td>9</td><td><div class="name-cn">甘草提取物</div><div class="name-en">Licorice Root Extract</div></td><td><span class="stars">★★★☆☆</span></td><td>中亚传统药用植物，光甘草定美白舒缓，抗炎止痒，适合敏感头皮</td><td><span class="tag">洗发水</span><span class="tag">头皮护理</span></td></tr>
+        <tr><td>10</td><td><div class="name-cn">红花籽油</div><div class="name-en">Safflower Oil</div></td><td><span class="stars">★★★☆☆</span></td><td>中亚重要经济作物，亚油酸含量极高，改善干燥头皮，增强发丝弹性</td><td><span class="tag">护发精油</span><span class="tag">护发素</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION H: GLOBAL (DARK SECTION) -->
+<div id="sec-h" class="global-section">
+  <div class="global-inner">
+    <div class="global-badge">🌐 GLOBAL UNIVERSAL</div>
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(255,255,255,0.2);">🌐</div>
+      <div>
+        <div class="section-title">SECTION H · 全球通用热门成分</div>
+        <div class="section-title-en">Global Universal Trending Ingredients — Worldwide Tech Consensus</div>
+        <div class="section-desc" style="color:rgba(255,255,255,0.8);">以下成分超越地域限制，在全球范围内获得广泛认可与应用。这些成分代表了美发行业的技术共识与创新方向。</div>
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top:24px;">
+      <table>
+        <thead>
+          <tr><th>#</th><th>成分名称</th><th>热度</th><th>核心功效</th><th>适用产品</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><div class="name-cn" style="color:#2C1810;">双(氨基丙基)二甘醇二马来酸酯</div><div class="name-en" style="color:#8B6343;">Bis-Aminopropyl Diglycol Dimaleate</div></td><td><span class="stars">★★★★★</span></td><td style="color:#2C1810;">全球键修复技术革命性成分，Olaplex专利核心，修复二硫键，逆转化学损伤</td><td><span class="tag tag-primary">发膜</span><span class="tag">护发素</span><span class="tag">洗发水</span><span class="tag">护发精油</span></td></tr>
+          <tr><td>2</td><td><div class="name-cn" style="color:#2C1810;">角蛋白</div><div class="name-en" style="color:#8B6343;">Keratin</div></td><td><span class="stars">★★★★★</span></td><td style="color:#2C1810;">发丝主要结构蛋白，补充流失蛋白质，修复毛鳞片，恢复弹性与光泽</td><td><span class="tag tag-primary">发膜</span><span class="tag">护发素</span><span class="tag">洗发水</span></td></tr>
+          <tr><td>3</td><td><div class="name-cn" style="color:#2C1810;">摩洛哥坚果油</div><div class="name-en" style="color:#8B6343;">Argan Oil</div></td><td><span class="stars">★★★★★</span></td><td style="color:#2C1810;">全球认知度最高的护发油脂，滋养修护，抗氧化，适用各种发质</td><td><span class="tag">护发精油</span><span class="tag">发膜</span><span class="tag">造型产品</span></td></tr>
+          <tr><td>4</td><td><div class="name-cn" style="color:#2C1810;">透明质酸</div><div class="name-en" style="color:#8B6343;">Hyaluronic Acid</div></td><td><span class="stars">★★★★★</span></td><td style="color:#2C1810;">护肤明星成分跨界护发，强效保湿锁水，改善干枯毛躁</td><td><span class="tag">发膜</span><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+          <tr><td>5</td><td><div class="name-cn" style="color:#2C1810;">生物素</div><div class="name-en" style="color:#8B6343;">Biotin (Vitamin B7)</div></td><td><span class="stars">★★★★★</span></td><td style="color:#2C1810;">全球防脱生发市场核心成分，促进角蛋白合成，强韧发根</td><td><span class="tag">洗发水</span><span class="tag">护发精油</span><span class="tag">头皮精华</span></td></tr>
+          <tr><td>6</td><td><div class="name-cn" style="color:#2C1810;">咖啡因</div><div class="name-en" style="color:#8B6343;">Caffeine</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">全球防脱热门活性物，刺激毛囊血液循环，延长毛发生长期</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+          <tr><td>7</td><td><div class="name-cn" style="color:#2C1810;">烟酰胺</div><div class="name-en" style="color:#8B6343;">Niacinamide (Vitamin B3)</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">护肤转护发新趋势，改善头皮屏障，调节皮脂，抗炎促循环</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span></td></tr>
+          <tr><td>8</td><td><div class="name-cn" style="color:#2C1810;">神经酰胺</div><div class="name-en" style="color:#8B6343;">Ceramides</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">修复发丝脂质屏障，锁住水分，减少化学/热损伤导致的毛糙与断裂</td><td><span class="tag">发膜</span><span class="tag">护发素</span><span class="tag">护发精油</span></td></tr>
+          <tr><td>9</td><td><div class="name-cn" style="color:#2C1810;">水解丝蛋白</div><div class="name-en" style="color:#8B6343;">Hydrolyzed Silk Protein</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">在发丝表面形成丝滑保护膜，提升光泽度与柔顺度，减少静电</td><td><span class="tag">护发素</span><span class="tag">发膜</span><span class="tag">护发精油</span></td></tr>
+          <tr><td>10</td><td><div class="name-cn" style="color:#2C1810;">泛醇</div><div class="name-en" style="color:#8B6343;">Panthenol (Pro-Vitamin B5)</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">经典保湿修护成分，深层渗透增加弹性，修复受损毛鳞片</td><td><span class="tag">洗发水</span><span class="tag">护发素</span><span class="tag">发膜</span></td></tr>
+          <tr><td>11</td><td><div class="name-cn" style="color:#2C1810;">水解小麦蛋白</div><div class="name-en" style="color:#8B6343;">Hydrolyzed Wheat Protein</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">增加发丝体积感与丰盈度，修复受损角质层，提升造型支撑力</td><td><span class="tag">洗发水</span><span class="tag">造型产品</span><span class="tag">发膜</span></td></tr>
+          <tr><td>12</td><td><div class="name-cn" style="color:#2C1810;">铜肽</div><div class="name-en" style="color:#8B6343;">Copper Peptides (GHK-Cu)</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">前沿生物活性肽，激活毛囊干细胞，促进胶原合成，延缓老化</td><td><span class="tag">头皮精华</span><span class="tag">洗发水</span></td></tr>
+          <tr><td>13</td><td><div class="name-cn" style="color:#2C1810;">头皮益生菌/益生元</div><div class="name-en" style="color:#8B6343;">Scalp Probiotics/Prebiotics</div></td><td><span class="stars">★★★★☆</span></td><td style="color:#2C1810;">微生态护理全球化趋势，平衡菌群，强化屏障，抗炎抗敏</td><td><span class="tag">洗发水</span><span class="tag">头皮护理</span></td></tr>
+          <tr><td>14</td><td><div class="name-cn" style="color:#2C1810;">荷荷巴油</div><div class="name-en" style="color:#8B6343;">Jojoba Oil</div></td><td><span class="stars">★★★☆☆</span></td><td style="color:#2C1810;">最接近人体皮脂的天然液态蜡，调节油脂平衡，温和保湿适合各发质</td><td><span class="tag">护发精油</span><span class="tag">洗发水</span></td></tr>
+          <tr><td>15</td><td><div class="name-cn" style="color:#2C1810;">角鲨烷</div><div class="name-en" style="color:#8B6343;">Squalane</div></td><td><span class="stars">★★★☆☆</span></td><td style="color:#2C1810;">轻盈保湿不油腻，模拟天然皮脂膜，柔软发丝，适合细软发质</td><td><span class="tag">护发精油</span><span class="tag">发膜</span></td></tr>
+          <tr><td>16</td><td><div class="name-cn" style="color:#2C1810;">迷迭香精油</div><div class="name-en" style="color:#8B6343;">Rosemary Oil</div></td><td><span class="stars">★★★☆☆</span></td><td style="color:#2C1810;">临床证实防脱效果，促进头皮血液循环，抗氧化，天然香氛</td><td><span class="tag">洗发水</span><span class="tag">头皮精华</span><span class="tag">护发精油</span></td></tr>
+          <tr><td>17</td><td><div class="name-cn" style="color:#2C1810;">氨基酸表活</div><div class="name-en" style="color:#8B6343;">Amino Acid Surfactants</div></td><td><span class="stars">★★★☆☆</span></td><td style="color:#2C1810;">温和清洁不刺激，保留天然油脂，适合敏感头皮与染烫后护理</td><td><span class="tag tag-primary">洗发水</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION I: PRODUCT GUIDE -->
+<div id="sec-i" class="bg-product" style="padding:60px 30px 0;">
+  <div class="section" style="padding-top:0;">
+    <div class="section-header">
+      <div class="section-icon" style="background:linear-gradient(135deg,#8E44AD,#A569BD);">🧴</div>
+      <div>
+        <div class="section-title">SECTION I · 产品类别成分推荐</div>
+        <div class="section-title-en">Product-Specific Ingredient Guide</div>
+        <div class="section-desc">按产品类别梳理核心推荐成分，为配方开发提供直接参考。</div>
+        <div class="section-divider" style="color:#8E44AD;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shampoo -->
+  <div class="section" style="padding-top:20px;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+      <span style="font-size:24px;">🧴</span>
+      <div>
+        <div style="font-size:18px;font-weight:700;color:#2C1810;">I-1. 洗发水 Shampoo</div>
+        <div style="font-size:12px;color:#8B6343;font-family:'Lora',serif;">核心清洁 · 头皮净化 · 防脱活性</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>成分</th><th>功效定位</th><th>角色</th><th>热度</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><div class="name-cn">氨基酸表活</div><div class="name-en">Amino Acid Surfactants</div></td><td>温和清洁，保留天然油脂，适合敏感/染烫发质</td><td><span class="tag tag-primary">核心清洁</span></td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>2</td><td><div class="name-cn">水杨酸</div><div class="name-en">Salicylic Acid</div></td><td>深入毛孔溶解油脂与角质，净化头皮，抗屑</td><td><span class="tag tag-primary">头皮净化</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>3</td><td><div class="name-cn">茶树精油</div><div class="name-en">Tea Tree Oil</div></td><td>天然抗菌抗真菌，控油去屑止痒</td><td><span class="tag tag-primary">抗菌清洁</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>4</td><td><div class="name-cn">咖啡因</div><div class="name-en">Caffeine</div></td><td>刺激毛囊微循环，延长生长期，防脱</td><td><span class="tag tag-primary">防脱活性</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>5</td><td><div class="name-cn">烟酰胺</div><div class="name-en">Niacinamide</div></td><td>调节皮脂，改善头皮屏障，抗炎舒缓</td><td><span class="tag">头皮调理</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>6</td><td><div class="name-cn">生物素</div><div class="name-en">Biotin</div></td><td>促进角蛋白合成，强韧发根</td><td><span class="tag">防脱强韧</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>7</td><td><div class="name-cn">头皮益生元</div><div class="name-en">Scalp Prebiotics</div></td><td>平衡头皮微生态，抗炎抗敏</td><td><span class="tag">微生态平衡</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+          <tr><td>8</td><td><div class="name-cn">迷迭香精油</div><div class="name-en">Rosemary Oil</div></td><td>促进血液循环，防脱生发</td><td><span class="tag">草本防脱</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Hair Mask -->
+  <div class="section" style="padding-top:0;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+      <span style="font-size:24px;">💆</span>
+      <div>
+        <div style="font-size:18px;font-weight:700;color:#2C1810;">I-2. 发膜/护发素 Hair Mask / Conditioner</div>
+        <div style="font-size:12px;color:#8B6343;font-family:'Lora',serif;">键修复 · 蛋白补充 · 深层保湿</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>成分</th><th>功效定位</th><th>角色</th><th>热度</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><div class="name-cn">Bis-Aminopropyl Diglycol Dimaleate</div></td><td>键修复核心，修复二硫键，逆转化学损伤</td><td><span class="tag tag-primary">键修复</span></td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>2</td><td><div class="name-cn">角蛋白</div><div class="name-en">Keratin</div></td><td>补充结构蛋白，修复毛鳞片，恢复弹性</td><td><span class="tag tag-primary">蛋白修复</span></td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>3</td><td><div class="name-cn">透明质酸</div><div class="name-en">Hyaluronic Acid</div></td><td>强效保湿锁水，改善干枯毛躁</td><td><span class="tag">深层保湿</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>4</td><td><div class="name-cn">神经酰胺</div><div class="name-en">Ceramides</div></td><td>修复脂质屏障，锁水减少毛躁</td><td><span class="tag">屏障修复</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>5</td><td><div class="name-cn">水解丝蛋白</div><div class="name-en">Hydrolyzed Silk Protein</div></td><td>形成丝滑保护膜，提升光泽柔顺</td><td><span class="tag">光泽提升</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>6</td><td><div class="name-cn">库普阿苏脂</div><div class="name-en">Cupuacu Butter</div></td><td>超强吸水保湿，修护极度干燥发质</td><td><span class="tag">滋养密封</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+          <tr><td>7</td><td><div class="name-cn">泛醇</div><div class="name-en">Panthenol</div></td><td>深层渗透保湿，增加弹性</td><td><span class="tag">保湿弹性</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Hair Oil -->
+  <div class="section" style="padding-top:0;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+      <span style="font-size:24px;">🫒</span>
+      <div>
+        <div style="font-size:18px;font-weight:700;color:#2C1810;">I-3. 护发精油 Hair Oil / Serum</div>
+        <div style="font-size:12px;color:#8B6343;font-family:'Lora',serif;">核心滋养 · 光泽渗透 · 抗氧化</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>成分</th><th>功效定位</th><th>角色</th><th>热度</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><div class="name-cn">摩洛哥坚果油</div><div class="name-en">Argan Oil</div></td><td>深层滋养修护，抗氧化，增添光泽</td><td><span class="tag tag-primary">核心滋养</span></td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>2</td><td><div class="name-cn">山茶花油</div><div class="name-en">Camellia Oil</div></td><td>深层渗透，镜面光泽，轻盈不油腻</td><td><span class="tag tag-primary">光泽渗透</span></td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>3</td><td><div class="name-cn">荷荷巴油</div><div class="name-en">Jojoba Oil</div></td><td>平衡油脂分泌，温和保湿</td><td><span class="tag">油脂调节</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>4</td><td><div class="name-cn">角鲨烷</div><div class="name-en">Squalane</div></td><td>轻盈保湿，模拟天然皮脂</td><td><span class="tag">轻盈保湿</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>5</td><td><div class="name-cn">巴西坚果油</div><div class="name-en">Brazil Nut Oil</div></td><td>高硒抗氧化，深层修护增强韧性</td><td><span class="tag">深层修护</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>6</td><td><div class="name-cn">澳洲坚果油</div><div class="name-en">Macadamia Oil</div></td><td>棕榈油酸修护，亲肤不油腻</td><td><span class="tag">亲肤修护</span></td><td><span class="stars">★★★★☆</span></td></tr>
+          <tr><td>7</td><td><div class="name-cn">马鲁拉油</div><div class="name-en">Marula Oil</div></td><td>超强抗氧化，快速吸收</td><td><span class="tag">抗氧化滋养</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Hair Dye, Perm, Developer, Styling in grid -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:24px;max-width:1100px;margin:0 auto;padding:0 30px 60px;">
+    <!-- Hair Dye -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span style="font-size:22px;">🎨</span>
+        <div style="font-size:16px;font-weight:700;color:#2C1810;">I-4. 染膏 Hair Dye</div>
+      </div>
+      <div class="table-wrap">
+        <table style="font-size:12.5px;">
+          <thead><tr><th>#</th><th>成分</th><th>角色</th><th>热度</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><div class="name-cn">神经酰胺</div><div class="name-en">Ceramides</div></td><td><span class="tag tag-primary">屏障保护</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>2</td><td><div class="name-cn">水解角蛋白</div><div class="name-en">Hydrolyzed Keratin</div></td><td><span class="tag">即时修护</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>3</td><td><div class="name-cn">泛醇</div><div class="name-en">Panthenol</div></td><td><span class="tag">保湿缓冲</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>4</td><td><div class="name-cn">甘草酸二钾</div><div class="name-en">Dipotassium Glycyrrhizinate</div></td><td><span class="tag">抗敏舒缓</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>5</td><td><div class="name-cn">透明质酸</div><div class="name-en">Hyaluronic Acid</div></td><td><span class="tag">保湿锁水</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+            <tr><td>6</td><td><div class="name-cn">维生素E</div><div class="name-en">Vitamin E (Tocopherol)</div></td><td><span class="tag">抗氧化护色</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Perm -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span style="font-size:22px;">💇</span>
+        <div style="font-size:16px;font-weight:700;color:#2C1810;">I-5. 烫液 Perm Solution</div>
+      </div>
+      <div class="table-wrap">
+        <table style="font-size:12.5px;">
+          <thead><tr><th>#</th><th>成分</th><th>角色</th><th>热度</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><div class="name-cn">Bis-Aminopropyl Diglycol Dimaleate</div></td><td><span class="tag tag-primary">键保护</span></td><td><span class="stars">★★★★★</span></td></tr>
+            <tr><td>2</td><td><div class="name-cn">水解角蛋白</div><div class="name-en">Hydrolyzed Keratin</div></td><td><span class="tag">蛋白补充</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>3</td><td><div class="name-cn">神经酰胺</div><div class="name-en">Ceramides</div></td><td><span class="tag">屏障修复</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>4</td><td><div class="name-cn">精氨酸</div><div class="name-en">Arginine</div></td><td><span class="tag">pH调节修护</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+            <tr><td>5</td><td><div class="name-cn">甘油</div><div class="name-en">Glycerin</div></td><td><span class="tag">保湿缓冲</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Developer -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span style="font-size:22px;">⚗️</span>
+        <div style="font-size:16px;font-weight:700;color:#2C1810;">I-6. 双氧奶 Developer Cream</div>
+      </div>
+      <div class="table-wrap">
+        <table style="font-size:12.5px;">
+          <thead><tr><th>#</th><th>成分</th><th>角色</th><th>热度</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><div class="name-cn">神经酰胺</div><div class="name-en">Ceramides</div></td><td><span class="tag tag-primary">屏障保护</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>2</td><td><div class="name-cn">泛醇</div><div class="name-en">Panthenol</div></td><td><span class="tag">保湿缓冲</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>3</td><td><div class="name-cn">水解小麦蛋白</div><div class="name-en">Hydrolyzed Wheat Protein</div></td><td><span class="tag">蛋白保护</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+            <tr><td>4</td><td><div class="name-cn">甘油</div><div class="name-en">Glycerin</div></td><td><span class="tag">基础保湿</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+            <tr><td>5</td><td><div class="name-cn">维生素E</div><div class="name-en">Vitamin E</div></td><td><span class="tag">抗氧化</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Styling -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <span style="font-size:22px;">✨</span>
+        <div style="font-size:16px;font-weight:700;color:#2C1810;">I-7. 造型产品 Styling Products</div>
+      </div>
+      <div class="table-wrap">
+        <table style="font-size:12.5px;">
+          <thead><tr><th>#</th><th>成分</th><th>角色</th><th>热度</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><div class="name-cn">水解小麦蛋白</div><div class="name-en">Hydrolyzed Wheat Protein</div></td><td><span class="tag tag-primary">体积丰盈</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>2</td><td><div class="name-cn">PVP/VA共聚物</div><div class="name-en">PVP/VA Copolymer</div></td><td><span class="tag">柔韧定型</span></td><td><span class="stars">★★★★☆</span></td></tr>
+            <tr><td>3</td><td><div class="name-cn">巴西棕榈蜡</div><div class="name-en">Carnauba Wax</div></td><td><span class="tag">天然定型</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+            <tr><td>4</td><td><div class="name-cn">乳木果脂</div><div class="name-en">Shea Butter</div></td><td><span class="tag">卷曲定义</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+            <tr><td>5</td><td><div class="name-cn">角鲨烷</div><div class="name-en">Squalane</div></td><td><span class="tag">轻盈柔顺</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+            <tr><td>6</td><td><div class="name-cn">热保护硅酮</div><div class="name-en">Heat Protectant Silicones</div></td><td><span class="tag tag-primary">热保护</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGULATORY -->
+<div id="sec-reg" class="bg-regulatory" style="padding:60px 30px;">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:linear-gradient(135deg,#37474F,#546E7A);">📋</div>
+      <div>
+        <div class="section-title">法规合规提示</div>
+        <div class="section-title-en">Regulatory Compliance Notes</div>
+        <div class="section-desc">各区域法规差异是必须重视的核心要素，以下汇总主要市场关键合规要求。</div>
+        <div class="section-divider" style="color:#37474F;"></div>
+      </div>
+    </div>
+    <div class="reg-grid">
+      <div class="reg-card">
+        <div class="reg-title">🇪🇺 欧盟</div>
+        <span class="reg-code">EC No 1223/2009</span>
+        <div class="reg-item"><span class="reg-bullet">•</span>禁用1,600+物质，限用300+物质</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>需产品安全评估报告(CPSR)</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>纳米材料需预通报</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>禁止动物测试</div>
+      </div>
+      <div class="reg-card reg-card-na">
+        <div class="reg-title">🇺🇸 美国</div>
+        <span class="reg-code">FDA / FD&C Act</span>
+        <div class="reg-item"><span class="reg-bullet">•</span>色素添加剂需预先批准</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>OTC药妆成分按专论管理</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>标签需INCI名称全成分标注</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-title">🇨🇳 中国</div>
+        <span class="reg-code">NMPA</span>
+        <div class="reg-item"><span class="reg-bullet">•</span>进口特殊化妆品需注册，普通化妆品需备案</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>禁止动物替代测试有限豁免</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>限用成分表持续更新</div>
+      </div>
+      <div class="reg-card reg-card-na">
+        <div class="reg-title">🇯🇵 日本</div>
+        <span class="reg-code">PMDA / MHLW</span>
+        <div class="reg-item"><span class="reg-bullet">•</span>医药部外品需成分审批</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>化妆品需全成分标注</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>限制甲醛供体类防腐剂</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-title">🇧🇷 巴西</div>
+        <span class="reg-code">ANVISA</span>
+        <div class="reg-item"><span class="reg-bullet">•</span>化妆品分级管理（Grade 1/Grade 2）</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>染发剂需安全性注册</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>标签需葡萄牙语</div>
+      </div>
+      <div class="reg-card reg-card-na">
+        <div class="reg-title">🇦🇺 澳大利亚</div>
+        <span class="reg-code">NICNAS / TGA</span>
+        <div class="reg-item"><span class="reg-bullet">•</span>新化学物质需AICIS评估通知</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>含治疗声称需TGA审批</div>
+        <div class="reg-item"><span class="reg-bullet">•</span>符合SUSMP毒物标准</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>全球美发热门成分调研报告 · 2026年3月（第1期）</strong></p>
+  <p style="margin-top:8px;">编制人：刘锦禄 &nbsp;|&nbsp; 发布日期：2026年3月27日 &nbsp;|&nbsp; 下一期：2026年5月1日</p>
+  <p style="margin-top:12px;opacity:0.5;">© Kaijoe International Trade · 肇庆凯乔科技有限公司</p>
+</div>
+
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior:'smooth' });
+  });
+});
+// Nav active state
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  if (window.scrollY > 200) nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.25)';
+  else nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+});
+</script>
+</body>
+</html>
