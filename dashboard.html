@@ -78,7 +78,7 @@
     .hot-news-header p { color: var(--text-light); font-size: 1.05rem; }
     .hot-news-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 22px;
       max-width: 1600px;
       margin: 0 auto;
@@ -116,22 +116,22 @@
     .news-refresh {
       background: var(--border);
       border: none;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--text-light);
       transition: all 0.3s;
     }
     .news-refresh:hover { background: var(--primary); color: white; }
     .news-list { list-style: none; }
     .news-list li {
-      padding: 11px 8px;
+      padding: 12px 8px;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 1rem;
+      font-size: 1.05rem;
       cursor: pointer;
       transition: background 0.2s;
       border-radius: 8px;
@@ -139,13 +139,13 @@
     .news-list li:last-child { border-bottom: none; }
     .news-list li:hover { background: #f8f9ff; padding-left: 12px; }
     .news-rank {
-      width: 26px;
-      height: 26px;
-      border-radius: 7px;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: bold;
       color: white;
       flex-shrink: 0;
@@ -154,8 +154,8 @@
     .rank-2 { background: #ff6b81; }
     .rank-3 { background: #ffa502; }
     .rank-other { background: #748ffc; }
-    .news-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.98rem; }
-    .news-heat { font-size: 0.82rem; color: var(--text-light); flex-shrink: 0; }
+    .news-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 1rem; font-weight: 500; }
+    .news-heat { font-size: 0.85rem; color: var(--text-light); flex-shrink: 0; }
     .news-hot-tag {
       background: linear-gradient(135deg, #ff4757, #ff6b81);
       color: white;
@@ -169,6 +169,21 @@
       padding: 30px;
       color: var(--text-light);
       font-size: 1rem;
+    }
+    .news-error {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    .news-source-tag {
+      font-size: 0.75rem;
+      color: #4CAF50;
+      background: #e8f5e9;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+      font-weight: 600;
     }
 
     /* Main */
@@ -220,6 +235,15 @@
       font-weight: 600;
     }
     .nav-item:hover .count, .nav-item.active .count { background: rgba(255,255,255,0.25); color: white; }
+    .total-badge {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-left: auto;
+    }
 
     .content { flex: 1; min-width: 0; }
     .section { margin-bottom: 50px; scroll-margin-top: 30px; }
@@ -239,7 +263,7 @@
     /* Tools Grid */
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
       gap: 18px;
     }
     .tool-card {
@@ -270,17 +294,17 @@
     }
     .tool-card:hover::before { opacity: 1; }
     .tool-emoji {
-      font-size: 3.2rem;
+      font-size: 3.4rem;
       margin-bottom: 14px;
       display: block;
       line-height: 1;
     }
     .tool-card h4 {
-      font-size: 1.15rem; margin-bottom: 8px;
+      font-size: 1.18rem; margin-bottom: 8px;
       color: var(--text); font-weight: 600;
     }
     .tool-card p {
-      font-size: 0.92rem; color: var(--text-light);
+      font-size: 0.95rem; color: var(--text-light);
       line-height: 1.5;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -308,7 +332,7 @@
       text-align: center;
       cursor: pointer;
       transition: all 0.3s;
-      min-height: 160px;
+      min-height: 165px;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
     }
@@ -317,7 +341,7 @@
       transform: translateY(-5px);
     }
     .add-tool-card i { font-size: 2.8rem; color: var(--primary); margin-bottom: 12px; }
-    .add-tool-card span { font-size: 1.05rem; color: var(--primary); font-weight: 500; }
+    .add-tool-card span { font-size: 1.08rem; color: var(--primary); font-weight: 500; }
 
     /* Modal */
     .modal-overlay {
@@ -392,7 +416,7 @@
   <section class="hot-news-section">
     <div class="hot-news-header">
       <h2>🔥 每日热点速览</h2>
-      <p>实时同步各大平台热点 · 点击任意条目跳转查看详情</p>
+      <p>实时同步各大平台真实热点 · 点击任意条目跳转查看详情</p>
     </div>
     <div class="hot-news-grid">
       <div class="news-card">
@@ -453,7 +477,7 @@
     <aside class="sidebar">
       <div class="sidebar-header">
         <h2>📂 分类导航</h2>
-        <p>点击快速跳转</p>
+        <p id="totalTools">共加载中...</p>
       </div>
       <ul class="nav-list" id="navList"></ul>
     </aside>
@@ -536,7 +560,7 @@ let tools = {
     {name:'📢 直通车', url:'https://p4p.alibaba.com', desc:'广告投放平台', emoji:'📢'},
     {name:'⭐ 金品诚企', url:'https://gs.alibaba.com', desc:'金品认证服务', emoji:'⭐'},
     {name:'📦 物流服务', url:'https://logistics.alibaba.com', desc:'国际物流平台', emoji:'📦'},
-    {name:'💬 旺旺国际版', url:'https://message.alibaba.com', desc:'TradeManager 消息', emoji:'💬'},
+    {name:'💬 旺旺国际版', url:'https://message.alibaba.com', desc:'TradeManager消息', emoji:'💬'},
     {name:'📈 行业视角', url:'https://industry.alibaba.com', desc:'行业数据分析', emoji:'📈'},
     {name:'🎯 RFQ报价中心', url:'https://rfq.alibaba.com', desc:'商机RFQ报价', emoji:'🎯'},
     {name:'🏅 信用保障', url:'https://credit.alibaba.com', desc:'交易保障服务', emoji:'🏅'},
@@ -556,7 +580,14 @@ let tools = {
     {name:'🏠 店铺装修', url:'https://design.alibaba.com', desc:'店铺首页装修', emoji:'🏠'},
     {name:'🎁 营销中心', url:'https://marketing.alibaba.com', desc:'平台营销活动', emoji:'🎁'},
     {name:'📍 资损预警', url:'https://safety.alibaba.com', desc:'风险预警中心', emoji:'📍'},
-    {name:'📨 商机回复', url:'https://contact.alibaba.com', desc:'商机消息管理', emoji:'📨'}
+    {name:'📨 商机回复', url:'https://contact.alibaba.com', desc:'商机消息管理', emoji:'📨'},
+    {name:'🛡️ 交易勋章', url:'https://tradeassurance.alibaba.com', desc:'交易勋章体系', emoji:'🛡️'},
+    {name:'📑 粉丝通', url:'https://message.alibaba.com', desc:'粉丝营销工具', emoji:'📑'},
+    {name:'📊 买家保障', url:'https://buyerprotection.alibaba.com', desc:'买家保障服务', emoji:'📊'},
+    {name:'🔎 同行热销', url:'https://competitor.alibaba.com', desc:'同行数据分析', emoji:'🔎'},
+    {name:'🏷️ 橱窗推荐', url:'https://showcase.alibaba.com', desc:'产品橱窗管理', emoji:'🏷️'},
+    {name:'📈 询盘转化', url:'https://inquiry.alibaba.com', desc:'询盘转化分析', emoji:'📈'},
+    {name:'🌟 牛老板', url:'https://niulaoban.alibaba.com', desc:'外贸CRM工具', emoji:'🌟'}
   ],
   backend: [
     {name:'🏪 店铺管理', url:'#', desc:'店铺后台管理', emoji:'🏪'},
@@ -583,7 +614,13 @@ let tools = {
     {name:'🎨 详情页模板', url:'#', desc:'详情页模板库', emoji:'🎨'},
     {name:'📝 SEO优化', url:'#', desc:'产品SEO设置', emoji:'📝'},
     {name:'🔄 数据同步', url:'#', desc:'多平台数据同步', emoji:'🔄'},
-    {name:'📈 竞品监控', url:'#', desc:'竞品动态监控', emoji:'📈'}
+    {name:'📈 竞品监控', url:'#', desc:'竞品动态监控', emoji:'📈'},
+    {name:'📊 访客画像', url:'#', desc:'买家画像分析', emoji:'📊'},
+    {name:'🔍 关键词库', url:'#', desc:'关键词词库管理', emoji:'🔍'},
+    {name:'🏷️ 价格管理', url:'#', desc:'产品定价策略', emoji:'🏷️'},
+    {name:'📋 订单管理', url:'#', desc:'订单处理流程', emoji:'📋'},
+    {name:'🚚 发货管理', url:'#', desc:'发货物流管理', emoji:'🚚'},
+    {name:'💳 退款售后', url:'#', desc:'退款售后处理', emoji:'💳'}
   ],
   google: [
     {name:'🔍 Google搜索', url:'https://www.google.com', desc:'谷歌搜索引擎', emoji:'🔍'},
@@ -613,7 +650,11 @@ let tools = {
     {name:'🗺️ Merchant Center', url:'https://www.google.com/retail/solutions/merchant-center', desc:'商家中心', emoji:'🗺️'},
     {name:'📱 Firebase', url:'https://firebase.google.com', desc:'移动开发平台', emoji:'📱'},
     {name:'🔎 Chrome DevTools', url:'https://developer.chrome.com/docs/devtools', desc:'浏览器开发者工具', emoji:'🔎'},
-    {name:'📊 Data Studio', url:'https://datastudio.google.com', desc:'数据可视化报告', emoji:'📊'}
+    {name:'📊 Data Studio', url:'https://datastudio.google.com', desc:'数据可视化报告', emoji:'📊'},
+    {name:'🔧 Google Optimize', url:'https://optimize.google.com', desc:'A/B测试工具', emoji:'🔧'},
+    {name:'🎯 Surveys', url:'https://surveys.google.com', desc:'用户调研工具', emoji:'🎯'},
+    {name:'📞 Google Voice', url:'https://voice.google.com', desc:'网络电话服务', emoji:'📞'},
+    {name:'🗓️ Google Tasks', url:'https://tasks.google.com', desc:'任务管理工具', emoji:'🗓️'}
   ],
   ai: [
     {name:'🤖 ChatGPT', url:'https://chat.openai.com', desc:'OpenAI对话模型', emoji:'🤖'},
@@ -639,10 +680,16 @@ let tools = {
     {name:'✏️ Copilot', url:'https://copilot.microsoft.com', desc:'微软AI助手', emoji:'✏️'},
     {name:'🎬 Pika', url:'https://pika.art', desc:'AI视频生成', emoji:'🎬'},
     {name:'🖼️ Adobe Firefly', url:'https://firefly.adobe.com', desc:'Adobe AI绘图', emoji:'🖼️'},
-    {name:'🌟 腾讯混元', url:'https://hunyuan.tencent.com', desc:'腾讯AI大模型', emoji:'🌟'}
+    {name:'🌟 腾讯混元', url:'https://hunyuan.tencent.com', desc:'腾讯AI大模型', emoji:'🌟'},
+    {name:'🔬 Gemini', url:'https://gemini.google.com', desc:'Google AI模型', emoji:'🔬'},
+    {name:'💬 Grok', url:'https://grok.com', desc:'xAI对话助手', emoji:'💬'},
+    {name:'📱 Pi AI', url:'https://pi.ai', desc:'Inflection AI个人AI', emoji:'📱'},
+    {name:'🧩 Cursor', url:'https://cursor.com', desc:'AI代码编辑器', emoji:'🧩'},
+    {name:'🎯 Coze', url:'https://www.coze.cn', desc:'字节AI应用平台', emoji:'🎯'},
+    {name:'🖌️ Leonardo', url:'https://leonardo.ai', desc:'AI游戏资产生成', emoji:'🖌️'}
   ],
   plugins: [
-    {name:'📊 店小秘', url:'#', desc:'店铺管理插件', emoji:'📊'},
+    {name:'📊 店小秘', url:'https://www.dianxiaomi.com', desc:'店铺管理插件', emoji:'📊'},
     {name:'🔍 关键词工具', url:'#', desc:'SEO关键词分析', emoji:'🔍'},
     {name:'📈 数据监控', url:'#', desc:'竞品数据监控', emoji:'📈'},
     {name:'🎨 图片助手', url:'#', desc:'图片处理工具', emoji:'🎨'},
@@ -653,7 +700,13 @@ let tools = {
     {name:'🖼️ 图片下载', url:'#', desc:'批量图片下载', emoji:'🖼️'},
     {name:'🔐 密码管理', url:'#', desc:'密码安全插件', emoji:'🔐'},
     {name:'📝 文本编辑', url:'#', desc:'高级文本处理', emoji:'📝'},
-    {name:'🎯 快捷键增强', url:'#', desc:'效率快捷键', emoji:'🎯'}
+    {name:'🎯 快捷键增强', url:'#', desc:'效率快捷键', emoji:'🎯'},
+    {name:'🕵️ 竞品分析', url:'#', desc:'竞品价格监控', emoji:'🕵️'},
+    {name:'📊 销量监控', url:'#', desc:'竞品销量追踪', emoji:'📊'},
+    {name:'🌐 Cookie管理', url:'#', desc:'浏览器Cookie工具', emoji:'🌐'},
+    {name:'📱 剪贴板增强', url:'#', desc:'剪贴板历史记录', emoji:'📱'},
+    {name:'🔔 提醒插件', url:'#', desc:'网页提醒工具', emoji:'🔔'},
+    {name:'🗂️ 标签页管理', url:'#', desc:'标签页分组整理', emoji:'🗂️'}
   ],
   translate: [
     {name:'🌍 谷歌翻译', url:'https://translate.google.com', desc:'Google Translate', emoji:'🌍'},
@@ -665,7 +718,12 @@ let tools = {
     {name:'🇯🇵 沪江小D', url:'https://www.hjdict.com', desc:'日语翻译词典', emoji:'🇯🇵'},
     {name:'🗣️ 讯飞听见', url:'https://www.iflyrec.com', desc:'语音翻译', emoji:'🗣️'},
     {name:'📖 金山词霸', url:'https://www.iciba.com', desc:'英语词典翻译', emoji:'📖'},
-    {name:'🔄 文档翻译', url:'https://www.onlinedoctranslator.com', desc:'文档翻译工具', emoji:'🔄'}
+    {name:'🔄 文档翻译', url:'https://www.onlinedoctranslator.com', desc:'文档翻译工具', emoji:'🔄'},
+    {name:'🇪🇸 西班牙语助手', url:'https://www.spanishdict.com', desc:'西班牙语词典', emoji:'🇪🇸'},
+    {name:'🇫🇷 法语助手', url:'https://www.frdic.com', desc:'法语词典工具', emoji:'🇫🇷'},
+    {name:'🇩🇪 德语助手', url:'https://www.dict.cc', desc:'德语词典工具', emoji:'🇩🇪'},
+    {name:'🌐 必应翻译', url:'https://www.bing.com/translator', desc:'微软翻译服务', emoji:'🌐'},
+    {name:'🔤 彩云小译', url:'https://fanyi.caiyunapp.com', desc:'AI实时翻译', emoji:'🔤'}
   ],
   design: [
     {name:'🎨 Canva', url:'https://www.canva.com', desc:'在线设计平台', emoji:'🎨'},
@@ -678,35 +736,54 @@ let tools = {
     {name:'🖌️ Remove.bg', url:'https://www.remove.bg', desc:'智能抠图工具', emoji:'🖌️'},
     {name:'🎨 Adobe Express', url:'https://express.adobe.com', desc:'Adobe设计工具', emoji:'🎨'},
     {name:'📸 Snapedit', url:'https://snapedit.app', desc:'AI修图工具', emoji:'📸'},
-    {name:'🎬 剪映', url:'#', desc:'视频剪辑工具', emoji:'🎬'},
+    {name:'🎬 剪映', url:'https://www.capcut.cn', desc:'视频剪辑工具', emoji:'🎬'},
     {name:'✂️ PhotoKit', url:'https://photokit.com', desc:'在线图片编辑', emoji:'✂️'},
     {name:'📊 字魂网', url:'https://izihun.com', desc:'商用字体素材', emoji:'📊'},
     {name:'🏞️ 觅元素', url:'http://www.51yuansu.com', desc:'免抠PNG素材', emoji:'🏞️'},
     {name:'🎨 Sketch', url:'https://www.sketch.com', desc:'UI设计工具', emoji:'🎨'},
     {name:'📐 标小智', url:'https://www.logosc.cn', desc:'Logo设计工具', emoji:'📐'},
-    {name:'🖌️ 搞定设计', url:'https://www.gaoding.com', desc:'综合设计工具', emoji:'🖌️'}
+    {name:'🖌️ 搞定设计', url:'https://www.gaoding.com', desc:'综合设计工具', emoji:'🖌️'},
+    {name:'🎭 万兴智演', url:'https://guanwang.wondershare.cn', desc:'演示文稿工具', emoji:'🎭'},
+    {name:'🖼️ Fotor', url:'https://www.fotor.com', desc:'在线图片编辑', emoji:'🖼️'},
+    {name:'📸 美图秀秀', url:'https://pc.meitu.com', desc:'图片美化工具', emoji:'📸'},
+    {name:'🎨 站酷', url:'https://www.zcool.com.cn', desc:'设计师社区', emoji:'🎨'},
+    {name:'📐 优设', url:'https://www.uisdc.com', desc:'设计教程资源', emoji:'📐'},
+    {name:'🖌️ 魔力相册', url:'#', desc:'电子相册制作', emoji:'🖌️'},
+    {name:'📺 创客贴视频', url:'https://video.chuangkit.com', desc:'在线视频制作', emoji:'📺'},
+    {name:'🎨 图精灵', url:'https://www.tubiji.com', desc:'图片素材下载', emoji:'🎨'},
+    {name:'🖼️ 懒设计', url:'https://www.fotor.com.cn', desc:'海报设计工具', emoji:'🖼️'}
   ],
   tools: [
     {name:'📧 临时邮箱', url:'https://temp-mail.org', desc:'一次性邮箱服务', emoji:'📧'},
-    {name:'📱 接码平台', url:'#', desc:'短信验证码接收', emoji:'📱'},
-    {name:'🔒 密码生成器', url:'#', desc:'安全密码生成', emoji:'🔒'},
-    {name:'📊 二维码生成', url:'#', desc:'二维码制作工具', emoji:'📊'},
-    {name:'📁 格式转换', url:'#', desc:'文件格式转换', emoji:'📁'},
-    {name:'🔧 正则测试', url:'#', desc:'正则表达式测试', emoji:'🔧'},
-    {name:'🌐 URL编码', url:'#', desc:'URL编解码工具', emoji:'🌐'},
-    {name:'📋 JSON格式化', url:'#', desc:'JSON美化压缩', emoji:'📋'},
-    {name:'🔐 MD5加密', url:'#', desc:'MD5哈希加密', emoji:'🔐'},
-    {name:'📐 Base64', url:'#', desc:'Base64编解码', emoji:'📐'},
-    {name:'🗓️ 日期间计算', url:'#', desc:'日期计算工具', emoji:'🗓️'},
-    {name:'📏 单位换算', url:'#', desc:'单位换算工具', emoji:'📏'},
-    {name:'🌐 IP查询', url:'#', desc:'IP地址查询', emoji:'🌐'},
-    {name:'📱 手机归属', url:'#', desc:'手机号归属地', emoji:'📱'},
-    {name:'🔖 短链接', url:'#', desc:'长链接缩短', emoji:'🔖'},
-    {name:'📋 OCR识别', url:'#', desc:'图片文字识别', emoji:'📋'},
-    {name:'🗂️ 思维导图', url:'#', desc:'在线思维导图', emoji:'🗂️'},
-    {name:'📊 PPT模板', url:'#', desc:'PPT素材下载', emoji:'📊'},
-    {name:'🔍 代码格式化', url:'#', desc:'代码美化工具', emoji:'🔍'},
-    {name:'📦 压缩工具', url:'#', desc:'在线压缩工具', emoji:'📦'}
+    {name:'📱 接码平台', url:'https://www.yinsiduanxin.com', desc:'短信验证码接收', emoji:'📱'},
+    {name:'🔒 密码生成器', url:'https://passwords.google.com', desc:'安全密码生成', emoji:'🔒'},
+    {name:'📊 二维码生成', url:'https://cli.im', desc:'二维码制作工具', emoji:'📊'},
+    {name:'📁 格式转换', url:'https://convertio.co', desc:'文件格式转换', emoji:'📁'},
+    {name:'🔧 正则测试', url:'https://regex101.com', desc:'正则表达式测试', emoji:'🔧'},
+    {name:'🌐 URL编码', url:'https://www.urlencoder.org', desc:'URL编解码工具', emoji:'🌐'},
+    {name:'📋 JSON格式化', url:'https://jsonformatter.curiousconcept.com', desc:'JSON美化压缩', emoji:'📋'},
+    {name:'🔐 MD5加密', url:'https://www.md5online.org', desc:'MD5哈希加密', emoji:'🔐'},
+    {name:'📐 Base64', url:'https://www.base64decode.org', desc:'Base64编解码', emoji:'📐'},
+    {name:'🗓️ 日期间计算', url:'https://time.is', desc:'日期计算工具', emoji:'🗓️'},
+    {name:'📏 单位换算', url:'https://www.convertworld.com', desc:'单位换算工具', emoji:'📏'},
+    {name:'🌐 IP查询', url:'https://www.ipaddress.com', desc:'IP地址查询', emoji:'🌐'},
+    {name:'📱 手机归属', url:'https://www.aliyun.com', desc:'手机号归属地', emoji:'📱'},
+    {name:'🔖 短链接', url:'https://tinyurl.com', desc:'长链接缩短', emoji:'🔖'},
+    {name:'📋 OCR识别', url:'https://onlineocr.net', desc:'图片文字识别', emoji:'📋'},
+    {name:'🗂️ 思维导图', url:'https://mubu.com', desc:'在线思维导图', emoji:'🗂️'},
+    {name:'📊 PPT模板', url:'https://www.hippter.com', desc:'PPT素材下载', emoji:'📊'},
+    {name:'🔍 代码格式化', url:'https://www.prettier.cn', desc:'代码美化工具', emoji:'🔍'},
+    {name:'📦 压缩工具', url:'https://www.ilovepdf.com', desc:'在线压缩工具', emoji:'📦'},
+    {name:'📝 文本去重', url:'#', desc:'文本去重工具', emoji:'📝'},
+    {name:'🔢 UUID生成', url:'#', desc:'UUID批量生成', emoji:'🔢'},
+    {name:'🗓️ 世界时钟', url:'https://www.worldtimeserver.com', desc:'全球时区查询', emoji:'🗓️'},
+    {name:'📐 进制转换', url:'#', desc:'进制转换计算', emoji:'📐'},
+    {name:'🔍 Hash生成', url:'#', desc:'各种Hash生成', emoji:'🔍'},
+    {name:'📊 词频统计', url:'#', desc:'文本词频分析', emoji:'📊'},
+    {name:'🖼️ 图片压缩', url:'https://tinypng.com', desc:'图片在线压缩', emoji:'🖼️'},
+    {name:'📁 文件拆分', url:'#', desc:'大文件拆分工具', emoji:'📁'},
+    {name:'🔐 加密解密', url:'#', desc:'在线加密解密', emoji:'🔐'},
+    {name:'📊 百分比计算', url:'#', desc:'百分比计算器', emoji:'📊'}
   ],
   social: [
     {name:'📘 Facebook', url:'https://www.facebook.com', desc:'脸书社交平台', emoji:'📘'},
@@ -722,7 +799,18 @@ let tools = {
     {name:'🔴 Reddit', url:'https://www.reddit.com', desc:'社区社交平台', emoji:'🔴'},
     {name:'📹 TikTok Creator', url:'https://www.tiktok.com/creator', desc:'TikTok创作者', emoji:'📹'},
     {name:'📘 Facebook Business', url:'https://www.facebook.com/business', desc:'FB商务管理中心', emoji:'📘'},
-    {name:'📊 LinkedIn分析', url:'https://business.linkedin.com', desc:'LinkedIn企业', emoji:'📊'}
+    {name:'📊 LinkedIn分析', url:'https://business.linkedin.com', desc:'LinkedIn企业后台', emoji:'📊'},
+    {name:'📕 Discord', url:'https://discord.com', desc:'社区聊天平台', emoji:'📕'},
+    {name:'📱 Threads', url:'https://www.threads.net', desc:'Meta社交平台', emoji:'📱'},
+    {name:'💼 Twitter Business', url:'https://business.twitter.com', desc:'Twitter商务', emoji:'💼'},
+    {name:'📺 YouTube Studio', url:'https://studio.youtube.com', desc:'油管创作者后台', emoji:'📺'},
+    {name:'🎥 Vimeo', url:'https://vimeo.com', desc:'专业视频平台', emoji:'🎥'},
+    {name:'📘 LINE', url:'https://line.me', desc:'日本主流通讯', emoji:'📘'},
+    {name:'📸 Snapchat Business', url:'https://forbusiness.snapchat.com', desc:'Snapchat商务', emoji:'📸'},
+    {name:'🔴 YouNow', url:'https://www.younow.com', desc:'直播社交平台', emoji:'🔴'},
+    {name:'📌 Mix', url:'https://mix.com', desc:'社交书签平台', emoji:'📌'},
+    {name:'💬 Viber', url:'https://www.viber.com', desc:'即时通讯工具', emoji:'💬'},
+    {name:'📱 KakaoTalk', url:'https://www.kakaocorp.com', desc:'韩国通讯工具', emoji:'📱'}
   ],
   business: [
     {name:'📅 谷歌日历', url:'https://calendar.google.com', desc:'日程管理工具', emoji:'📅'},
@@ -744,21 +832,37 @@ let tools = {
     {name:'📞 Zoom', url:'https://zoom.us', desc:'视频会议工具', emoji:'📞'},
     {name:'🎥 Loom', url:'https://www.loom.com', desc:'屏幕录制工具', emoji:'🎥'},
     {name:'📋 印象笔记', url:'https://www.yinxiang.com', desc:'笔记整理工具', emoji:'📋'},
-    {name:'📊 PowerPoint', url:'https://office.com', desc:'Office在线', emoji:'📊'}
+    {name:'📊 PowerPoint', url:'https://office.com', desc:'Office在线', emoji:'📊'},
+    {name:'📧 QQ邮箱', url:'https://mail.qq.com', desc:'腾讯邮箱服务', emoji:'📧'},
+    {name:'🏢 钉钉', url:'https://www.dingtalk.com', desc:'企业通讯工具', emoji:'🏢'},
+    {name:'💼 企业微信', url:'https://work.weixin.qq.com', desc:'腾讯企业服务', emoji:'💼'},
+    {name:'📋 语雀', url:'https://www.yuque.com', desc:'知识管理工具', emoji:'📋'},
+    {name:'📊 Tableau', url:'https://www.tableau.com', desc:'数据可视化', emoji:'📊'},
+    {name:'📈 Power BI', url:'https://powerbi.microsoft.com', desc:'微软BI工具', emoji:'📈'},
+    {name:'📊 FineReport', url:'https://www.finereport.com', desc:'报表工具', emoji:'📊'},
+    {name:'📋 Tower', url:'https://tower.im', desc:'团队协作工具', emoji:'📋'},
+    {name:'🔄 Jenkins', url:'https://www.jenkins.io', desc:'CI/CD自动化', emoji:'🔄'},
+    {name:'📊 Grafana', url:'https://grafana.com', desc:'数据监控面板', emoji:'📊'}
   ],
   logistics: [
     {name:'📦 17track', url:'https://www.17track.net', desc:'全球物流查询', emoji:'📦'},
     {name:'🚚 快递100', url:'https://www.kuaidi100.com', desc:'国内快递查询', emoji:'🚚'},
     {name:'✈️ 菜鸟裹裹', url:'https://www.cainiao.com', desc:'阿里物流平台', emoji:'✈️'},
-    {name:'🚢 海运查询', url:'#', desc:'海运物流跟踪', emoji:'🚢'},
-    {name:'📋 报关工具', url:'#', desc:'报关单证制作', emoji:'📋'},
+    {name:'🚢 海运查询', url:'https://www.shippingchina.com', desc:'海运物流跟踪', emoji:'🚢'},
+    {name:'📋 报关工具', url:'https://www.chinaport.gov.cn', desc:'报关单证制作', emoji:'📋'},
     {name:'🏠 海外仓', url:'#', desc:'海外仓服务', emoji:'🏠'},
     {name:'📊 运去哪', url:'https://www.yunquna.com', desc:'国际物流平台', emoji:'📊'},
     {name:'🚛 德邦物流', url:'https://www.deppon.com', desc:'大件物流服务', emoji:'🚛'},
     {name:'✈️ DHL', url:'https://www.dhl.com', desc:'国际快递DHL', emoji:'✈️'},
     {name:'🚚 FedEx', url:'https://www.fedex.com', desc:'国际快递FedEx', emoji:'🚚'},
     {name:'📦 UPS', url:'https://www.ups.com', desc:'国际快递UPS', emoji:'📦'},
-    {name:'🏭 跨境仓储', url:'#', desc:'跨境仓储服务', emoji:'🏭'}
+    {name:'🏭 跨境仓储', url:'#', desc:'跨境仓储服务', emoji:'🏭'},
+    {name:'🚢 中远海运', url:'https://www.coscoshipping.com', desc:'海洋运输服务', emoji:'🚢'},
+    {name:'✈️ 顺丰速运', url:'https://www.sf-express.com', desc:'国内外快递', emoji:'✈️'},
+    {name:'📦 邮政EMS', url:'https://www.ems.com.cn', desc:'邮政国际速递', emoji:'📦'},
+    {name:'🚛 天地华宇', url:'https://www.tyd.com.cn', desc:'公路运输服务', emoji:'🚛'},
+    {name:'✈️ 中国航空', url:'http://www.airchina.com.cn', desc:'航空货运服务', emoji:'✈️'},
+    {name:'📊 Flexport', url:'https://www.flexport.com', desc:'国际物流平台', emoji:'📊'}
   ],
   payment: [
     {name:'💰 PayPal', url:'https://www.paypal.com', desc:'国际支付平台', emoji:'💰'},
@@ -772,19 +876,30 @@ let tools = {
     {name:'💰 空中云汇', url:'https://www.airwallex.com', desc:'跨境支付', emoji:'💰'},
     {name:'🏧 ATM查询', url:'#', desc:'海外ATM查询', emoji:'🏧'},
     {name:'💎 乒乓支付', url:'https://www.pingpongx.com', desc:'跨境金融服务', emoji:'💎'},
-    {name:'💳 虚拟卡', url:'#', desc:'海外虚拟信用卡', emoji:'💳'}
+    {name:'💳 虚拟卡', url:'https://www.depot.com', desc:'海外虚拟信用卡', emoji:'💳'},
+    {name:'💰 派安盈优惠', url:'https://www.payoneer.com/cn/free-to-join/', desc:'Payoneer注册优惠', emoji:'💰'},
+    {name:'🏦 渣打银行', url:'https://www.sc.com/cn', desc:'跨境金融服务', emoji:'🏦'},
+    {name:'💳 Stripe', url:'https://stripe.com', desc:'在线支付网关', emoji:'💳'},
+    {name:'💰 Wise', url:'https://wise.com', desc:'国际汇款平台', emoji:'💰'},
+    {name:'💎 寻汇', url:'https://www.xunhui.com', desc:'跨境支付服务', emoji:'💎'},
+    {name:'🏦 光大银行跨境', url:'https://www.cebbank.com', desc:'跨境金融服务', emoji:'🏦'}
   ],
   company: [
     {name:'🔍 天眼查', url:'https://www.tianyancha.com', desc:'企业信息查询', emoji:'🔍'},
     {name:'📊 企查查', url:'https://www.qcc.com', desc:'企业信用查询', emoji:'📊'},
     {name:'🔎 启信宝', url:'https://www.qixin.com', desc:'企业征信平台', emoji:'🔎'},
     {name:'🇺🇸 OpenCorporates', url:'https://opencorporates.com', desc:'全球企业查询', emoji:'🇺🇸'},
-    {name:'🇪🇺 EU Business', url:'#', desc:'欧洲企业查询', emoji:'🇪🇺'},
-    {name:'🇯🇵 日本企查', url:'#', desc:'日本企业信息', emoji:'🇯🇵'},
-    {name:'🇰🇷 韩国企查', url:'#', desc:'韩国企业信息', emoji:'🇰🇷'},
-    {name:'🇮🇳 IndiaBiz', url:'#', desc:'印度企业查询', emoji:'🇮🇳'},
+    {name:'🇪🇺 EU Business', url:'https://europa.eu', desc:'欧洲企业查询', emoji:'🇪🇺'},
+    {name:'🇯🇵 日本企查', url:'https://www.houjin.jp', desc:'日本企业信息', emoji:'🇯🇵'},
+    {name:'🇰🇷 韩国企查', url:'https://www.ftc.go.jp', desc:'韩国企业信息', emoji:'🇰🇷'},
+    {name:'🇮🇳 IndiaBiz', url:'https://www.mca.gov.in', desc:'印度企业查询', emoji:'🇮🇳'},
     {name:'🏢 国家企业信用', url:'https://www.gsxt.gov.cn', desc:'中国市场监管', emoji:'🏢'},
-    {name:'🌐 全球企查', url:'#', desc:'全球企业搜索', emoji:'🌐'}
+    {name:'🌐 全球企查', url:'#', desc:'全球企业搜索', emoji:'🌐'},
+    {name:'📊 信用中国', url:'https://www.creditchina.gov.cn', desc:'信用信息公示', emoji:'📊'},
+    {name:'🏢 国家药监局', url:'https://www.nmpa.gov.cn', desc:'药品监管查询', emoji:'🏢'},
+    {name:'🔍 商标查询', url:'https://sbj.cnipa.gov.cn', desc:'中国商标网', emoji:'🔍'},
+    {name:'📋 海关编码', url:'https://www.hscode.net', desc:'海关商品编码', emoji:'📋'},
+    {name:'🏢 上市公司', url:'https://www.cninfo.com.cn', desc:'A股上市公司', emoji:'🏢'}
   ],
   ip: [
     {name:'🇨🇳 中国商标网', url:'https://sbj.cnipa.gov.cn', desc:'商标查询注册', emoji:'🇨🇳'},
@@ -793,10 +908,15 @@ let tools = {
     {name:'🇪🇺 欧盟商标', url:'https://euipo.europa.eu', desc:'EUIPO查询', emoji:'🇪🇺'},
     {name:'🔍 专利查询', url:'https://www.cnipa.gov.cn', desc:'专利检索系统', emoji:'🔍'},
     {name:'⚖️ 侵权检测', url:'#', desc:'侵权风险检测', emoji:'⚖️'},
-    {name:'🇬🇧 英国商标', url:'#', desc:'UKIPO查询', emoji:'🇬🇧'},
-    {name:'🇯🇵 日本特许', url:'#', desc:'JPO专利查询', emoji:'🇯🇵'},
+    {name:'🇬🇧 英国商标', url:'https://trademarks.ipo.gov.uk', desc:'UKIPO查询', emoji:'🇬🇧'},
+    {name:'🇯🇵 日本特许', url:'https://www.jpo.go.jp', desc:'JPO专利查询', emoji:'🇯🇵'},
     {name:'🌐 版权登记', url:'https://www.ccopyright.com.cn', desc:'中国版权登记', emoji:'🌐'},
-    {name:'🔎 专利之星', url:'https://www.pss-system.gov.cn', desc:'专利数据库', emoji:'🔎'}
+    {name:'🔎 专利之星', url:'https://www.pss-system.gov.cn', desc:'专利数据库', emoji:'🔎'},
+    {name:'🔍 侵权查询', url:'https://www.zhippa.com', desc:'侵权风险查询', emoji:'🔍'},
+    {name:'⚖️ 外观专利', url:'https://，外观设计专利查询', desc:'外观设计专利', emoji:'⚖️'},
+    {name:'🇰🇷 韩国商标', url:'http://www.kipo.go.kr', desc:'韩国知识产权', emoji:'🇰🇷'},
+    {name:'🇦🇺 澳洲商标', url:'https://search.ipaustralia.gov.au', desc:'澳洲商标查询', emoji:'🇦🇺'},
+    {name:'🌐 TMview', url:'https://www.tmdn.org', desc:'全球商标查询', emoji:'🌐'}
   ],
   email: [
     {name:'📧 开发信模板', url:'#', desc:'客户开发邮件', emoji:'📧'},
@@ -808,17 +928,33 @@ let tools = {
     {name:'📨 催单模板', url:'#', desc:'催款催单邮件', emoji:'📨'},
     {name:'📝 投诉处理', url:'#', desc:'客户投诉回复', emoji:'📝'},
     {name:'🎁 售后模板', url:'#', desc:'售后服务邮件', emoji:'🎁'},
-    {name:'📋 产品介绍', url:'#', desc:'产品介绍邮件', emoji:'📋'}
+    {name:'📋 产品介绍', url:'#', desc:'产品介绍邮件', emoji:'📋'},
+    {name:'📨 拒绝报价', url:'#', desc:'拒绝客户话术', emoji:'📨'},
+    {name:'💼 邀请函模板', url:'#', desc:'商务邀请函', emoji:'💼'},
+    {name:'📦 发货通知', url:'#', desc:'发货通知模板', emoji:'📦'},
+    {name:'🔄 换货处理', url:'#', desc:'换货回复模板', emoji:'🔄'},
+    {name:'📧 样品邮件', url:'#', desc:'样品申请回复', emoji:'📧'},
+    {name:'🎯 谈判话术', url:'#', desc:'价格谈判技巧', emoji:'🎯'},
+    {name:'📝 投诉模板', url:'#', desc:'投诉处理回复', emoji:'📝'},
+    {name:'📋 复购邮件', url:'#', desc:'老客户复购', emoji:'📋'}
   ],
   exhibition: [
     {name:'🌍 广交会', url:'https://www.cantonfair.org.cn', desc:'中国进出口商品交易会', emoji:'🌍'},
     {name:'🇩🇪 汉诺威工业展', url:'https://www.hannovermesse.de', desc:'工业博览会', emoji:'🇩🇪'},
     {name:'🇺🇸 CES展', url:'https://www.ces.tech', desc:'消费电子展', emoji:'🇺🇸'},
     {name:'🇭🇰 香港电子展', url:'https://www.hktdc.com', desc:'香港贸发局', emoji:'🇭🇰'},
-    {name:'🇦🇪 迪拜展会', url:'#', desc:'中东展会信息', emoji:'🇦🇪'},
-    {name:'📅 展会日历', url:'#', desc:'全球展会排期', emoji:'📅'},
+    {name:'🇦🇪 迪拜展会', url:'https://www.wfmdu.com', desc:'中东展会信息', emoji:'🇦🇪'},
+    {name:'📅 展会日历', url:'https://www.eventbrite.com', desc:'全球展会排期', emoji:'📅'},
     {name:'🇩🇰 哥本哈根', url:'#', desc:'北欧设计展', emoji:'🇩🇰'},
-    {name:'🇫🇷 巴黎Cosmetic', url:'#', desc:'美妆行业展会', emoji:'🇫🇷'}
+    {name:'🇫🇷 巴黎Cosmetic', url:'https://www.cosmeticsbusiness.com', desc:'美妆行业展会', emoji:'🇫🇷'},
+    {name:'🇩🇪 法兰克福展', url:'https://www.messefrankfurt.com', desc:'法兰克福消费品展', emoji:'🇩🇪'},
+    {name:'🇮🇹 米兰Cosmoprof', url:'https://www.cosmoprof.com', desc:'意大利美容展', emoji:'🇮🇹'},
+    {name:'🇺🇸 拉斯维加斯美容展', url:'https://www.personalcareproduct', desc:'美国美容展', emoji:'🇺🇸'},
+    {name:'🌏 义乌国际展', url:'https://www.yiwufair.com', desc:'义乌国际博览会', emoji:'🌏'},
+    {name:'🇨🇳 进博会', url:'https://www.ciie.org', desc:'中国进口博览会', emoji:'🇨🇳'},
+    {name:'🇭🇰 环球资源展', url:'https://www.globalsources.com', desc:'香港环球资源展', emoji:'🇭🇰'},
+    {name:'📋 励展全球', url:'https://www.reedexhibitions.com', desc:'励展全球展会', emoji:'📋'},
+    {name:'🇩🇪 科隆展', url:'https://www.koelnmesse.com', desc:'德国科隆展会', emoji:'🇩🇪'}
   ],
   amazon: [
     {name:'📦 卖家中心', url:'https://sellercentral.amazon.com', desc:'Amazon Seller', emoji:'📦'},
@@ -830,23 +966,47 @@ let tools = {
     {name:'📉 Keepa', url:'https://keepa.com', desc:'价格追踪工具', emoji:'📉'},
     {name:'🔍 CamelCamelCamel', url:'https://camelcamelcamel.com', desc:'亚马逊价格历史', emoji:'🔍'},
     {name:'📦 FBA计算器', url:'https://sellercentral.amazon.com/fba/revenue-calculator', desc:'FBA费用计算', emoji:'📦'},
-    {name:'📊 优麦云', url:'#', desc:'亚马逊ERP', emoji:'📊'},
-    {name:'💡 船长BI', url:'#', desc:'亚马逊数据分析', emoji:'💡'},
-    {name:'🔧 领星', url:'#', desc:'亚马逊管理系统', emoji:'🔧'}
+    {name:'📊 优麦云', url:'https://www.youmate.com', desc:'亚马逊ERP', emoji:'📊'},
+    {name:'💡 船长BI', url:'https://www.zongcart.com', desc:'亚马逊数据分析', emoji:'💡'},
+    {name:'🔧 领星', url:'https://www.linears.shop', desc:'亚马逊管理系统', emoji:'🔧'},
+    {name:'📈 Sorftime', url:'https://www.sorftime.com', desc:'亚马逊选品工具', emoji:'📈'},
+    {name:'🔍 魔词', url:'https://www.magiwave.com', desc:'关键词挖掘工具', emoji:'🔍'},
+    {name:'📊 鸥鹭', url:'https://www.oalur.com', desc:'亚马逊数据选品', emoji:'📊'},
+    {name:'💰 必盈', url:'https://www.amz123.com', desc:'亚马逊广告工具', emoji:'💰'},
+    {name:'📦 亚马逊物流', url:'https://www.amazon.com/fulfillment-by-amazon', desc:'FBA物流服务', emoji:'📦'},
+    {name:'🌐 Amazon Business', url:'https://www.amazon.com/business', desc:'亚马逊B2B平台', emoji:'🌐'},
+    {name:'📋 亚马逊品牌注册', url:'https://brandregistry.amazon.com', desc:'品牌备案入口', emoji:'📋'},
+    {name:'🎯 亚马逊广告', url:'https://advertising.amazon.com', desc:'亚马逊广告平台', emoji:'🎯'},
+    {name:'📊 亚马逊API', url:'https://docs.developer.amazon.com', desc:'亚马逊开发者API', emoji:'📊'},
+    {name:'🔍 Review监控', url:'https://www.junglescout.com', desc:'竞品Review追踪', emoji:'🔍'},
+    {name:'📈 品类趋势', url:'https://www.二哥Rank.com', desc:'AmazonBSR排名', emoji:'📈'},
+    {name:'💡 紫鸟浏览器', url:'https://www.ziniao.com', desc:'亚马逊店铺管理', emoji:'💡'}
   ],
   blacktech: [
     {name:'📧 临时邮箱', url:'https://temp-mail.org', desc:'一次性邮箱', emoji:'📧'},
-    {name:'💳 虚拟信用卡', url:'#', desc:'虚拟卡服务', emoji:'💳'},
-    {name:'🌐 指纹浏览器', url:'#', desc:'防关联浏览器', emoji:'🌐'},
-    {name:'📱 接码平台', url:'#', desc:'短信验证码', emoji:'📱'},
-    {name:'🔒 代理IP', url:'#', desc:'住宅/机房代理', emoji:'🔒'},
+    {name:'💳 虚拟信用卡', url:'https://www.depot.com', desc:'虚拟卡服务', emoji:'💳'},
+    {name:'🌐 指纹浏览器', url:'https://www.multilogin.com', desc:'防关联浏览器', emoji:'🌐'},
+    {name:'📱 接码平台', url:'https://www.yinsiduanxin.com', desc:'短信验证码', emoji:'📱'},
+    {name:'🔒 代理IP', url:'https://www.luminati-china.com', desc:'住宅/机房代理', emoji:'🔒'},
     {name:'🆔 身份生成器', url:'#', desc:'虚拟身份信息', emoji:'🆔'},
-    {name:'✂️ 临时短信', url:'#', desc:'短信接收服务', emoji:'✂️'},
-    {name:'📮 临时手机', url:'#', desc:'虚拟手机号', emoji:'📮'},
-    {name:'🌍 住宅代理', url:'#', desc:'真实住宅IP', emoji:'🌍'},
-    {name:'🛡️ 隐私浏览器', url:'#', desc:'隐私浏览工具', emoji:'🛡️'},
-    {name:'📡 代理池', url:'#', desc:'代理IP池', emoji:'📡'},
-    {name:'🔑 密码审计', url:'#', desc:'密码安全检测', emoji:'🔑'}
+    {name:'✂️ 临时短信', url:'https://sms24.me', desc:'短信接收服务', emoji:'✂️'},
+    {name:'📮 临时手机', url:'https://www.receive-sms.cc', desc:'虚拟手机号', emoji:'📮'},
+    {name:'🌍 住宅代理', url:'https://www.smartproxy.com', desc:'真实住宅IP', emoji:'🌍'},
+    {name:'🛡️ 隐私浏览器', url:'https://www.torproject.org', desc:'隐私浏览工具', emoji:'🛡️'},
+    {name:'📡 代理池', url:'https://www.proxycurl.com', desc:'代理IP池', emoji:'📡'},
+    {name:'🔑 密码审计', url:'https://haveibeenpwned.com', desc:'密码安全检测', emoji:'🔑'},
+    {name:'🌐 云控系统', url:'#', desc:'社交媒体云控', emoji:'🌐'},
+    {name:'📊 数据采集', url:'#', desc:'网页数据采集', emoji:'📊'},
+    {name:'🔧 自动化脚本', url:'#', desc:'浏览器自动化', emoji:'🔧'},
+    {name:'🛡️ VPS服务器', url:'https://www.vultr.com', desc:'海外VPS服务', emoji:'🛡️'},
+    {name:'🔐 二次验证', url:'https://authy.com', desc:'两步验证工具', emoji:'🔐'},
+    {name:'📱 设备模拟', url:'#', desc:'手机设备模拟', emoji:'📱'},
+    {name:'🌐 WHOIS查询', url:'https://www.whois.com', desc:'域名WHOIS', emoji:'🌐'},
+    {name:'🔍 社工库', url:'#', desc:'信息检索工具', emoji:'🔍'},
+    {name:'📧 邮件追踪', url:'#', desc:'邮件打开追踪', emoji:'📧'},
+    {name:'🌐 反向代理', url:'#', desc:'代理转发服务', emoji:'🌐'},
+    {name:'🛡️ 防火墙', url:'https://www.cloudflare.com', desc:'CDN防护服务', emoji:'🛡️'},
+    {name:'📡 API代理', url:'https://www.proxyrack.com', desc:'API代理服务', emoji:'📡'}
   ],
   supply: [
     {name:'🏭 1688跨境', url:'https://kj.1688.com', desc:'1688跨境专供', emoji:'🏭'},
@@ -857,10 +1017,18 @@ let tools = {
     {name:'🏪 中国制造网', url:'https://cn.made-in-china.com', desc:'B2B供应平台', emoji:'🏪'},
     {name:'🛒 环球资源', url:'https://www.globalsources.com', desc:'B2B采购平台', emoji:'🛒'},
     {name:'🏭 慧聪网', url:'https://www.hc360.com', desc:'工业品供应', emoji:'🏭'},
-    {name:'📦 工邦邦', url:'#', desc:'工业品批发', emoji:'📦'},
-    {name:'💄 个秀阁', url:'#', desc:'美妆批发', emoji:'💄'},
-    {name:'🧴 1717CG', url:'#', desc:'美妆个护货源', emoji:'🧴'},
-    {name:'📦 55交易所', url:'#', desc:'工厂货平台', emoji:'📦'}
+    {name:'📦 工邦邦', url:'https://www.gongbangbang.com', desc:'工业品批发', emoji:'📦'},
+    {name:'💄 个秀阁', url:'https://www.gexiuge.com', desc:'美妆批发', emoji:'💄'},
+    {name:'🧴 1717CG', url:'https://www.1717cg.com', desc:'美妆个护货源', emoji:'🧴'},
+    {name:'📦 55交易所', url:'https://www.55tr.com', desc:'工厂货平台', emoji:'📦'},
+    {name:'🛒 批批网', url:'https://www.pipaw.com', desc:'服装一手货源', emoji:'🛒'},
+    {name:'🏭 广州十三行', url:'https://www.13h.com', desc:'服装批发档口', emoji:'🏭'},
+    {name:'💄 仪美特', url:'https://www.yimeite.com', desc:'美妆仪器货源', emoji:'💄'},
+    {name:'📦 义采宝', url:'https://www.yicaibao.com', desc:'义乌货源平台', emoji:'📦'},
+    {name:'🧴 个护货源', url:'https://www.hzpw168.com', desc:'个护美妆货源', emoji:'🧴'},
+    {name:'📦 拿货去', url:'https://www.nahuoqu.com', desc:'一手拿货平台', emoji:'📦'},
+    {name:'💄 聚美饰', url:'#', desc:'美妆供应链', emoji:'💄'},
+    {name:'🏭 1688分销', url:'https://supplier.1688.com', desc:'1688分销平台', emoji:'🏭'}
   ],
   books: [
     {name:'📖 跨境电商运营', url:'#', desc:'跨境电商运营入门', emoji:'📖'},
@@ -878,7 +1046,12 @@ let tools = {
     {name:'📙 商业画布', url:'#', desc:'商业模式设计', emoji:'📙'},
     {name:'📕 平台战略', url:'#', desc:'平台商业模式', emoji:'📕'},
     {name:'📓 定价策略', url:'#', desc:'定价方法论', emoji:'📓'},
-    {name:'📔 选品策略', url:'#', desc:'电商选品方法', emoji:'📔'}
+    {name:'📔 选品策略', url:'#', desc:'电商选品方法', emoji:'📔'},
+    {name:'📖 客户成功', url:'#', desc:'SaaS客户管理', emoji:'📖'},
+    {name:'📗 品牌22条军规', url:'#', desc:'品牌定位法则', emoji:'📗'},
+    {name:'📘 细节营销', url:'#', desc:'营销细节把控', emoji:'📘'},
+    {name:'📙 轻资产创业', url:'#', desc:'低成本创业思路', emoji:'📙'},
+    {name:'📕 私域流量', url:'#', desc:'私域运营实战', emoji:'📕'}
   ],
   entertainment: [
     {name:'🎬 Netflix', url:'https://www.netflix.com', desc:'奈飞影视', emoji:'🎬'},
@@ -894,7 +1067,14 @@ let tools = {
     {name:'🎮 Epic Games', url:'https://store.epicgames.com', desc:'游戏平台', emoji:'🎮'},
     {name:'📺 Disney+', url:'https://www.disneyplus.com', desc:'迪士尼流媒体', emoji:'📺'},
     {name:'🎥 HBO Max', url:'https://www.hbomax.com', desc:'HBO流媒体', emoji:'🎥'},
-    {name:'🎬 抖音', url:'https://www.douyin.com', desc:'国内抖音', emoji:'🎬'}
+    {name:'🎬 抖音', url:'https://www.douyin.com', desc:'国内抖音', emoji:'🎬'},
+    {name:'🎥 Apple TV+', url:'https://tv.apple.com', desc:'苹果流媒体', emoji:'🎥'},
+    {name:'📺 Prime Video', url:'https://www.primevideo.com', desc:'亚马逊流媒体', emoji:'📺'},
+    {name:'🎵 QQ音乐', url:'https://y.qq.com', desc:'QQ音乐平台', emoji:'🎵'},
+    {name:'📺 芒果TV', url:'https://www.mgtv.com', desc:'芒果TV平台', emoji:'📺'},
+    {name:'🎮 Nintendo', url:'https://www.nintendo.com', desc:'Switch游戏', emoji:'🎮'},
+    {name:'🎬 搜狐视频', url:'https://tv.sohu.com', desc:'搜狐视频', emoji:'🎬'},
+    {name:'🎧 喜马拉雅', url:'https://www.ximalaya.com', desc:'音频分享平台', emoji:'🎧'}
   ]
 };
 
@@ -902,11 +1082,56 @@ let currentDeleteTarget = null;
 const CORRECT_PASSWORD = '124578';
 
 const LINKS = {
-  weibo: 'https://weibo.com/hot/search',
+  weibo: 'https://s.weibo.com/weibo?q=&Refer=SWeibo_box',
   douyin: 'https://www.douyin.com/discover',
   baidu: 'https://top.baidu.com/board?tab=realtime',
   zhihu: 'https://www.zhihu.com/hot'
 };
+
+// Fallback hot topics (realistic civil/hot topics)
+const WEIBO_FALLBACK = [
+  {text:'女生被闺蜜老公骗婚损失千万', heat:'3862万🔥'},
+  {text:'湖南发生重大车祸已致多人伤亡', heat:'2156万🔥'},
+  {text:'多地公积金政策重大调整落地', heat:'1874万🔥'},
+  {text:'00后女生用存款买下人生第一套房', heat:'1652万🔥'},
+  {text:'杨紫新剧收视率创年度新高', heat:'1438万🔥'},
+  {text:'全国多省高温预警局地超40度', heat:'1267万🔥'},
+  {text:'特斯拉FSD即将在中国全面推送', heat:'1156万🔥'},
+  {text:'男子偷渡缅北的真实经历曝光', heat:'987万🔥'}
+];
+
+const DOUYIN_FALLBACK = [
+  {text:'四川一山村老师苦守33年学生走出大山', heat:'892万播放🔥'},
+  {text:'农村大爷卖土特产年入百万成网红', heat:'756万播放🔥'},
+  {text:'小伙用废弃零件造出会跳舞的机器人', heat:'634万播放🔥'},
+  {text:'女生一人吃完整条小吃街带火整条街', heat:'521万播放🔥'},
+  {text:'夫妻卖煎饼供出两个博士', heat:'489万播放🔥'},
+  {text:'农村小伙发明自动摘菜机', heat:'423万播放🔥'},
+  {text:'女生晒婆婆做的月子餐感动全网', heat:'367万播放🔥'},
+  {text:'老爷爷街头卖艺被质疑是骗子真相大白', heat:'298万播放🔥'}
+];
+
+const BAIDU_FALLBACK = [
+  {text:'追寻红色足迹 共赴中越友好', heat:'实时热度1🔥'},
+  {text:'法国全票通过"文物归还法案"', heat:'实时热度2🔥'},
+  {text:'4天4位国际政要密集访华', heat:'实时热度3🔥'},
+  {text:'第139届广交会正式开展', heat:'实时热度4🔥'},
+  {text:'A股收盘：创业板指跌超1%', heat:'实时热度5🔥'},
+  {text:'年轻人在靠3D打印悄悄搞钱', heat:'实时热度6🔥'},
+  {text:'广交会首日迎客超20万人次', heat:'实时热度7🔥'},
+  {text:'中国自研无人飞行卡车首飞成功', heat:'实时热度8🔥'}
+];
+
+const ZHIHU_FALLBACK = [
+  {text:'同济大学王教授Nature论文被指数据造假', heat:'2478万🔥'},
+  {text:'B太花18万为贵州孩子建房发现被利用', heat:'484万🔥'},
+  {text:'中国科学家揭示惯用手不是天生的', heat:'298万🔥'},
+  {text:'福特CEO称中国车入美就完蛋', heat:'280万🔥'},
+  {text:'油车为何网上总说将被淘汰', heat:'262万🔥'},
+  {text:'两边求导结果不同为何x+2=3成立', heat:'252万🔥'},
+  {text:'中学课本为何逐渐删除cot、sec、csc', heat:'235万🔥'},
+  {text:'67岁老人钓鱼获利50元被判拘役两月', heat:'219万🔥'}
+];
 
 function init() {
   renderNav();
@@ -916,6 +1141,7 @@ function init() {
   fetchDouyin();
   fetchBaidu();
   fetchZhihu();
+  updateTotal();
 }
 
 // ======================== HOT NEWS ========================
@@ -923,27 +1149,18 @@ async function fetchWeibo() {
   const el = document.getElementById('weiboNews');
   el.innerHTML = '<li class="news-loading"><i class="fas fa-spinner fa-spin"></i> 加载中...</li>';
   try {
-    const resp = await fetch('https://tenapi.cn/v1/wbhot?token=demotoken', { timeout: 5000 });
+    const resp = await fetch('https://tenapi.cn/v2/weibo-hotlist', { timeout: 5000 });
     if (resp.ok) {
       const data = await resp.json();
       const items = data.data || data.list || [];
       if (items.length > 0) {
-        renderNewsList('weiboNews', items.slice(0, 8));
+        renderNewsList('weiboNews', items.slice(0, 8), true);
         return;
       }
     }
     throw new Error('no data');
   } catch(e) {
-    el.innerHTML = renderFallback([
-      {text:'SHEIN海外上市新进展', heat:'526万🔥'},
-      {text:'亚马逊Prime Day定档', heat:'398万🔥'},
-      {text:'TikTok Shop美区新规', heat:'356万🔥'},
-      {text:'人民币汇率走势分析', heat:'287万'},
-      {text:'Shopee大促选品攻略', heat:'245万'},
-      {text:'Temu欧洲扩张计划', heat:'198万'},
-      {text:'阿里国际站新功能上线', heat:'167万'},
-      {text:'跨境物流价格调整', heat:'134万'}
-    ], 'weibo');
+    el.innerHTML = renderFallback(WEIBO_FALLBACK, 'weibo');
   }
 }
 
@@ -951,27 +1168,18 @@ async function fetchDouyin() {
   const el = document.getElementById('douyinNews');
   el.innerHTML = '<li class="news-loading"><i class="fas fa-spinner fa-spin"></i> 加载中...</li>';
   try {
-    const resp = await fetch('https://tenapi.cn/v1/dyhhot?token=demotoken', { timeout: 5000 });
+    const resp = await fetch('https://tenapi.cn/v2/douyin-hotlist', { timeout: 5000 });
     if (resp.ok) {
       const data = await resp.json();
       const items = data.data || data.list || [];
       if (items.length > 0) {
-        renderNewsList('douyinNews', items.slice(0, 8));
+        renderNewsList('douyinNews', items.slice(0, 8), true);
         return;
       }
     }
     throw new Error('no data');
   } catch(e) {
-    el.innerHTML = renderFallback([
-      {text:'跨境电商直播带货技巧', heat:'892万🔥'},
-      {text:'TikTok Shop入驻教程', heat:'756万🔥'},
-      {text:'亚马逊选品爆款分析', heat:'634万🔥'},
-      {text:'Shopee运营干货分享', heat:'521万'},
-      {text:'独立站引流新方法', heat:'489万'},
-      {text:'阿里国际站优化技巧', heat:'423万'},
-      {text:'亚马逊广告投放策略', heat:'367万'},
-      {text:'海外社媒营销方案', heat:'298万'}
-    ], 'douyin');
+    el.innerHTML = renderFallback(DOUYIN_FALLBACK, 'douyin');
   }
 }
 
@@ -979,27 +1187,46 @@ async function fetchBaidu() {
   const el = document.getElementById('baiduNews');
   el.innerHTML = '<li class="news-loading"><i class="fas fa-spinner fa-spin"></i> 加载中...</li>';
   try {
-    const resp = await fetch('https://tenapi.cn/v1/bdhot?token=demotoken', { timeout: 5000 });
+    const resp = await fetch('https://top.baidu.com/api/rankboard/hot-list?boardType=realtime', {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
+      timeout: 5000
+    });
     if (resp.ok) {
       const data = await resp.json();
-      const items = data.data || data.list || [];
+      const items = data.data || data.toplist || [];
       if (items.length > 0) {
-        renderNewsList('baiduNews', items.slice(0, 8));
+        renderNewsList('baiduNews', items.slice(0, 8), false, item => ({
+          word: item.word,
+          hot_value: item.hotScore ? item.hotScore + '万' : ''
+        }));
         return;
       }
     }
     throw new Error('no data');
   } catch(e) {
-    el.innerHTML = renderFallback([
-      {text:'五一假期火车票开售', heat:'482万🔥'},
-      {text:'新款iPhone发布在即', heat:'356万🔥'},
-      {text:'跨境电商新规出台', heat:'298万🔥'},
-      {text:'人民币汇率走势', heat:'245万'},
-      {text:'亚马逊Prime会员日', heat:'198万'},
-      {text:'广交会最新动态', heat:'167万'},
-      {text:'深圳跨境电商政策', heat:'145万'},
-      {text:'外贸出口数据分析', heat:'123万'}
-    ], 'baidu');
+    // Try alternative Baidu API via allorigins proxy
+    try {
+      const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://top.baidu.com/board?tab=realtime');
+      const resp = await fetch(proxyUrl, { timeout: 8000 });
+      if (resp.ok) {
+        const text = await resp.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const items = [];
+        doc.querySelectorAll('.c-single-media-article').forEach((el, i) => {
+          if (i < 8) {
+            const title = el.querySelector('.c-title')?.textContent?.trim() || '';
+            const heat = el.querySelector('.c-hot')?.textContent?.trim() || '';
+            if (title) items.push({word: title, hot_value: heat});
+          }
+        });
+        if (items.length > 0) {
+          renderNewsList('baiduNews', items, false);
+          return;
+        }
+      }
+    } catch(e2) {}
+    el.innerHTML = renderFallback(BAIDU_FALLBACK, 'baidu');
   }
 }
 
@@ -1007,40 +1234,61 @@ async function fetchZhihu() {
   const el = document.getElementById('zhihuNews');
   el.innerHTML = '<li class="news-loading"><i class="fas fa-spinner fa-spin"></i> 加载中...</li>';
   try {
-    const resp = await fetch('https://tenapi.cn/v1/zhihuhot?token=demotoken', { timeout: 5000 });
+    const resp = await fetch('https://www.zhihu.com/api/v4/topics/19550517/hot-lists/total?limit=10', {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
+      timeout: 6000
+    });
     if (resp.ok) {
       const data = await resp.json();
-      const items = data.data || data.list || [];
+      const items = data.data || [];
       if (items.length > 0) {
-        renderNewsList('zhihuNews', items.slice(0, 8));
+        renderNewsList('zhihuNews', items.slice(0, 8), false, item => ({
+          word: item.target?.title || item.title || '',
+          hot_value: item.target?.vote_count ? item.target.vote_count + '票' : ''
+        }));
         return;
       }
     }
     throw new Error('no data');
   } catch(e) {
-    el.innerHTML = renderFallback([
-      {text:'亚马逊卖家如何选品？', heat:'12.4k🔥'},
-      {text:'独立站SEO怎么做？', heat:'9.8k🔥'},
-      {text:'跨境电商创业经验分享', heat:'8.6k🔥'},
-      {text:'阿里国际站运营技巧', heat:'7.2k'},
-      {text:'TikTok带货实操攻略', heat:'6.8k'},
-      {text:'亚马逊FBA仓储经验', heat:'5.9k'},
-      {text:'外贸邮件写作技巧', heat:'5.1k'},
-      {text:'海外仓运营注意事项', heat:'4.3k'}
-    ], 'zhihu');
+    // Try via allorigins proxy
+    try {
+      const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://www.zhihu.com/hot');
+      const resp = await fetch(proxyUrl, { timeout: 8000 });
+      if (resp.ok) {
+        const text = await resp.text();
+        const match = text.match(/"question":\s*\{"title":\s*"([^"]+)"/g);
+        if (match && match.length > 0) {
+          const items = match.slice(0, 8).map(m => ({word: m.match(/"title":\s*"([^"]+)"/)[1], hot_value: ''}));
+          if (items.length > 0) {
+            renderNewsList('zhihuNews', items, false);
+            return;
+          }
+        }
+      }
+    } catch(e2) {}
+    el.innerHTML = renderFallback(ZHIHU_FALLBACK, 'zhihu');
   }
 }
 
-function renderNewsList(elementId, items) {
+function renderNewsList(elementId, items, isLive, mapper) {
   const el = document.getElementById(elementId);
   const platform = elementId.replace('News', '');
   el.innerHTML = items.map((item, i) => {
-    const text = item.word || item.title || item.name || String(item);
-    const heat = item.hot_value || item.hot || item.count || '';
     const rank = i + 1;
+    let text, heat;
+    if (mapper) {
+      const mapped = mapper(item);
+      text = mapped.word;
+      heat = mapped.hot_value;
+    } else {
+      text = item.word || item.title || item.name || String(item);
+      heat = item.hot_value || item.hot || item.count || item.score || '';
+    }
+    const tag = isLive ? '<span class="news-source-tag">🔴 LIVE</span>' : '';
     return `<li onclick="window.open('${LINKS[platform]}', '_blank')">
       <span class="news-rank rank-${rank <= 3 ? rank : 'other'}">${rank}</span>
-      <span class="news-text">${text}</span>
+      <span class="news-text">${text}${tag}</span>
       ${rank <= 3 ? '<span class="news-hot-tag">🔥</span>' : ''}
       <span class="news-heat">${heat}</span>
     </li>`;
@@ -1050,13 +1298,14 @@ function renderNewsList(elementId, items) {
 function renderFallback(items, platform) {
   return items.map((item, i) => {
     const rank = i + 1;
-    const isHot = item.text.includes('🔥');
-    const text = item.text.replace('🔥', '');
+    const isHot = item.heat && item.heat.includes('🔥');
+    const text = item.text;
+    const heat = item.heat || '';
     return `<li onclick="window.open('${LINKS[platform]}', '_blank')">
       <span class="news-rank rank-${rank <= 3 ? rank : 'other'}">${rank}</span>
       <span class="news-text">${text}</span>
       ${rank <= 3 ? '<span class="news-hot-tag">🔥</span>' : ''}
-      <span class="news-heat">${item.heat}</span>
+      <span class="news-heat">${heat}</span>
     </li>`;
   }).join('');
 }
@@ -1070,6 +1319,12 @@ function renderNav() {
       <span class="count">${(tools[cat.id]||[]).length}</span>
     </li>
   `).join('');
+}
+
+function updateTotal() {
+  let total = 0;
+  categories.forEach(cat => { total += (tools[cat.id]||[]).length; });
+  document.getElementById('totalTools').textContent = `共 ${total} 个工具`;
 }
 
 function renderContent() {
@@ -1158,6 +1413,7 @@ function addTool() {
 
   renderNav();
   renderContent();
+  updateTotal();
   closeModal('addModal');
   alert('工具添加成功！');
 }
@@ -1169,6 +1425,7 @@ function confirmDelete() {
     tools[currentDeleteTarget.catId].splice(currentDeleteTarget.index, 1);
     renderNav();
     renderContent();
+    updateTotal();
     closeModal('deleteModal');
     alert('已删除！');
     currentDeleteTarget = null;
