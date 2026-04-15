@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年3月外贸询盘月度分析报告 · 肇庆凯乔科技</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#e6edf3;min-height:100vh}
+.wrap{width:940px;margin:0 auto;background:#161b22;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+
+/* ── HEADER ── */
+.header{background:linear-gradient(135deg,#1a1f2e 0%,#0f3460 55%,#1a1f2e 100%);padding:52px 64px 44px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-80px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(49,130,206,.15) 0%,transparent 70%);border-radius:50%}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(49,130,206,.2);border:1px solid rgba(49,130,206,.4);color:#60a5fa;font-size:12px;padding:4px 14px;border-radius:20px;margin-bottom:16px;font-weight:600}
+.header h1{font-size:30px;font-weight:800;color:#f0f6fc;margin-bottom:6px;letter-spacing:-.5px}
+.header h2{font-size:16px;font-weight:400;color:#8b949e;margin-bottom:14px}
+.meta{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:#8b949e}
+.meta span{display:flex;align-items:center;gap:5px}
+.kpi-row{display:flex;gap:36px;margin-top:32px}
+.kpi{text-align:center}
+.kpi .n{font-size:40px;font-weight:900;background:linear-gradient(135deg,#60a5fa,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.kpi .l{font-size:12px;color:#8b949e;margin-top:5px}
+
+/* ── SECTIONS ── */
+.sec{padding:40px 64px;border-bottom:1px solid #21262d}
+.sec:last-child{border-bottom:none}
+.sec-title{font-size:17px;font-weight:700;color:#f0f6fc;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.sec-title .tag{background:linear-gradient(135deg,#3182ce,#38b2ac);color:#fff;font-size:11px;padding:3px 10px;border-radius:4px;font-weight:700}
+
+/* ── TABLES ── */
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid #30363d}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:#1c2128}
+th{padding:10px 14px;text-align:left;color:#8b949e;font-weight:600;border-bottom:1px solid #30363d;white-space:nowrap}
+td{padding:9px 14px;border-bottom:1px solid #21262d;color:#c9d1d9;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#1c2128}
+
+/* ── CARDS ── */
+.card{background:#1c2128;border:1px solid #30363d;border-radius:10px;padding:18px 22px;margin-bottom:14px}
+.card:last-child{margin-bottom:0}
+.card-title{font-size:14px;font-weight:700;color:#f0f6fc;margin-bottom:8px}
+.card-body{font-size:13px;color:#c9d1d9;line-height:1.8}
+.card-body strong{color:#f0f6fc}
+
+/* ── BADGES ── */
+.badge-green{background:rgba(52,211,153,.15);color:#34d399;border:1px solid rgba(52,211,153,.3);font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-yellow{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3);font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-red{background:rgba(248,113,113,.15);color:#f87171;border:1px solid rgba(248,113,113,.3);font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-blue{background:rgba(49,130,206,.15);color:#60a5fa;border:1px solid rgba(49,130,206,.3);font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-purple{background:rgba(167,139,250,.15);color:#a78bfa;border:1px solid rgba(167,139,250,.3);font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+.num-badge{display:inline-block;background:rgba(49,130,206,.15);color:#60a5fa;padding:1px 8px;border-radius:8px;font-size:12px;font-weight:600}
+
+/* ── PRIORITY ── */
+.p1{background:rgba(248,113,113,.12);border-left:3px solid #f87171}
+.p2{background:rgba(251,191,36,.08);border-left:3px solid #fbbf24}
+.p3{background:rgba(148,163,184,.08);border-left:3px solid #94a3b8}
+
+/* ── PRODUCT RANK ── */
+.rank-row{display:flex;align-items:center;gap:16px;background:#1c2128;border:1px solid #30363d;border-radius:10px;padding:14px 18px;margin-bottom:10px}
+.rank-row:last-child{margin-bottom:0}
+.rank-num{font-size:26px;font-weight:900;min-width:36px;text-align:center;line-height:1}
+.rank-info{flex:1}
+.rank-name{font-size:14px;font-weight:600;color:#f0f6fc}
+.rank-detail{font-size:12px;color:#8b949e;margin-top:3px}
+.rank-count{font-size:24px;font-weight:800;color:#60a5fa;min-width:60px;text-align:right;line-height:1}
+.trend-up{font-size:12px;font-weight:700;background:rgba(52,211,153,.15);color:#34d399;padding:2px 8px;border-radius:4px;margin-top:4px;display:inline-block}
+.trend-stable{font-size:12px;font-weight:700;background:rgba(148,163,184,.15);color:#94a3b8;padding:2px 8px;border-radius:4px;margin-top:4px;display:inline-block}
+.trend-upup{font-size:12px;font-weight:700;background:rgba(52,211,153,.25);color:#34d399;padding:2px 8px;border-radius:4px;margin-top:4px;display:inline-block}
+
+/* ── INSIGHT ── */
+.insight{background:#1c2128;border:1px solid #30363d;border-radius:10px;padding:14px 18px;font-size:13px;color:#8b949e;line-height:1.8;margin-top:14px}
+.insight strong{color:#60a5fa}
+
+/* ── STAR RATING ── */
+.stars{color:#f59e0b;font-size:13px}
+
+/* ── PERFORMANCE ── */
+.perf-bar-wrap{background:#21262d;border-radius:4px;height:6px;flex:1;overflow:hidden}
+.perf-bar{height:100%;border-radius:4px;background:linear-gradient(90deg,#3182ce,#38b2ac)}
+
+/* ── CONCLUSION ── */
+.conclusion{background:linear-gradient(135deg,rgba(49,130,206,.08),rgba(16,185,129,.08));border:1px solid rgba(49,130,206,.3);border-radius:10px;padding:20px 24px;margin-bottom:14px}
+.conclusion-title{font-size:12px;color:#60a5fa;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.conclusion-text{font-size:13px;color:#c9d1d9;line-height:1.8}
+
+/* ── DIVIDER ── */
+.sub-title{font-size:14px;font-weight:700;color:#c9d1d9;margin:22px 0 12px;padding-left:10px;border-left:3px solid #3182ce}
+
+/* ── FOOTER ── */
+.footer{padding:24px 64px;background:#0d1117;text-align:center;font-size:11px;color:#484f58}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+
+.stat-mini{background:#1c2128;border:1px solid #30363d;border-radius:8px;padding:12px 16px;text-align:center}
+.stat-mini .n{font-size:26px;font-weight:800;color:#60a5fa;line-height:1}
+.stat-mini .l{font-size:11px;color:#8b949e;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="badge">📊 Monthly Report · 月度分析</div>
+  <h1>2026年3月外贸询盘月度分析报告</h1>
+  <h2>肇庆凯乔科技有限公司 · 外贸运营部</h2>
+  <div class="meta">
+    <span>📅 统计周期：2026年3月1日 — 3月31日</span>
+    <span>🕐 生成日期：2026年4月7日</span>
+    <span>📡 数据来源：阿里巴巴国际站 · 中国制造网 · 谷歌独立站</span>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="n">383</div><div class="l">总询盘量</div></div>
+    <div class="kpi"><div class="n">45+</div><div class="l">覆盖国家/地区</div></div>
+    <div class="kpi"><div class="n">3</div><div class="l">打样/寄样推进</div></div>
+    <div class="kpi"><div class="n">22</div><div class="l">OEM意向客户</div></div>
+    <div class="kpi"><div class="n">5</div><div class="l">业务员</div></div>
+  </div>
+</div>
+
+<!-- 模块一：核心数据 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块一</span>月度核心数据总览</div>
+
+  <div class="tbl-wrap" style="margin-bottom:16px">
+    <table>
+      <thead><tr><th>业务员</th><th>平台</th><th>3月询盘量</th><th>高意向客户数</th><th>打样/寄样</th><th>特点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Katherine Chan</strong></td><td>阿里+中制+独立站</td><td><span class="num-badge">82条</span></td><td>4位</td><td>0</td><td>OEM识别精准，但MOQ门槛导致多单流失</td></tr>
+        <tr><td><strong>Aget Huang</strong></td><td>阿里+中制</td><td><span class="num-badge">82条</span></td><td>1位</td><td>1（Jimmy Lim寄样）</td><td>量最大，泛询占比高，"发信息无回复"超60%</td></tr>
+        <tr><td><strong>Christy Kam</strong></td><td>阿里+中制+独立站</td><td><span class="num-badge">80条</span></td><td>2位</td><td>0</td><td>代理推荐规范，无氨染膏需求识别敏锐</td></tr>
+        <tr><td><strong>Tracey Zhang</strong></td><td>阿里+中制</td><td><span class="num-badge">95条</span></td><td>4位</td><td>2（备样+待寄）</td><td>跟进质量高，OEM定制客户含金量最高</td></tr>
+        <tr><td><strong>Jaime Wu（伍勋）</strong></td><td>阿里+中制</td><td><span class="num-badge">68条</span></td><td>3位</td><td>0</td><td>回复较为积极，跟进状态良好</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight">
+    <strong>📌 平台分布：</strong>阿里巴巴国际站约60% · 中国制造网约35% · 谷歌独立站约5%<br>
+    打样/寄样推进：3单（Aget-Jimmy Lim染膏 · Tracey-Ozdemir土耳其展会备样 · Tracey-Ali Saud中东快递恢复后）
+  </div>
+</div>
+
+<!-- 模块二：平台结构 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块二</span>平台询盘结构分析</div>
+
+  <div class="sub-title">2.1 阿里巴巴国际站 — 重点客户</div>
+  <div class="insight" style="margin-bottom:14px">本月阿里国际站为询盘主要来源，5位业务员均有覆盖。品牌购买型客户（慕川琦/欧诺姿/领秀）占约55%，OEM/Private Label定制需求约30%，泛询/无效约15%。</div>
+  <div class="tbl-wrap" style="margin-bottom:22px">
+    <table>
+      <thead><tr><th>客户名</th><th>国家</th><th>咨询产品</th><th>意向类型</th><th>负责人</th><th>当前状态</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ozdemir Golebatmaz</strong></td><td>🇹🇷 土耳其</td><td>染膏+洗护定制</td><td><span class="badge-purple">OEM</span></td><td>Tracey</td><td>已约定土耳其展会带样品</td></tr>
+        <tr><td><strong>Alexey Semkin</strong></td><td>🇷🇺 俄罗斯</td><td>无氨染膏（遮白发）</td><td><span class="badge-purple">OEM定制</span></td><td>Katherine</td><td>提出无氨配方，持续跟进</td></tr>
+        <tr><td><strong>Milanjot Kaur</strong></td><td>🇨🇦 加拿大</td><td>领秀双氧奶</td><td><span class="badge-blue">Private Label</span></td><td>Katherine</td><td>Reseller，意向做自己品牌，需发PL方案</td></tr>
+        <tr><td><strong>Sasa Gerum</strong></td><td>🇷🇸 塞尔维亚</td><td>一洗黑四色系列</td><td><span class="badge-purple">代理/OEM</span></td><td>Katherine</td><td>强生25年分销商，需代理价+OEM价后决策</td></tr>
+        <tr><td><strong>TARUN GARG</strong></td><td>🇮🇳 印度</td><td>领秀一洗黑</td><td><span class="badge-green">品牌</span></td><td>Jaime</td><td>4月18日来华，需提前备样</td></tr>
+        <tr><td><strong>Abhisek bajaj</strong></td><td>🇮🇳 印度</td><td>染膏</td><td><span class="badge-green">品牌</span></td><td>Jaime</td><td>3月10日来中国，邀请看厂</td></tr>
+        <tr><td><strong>Stanislav Klimovskih</strong></td><td>🇧🇾 白俄罗斯</td><td>慕川琦洗发水OEM</td><td><span class="badge-purple">OEM</span></td><td>Tracey</td><td>内料MOQ 2吨，客户觉得太多，洽谈中</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-title">2.2 中国制造网 — 重点客户</div>
+  <div class="insight" style="margin-bottom:14px">中制本月询盘量约147条，质量参差不齐。Aget承接了大量中制泛询，"发信息无回复"占绝大多数。有效线索主要集中在OEM/定制方向。亮点：Aget-Jimmy Lim（印尼染膏，唯一寄样）。</div>
+  <div class="tbl-wrap" style="margin-bottom:22px">
+    <table>
+      <thead><tr><th>客户名</th><th>国家</th><th>咨询产品</th><th>意向</th><th>负责人</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Jimmy Lim</strong></td><td>🇮🇩 印尼</td><td>染膏</td><td><span class="badge-green">品牌采购</span></td><td>Aget</td><td>已寄样，跟进中（本月唯一寄样）</td></tr>
+        <tr><td><strong>Ali Saud Ali Albloushi</strong></td><td>🇸🇦 沙特阿拉伯</td><td>定制洗护</td><td><span class="badge-purple">OEM</span></td><td>Tracey</td><td>中东快递停运，待恢复后寄样</td></tr>
+        <tr><td><strong>Angelique</strong></td><td>🇿🇦 南非</td><td>无硫酸盐洗护定制</td><td><span class="badge-purple">OEM</span></td><td>Tracey</td><td>MOQ已告知，客户未读，需二次触达</td></tr>
+        <tr><td><strong>Anastassiya</strong></td><td>🇷🇺 俄罗斯</td><td>大桶洗护OEM</td><td><span class="badge-purple">OEM</span></td><td>Jaime</td><td>已加微信，跟进中</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-title">2.3 谷歌独立站</div>
+  <div class="insight">独立站本月询盘 13 条。<strong>Sasa Gerum（塞尔维亚）</strong>为最高价值线索，系强生美国公司 25 年分销商，对一洗黑全系感兴趣，需报代理价+OEM价后决策。</div>
+</div>
+
+<!-- 模块三：客户意向 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块三</span>客户意向分类分析</div>
+
+  <div class="sub-title">3.1 意向分类汇总</div>
+  <div class="tbl-wrap" style="margin-bottom:22px">
+    <table>
+      <thead><tr><th>意向类型</th><th>客户数</th><th>占比</th><th>代表客户</th><th>主要来源国</th><th>转化难点</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge-green">品牌购买/经销</span></td><td>约82位</td><td><strong>51%</strong></td><td>TARUN/Daniel/nikita等</td><td>俄罗斯/印度/巴基斯坦/非洲</td><td>代理区域无法直供，需代理衔接</td></tr>
+        <tr><td><span class="badge-purple">OEM/配方定制</span></td><td>约22位</td><td><strong>14%</strong></td><td>Alexey/Angelique/Sofia等</td><td>俄罗斯/南非/西班牙</td><td>MOQ门槛高（5000-10000pcs），小单流失严重</td></tr>
+        <tr><td><span class="badge-blue">Private Label</span></td><td>约5位</td><td><strong>3%</strong></td><td>Milanjot/Sasa/Dorothy等</td><td>加拿大/塞尔维亚/南非</td><td>需配方+包材方案，MOQ洽谈中</td></tr>
+        <tr><td><span class="badge-yellow">样品测试</span></td><td>约8位</td><td><strong>5%</strong></td><td>Jimmy Lim/Abhisek/Stefano等</td><td>印尼/印度/意大利</td><td>部分已进入寄样阶段</td></tr>
+        <tr><td><span class="badge-blue">代理/串货问题</span></td><td>约12位</td><td><strong>7%</strong></td><td>Rana Zohaib/Humza/Juliana等</td><td>巴基斯坦/巴西/菲律宾</td><td>有代理区域客户无法直接采购</td></tr>
+        <tr><td><span class="badge-red">泛询/无效</span></td><td>约33位</td><td><strong>20%</strong></td><td>大量"发信息无回复"</td><td>全球各地</td><td>询盘质量低，平台筛选需优化</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-title">3.2 OEM/定制需求深度分析</div>
+  <div class="card">
+    <div class="card-body">
+      <p style="margin-bottom:8px">本月OEM/定制意向约22位客户，呈现三大特征：</p>
+      <p style="margin-bottom:6px">① <strong>小MOQ困境突出：</strong>Emmanuel Baldez（多米尼加，意向1000pcs）、Ericka Brisset（法国，250-300pcs）、Voompla Entertainment等，MOQ门槛是核心流失原因。</p>
+      <p style="margin-bottom:6px">② <strong>无氨染膏需求明确：</strong>Katherine跟进的Alexey Semkin（俄罗斯）明确要求无氨配方遮盖浅色白发；Christy跟进的Alexey（俄罗斯/中制）同样要求无氨，被推荐低氨替代。</p>
+      <p>③ <strong>功效细分需求增加：</strong>无硫酸盐洗护（Angelique/南非）、去屑定制（Sofia/西班牙）、防脱育发（Tatiana/加拿大）、卷发配方类等细分功效询盘增多，显示海外消费者功效意识增强。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 模块四：国家热度 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块四</span>国家/市场热度分析</div>
+
+  <div class="sub-title">4.1 TOP 10 询盘来源国</div>
+  <div class="tbl-wrap" style="margin-bottom:22px">
+    <table>
+      <thead><tr><th>排名</th><th>国家</th><th>询盘量</th><th>主要产品</th><th>主要意向</th><th>代表客户</th><th>评级</th></tr></thead>
+      <tbody>
+        <tr><td><span class="num-badge">1</span></td><td>🇵🇰 巴基斯坦</td><td>约18条</td><td>染膏/洗护</td><td>品牌购买</td><td>Rana Zohaib/Humza/sarwat</td><td><span class="stars">★★★★</span></td></tr>
+        <tr><td><span class="num-badge">2</span></td><td>🇷🇺 俄罗斯</td><td>约16条</td><td>洗护/染膏</td><td>品牌+OEM</td><td>Alexey Semkin/Nora/Ksenia</td><td><span class="stars">★★★★★</span></td></tr>
+        <tr><td><span class="num-badge">3</span></td><td>🇧🇷 巴西</td><td>约12条</td><td>洗护/发膜</td><td>品牌购买</td><td>josilania/Juliana/Nadila</td><td><span class="stars">★★★★</span></td></tr>
+        <tr><td><span class="num-badge">4</span></td><td>🇮🇳 印度</td><td>约10条</td><td>染膏/洗护</td><td>品牌+看厂</td><td>Abhisek/TARUN/Malak</td><td><span class="stars">★★★★</span></td></tr>
+        <tr><td><span class="num-badge">5</span></td><td>🇺🇸 美国</td><td>约9条</td><td>洗护/发膜</td><td>OEM+零售</td><td>devasha/Jennifer/Denise</td><td><span class="stars">★★★</span></td></tr>
+        <tr><td><span class="num-badge">6</span></td><td>🇻🇳 越南</td><td>约8条</td><td>洗护/染膏</td><td>品牌购买</td><td>Thanh Loc/sarackunna</td><td><span class="stars">★★★</span></td></tr>
+        <tr><td><span class="num-badge">7</span></td><td>🇸🇳 塞内加尔</td><td>约6条</td><td>滋养洗发水</td><td>品牌购买</td><td>Youssou Ba/Soda</td><td><span class="stars">★★★</span></td></tr>
+        <tr><td><span class="num-badge">8</span></td><td>🇿🇦 南非</td><td>约4条</td><td>洗护OEM</td><td>OEM定制</td><td>Angelique/Ayanda/Dorothy</td><td><span class="stars">★★★</span></td></tr>
+        <tr><td><span class="num-badge">9</span></td><td>🇨🇦 加拿大</td><td>约4条</td><td>双氧奶/发膜</td><td>PL/代理</td><td>Milanjot/Varun/Tatiana</td><td><span class="stars">★★★</span></td></tr>
+        <tr><td><span class="num-badge">10</span></td><td>🇳🇵 尼泊尔/东南亚</td><td>约4条</td><td>染膏/洗护</td><td>品牌购买</td><td>Sunil/Luzviena/Hein Min</td><td><span class="stars">★★☆</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-title">4.2 市场洞察</div>
+  <div class="card" style="margin-bottom:10px">
+    <div class="card-title">🇷🇺 俄罗斯市场</div>
+    <div class="card-body">本月询盘量第二（约16条），且OEM定制意向明显（Nora shihab想定制自己品牌；Anastassiya大桶洗护加微信跟进中；Alexey Semkin无氨染膏）。俄罗斯是本月<strong>最高质量市场</strong>，评级★★★★★。</div>
+  </div>
+  <div class="card" style="margin-bottom:10px">
+    <div class="card-title">🌍 非洲市场（塞内加尔/南非/尼日利亚/赞比亚/坦桑尼亚）</div>
+    <div class="card-body">询盘量稳定，以品牌经销为主，但<strong>货代及运费是最大障碍</strong>（Rose Rene觉得运费太贵）。建议与非洲专线货代合作，提供更具竞争力的到岸报价。</div>
+  </div>
+  <div class="card">
+    <div class="card-title">🇵🇰 巴基斯坦市场</div>
+    <div class="card-body">本月询盘量第一（约18条），但几乎全部被现有代理覆盖而无法直供，<strong>代理覆盖度高但也锁死了直接业务空间</strong>。建议评估代理活跃程度，对低活跃代理区域调整政策。</div>
+  </div>
+</div>
+
+<!-- 模块五：业务员评估 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块五</span>各业务员表现评估</div>
+
+  <div class="sub-title">5.1 业务员综合评估表</div>
+  <div class="tbl-wrap" style="margin-bottom:22px">
+    <table>
+      <thead><tr><th>业务员</th><th>询盘量</th><th>有效跟进率</th><th>本月亮点</th><th>待改进项</th><th>综合评价</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Katherine Chan</strong></td><td>41条</td><td>约80%</td><td>Sasa Gerum识别精准；Alexey需求及时上报</td><td>多位OEM客户因MOQ拒绝</td><td><span class="stars">★★★★</span></td></tr>
+        <tr><td><strong>Aget Huang</strong></td><td>51条</td><td>约70%</td><td>询盘量最大；Bleon成交；Jimmy Lim寄样</td><td>"发信息无回复"较多，话术深度不足</td><td><span class="stars">★★★</span></td></tr>
+        <tr><td><strong>Christy Kam</strong></td><td>36条</td><td>约80%</td><td>代理转介规范；停产产品精准推荐替代</td><td>非主营产品占比约6%</td><td><span class="stars">★★★★</span></td></tr>
+        <tr><td><strong>Tracey Zhang</strong></td><td>45条</td><td>约75%</td><td>Ali Saud和Ozdemir跟进质量高；约定展会带样</td><td>部分客户记录仅有"已读未复"</td><td><span class="stars">★★★★</span></td></tr>
+        <tr><td><strong>Jaime Wu（伍勋）</strong></td><td>29条</td><td>约75%</td><td>邀请Abhisek看厂；TARUN确认来华</td><td>询盘量偏少</td><td><span class="stars">★★★★</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-title">5.2 全员共性问题</div>
+  <div class="card" style="margin-bottom:10px;border-left:3px solid #f87171">
+    <div class="card-title">① 首次回复深度不足</div>
+    <div class="card-body">大量客户记录为"发信息无回复"，说明首次回复内容未有效激活客户兴趣。建议将开场白从"介绍产品参数"改为<strong>"提问客户业务场景"</strong>，如"您是做发廊还是经销？目标市场是哪里？"</div>
+  </div>
+  <div class="card" style="margin-bottom:10px;border-left:3px solid #fbbf24">
+    <div class="card-title">② 代理转介无闭环</div>
+    <div class="card-body">Rana Zohaib、Humza Ishaq、Juliana等多位客户被告知"代理会联系"后，无后续跟进记录，代理是否实际联系存疑。建议设立<strong>代理转介7天回访机制</strong>。</div>
+  </div>
+  <div class="card" style="border-left:3px solid #a78bfa">
+    <div class="card-title">③ MOQ策略过于刚性</div>
+    <div class="card-body">面对Emmanuel Baldez（1000pcs）、Jennifer flamenco（1000pcs）、Ericka Brisset（300pcs）等小批量客户，建议提供<strong>灵活MOQ方案</strong>（如样品订单+后续返单奖励），减少因MOQ导致的流失。</div>
+  </div>
+</div>
+
+<!-- 模块六：重点跟进清单 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块六</span>重点跟进客户清单（下月行动计划）</div>
+
+  <div class="sub-title" style="color:#f87171;border-color:#f87171">🔴 P1 — 最高优先级</div>
+  <div class="tbl-wrap" style="margin-bottom:18px">
+    <table>
+      <thead><tr><th>客户名</th><th>国家</th><th>意向</th><th>负责人</th><th>下月具体行动</th><th>目标截止</th></tr></thead>
+      <tbody>
+        <tr class="p1"><td><strong>TARUN GARG</strong></td><td>🇮🇳 印度</td><td>领秀一洗黑</td><td>Jaime</td><td>4月18日来华接待</td><td>4月17日前</td></tr>
+        <tr class="p1"><td><strong>Abhisek bajaj</strong></td><td>🇮🇳 印度</td><td>染膏</td><td>Jaime</td><td>跟进</td><td>4月10日前</td></tr>
+        <tr class="p1"><td><strong>Sasa Gerum</strong></td><td>🇷🇸 塞尔维亚</td><td>一洗黑代理/OEM</td><td>Katherine</td><td>发报价，推动决策</td><td>4月10日前</td></tr>
+        <tr class="p1"><td><strong>Ali Saud</strong></td><td>🇸🇦 沙特阿拉伯</td><td>定制洗护OEM</td><td>Tracey</td><td>恢复快递后寄样</td><td>快递恢复3天内</td></tr>
+        <tr class="p1"><td><strong>Ozdemir</strong></td><td>🇹🇷 土耳其</td><td>染膏+洗护OEM</td><td>Tracey</td><td>备好展会样品</td><td>4月20日前</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-title" style="color:#fbbf24;border-color:#fbbf24">🟡 P2 — 次优先级</div>
+  <div class="tbl-wrap" style="margin-bottom:18px">
+    <table>
+      <thead><tr><th>客户名</th><th>国家</th><th>意向</th><th>负责人</th><th>下月具体行动</th><th>目标截止</th></tr></thead>
+      <tbody>
+        <tr class="p2"><td><strong>Alexey Semkin</strong></td><td>🇷🇺 俄罗斯</td><td>无氨染膏OEM</td><td>Katherine</td><td>跟进研发进度</td><td>4月15日前</td></tr>
+        <tr class="p2"><td><strong>Milanjot Kaur</strong></td><td>🇨🇦 加拿大</td><td>PL双氧奶</td><td>Katherine</td><td>发PL方案+报价</td><td>4月12日前</td></tr>
+        <tr class="p2"><td><strong>Angelique</strong></td><td>🇿🇦 南非</td><td>无硫酸盐洗护</td><td>Tracey</td><td>二次触达推进样品</td><td>4月15日前</td></tr>
+        <tr class="p2"><td><strong>Anastassiya</strong></td><td>🇷🇺 俄罗斯</td><td>大桶洗护OEM</td><td>Jaime</td><td>发规格+报价</td><td>4月底前</td></tr>
+        <tr class="p2"><td><strong>victor sharovarov</strong></td><td>🇧🇾 白俄罗斯</td><td>内料OEM 2吨</td><td>Tracey</td><td>提供小MOQ方案</td><td>4月15日前</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-title" style="color:#94a3b8;border-color:#94a3b8">⚪ P3 — 一般跟进</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>客户名</th><th>国家</th><th>意向</th><th>负责人</th><th>下月具体行动</th><th>目标截止</th></tr></thead>
+      <tbody>
+        <tr class="p3"><td><strong>Stefano Costa</strong></td><td>🇮🇹 意大利</td><td>慕川琦染膏测试</td><td>Christy</td><td>跟进样品意向</td><td>4月底前</td></tr>
+        <tr class="p3"><td><strong>Daniel Manjomba</strong></td><td>🇿🇲 赞比亚</td><td>领秀一洗黑经销</td><td>Jaime</td><td>跟进货代方案</td><td>4月底前</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 模块七：产品热度 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块七</span>产品热度分析</div>
+
+  <div class="rank-row">
+    <div class="rank-num" style="color:#f59e0b">🥇</div>
+    <div class="rank-info"><div class="rank-name">慕川琦洗护系列</div><div class="rank-detail">🇷🇺 俄罗斯 / 🇵🇰 巴基斯坦 等</div><span class="trend-up">↑ 上升</span></div>
+    <div class="rank-count">~48</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num" style="color:#9ca3af">🥈</div>
+    <div class="rank-info"><div class="rank-name">领秀染膏/一洗黑系列</div><div class="rank-detail">🇮🇳 印度 / 🌍 非洲 等</div><span class="trend-up">↑ 上升</span></div>
+    <div class="rank-count">~35</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num" style="color:#78716c">🥉</div>
+    <div class="rank-info"><div class="rank-name">欧诺姿洗护/发膜</div><div class="rank-detail">🇧🇷 巴西 / 🇻🇳 越南 等</div><span class="trend-stable">→ 稳定</span></div>
+    <div class="rank-count">~32</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num" style="color:#6b7280">#4</div>
+    <div class="rank-info"><div class="rank-name">发膜类（各品牌）</div><div class="rank-detail">全球</div><span class="trend-up">↑ 上升</span></div>
+    <div class="rank-count">~18</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num" style="color:#6b7280">#5</div>
+    <div class="rank-info"><div class="rank-name">染发系（染膏/双氧奶/一洗黑）</div><div class="rank-detail">🌍 非洲 / 东欧 / 🇮🇳 印度</div><span class="trend-stable">→ 稳定</span></div>
+    <div class="rank-count">~22</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num" style="color:#a78bfa">#6</div>
+    <div class="rank-info"><div class="rank-name">OEM定制洗护</div><div class="rank-detail">欧洲 / 北美 / 南非</div><span class="trend-upup">↑↑ 快速增长</span></div>
+    <div class="rank-count">~12</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num" style="color:#6b7280">#7</div>
+    <div class="rank-info"><div class="rank-name">卡洛威发膜/染膏</div><div class="rank-detail">东欧 / 中东 等</div><span class="trend-stable">→ 稳定</span></div>
+    <div class="rank-count">~15</div>
+  </div>
+
+  <div class="insight" style="margin-top:16px">
+    <strong>🔬 产品研发缺口：</strong>本月两大研发缺口清晰浮现：<br>
+    ① <strong>无氨染膏</strong>——俄罗斯两位客户明确要求无氨遮白发配方，低氨被明确拒绝；<br>
+    ② <strong>细分功效洗护</strong>——无硫酸盐、去屑、防脱育发、卷发配方等需求持续增多，建议研发部跟进。
+  </div>
+</div>
+
+<!-- 模块八：核心结论 -->
+<div class="sec">
+  <div class="sec-title"><span class="tag">模块八</span>核心结论与建议</div>
+
+  <div class="conclusion" style="margin-bottom:14px">
+    <div class="conclusion-title">📊 月度总结</div>
+    <div class="conclusion-text">2026年3月，外贸部5名业务员共处理约383条询盘，覆盖45+个国家和地区。整体来看，<strong>询盘量充足但转化率偏低</strong>，核心制约因素是MOQ门槛过高、代理区域锁死直接销售通道、以及首次回复话术未能有效激活客户兴趣。</div>
+  </div>
+
+  <div class="two-col" style="margin-bottom:14px">
+    <div class="conclusion">
+      <div class="conclusion-title">🏆 本月最大商机</div>
+      <div class="conclusion-text">
+        <strong>Ozdemir（土耳其）</strong>——展会带样，OEM定制意向强<br>
+        <strong>Sasa Gerum（塞尔维亚）</strong>——强生25年分销商，代理/OEM双向谈<br>
+        <strong>TARUN GARG（印度）</strong>——4月18日来华，接待质量决定成交
+      </div>
+    </div>
+    <div class="conclusion">
+      <div class="conclusion-title">⚠️ 核心风险</div>
+      <div class="conclusion-text">
+        <strong>代理转介无闭环</strong>——多位客户转介后无回访<br>
+        <strong>无氨染膏研发滞后</strong>——俄罗斯明确需求未能满足<br>
+        <strong>MOQ刚性流失</strong>——多位小批量客户无灵活方案
+      </div>
+    </div>
+  </div>
+
+  <div class="three-col">
+    <div class="stat-mini"><div class="n" style="color:#34d399">383</div><div class="l">月询盘总量</div></div>
+    <div class="stat-mini"><div class="n" style="color:#60a5fa">45+</div><div class="l">覆盖国家/地区</div></div>
+    <div class="stat-mini"><div class="n" style="color:#fbbf24">3</div><div class="l">寄样推进</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  肇庆凯乔科技有限公司 · Kaijoe Technology Co., Ltd. · 外贸运营部月度询盘分析报告 · 统计周期：2026-03-01 ~ 2026-03-31
+</div>
+
+</div>
+</body>
+</html>
