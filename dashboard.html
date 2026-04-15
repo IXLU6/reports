@@ -583,7 +583,6 @@
       <input type="text" id="toolDesc" placeholder="📝 工具描述">
       <input type="text" id="toolEmoji" placeholder="😀 工具图标 emoji（选填）">
       <select id="toolCategory"></select>
-      <p class="password-hint">管理密码：124578</p>
       <div class="modal-buttons">
         <button class="btn-secondary" onclick="closeModal('addModal')">取消</button>
         <button class="btn-primary" onclick="addTool()">添加</button>
@@ -1450,7 +1449,7 @@ function renderContent() {
                ondrop="handleDrop(event, '${cat.id}', ${index})"
                ondragend="handleDragEnd(event)"
                data-cat="${cat.id}" data-idx="${index}"
-               onclick="openTool('${tool.url}')">
+               data-url="${encodeURIComponent(tool.url)}">
             <div class="tool-drag-handle" title="拖拽排序">⠿</div>
             <button class="tool-edit" onclick="event.stopPropagation(); showEditModal('${cat.id}',${index})" title="编辑">✏️</button>
             <button class="tool-delete" onclick="event.stopPropagation(); showDeleteModal('${cat.id}',${index},'${tool.name.replace(/'/g,"\\'")}')" title="删除">×</button>
@@ -1490,8 +1489,17 @@ function setupScrollSpy() {
 }
 
 function openTool(url) {
+  try { url = decodeURIComponent(url); } catch(e) {}
   if (url && url !== '#') window.open(url, '_blank');
 }
+
+// 工具卡片点击事件委托（避免内联 onclick 引号冲突）
+document.addEventListener('click', function(e) {
+  const card = e.target.closest('.tool-card[data-url]');
+  if (card) {
+    openTool(card.dataset.url);
+  }
+});
 
 // ======================== SEARCH ========================
 function handleSearchInput(val) {
