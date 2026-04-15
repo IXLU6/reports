@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IXLU 运营中枢</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea'/%3E%3Cstop offset='100%25' stop-color='%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='bold' fill='white'%3EIX%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -70,6 +71,28 @@
       color: white;
       font-size: 1.1rem;
     }
+    /* Search active state */
+    .search-active .section:not(.search-visible) { display: none; }
+    .search-clear {
+      position: absolute;
+      right: 58px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.4);
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: white;
+      font-size: 0.85rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .search-clear:hover { background: rgba(255,255,255,0.6); }
+    .search-clear.visible { display: flex; }
 
     /* Hot News */
     .hot-news-section { padding: 30px; }
@@ -259,6 +282,16 @@
     }
     .section-title h2 { font-size: 1.55rem; margin-bottom: 5px; }
     .section-title p { color: var(--text-light); font-size: 1rem; }
+    /* Section sort hint */
+    .section-sort-hint {
+      margin-left: auto;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      background: var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
 
     /* Tools Grid */
     .tools-grid {
@@ -276,7 +309,7 @@
       cursor: pointer;
       position: relative;
       border: 2px solid transparent;
-      overflow: hidden;
+      overflow: visible;
     }
     .tool-card::before {
       content: '';
@@ -311,6 +344,51 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+
+    /* Tool sort buttons */
+    .tool-sort {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 5;
+    }
+    .tool-card:hover .tool-sort { opacity: 1; }
+    .tool-sort-btn {
+      width: 22px;
+      height: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      padding: 0;
+      line-height: 1;
+    }
+    .tool-sort-up {
+      background: #e8f0fe;
+      color: var(--primary);
+    }
+    .tool-sort-up:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .tool-sort-down {
+      background: #e8f0fe;
+      color: var(--primary);
+    }
+    .tool-sort-down:hover {
+      background: var(--primary);
+      color: white;
+    }
+
     .tool-delete {
       position: absolute;
       top: 8px; right: 8px;
@@ -320,6 +398,7 @@
       cursor: pointer; font-size: 0.9rem;
       opacity: 0; transition: all 0.3s;
       display: flex; align-items: center; justify-content: center;
+      z-index: 5;
     }
     .tool-card:hover .tool-delete { opacity: 1; }
     .tool-delete:hover { background: #ff3344; transform: scale(1.15); }
@@ -407,7 +486,8 @@
 
   <section class="search-section">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="🔍 搜索工具、网站、资源..." onkeypress="if(event.key==='Enter')searchTools()">
+      <input type="text" id="searchInput" placeholder="🔍 搜索工具、网站、资源..." onkeyup="handleSearchInput(this.value)">
+      <button class="search-clear" id="searchClear" onclick="clearSearch()"><i class="fas fa-times"></i></button>
       <button onclick="searchTools()"><i class="fas fa-search"></i></button>
     </div>
   </section>
@@ -473,7 +553,7 @@
     </div>
   </section>
 
-  <div class="main-container">
+  <div class="main-container" id="mainContainer">
     <aside class="sidebar">
       <div class="sidebar-header">
         <h2>📂 分类导航</h2>
@@ -1213,10 +1293,10 @@ async function fetchBaidu() {
         const parser = new DOMParser();
         const doc = parser.parseFromString(text, 'text/html');
         const items = [];
-        doc.querySelectorAll('.c-single-media-article').forEach((el, i) => {
+        doc.querySelectorAll('.c-single-media-article').forEach((el2, i) => {
           if (i < 8) {
-            const title = el.querySelector('.c-title')?.textContent?.trim() || '';
-            const heat = el.querySelector('.c-hot')?.textContent?.trim() || '';
+            const title = el2.querySelector('.c-title')?.textContent?.trim() || '';
+            const heat = el2.querySelector('.c-hot')?.textContent?.trim() || '';
             if (title) items.push({word: title, hot_value: heat});
           }
         });
@@ -1298,7 +1378,6 @@ function renderNewsList(elementId, items, isLive, mapper) {
 function renderFallback(items, platform) {
   return items.map((item, i) => {
     const rank = i + 1;
-    const isHot = item.heat && item.heat.includes('🔥');
     const text = item.text;
     const heat = item.heat || '';
     return `<li onclick="window.open('${LINKS[platform]}', '_blank')">
@@ -1329,7 +1408,7 @@ function updateTotal() {
 
 function renderContent() {
   document.getElementById('content').innerHTML = categories.map(cat => `
-    <section class="section" id="${cat.id}">
+    <section class="section" id="${cat.id}" data-category="${cat.id}">
       <div class="section-header">
         <div class="section-icon" style="background:${cat.color}">
           <i class="fas ${cat.icon}"></i>
@@ -1338,10 +1417,15 @@ function renderContent() {
           <h2>${cat.name}</h2>
           <p>${cat.desc} · ${(tools[cat.id]||[]).length} 个工具</p>
         </div>
+        <span class="section-sort-hint">↑↓ 调整顺序</span>
       </div>
       <div class="tools-grid">
         ${(tools[cat.id]||[]).map((tool, index) => `
           <div class="tool-card" onclick="openTool('${tool.url}')">
+            <div class="tool-sort">
+              <button class="tool-sort-btn tool-sort-up" title="上移" onclick="event.stopPropagation(); sortTool('${cat.id}',${index},-1)">▲</button>
+              <button class="tool-sort-btn tool-sort-down" title="下移" onclick="event.stopPropagation(); sortTool('${cat.id}',${index},1)">▼</button>
+            </div>
             <button class="tool-delete" onclick="event.stopPropagation(); showDeleteModal('${cat.id}',${index},'${tool.name.replace(/'/g,"\\'")}')">×</button>
             <span class="tool-emoji">${tool.emoji}</span>
             <h4>${tool.name}</h4>
@@ -1361,6 +1445,8 @@ function renderContent() {
 }
 
 function scrollToSection(id) {
+  // Bug fix: clear search filter before scrolling
+  clearSearch(false);
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -1378,6 +1464,55 @@ function setupScrollSpy() {
 
 function openTool(url) {
   if (url && url !== '#') window.open(url, '_blank');
+}
+
+// ======================== SEARCH ========================
+function handleSearchInput(val) {
+  const clearBtn = document.getElementById('searchClear');
+  if (clearBtn) clearBtn.classList.toggle('visible', val.length > 0);
+  if (event && event.key === 'Enter') searchTools();
+}
+
+function searchTools() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  if (!q) return;
+  let found = false;
+  document.querySelectorAll('.section').forEach(sec => {
+    const cards = sec.querySelectorAll('.tool-card');
+    let has = false;
+    cards.forEach(c => {
+      const match = c.textContent.toLowerCase().includes(q);
+      c.style.display = match ? 'block' : 'none';
+      if (match) { has = true; found = true; }
+    });
+    sec.style.display = has ? 'block' : 'none';
+  });
+  if (!found) alert('未找到匹配的工具，试试其他关键词');
+}
+
+function clearSearch(rerender = true) {
+  document.getElementById('searchInput').value = '';
+  const clearBtn = document.getElementById('searchClear');
+  if (clearBtn) clearBtn.classList.remove('visible');
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.style.display = 'block';
+    sec.querySelectorAll('.tool-card').forEach(c => { c.style.display = 'block'; });
+  });
+}
+
+// ======================== SORT ========================
+function sortTool(catId, index, direction) {
+  const arr = tools[catId];
+  if (!arr) return;
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= arr.length) return;
+  // Swap
+  const temp = arr[index];
+  arr[index] = arr[newIndex];
+  arr[newIndex] = temp;
+  renderContent();
+  renderNav();
+  updateTotal();
 }
 
 // ======================== MODALS ========================
@@ -1430,23 +1565,6 @@ function confirmDelete() {
     alert('已删除！');
     currentDeleteTarget = null;
   }
-}
-
-function searchTools() {
-  const q = document.getElementById('searchInput').value.toLowerCase().trim();
-  if (!q) return;
-  let found = false;
-  document.querySelectorAll('.section').forEach(sec => {
-    const cards = sec.querySelectorAll('.tool-card');
-    let has = false;
-    cards.forEach(c => {
-      const match = c.textContent.toLowerCase().includes(q);
-      c.style.display = match ? 'block' : 'none';
-      if (match) { has = true; found = true; }
-    });
-    sec.style.display = has ? 'block' : 'none';
-  });
-  if (!found) alert('未找到匹配的工具，试试其他关键词');
 }
 
 document.addEventListener('click', e => {
