@@ -601,7 +601,6 @@
       <input type="text" id="editDesc" placeholder="📝 工具描述">
       <input type="text" id="editEmoji" placeholder="😀 工具图标 emoji（选填）">
       <select id="editCategory"></select>
-      <p class="password-hint">管理密码：124578</p>
       <div class="modal-buttons">
         <button class="btn-secondary" onclick="closeModal('editModal')">取消</button>
         <button class="btn-primary" onclick="saveEdit()">保存修改</button>
@@ -1450,7 +1449,8 @@ function renderContent() {
                ondragleave="handleDragLeave(event)"
                ondrop="handleDrop(event, '${cat.id}', ${index})"
                ondragend="handleDragEnd(event)"
-               data-cat="${cat.id}" data-idx="${index}">
+               data-cat="${cat.id}" data-idx="${index}"
+               onclick="openTool('${tool.url}')">
             <div class="tool-drag-handle" title="拖拽排序">⠿</div>
             <button class="tool-edit" onclick="event.stopPropagation(); showEditModal('${cat.id}',${index})" title="编辑">✏️</button>
             <button class="tool-delete" onclick="event.stopPropagation(); showDeleteModal('${cat.id}',${index},'${tool.name.replace(/'/g,"\\'")}')" title="删除">×</button>
