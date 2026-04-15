@@ -462,6 +462,10 @@
     .btn-secondary { background: var(--border); color: var(--text); }
     .btn-secondary:hover { background: #d1d5db; }
     .password-hint { text-align: center; color: var(--text-light); font-size: 0.9rem; margin-top: 10px; }
+    .emoji-hint { font-size: 0.8rem; color: #aaa; margin-top: 4px; min-height: 16px; transition: opacity 0.2s; }
+    .emoji-hint span { background: #333; color: #fff; padding: 1px 6px; border-radius: 4px; cursor: pointer; margin-right: 4px; }
+    .emoji-hint span:hover { background: #555; }
+    .emoji-hint .emoji-tag { font-size: 0.75rem; color: #888; margin-left: 4px; }
 
     .footer { text-align: center; padding: 40px 30px; color: var(--text-light); font-size: 1rem; background: var(--card-bg); margin-top: 50px; }
     ::-webkit-scrollbar { width: 8px; }
@@ -578,10 +582,11 @@
     <div class="modal">
       <h3>➕ 添加新工具</h3>
       <input type="password" id="addPassword" placeholder="🔒 请输入管理密码">
-      <input type="text" id="toolName" placeholder="📛 工具名称">
+      <input type="text" id="toolName" placeholder="📛 工具名称" oninput="autoSuggestEmoji(this.value, 'toolEmoji')">
       <input type="url" id="toolUrl" placeholder="🔗 工具链接 (https://...)">
       <input type="text" id="toolDesc" placeholder="📝 工具描述">
       <input type="text" id="toolEmoji" placeholder="😀 工具图标 emoji（选填）">
+      <div class="emoji-hint" id="emojiHint"></div>
       <select id="toolCategory"></select>
       <div class="modal-buttons">
         <button class="btn-secondary" onclick="closeModal('addModal')">取消</button>
@@ -595,10 +600,11 @@
     <div class="modal">
       <h3>✏️ 编辑工具</h3>
       <input type="password" id="editPassword" placeholder="🔒 请输入管理密码">
-      <input type="text" id="editName" placeholder="📛 工具名称">
+      <input type="text" id="editName" placeholder="📛 工具名称" oninput="autoSuggestEmoji(this.value, 'editEmoji')">
       <input type="url" id="editUrl" placeholder="🔗 工具链接 (https://...)">
       <input type="text" id="editDesc" placeholder="📝 工具描述">
       <input type="text" id="editEmoji" placeholder="😀 工具图标 emoji（选填）">
+      <div class="emoji-hint" id="editEmojiHint"></div>
       <select id="editCategory"></select>
       <div class="modal-buttons">
         <button class="btn-secondary" onclick="closeModal('editModal')">取消</button>
@@ -612,7 +618,7 @@
     <div class="modal">
       <h3>🗑️ 删除工具</h3>
       <input type="password" id="deletePassword" placeholder="🔒 请输入管理密码">
-      <p class="password-hint" id="deleteToolName">管理密码：124578</p>
+      <p class="password-hint" id="deleteToolName"></p>
       <div class="modal-buttons">
         <button class="btn-secondary" onclick="closeModal('deleteModal')">取消</button>
         <button class="btn-primary" onclick="confirmDelete()">确认删除</button>
@@ -1664,6 +1670,115 @@ function saveEdit() {
   closeModal('editModal');
   alert('修改已保存！');
   currentEditTarget = null;
+}
+
+// ======================== EMOJI AUTO-SUGGEST ========================
+const emojiMap = {
+  // 平台/品牌
+  'alibaba':['🏪','🅰️'], 'ali':['🏪','🅰️'], '阿里':['🏪','🅰️'],
+  'amazon':['📦','🛒'], '亚马逊':['📦','🛒'],
+  'shopify':['🛍️','💎'], '速卖通':['🌍','🛒'], 'aliexpress':['🌍','🛒'],
+  'tiktok':['🎵','📱'], 'temu':['🛍️','💰'], 'ebay':['🛒','📦'],
+  'lazada':['🛒','🌏'], '虾皮':['🦐','🛒'], 'shein':['👗','✨'],
+
+  // 运营/数据
+  '数据':['📊','📈'], 'data':['📊','📈'], '报告':['📑','📋'],
+  '分析':['🔬','📊'], 'analytics':['📊','🔍'], '统计':['📊','📈'],
+  '周报':['📅','📋'], '月报':['📅','📊'], '调研':['🔬','📑'],
+
+  // 营销/广告
+  '广告':['📢','🎯'], 'ad':['📢','🎯'], '推广':['📢','🚀'],
+  '直通车':['🚗','📢'], 'p4p':['🚗','📢'], '营销':['📣','🎯'],
+  'seo':['🔍','🌐'], '搜索':['🔍','📈'], '流量':['🌊','📈'],
+  '社媒':['📱','💬'], 'social':['📱','💬'], 'facebook':['📘','💬'],
+  'instagram':['📸','🌿'], 'youtube':['🎬','▶️'], 'linkedin':['💼','📇'],
+
+  // 建站/开发
+  '建站':['🏗️','🌐'], '网站':['🌐','🖥️'], 'web':['🌐','🖥️'],
+  'code':['💻','⚙️'], 'github':['🐙','💻'], '域名':['🌐','🔗'],
+  '域名':['🌐','🔗'], 'host':['🖥️','🌐'], '服务器':['🖥️','⚙️'],
+  'figma':['🎨','✏️'], '设计':['🎨','🖌️'], 'ui':['🎨','🖥️'],
+
+  // 财务/物流
+  '收款':['💳','💰'], '支付':['💳','💵'], 'pay':['💳','💵'],
+  '物流':['🚚','📦'], '物流':['🚚','📦'], '快递':['📦','🚚'],
+  '结汇':['💱','💵'], '汇率':['💱','📊'], '税务':['📋','💰'],
+
+  // 办公/效率
+  '翻译':['🌍','📝'], 'translate':['🌍','📝'], 'chatgpt':['🤖','💬'],
+  'ai':['🤖','✨'], 'gpt':['🤖','💡'], 'copilot':['🤖','⚡'],
+  '文档':['📄','📑'], 'doc':['📄','📑'], 'pdf':['📄','📎'],
+  '邮件':['✉️','📧'], 'email':['✉️','📧'], '话术':['📝','💬'],
+
+  // 品牌/竞品
+  '品牌':['🏷️','✨'], 'brand':['🏷️','✨'], '竞品':['🔍','⚔️'],
+  '侵权':['⚖️','⚠️'], '专利':['📜','⚖️'], 'ip':['⚖️','🏷️'],
+
+  // 展会/企业
+  '展会':['🏛️','🗺️'], '广交会':['🏛️','🌏'], '企业':['🏢','🔍'],
+  '企查查':['🏢','🔍'], '天眼查':['🔍','🏢'],
+
+  // 工具类型
+  '计算':['🧮','📐'], '工具':['🔧','⚙️'], '生成':['✨','⚡'],
+  '查询':['🔍','📋'], '抓取':['🕷️','📡'], '监控':['👁️','📡'],
+  '视频':['🎬','▶️'], '图片':['🖼️','🎨'], '截图':['📸','🖼️'],
+
+  // 内容/文案
+  '文案':['✍️','📝'], '内容':['📝','📄'], '脚本':['🎬','📜'],
+  '视频':['🎬','▶️'], '图片':['🖼️','🎨'], '生成':['✨','⚡'],
+
+  // 品类相关
+  '洗发':['🧴','💇'], '护发':['💆','🧴'], '美发':['✂️','💇'],
+  '护肤':['🧴','✨'], '彩妆':['💄','🎨'], '成分':['🔬','🧪'],
+  '洗护':['🧴','🛁'], '沐浴':['🛁','🧴'], '身体乳':['🧴','✨'],
+  '染发':['🎨','✂️'], '烫发':['🔥','✂️'], '护发素':['🧴','💆'],
+  '精油':['🌿','✨'], '发膜':['💆','🧴'], '护发精油':['🌿','💆'],
+  '护发':['💆','🧴'], '洗发水':['🧴','✨'], '护发素':['💆','🧴'],
+
+  // 默认
+  'default':['🔧','🛠️','📌','⭐','🚀','💡']
+};
+
+function autoSuggestEmoji(name, targetId) {
+  const hintEl = document.getElementById(targetId === 'toolEmoji' ? 'emojiHint' : 'editEmojiHint') ||
+                  document.getElementById('emojiHint');
+  if (!hintEl) return;
+
+  if (!name || name.trim() === '') {
+    hintEl.innerHTML = '';
+    return;
+  }
+
+  const lower = name.toLowerCase();
+  let matches = [];
+
+  for (const [key, emojis] of Object.entries(emojiMap)) {
+    if (key === 'default') continue;
+    if (lower.includes(key) || key.includes(lower)) {
+      matches.push(...emojis);
+    }
+  }
+
+  if (matches.length === 0) {
+    matches = emojiMap['default'];
+  } else {
+    matches = [...new Set(matches)]; // deduplicate
+  }
+
+  const suggestions = matches.slice(0, 6);
+  const tag = '<span class="emoji-tag">✨ 建议</span>';
+  hintEl.innerHTML = suggestions.map(e =>
+    `<span onclick="applyEmoji('${e}', '${targetId}')">${e}</span>`
+  ).join('') + tag;
+}
+
+function applyEmoji(emoji, targetId) {
+  document.getElementById(targetId).value = emoji;
+  document.getElementById(targetId).focus();
+  // flash effect
+  const hintId = targetId === 'toolEmoji' ? 'emojiHint' : 'editEmojiHint';
+  const el = document.getElementById(hintId);
+  if (el) el.innerHTML = `<span style="color:#4ade80; font-size:0.8rem;">✅ 已应用 ${emoji}</span>`;
 }
 
 // ======================== MODALS ========================
