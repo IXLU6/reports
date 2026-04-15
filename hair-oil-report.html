@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>头皮头发精油调研报告</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #20253a;
+    --border: #2a2f45;
+    --text: #e8eaf0;
+    --muted: #8b90a7;
+    --accent-cliganic: #d4a843;
+    --accent-langhaar: #b87dcf;
+    --accent-ordinary: #7ecfa0;
+    --accent: #f0a040;
+    --red: #e05050;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+
+  /* ---- HERO ---- */
+  .hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background: linear-gradient(160deg, #1a1030 0%, #0f1117 60%, #0d1a1f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(240,160,64,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(126,207,160,0.06) 0%, transparent 50%);
+    animation: heroPulse 8s ease-in-out infinite alternate;
+  }
+  @keyframes heroPulse {
+    from { transform: translate(0,0) rotate(0deg); }
+    to { transform: translate(-2%, 1%) rotate(1deg); }
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(240,160,64,0.12);
+    border: 1px solid rgba(240,160,64,0.3);
+    color: var(--accent);
+    padding: 4px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .hero h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .hero .subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 16px;
+    letter-spacing: 1px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    text-align: center;
+  }
+  .hero-meta-item .label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hero-meta-item .value {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 2px;
+    color: var(--text);
+  }
+
+  /* ---- TOC ---- */
+  .toc {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+  .toc a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* ---- BRAND CARD WRAPPER ---- */
+  .brand-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .brand-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 36px;
+    border-radius: 16px;
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .brand-header.cliganic {
+    background: linear-gradient(135deg, #1e1800 0%, #2a2000 50%, #1a1500 100%);
+    border: 1px solid rgba(212,168,67,0.3);
+  }
+  .brand-header.langhaar {
+    background: linear-gradient(135deg, #1a002a 0%, #250035 50%, #1a0020 100%);
+    border: 1px solid rgba(184,125,207,0.3);
+  }
+  .brand-header.ordinary {
+    background: linear-gradient(135deg, #001a0e 0%, #002818 50%, #001a10 100%);
+    border: 1px solid rgba(126,207,160,0.3);
+  }
+  .brand-header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 40%;
+    opacity: 0.05;
+  }
+  .brand-number {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    opacity: 0.15;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-family: 'Georgia', serif;
+  }
+  .brand-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .brand-icon.cliganic {
+    background: rgba(212,168,67,0.15);
+    border: 2px solid rgba(212,168,67,0.4);
+    color: #d4a843;
+  }
+  .brand-icon.langhaar {
+    background: rgba(184,125,207,0.15);
+    border: 2px solid rgba(184,125,207,0.4);
+    color: #b87dcf;
+  }
+  .brand-icon.ordinary {
+    background: rgba(126,207,160,0.15);
+    border: 2px solid rgba(126,207,160,0.4);
+    color: #7ecfa0;
+  }
+  .brand-info h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .brand-info .country {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+  .brand-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .brand-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .brand-tag.cliganic { background: rgba(212,168,67,0.15); color: #d4a843; border: 1px solid rgba(212,168,67,0.3); }
+  .brand-tag.langhaar { background: rgba(184,125,207,0.15); color: #b87dcf; border: 1px solid rgba(184,125,207,0.3); }
+  .brand-tag.ordinary { background: rgba(126,207,160,0.15); color: #7ecfa0; border: 1px solid rgba(126,207,160,0.3); }
+
+  /* ---- CARD ---- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+  }
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* ---- INFO TABLE ---- */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .info-item {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .info-item .label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .info-item .value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ---- CLAIMS ---- */
+  .claims {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .claim {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    display: flex;
+    gap: 10px;
+  }
+  .claim::before {
+    content: '✦';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ---- INCI CODE ---- */
+  .inci {
+    background: #13152000;
+    border: 1px solid rgba(240,160,64,0.15);
+    border-radius: 10px;
+    padding: 18px 22px;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: 'Courier New', monospace;
+    word-break: break-all;
+    letter-spacing: 0.3px;
+  }
+
+  /* ---- INGREDIENTS TABLE ---- */
+  .ingredient-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .ingredient-table th {
+    background: var(--card2);
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .ingredient-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .ingredient-table tr:last-child td { border-bottom: none; }
+  .ingredient-name {
+    font-weight: 700;
+    white-space: nowrap;
+    padding-right: 20px;
+    min-width: 160px;
+  }
+  .ingredient-name .sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ---- STEPS ---- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .step {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    position: relative;
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(240,160,64,0.15);
+    border: 1px solid rgba(240,160,64,0.3);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 auto 10px;
+  }
+  .step-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ---- WARNING ---- */
+  .warnings {
+    background: rgba(224,80,80,0.06);
+    border: 1px solid rgba(224,80,80,0.2);
+    border-radius: 10px;
+    padding: 18px 22px;
+  }
+  .warning-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .warning-item {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(224,80,80,0.08);
+    display: flex;
+    gap: 8px;
+  }
+  .warning-item:last-child { border-bottom: none; }
+  .warning-item::before { content: '⚠'; color: var(--red); flex-shrink: 0; }
+
+  /* ---- COMPARISON ---- */
+  .comparison-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 80px;
+  }
+  .comparison-section h2 {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .comparison-section .subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+  .comparison-table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 700px;
+  }
+  .comparison-table th {
+    padding: 16px 18px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border);
+  }
+  .comparison-table th:nth-child(1) { color: var(--muted); min-width: 130px; }
+  .comparison-table th:nth-child(2) { color: var(--accent-cliganic); text-align: left; }
+  .comparison-table th:nth-child(3) { color: var(--accent-langhaar); text-align: left; }
+  .comparison-table th:nth-child(4) { color: var(--accent-ordinary); text-align: left; }
+  .comparison-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table td:nth-child(1) {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* ---- ADVICE ---- */
+  .advice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  .advice-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .advice-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .advice-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent-cliganic), transparent); }
+  .advice-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-langhaar), transparent); }
+  .advice-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-ordinary), transparent); }
+  .advice-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .advice-card:nth-child(1) .advice-label { color: var(--accent-cliganic); }
+  .advice-card:nth-child(2) .advice-label { color: var(--accent-langhaar); }
+  .advice-card:nth-child(3) .advice-label { color: var(--accent-ordinary); }
+  .advice-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .advice-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ---- DIVIDER ---- */
+  .brand-divider {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand-divider::before, .brand-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .brand-divider span {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ---- SCROLL TO TOP ---- */
+  #scrollTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #0f1117;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 100;
+  }
+  #scrollTop.visible { opacity: 1; }
+
+  /* ---- SECTION ACCENT LINE ---- */
+  .card .accent-line {
+    width: 40px;
+    height: 3px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .card.cliganic .accent-line { background: var(--accent-cliganic); }
+  .card.langhaar .accent-line { background: var(--accent-langhaar); }
+  .card.ordinary .accent-line { background: var(--accent-ordinary); }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 28px; }
+    .brand-header { flex-direction: column; text-align: center; }
+    .toc { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="hero-badge">Market Research Report · Ver.2</div>
+  <h1>三款头皮头发精油</h1>
+  <h2>Scalp &amp; Hair Oil Research Report</h2>
+  <div class="subtitle">品牌 · 成分 · 功效 · 使用方法 综合调研报告</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">收录品牌</div>
+      <div class="value">Cliganic · Langhaar Mädchen · The Ordinary</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">报告版本</div>
+      <div class="value">第二版（品牌准确版）</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">报告日期</div>
+      <div class="value">2026年4月</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TOC ===================== -->
+<div class="toc">
+  <a href="#brand1">🟡 Cliganic 有机南瓜籽油</a>
+  <a href="#brand2">🟣 Langhaar Mädchen</a>
+  <a href="#brand3">🟢 The Ordinary 多肽固发</a>
+  <a href="#comparison">📊 横向对比</a>
+  <a href="#advice">💡 选购建议</a>
+</div>
+
+<!-- ===================== BRAND 1: CLIGANIC ===================== -->
+<div class="brand-section" id="brand1">
+
+  <!-- Brand Header -->
+  <div class="brand-header cliganic">
+    <div class="brand-icon cliganic">🎃</div>
+    <div class="brand-info">
+      <div class="country">🇺🇸 美国</div>
+      <h2>Cliganic 有机南瓜籽油</h2>
+      <div class="brand-tags">
+        <span class="brand-tag cliganic">USDA有机认证</span>
+        <span class="brand-tag cliganic">EWG Verified™</span>
+        <span class="brand-tag cliganic">冷压萃取</span>
+        <span class="brand-tag cliganic">单一成分</span>
+      </div>
+    </div>
+    <div class="brand-number">01</div>
+  </div>
+
+  <!-- Section: 产品基本信息 -->
+  <div class="card cliganic">
+    <div class="section-label">一、产品基本信息</div>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="label">品牌</div>
+        <div class="value">Cliganic（美国）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">产地 / 认证</div>
+        <div class="value">美国 · USDA有机认证 / EWG Verified™</div>
+      </div>
+      <div class="info-item">
+        <div class="label">规格容量</div>
+        <div class="value">2 fl oz（60ml）/ 4 fl oz（120ml）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">产品形态</div>
+        <div class="value">纯植物载体油（Oil）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">核心成分</div>
+        <div class="value">100% 有机南瓜籽油</div>
+      </div>
+      <div class="info-item">
+        <div class="label">保质期</div>
+        <div class="value">约12-18个月，开封后12个月内用完</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 核心功效宣称 -->
+  <div class="card cliganic">
+    <div class="section-label">二、核心功效宣称</div>
+    <div class="claims">
+      <div class="claim">USDA有机认证 + EWG Verified™ 双重权威认证，零有害成分</div>
+      <div class="claim">100% 纯冷压南瓜籽油，精制版呈金黄色泽，轻盈不黏腻</div>
+      <div class="claim">富含脂肪酸（Omega-3/6/9）、维生素A/C/E及锌，全面滋养头皮与发丝</div>
+      <div class="claim">辅助改善发丝细软脆断、增加光泽度与弹性感</div>
+      <div class="claim">可直接使用无需稀释，亦可混入洗发水、护发素协同使用</div>
+    </div>
+  </div>
+
+  <!-- Section: 成分解析 -->
+  <div class="card cliganic">
+    <div class="section-label">三、成分解析</div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 完整INCI成分列表</div>
+      <div class="inci">Cucurbita Pepo (Pumpkin) Seed Oil*（*= 有机认证原料）</div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 核心活性成分深度解析</div>
+      <table class="ingredient-table">
+        <thead>
+          <tr>
+            <th style="width:200px;">成分名称（INCI）</th>
+            <th>成分作用与功效解析</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ingredient-name">植物固醇（Delta-7-Sterols）<span class="sub">南瓜籽油核心防脱活性物</span></td>
+            <td>可竞争性抑制5α-还原酶的活性，减少睾酮向DHT（二氢睾酮）的转化，降低DHT对毛囊的萎缩性损害，起到天然防脱的作用。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">亚油酸（Linoleic Acid, Omega-6）<span class="sub">约占50%</span></td>
+            <td>帮助维护头皮皮脂膜完整性，减少经皮失水（TEWL），改善头皮干燥脱屑；同时软化发丝角质层，减少毛躁与断裂。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">油酸（Oleic Acid, Omega-9）<span class="sub">约30%</span></td>
+            <td>深层渗透发干与头皮角质层，提供卓越保湿与柔润功效，同时携带其他脂溶性营养成分更好被头皮吸收。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">维生素E（生育三烯酚）<span class="sub">天然抗氧化</span></td>
+            <td>强效抗氧化，保护头皮细胞膜免受自由基损伤；改善头皮微循环，促进营养向毛囊的输送效率。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">锌（Zinc）<span class="sub">微量元素</span></td>
+            <td>参与头皮皮脂腺调节，维持头皮油脂平衡；支持免疫功能，减少头皮炎症与感染风险。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 辅助功能成分</div>
+      <div style="font-size:13px;color:var(--muted);padding:10px 0;border-top:1px solid var(--border);">
+        仅含单一成分，无防腐剂、无香精、无表面活性剂，成分极简安全，敏感头皮友好。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 使用方法 -->
+  <div class="card cliganic">
+    <div class="section-label">四、使用方法（Step by Step）</div>
+    <div class="info-grid" style="margin-bottom:16px;">
+      <div class="info-item" style="grid-column:1/-1;background:rgba(212,168,67,0.06);border-color:rgba(212,168,67,0.2);">
+        <div class="label">建议使用频率</div>
+        <div class="value" style="color:var(--accent-cliganic);">每周2-3次头皮护理；日常发梢护理可每日少量免洗使用。坚持4-8周可见明显改善。</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">准备头发</div>
+        <div class="step-desc">洗发后半干状态使用，或直接用于干燥头发，均可。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">取量</div>
+        <div class="step-desc">用滴管或指腹取3-5滴精油；油量宁少勿多，可根据发量递增。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">涂抹头皮</div>
+        <div class="step-desc">将精油均匀涂抹于头皮，重点按摩稀疏区域（发际线、顶区）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">充分按摩</div>
+        <div class="step-desc">用指腹轻柔打圈按摩5-10分钟，促进血液循环与成分吸收。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">免洗留置</div>
+        <div class="step-desc">按摩后免洗留置（Leave-in），精油自然被头皮与发丝吸收。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 注意事项 -->
+  <div class="card cliganic">
+    <div class="section-label">五、注意事项与禁忌</div>
+    <div class="warnings">
+      <div class="warning-title">⚠ 警示与提醒</div>
+      <div class="warning-item">首次使用前请于耳后做24小时皮试，确认无过敏反应后正常使用。</div>
+      <div class="warning-item">对南瓜或葫芦科植物有过敏史者请谨慎使用。</div>
+      <div class="warning-item">纯天然植物油，保质期通常约12-18个月；开封后建议在12个月内用完，避免阳光直射和高温存放。</div>
+      <div class="warning-item">不建议内服使用（该产品为外用护肤品）。</div>
+      <div class="warning-item">孕期及哺乳期使用前请咨询医生。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== BRAND DIVIDER ===================== -->
+<div class="brand-divider"><span>02  ·  德国</span></div>
+
+<!-- ===================== BRAND 2: LANGHAAR MÄDCHEN ===================== -->
+<div class="brand-section" id="brand2">
+
+  <!-- Brand Header -->
+  <div class="brand-header langhaar">
+    <div class="brand-icon langhaar">🌿</div>
+    <div class="brand-info">
+      <div class="country">🇩🇪 德国</div>
+      <h2>Langhaar Mädchen 头皮活力精华液</h2>
+      <div class="brand-tags">
+        <span class="brand-tag langhaar">AnaGain™专利活性物</span>
+        <span class="brand-tag langhaar">无硅油 / 无微塑料</span>
+        <span class="brand-tag langhaar">每日免洗</span>
+        <span class="brand-tag langhaar">德国配方</span>
+      </div>
+    </div>
+    <div class="brand-number">02</div>
+  </div>
+
+  <!-- 产品基本信息 -->
+  <div class="card langhaar">
+    <div class="section-label">一、产品基本信息</div>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="label">品牌</div>
+        <div class="value">Langhaar Mädchen（德国）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">产地 / 认证</div>
+        <div class="value">德国 · 无硅油 / 无微塑料</div>
+      </div>
+      <div class="info-item">
+        <div class="label">规格容量</div>
+        <div class="value">75 ml（按压滴涂式设计）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">产品形态</div>
+        <div class="value">水性清爽精华液（Tonic）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">主要功效</div>
+        <div class="value">促进发量增密 · 激活毛囊生长活力</div>
+      </div>
+      <div class="info-item">
+        <div class="label">使用方式</div>
+        <div class="value">干发/微湿，每日免洗</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心功效宣称 -->
+  <div class="card langhaar">
+    <div class="section-label">二、核心功效宣称</div>
+    <div class="claims">
+      <div class="claim">德国品牌配方，无硅油、无微塑料，温和日常可用</div>
+      <div class="claim">AnaGain™（豌豆苗提取物）专利活性物，临床验证激活毛囊生长信号</div>
+      <div class="claim">咖啡因促进头皮微循环，唤醒沉睡毛囊</div>
+      <div class="claim">甜杏仁花提取物滋润头皮，提升发丝光泽与柔顺感</div>
+      <div class="claim">泛醇（Pro-B5）舒缓头皮，强化角质层</div>
+      <div class="claim">无需冲洗，每日早晚均可使用，便捷高效</div>
+    </div>
+  </div>
+
+  <!-- 成分解析 -->
+  <div class="card langhaar">
+    <div class="section-label">三、成分解析</div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 完整INCI成分列表</div>
+      <div class="inci">Aqua, Alcohol Denat., Glycerin, Caffeine, PEG-40 Hydrogenated Castor Oil, Parfum, Panthenol, Prunus Amygdalus Dulcis Flower Extract, Pisum Sativum Sprout Extract, Citric Acid, Sodium Benzoate, Potassium Sorbate</div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 核心活性成分深度解析</div>
+      <table class="ingredient-table">
+        <thead>
+          <tr>
+            <th style="width:200px;">成分名称（INCI）</th>
+            <th>成分作用与功效解析</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ingredient-name">AnaGain™<br><span class="sub">Pisum Sativum Sprout Extract · 豌豆苗芽提取物</span></td>
+            <td>瑞士Mibelle Biochemistry专利活性原料。富含植物性信号蛋白与生物活性物质，经临床研究证实可激活毛囊外根鞘细胞（ORS）的增殖信号，调控毛囊从休止期向生长期转变，28天可量化改善发量密度。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">咖啡因（Caffeine）<span class="sub">头皮护理黄金成分</span></td>
+            <td>小分子水溶性，头皮渗透力强。作用机制：（1）拮抗腺苷受体，扩张头皮毛细血管，显著改善头皮微循环；（2）抑制PDE酶活性，延长头发生长期；（3）与AnaGain™协同增强毛囊激活效果。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 辅助功能成分</div>
+      <table class="ingredient-table">
+        <tbody>
+          <tr>
+            <td class="ingredient-name">甜杏仁花提取物<br><span class="sub">Prunus Amygdalus Dulcis Flower Extract</span></td>
+            <td>天然植物保湿与调理成分。富含多酚和天然保湿因子，为头皮提供即时水润感，同时改善发丝表面光泽度与柔顺手感。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">甘油（Glycerin）<span class="sub">高效保湿剂</span></td>
+            <td>从环境中吸引水分并锁定于头皮角质层，持久维护头皮水油平衡，防止头皮干燥脱屑。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">泛醇（Pro-B5）<span class="sub">维生素原B5</span></td>
+            <td>强效保湿与屏障修护功效，舒缓头皮刺激，强化角质层锁水能力，提升整体头皮健康状态。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">酒精（Alcohol Denat.）<span class="sub">溶剂/促渗剂</span></td>
+            <td>帮助活性成分快速渗透头皮，同时赋予精华清爽质地。使用后迅速挥发，不残留于头皮。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 使用方法 -->
+  <div class="card langhaar">
+    <div class="section-label">四、使用方法（Step by Step）</div>
+    <div class="info-grid" style="margin-bottom:16px;">
+      <div class="info-item" style="grid-column:1/-1;background:rgba(184,125,207,0.06);border-color:rgba(184,125,207,0.2);">
+        <div class="label">建议使用频率</div>
+        <div class="value" style="color:var(--accent-langhaar);">每日1次，长期坚持为佳。建议早晨使用（白天活动配合头皮血液循环效果更好）。</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">准备</div>
+        <div class="step-desc">干发或微湿头发均可使用，无需洗发后方可用。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">分区</div>
+        <div class="step-desc">用手或梳子将头发分区，充分露出头皮（可重点关注发际线、顶区及两侧稀疏区域）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">涂抹</div>
+        <div class="step-desc">将精华液均匀喷涂或滴于头皮，用指腹轻压涂抹开，重点覆盖稀疏区域。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">按摩</div>
+        <div class="step-desc">用指腹以打圈方式轻柔按摩头皮2-5分钟，促进精华液充分渗透吸收。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">免洗留置</div>
+        <div class="step-desc">本品为免冲洗留置型，使用后无需洗发，可直接进行日常造型。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 注意事项 -->
+  <div class="card langhaar">
+    <div class="section-label">五、注意事项与禁忌</div>
+    <div class="warnings">
+      <div class="warning-title">⚠ 警示与提醒</div>
+      <div class="warning-item">产品含有酒精成分，极度敏感性头皮或有头皮伤口者请先做皮试（耳后24小时测试）。</div>
+      <div class="warning-item">产品含香精成分（Parfum），对香精过敏者请注意成分列表。</div>
+      <div class="warning-item">仅限外用，避免接触眼睛；如误触立即用清水冲洗。</div>
+      <div class="warning-item">本品为头皮调理精华，非洗发产品，无需冲洗，且需长期坚持使用方可见效。</div>
+      <div class="warning-item">置于儿童不可触及处；请于阴凉干燥处存放，避免阳光直射。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== BRAND DIVIDER ===================== -->
+<div class="brand-divider"><span>03  ·  加拿大/英国</span></div>
+
+<!-- ===================== BRAND 3: THE ORDINARY ===================== -->
+<div class="brand-section" id="brand3">
+
+  <!-- Brand Header -->
+  <div class="brand-header ordinary">
+    <div class="brand-icon ordinary">💧</div>
+    <div class="brand-info">
+      <div class="country">🇨🇦 加拿大 / 🇬🇧 英国</div>
+      <h2>The Ordinary 多肽固发密度头皮精华液</h2>
+      <div class="brand-tags">
+        <span class="brand-tag ordinary">6大专利活性复合体</span>
+        <span class="brand-tag ordinary">无酒精/无硅油</span>
+        <span class="brand-tag ordinary">纯素认证</span>
+        <span class="brand-tag ordinary">效能密度最高</span>
+      </div>
+    </div>
+    <div class="brand-number">03</div>
+  </div>
+
+  <!-- 产品基本信息 -->
+  <div class="card ordinary">
+    <div class="section-label">一、产品基本信息</div>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="label">品牌</div>
+        <div class="value">The Ordinary（加拿大/英国）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">产地 / 认证</div>
+        <div class="value">加拿大 · 无酒精/无硅油/纯素/无麸质</div>
+      </div>
+      <div class="info-item">
+        <div class="label">规格容量</div>
+        <div class="value">30 ml / 60 ml（滴管式精华瓶）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">产品形态</div>
+        <div class="value">水性浓缩精华液（Serum）</div>
+      </div>
+      <div class="info-item">
+        <div class="label">pH值</div>
+        <div class="value">pH 4.80-5.80</div>
+      </div>
+      <div class="info-item">
+        <div class="label">主要功效</div>
+        <div class="value">专业级防脱增密 · 全链路毛囊干预</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心功效宣称 -->
+  <div class="card ordinary">
+    <div class="section-label">二、核心功效宣称</div>
+    <div class="claims">
+      <div class="claim">6大专利活性复合体：REDENSYL™ + Procapil™ + CAPIXYL™ + BAICAPIL™ + AnaGain™ + 高溶解度咖啡因</div>
+      <div class="claim">水溶性轻量配方，pH 4.80-5.80，无酒精/无硅油/纯素认证</div>
+      <div class="claim">多维度靶向毛囊干细胞、毛乳头细胞、头皮微循环全链路干预</div>
+      <div class="claim">临床专利成分组合，是The Ordinary品牌效能密度最高的头皮产品</div>
+      <div class="claim">价格平民，高性价比专业级防脱方案的代表性产品</div>
+    </div>
+  </div>
+
+  <!-- 成分解析 -->
+  <div class="card ordinary">
+    <div class="section-label">三、成分解析</div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 完整INCI成分列表</div>
+      <div class="inci">Aqua (Water), Propanediol, Butylene Glycol, Glycerin, Caffeine, Cocamide DEA, Glycine, Serine, Leucine, Argan Oil Spk Kernel Extract, Adenosine, Propanediol, Arginine, Biotinoyl Tripeptide-1, Baicapil™ (Grain/Sprout Extract, Scutellaria Baicalensis Root Extract), Procapil™ (Biotin, Panthenol, Olea Europaea Leaf Extract), Acetyl Glucosamine, Kojic Acid, Dextran, Apigenin, Oleanolic Acid, Xanthan Gum, Citric Acid, Trisodium Ethylenediamine Disuccinate, Ethylhexylglycerin, Phenoxyethanol, Parfum</div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 核心活性成分深度解析（6大专利活性复合体）</div>
+      <table class="ingredient-table">
+        <thead>
+          <tr>
+            <th style="width:200px;">成分名称（INCI）</th>
+            <th>成分作用与功效解析</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ingredient-name">REDENSYL™<br><span class="sub">二羟基甲基色氨酸 + EGCG2</span></td>
+            <td>由Givaudan开发的新一代防脱专利原料，其核心机制区别于传统米诺地尔。REDENSYL™ 靶向头发毛囊干细胞（HFSCs）和真皮乳头成纤维细胞（DPFCs），通过激活细胞分裂与增殖信号，从根源"唤醒"休眠毛囊，促使其从休止期重新进入活跃生长期。8项临床研究显示，使用3个月可减少17%脱发，增加9%新发密度，效果优于2%米诺地尔（部分研究）。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">Procapil™<br><span class="sub">生物素 + 维生素原B5 + 橄榄叶提取物</span></td>
+            <td>Sederma Inc.专利。三效复合：（1）生物素（Biotin）参与角蛋白合成，强化发根；（2）维生素原B5修护头皮屏障；（3）橄榄叶提取物中的油酸甘油酯抑制DHT生成，对抗雄激素源性脱发。临床数据显示连续使用3个月，脱发减少约46%。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">CAPIXYL™<br><span class="sub">乙酰四肽-3 + 红三叶草提取物</span></td>
+            <td>Lucas Meyer Cosmetics专利肽复合体。乙酰四肽-3是信号肽，可激活细胞外基质（ECM）中层粘连蛋白-5（Laminin-5）的合成，增强毛囊根鞘与基底膜的锚定力，使头发"扎根"更牢固，从结构上减少脱落。红三叶草提取物协同抑制5α-还原酶。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">BAICAPIL™<br><span class="sub">大麦芽 + 小麦胚芽 + 黄芩根</span></td>
+            <td>Provital S.A.专利植物复合体。协同激活3个毛囊生长期相关基因（Shh、VEGF、β-catenin），促进毛囊细胞增殖与生长期延长；同时其中黄芩根提取物（Scutellarein）具有显著抗氧化与抗炎活性，改善头皮微环境，降低氧化应激导致的毛囊损伤。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">AnaGain™<br><span class="sub">豌豆苗芽提取物</span></td>
+            <td>瑞士Mibelle Biochemistry专利（同Langhaar产品中的成分）。激活Noggin基因，调控毛囊从休止期向生长期的转变，临床验证28天可量化改善发量。与本品其他活性物形成互补。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">高溶解度咖啡因<br><span class="sub">High-Solubility Caffeine</span></td>
+            <td>特殊工艺处理提升溶解度与渗透效率。通过拮抗腺苷受体促进头皮毛细血管扩张，显著改善头皮微循环；并通过抑制PDE延长头发生长期，与REDENSYL™等肽类成分形成"循环+细胞"双维度协同效应。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">▶ 辅助功能成分</div>
+      <table class="ingredient-table">
+        <tbody>
+          <tr>
+            <td class="ingredient-name">腺苷（Adenosine）<span class="sub">细胞信号分子</span></td>
+            <td>促进毛乳头细胞中生长因子（如VEGF）的分泌，进一步刺激毛囊血供与细胞增殖，同时具有温和抗炎功效。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">齐墩果酸 + 芹黄素<br><span class="sub">Oleanolic Acid + Apigenin</span></td>
+            <td>抑制5α-还原酶活性，减少DHT生成；同时抗炎、抗氧化，改善头皮炎症状态，为其他活性成分的发挥创造更健康的头皮微环境。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">生物素酰三肽-1<br><span class="sub">Biotinoyl Tripeptide-1</span></td>
+            <td>生物素与信号肽的结合体，将生物素精准靶向输送至毛囊基质细胞，参与角蛋白合成，强化发根强度与韧性。</td>
+          </tr>
+          <tr>
+            <td class="ingredient-name">氨基酸复合物<br><span class="sub">Glycine, Serine, Leucine, Arginine</span></td>
+            <td>头发角蛋白的基础构成氨基酸，为毛囊细胞提供直接的蛋白质合成原料，支持健康发丝的结构形成。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 使用方法 -->
+  <div class="card ordinary">
+    <div class="section-label">四、使用方法（Step by Step）</div>
+    <div class="info-grid" style="margin-bottom:16px;">
+      <div class="info-item" style="grid-column:1/-1;background:rgba(126,207,160,0.06);border-color:rgba(126,207,160,0.2);">
+        <div class="label">建议使用频率</div>
+        <div class="value" style="color:var(--accent-ordinary);">每日1次（睡前），持续使用至少12周（约3个月）以上方可评估明显效果；部分用户在4-6周内即可感受发量变化。长期持续使用效果更佳。</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">准备</div>
+        <div class="step-desc">洁发后彻底擦干或烘至干燥状态（干发使用，非湿发）。本品须用于清洁、干燥的头皮。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">取量</div>
+        <div class="step-desc">用滴管取数滴（约0.5-1ml），通常6-8滴覆盖全头皮，或根据需要调整。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">全头皮分区涂抹</div>
+        <div class="step-desc">分区拨开头发，将精华液均匀点涂于全头皮，尤其重点覆盖发量稀疏的区域（顶区、发际线、分缝处）。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">充分按摩</div>
+        <div class="step-desc">用十指指腹以轻柔打圈方式按摩全头皮5-10分钟，确保精华液充分渗透，同时激活头皮血液循环。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">免洗留置</div>
+        <div class="step-desc">本品为免冲洗留置配方（Leave-in treatment），涂抹后无需洗发。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-title">最佳使用时机</div>
+        <div class="step-desc">官方建议每日睡前使用一次，利用夜间休息时段让成分充分发挥作用；涂抹后不要再次洗发。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 注意事项 -->
+  <div class="card ordinary">
+    <div class="section-label">五、注意事项与禁忌</div>
+    <div class="warnings">
+      <div class="warning-title">⚠ 警示与提醒</div>
+      <div class="warning-item">本品不含酒精，但含香精（Parfum），对香精敏感者首次使用请先做皮试。</div>
+      <div class="warning-item">仅限外用于头皮，严禁吞食；避免接触眼睛、鼻腔及黏膜部位。</div>
+      <div class="warning-item">如出现头皮红肿、瘙痒、灼热等不适，请立即停用并用清水冲洗，必要时就医。</div>
+      <div class="warning-item">本品含齐墩果酸与芹黄素，孕期及哺乳期女性请咨询皮肤科医生后使用。</div>
+      <div class="warning-item">置于儿童不可触及处；建议12岁以上人群使用。</div>
+      <div class="warning-item">不要与含强酸或强碱配方的护肤品叠加使用，以免影响产品pH稳定性。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== COMPARISON ===================== -->
+<div class="comparison-section" id="comparison">
+  <h2>三款产品横向对比总览</h2>
+  <div class="subtitle">综合成分构成、适用人群、使用形式与功效方向的系统性对比</div>
+
+  <div class="comparison-table-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>对比维度</th>
+          <th>01 Cliganic<br>有机南瓜籽油</th>
+          <th>02 Langhaar Mädchen<br>头皮活力精华液</th>
+          <th>03 The Ordinary<br>多肽固发头皮精华</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>产品形态</td>
+          <td>纯植物载体油（Oil）</td>
+          <td>水性清爽精华液（Tonic）</td>
+          <td>水性浓缩精华液（Serum）</td>
+        </tr>
+        <tr>
+          <td>核心机制</td>
+          <td>植物固醇抑制DHT<br>脂肪酸滋润修护</td>
+          <td>AnaGain™激活毛囊<br>咖啡因促微循环</td>
+          <td>6大专利肽复合体<br>多维度靶向毛囊干细胞</td>
+        </tr>
+        <tr>
+          <td>成分复杂度</td>
+          <td>极简（单一成分）<br>无防腐剂</td>
+          <td>中等（约15种成分）</td>
+          <td>高（约30种，多专利活性物）</td>
+        </tr>
+        <tr>
+          <td>主要功效</td>
+          <td>滋养保湿 + 辅助防脱<br>改善发丝光泽与弹性</td>
+          <td>促进发量增密<br>激活毛囊生长活力</td>
+          <td>专业级防脱增密<br>全链路毛囊干预</td>
+        </tr>
+        <tr>
+          <td>适用发质</td>
+          <td>干性/受损发质<br>中性至油性头皮均可</td>
+          <td>所有发质<br>发量稀少人群</td>
+          <td>所有发质<br>中重度脱发困扰</td>
+        </tr>
+        <tr>
+          <td>使用时机</td>
+          <td>湿发/干发均可<br>按摩或免洗</td>
+          <td>干发或微湿<br>每日免洗使用</td>
+          <td>干燥洁净头皮<br>睡前每日使用</td>
+        </tr>
+        <tr>
+          <td>见效周期</td>
+          <td>2-4周（保湿即时感）<br>防脱需持续8周+</td>
+          <td>4-8周可见改善<br>建议坚持3个月</td>
+          <td>6-12周明显效果<br>建议坚持3个月</td>
+        </tr>
+        <tr>
+          <td>是否免洗</td>
+          <td>可免洗/可冲洗</td>
+          <td>是（留置型）</td>
+          <td>是（留置型，须干发使用）</td>
+        </tr>
+        <tr>
+          <td>特殊认证</td>
+          <td>USDA有机认证<br>EWG Verified™</td>
+          <td>无硅油 / 无微塑料</td>
+          <td>无酒精/纯素/无麸质<br>无硅油</td>
+        </tr>
+        <tr>
+          <td>使用人群</td>
+          <td>追求天然有机<br>基础滋养防脱</td>
+          <td>日常温和维护<br>追求发量密度</td>
+          <td>进阶专业防脱<br>高浓度成分党</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===================== ADVICE ===================== -->
+<div id="advice" style="padding-top:20px;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 20px 10px;">
+    <h2 style="font-size:28px;font-weight:800;text-align:center;margin-bottom:8px;">💡 选购建议</h2>
+    <div class="subtitle" style="text-align:center;color:var(--muted);margin-bottom:32px;">根据不同需求与偏好，精准匹配最适合您的产品</div>
+  </div>
+  <div class="advice-grid">
+    <div class="advice-card">
+      <div class="advice-label">适合人群</div>
+      <div class="advice-title">追求有机天然 · 成分极简 · 滋养保湿为主</div>
+      <div class="advice-desc">
+        选 <strong style="color:var(--accent-cliganic)">Cliganic 有机南瓜籽油</strong>（单一成分，安全透明，适合敏感人群打底护理）。
+        成分纯净，USDA有机认证，EWG Verified™双重背书，是敏感肌和成分党的首选。
+        对南瓜或葫芦科植物过敏者除外。
+      </div>
+    </div>
+    <div class="advice-card">
+      <div class="advice-label">适合人群</div>
+      <div class="advice-title">日常轻松维护 · 温和增发 · 不影响造型</div>
+      <div class="advice-desc">
+        选 <strong style="color:var(--accent-langhaar)">Langhaar Mädchen 头皮活力精华液</strong>（轻量日用，德国配方，AnaGain™实力加持）。
+        每日早晚可用，无需冲洗，不影响造型。温和低刺激，适合不想改变日常护理习惯，但又希望温和改善发量的人群。
+      </div>
+    </div>
+    <div class="advice-card">
+      <div class="advice-label">适合人群</div>
+      <div class="advice-title">认真对待脱发 · 追求专业级多肽成分 · 高性价比</div>
+      <div class="advice-desc">
+        选 <strong style="color:var(--accent-ordinary)">The Ordinary 多肽固发精华</strong>（6大专利活性物，临床支撑最充分，效能密度最高）。
+        专业级防脱方案，多通路靶向干预，The Ordinary品牌性价比最高的产品。适合已有明显脱发困扰、愿意投入时间坚持使用的高阶用户。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<div class="footer">
+  <p>本报告依据品牌官网、Incidecoder成分数据库、EWG数据库及公开临床研究资料整理，具体成分以产品实物包装INCI标注为准。</p>
+  <p style="margin-top:8px;">头皮头发精油调研报告 · 第二版（品牌准确版） · 2026年4月</p>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+</script>
+
+</body>
+</html>
