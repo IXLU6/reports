@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球洗发水新兴品牌深度调研报告</title>
+<style>
+  :root {
+    --bg: #0a0b0f;
+    --card: #13141c;
+    --card2: #1a1d28;
+    --border: #222636;
+    --text: #e8eaf0;
+    --muted: #7a7f96;
+    --accent: #f0a040;
+    --red: #e05050;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 15px;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 80px;
+    background: radial-gradient(ellipse at 20% 50%, rgba(240,160,64,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(100,80,200,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(80,180,140,0.05) 0%, transparent 50%),
+                #0a0b0f;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(240,160,64,0.3), transparent);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(240,160,64,0.1);
+    border: 1px solid rgba(240,160,64,0.25);
+    color: var(--accent);
+    padding: 4px 20px;
+    border-radius: 50px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 58px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero h1 span {
+    display: block;
+    font-size: clamp(20px, 3.5vw, 36px);
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0;
+    margin-top: 6px;
+  }
+  .hero-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(240,160,64,0.3));
+    border-radius: 2px;
+    margin: 24px auto;
+  }
+  .hero-meta {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .hero-brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    max-width: 800px;
+  }
+  .hero-brand-chip {
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: rgba(255,255,255,0.03);
+    letter-spacing: 0.5px;
+  }
+
+  /* ---- TREND CARDS ---- */
+  .trend-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .section-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .section-header p {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .trend-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .trend-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .trend-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(240,160,64,0.3);
+  }
+  .trend-card-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(240,160,64,0.12);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: 'Georgia', serif;
+  }
+  .trend-card-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .trend-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+  .trend-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  /* ---- BRAND SECTION ---- */
+  .brand-section-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+  .brand-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+  .brand-hero {
+    padding: 40px 40px 30px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-hero.monday { background: linear-gradient(135deg, #1a0010, #2a0018, #1a0010); }
+  .brand-hero.mielle { background: linear-gradient(135deg, #001a05, #002a08, #001a05); }
+  .brand-hero.ouai { background: linear-gradient(135deg, #1a1010, #2a1a12, #1a1010); }
+  .brand-hero.k18 { background: linear-gradient(135deg, #00101a, #001828, #00101a); }
+  .brand-hero.olaplex { background: linear-gradient(135deg, #0a001a, #12002a, #0a001a); }
+  .brand-hero.amika { background: linear-gradient(135deg, #001a0a, #002a12, #001a0a); }
+  .brand-hero.native { background: linear-gradient(135deg, #1a1a00, #2a2a00, #1a1a00); }
+  .brand-hero.actacre { background: linear-gradient(135deg, #001a1a, #002828, #001a1a); }
+  .brand-hero.dae { background: linear-gradient(135deg, #1a0e00, #2a1800, #1a0e00); }
+  .brand-hero.spes { background: linear-gradient(135deg, #00101a, #001828, #00101a); }
+
+  .brand-num {
+    position: absolute;
+    top: 20px; right: 30px;
+    font-size: 72px;
+    font-weight: 900;
+    font-family: 'Georgia', serif;
+    opacity: 0.06;
+    color: #fff;
+    line-height: 1;
+  }
+  .brand-emoji { font-size: 40px; margin-bottom: 14px; }
+  .brand-title { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+  .brand-subtitle { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+  .brand-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .brand-tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.05);
+    letter-spacing: 0.5px;
+  }
+
+  /* ---- IMAGES GALLERY ---- */
+  .brand-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 24px 32px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-img-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--card2);
+    border: 1px solid var(--border);
+  }
+  .brand-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+  .brand-img-wrap:hover img { transform: scale(1.05); }
+  .brand-img-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    padding: 8px 0 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ---- INFO GRID ---- */
+  .brand-info-grid {
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-cell {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .info-cell .label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .info-cell .value {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .info-cell.highlight {
+    background: rgba(240,160,64,0.06);
+    border-color: rgba(240,160,64,0.2);
+  }
+
+  /* ---- INSIGHT CARDS ---- */
+  .insight-section {
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .insight-card {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .insight-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .insight-card-label.tiktok { color: #ff6b9d; }
+  .insight-card-label.insight { color: var(--accent); }
+  .insight-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  /* ---- COMPARISON ---- */
+  .comparison-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+  }
+  .comp-table-wrap {
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 900px;
+  }
+  .comp-table th {
+    padding: 16px 16px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .comp-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .comp-table td:first-child { color: var(--text); font-weight: 700; white-space: nowrap; }
+  .star-row { color: var(--accent) !important; font-size: 14px; letter-spacing: 2px; }
+  .value-row { color: var(--text) !important; font-size: 14px; }
+
+  /* ---- STRATEGY ---- */
+  .strategy-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+  }
+  .strategy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .strategy-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .strategy-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(240,160,64,0.3);
+  }
+  .strategy-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(240,160,64,0.2));
+  }
+  .strategy-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+  .strategy-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ---- TOC ---- */
+  .toc-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,11,15,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+  }
+  .toc-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-item {
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .toc-item:hover, .toc-item.active {
+    border-color: rgba(240,160,64,0.4);
+    color: var(--accent);
+    background: rgba(240,160,64,0.06);
+  }
+
+  /* ---- SCROLL TOP ---- */
+  #scrollTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #0a0b0f;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 200;
+    font-weight: 900;
+  }
+  #scrollTop.visible { opacity: 1; }
+
+  @media (max-width: 768px) {
+    .brand-images { grid-template-columns: 1fr 1fr; padding: 16px; }
+    .insight-section { grid-template-columns: 1fr; }
+    .brand-hero { padding: 28px 20px; }
+    .brand-info-grid { grid-template-columns: 1fr 1fr; }
+    .comp-table { min-width: 600px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<div class="toc-bar">
+  <div class="toc-inner">
+    <a href="#trend" class="toc-item">📈 市场趋势</a>
+    <a href="#brand1" class="toc-item">🌸 MONDAY</a>
+    <a href="#brand2" class="toc-item">🌿 Mielle</a>
+    <a href="#brand3" class="toc-item">✨ OUAI</a>
+    <a href="#brand4" class="toc-item">🔬 K18</a>
+    <a href="#brand5" class="toc-item">🧪 Olaplex</a>
+    <a href="#brand6" class="toc-item">🎨 amika</a>
+    <a href="#brand7" class="toc-item">🌱 Native</a>
+    <a href="#brand8" class="toc-item">🧬 Act+Acre</a>
+    <a href="#brand9" class="toc-item">🏜️ dae</a>
+    <a href="#brand10" class="toc-item">🇨🇳 Spes</a>
+    <a href="#comparison" class="toc-item">📊 对比矩阵</a>
+    <a href="#strategy" class="toc-item">💡 战略启示</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Market Research Report · 2026</div>
+  <h1>全球洗发水新兴品牌深度调研<span>Global Emerging Shampoo Brands Research</span></h1>
+  <div class="hero-divider"></div>
+  <div class="hero-meta">2026年4月 · C端平台 · 线下商超 · TikTok热度 · 品牌洞察 · 白牌机会</div>
+  <div class="hero-brands">
+    <span class="hero-brand-chip">MONDAY</span>
+    <span class="hero-brand-chip">Mielle</span>
+    <span class="hero-brand-chip">OUAI</span>
+    <span class="hero-brand-chip">K18</span>
+    <span class="hero-brand-chip">Olaplex</span>
+    <span class="hero-brand-chip">amika</span>
+    <span class="hero-brand-chip">Native</span>
+    <span class="hero-brand-chip">Act+Acre</span>
+    <span class="hero-brand-chip">dae</span>
+    <span class="hero-brand-chip">Spes 诗裴丝</span>
+  </div>
+</div>
+
+<!-- MARKET TRENDS -->
+<div class="trend-section" id="trend">
+  <div class="section-header">
+    <h2>一、市场趋势背景</h2>
+    <p>全球美发护理市场正经历三大结构性变革（2024–2026）</p>
+  </div>
+  <div class="trend-cards">
+    <div class="trend-card">
+      <div class="trend-card-num">01</div>
+      <div class="trend-card-icon">🧴</div>
+      <h3>头皮护肤化 Scalp Skinification</h3>
+      <p>洗发水不再仅是"清洁工具"，消费者将头皮视为面部皮肤的延伸，对水杨酸、玻尿酸、多肽、干细胞等成分的需求激增。头皮护理正成为美发品类增长最快的细分赛道。</p>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-num">02</div>
+      <div class="trend-card-icon">🎨</div>
+      <h3>颜值即营销 Aesthetic as Marketing</h3>
+      <p>包装设计成为Z世代购买决策的首要因素之一。MONDAY用一个粉色方瓶年入3亿美元，证明"让产品上台面"是新的品牌战略——浴室台面成为品牌展示的最佳场景。</p>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-num">03</div>
+      <div class="trend-card-icon">📱</div>
+      <h3>TikTok驱动的品类创造</h3>
+      <p>#HairTok 话题超1000亿次播放，成为全球最大的美发内容场域。ASMR洗发、Before/After对比视频创造了全新内容品类，驱动品牌从0到亿级增长的速度远超传统路径。</p>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 1: MONDAY -->
+<div class="brand-section-wrap" id="brand1">
+  <div class="brand-card">
+    <div class="brand-hero monday">
+      <div class="brand-num">01</div>
+      <div class="brand-emoji">🌸</div>
+      <div class="brand-title">MONDAY Haircare</div>
+      <div class="brand-subtitle">颜值经济 × 大众渠道 —— 全球新兴品牌成长速度最快</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇦🇺 澳大利亚</span>
+        <span class="brand-tag">2019年创立</span>
+        <span class="brand-tag">Walmart/Target</span>
+        <span class="brand-tag">$3–4亿营收</span>
+        <span class="brand-tag">Gen Z首选</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image1.jpeg" alt="MONDAY产品图1"></div>
+        <div class="brand-img-label">产品包装</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image2.jpeg" alt="MONDAY产品图2"></div>
+        <div class="brand-img-label">场景图</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image3.png" alt="MONDAY产品图3"></div>
+        <div class="brand-img-label">产品细节</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2019年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇦🇺 澳大利亚</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">预计2025年 $3–4亿（美元）</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Walmart / Target / Boots / 屈臣氏等，2025年线下铺货点预计达60万个</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">线下商超 + Amazon + TikTok</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">MONDAY HAIRCARE Smooth / Moisture / Volume Shampoo</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$4.99 / 12oz（大众价）；$11.99 / 27oz</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">椰子油、姜提取物、维生素E；无硫酸盐、无对羟基苯甲酸酯</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">标志性哑光粉色方形瓶身，视觉高辨识度；定位"大众价格、沙龙品质"；100%可回收瓶身</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>品牌自有TikTok粉丝超500万；#mondayhaircare 话题超10亿次播放；ASMR洗发视频病毒式传播</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>最大竞争力是"视觉即营销"——哑光粉色方瓶让浴室台面变成展示台，消费者自发拍照晒单。证明包装设计在Gen Z市场中等同于购买力。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 2: MIELLE -->
+<div class="brand-section-wrap" id="brand2">
+  <div class="brand-card">
+    <div class="brand-hero mielle">
+      <div class="brand-num">02</div>
+      <div class="brand-emoji">🌿</div>
+      <div class="brand-title">Mielle Organics</div>
+      <div class="brand-subtitle">迷迭香概念霸榜 —— TikTok生发第一品牌（已被P&G收购）</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2014年创立</span>
+        <span class="brand-tag">Target/Amazon</span>
+        <span class="brand-tag">估值超$10亿</span>
+        <span class="brand-tag">P&G收购</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image4.jpeg" alt="Mielle产品图1"></div>
+        <div class="brand-img-label">Rosemary Mint系列</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image5.jpeg" alt="Mielle产品图2"></div>
+        <div class="brand-img-label">产品全家福</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image6.jpeg" alt="Mielle产品图3"></div>
+        <div class="brand-img-label">品牌视觉</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2014年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">P&G 2024年收购，估值超$10亿；Rosemary Mint系列月销持续位居Amazon前3</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Target / Walmart / CVS / Ulta / Amazon，全美药妆全渠道覆盖</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Amazon + Target + TikTok Shop</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Mielle Organics Rosemary Mint Strengthening Shampoo Infused with Biotin</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$11.99 / 12oz；$17.99 / 20oz（Target大包装）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">迷迭香提取物 + 薄荷 + 生物素（Biotin）+ 蜂蜜 + 椰子油；无硫酸盐无对羟基苯甲酸酯</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">黑色瓶身+绿色标签；"皮肤科医生认证（Dermatologist Verified）"徽章；全系列联动（精油→洗发水→护发素→发膜）</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#MielleRosemaryMint 话题超30亿次播放；"30天生发挑战"before/after视频是TikTok美发品类播放量TOP5内容；平均视频互动率远超同品类</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>"迷迭香=生发"的成分教育在TikTok上被彻底普及。黑人/卷发社群作为首批拥趸，推动其跨越文化圈层走向主流。被P&G收购后保持独立品牌调性。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 3: OUAI -->
+<div class="brand-section-wrap" id="brand3">
+  <div class="brand-card">
+    <div class="brand-hero ouai">
+      <div class="brand-num">03</div>
+      <div class="brand-emoji">✨</div>
+      <div class="brand-title">OUAI</div>
+      <div class="brand-subtitle">明星发型师创立的"轻奢沙龙"品牌（P&G旗下）</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2016年创立</span>
+        <span class="brand-tag">Sephora/Ulta</span>
+        <span class="brand-tag">$1.5亿营收</span>
+        <span class="brand-tag">Jen Atkin创立</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image7.png" alt="OUAI产品图1"></div>
+        <div class="brand-img-label">品牌视觉</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image8.jpeg" alt="OUAI产品图2"></div>
+        <div class="brand-img-label">产品包装</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image9.jpeg" alt="OUAI产品图3"></div>
+        <div class="brand-img-label">场景图</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2016年（发型师 Jen Atkin 创立）</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2021年P&G收购；2022年预期营收超$8000万；2025年预估突破$1.5亿</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Sephora / Ulta / Nordstrom / ASOS / 品牌官网，定位轻奢渠道</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Sephora + Ulta + Amazon 高端线</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">OUAI Fine Hair Shampoo / Thick Hair Shampoo（按发质细分）</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$30 / 10oz；$42 / 16oz + Refill（环保补充装）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">角蛋白 + 生物素 + 奇亚籽油（Fine款）；桉树精油 + 迷迭香 + 乳木果（Thick款）；无硫酸盐</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">干净极简米白色/裸桃色瓶身，哑光质感；可退款补充装（Refill）环保设计；明星背书（Kardashians/Hadid家族均使用）</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#OUAIhair TikTok播放量超5亿；以"轻奢香氛+仪式感护发"为内容主轴；与大量美妆博主合作生活方式类内容</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>OUAI打通了"社交媒体影响力→Sephora货架"的闭环路径，Jen Atkin自身的网红属性是品牌最大的护城河。Refill补充装策略精准击中环保意识强的千禧世代。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 4: K18 -->
+<div class="brand-section-wrap" id="brand4">
+  <div class="brand-card">
+    <div class="brand-hero k18">
+      <div class="brand-num">04</div>
+      <div class="brand-emoji">🔬</div>
+      <div class="brand-title">K18 Hair</div>
+      <div class="brand-subtitle">"分子级修复"生物科技洗发品牌（Unilever 2024年收购）</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2020年创立</span>
+        <span class="brand-tag">Sephora/Salon</span>
+        <span class="brand-tag">$4.1亿营收</span>
+        <span class="brand-tag">Unilever收购</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image10.jpeg" alt="K18产品图1"></div>
+        <div class="brand-img-label">K18标志瓶身</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image11.jpeg" alt="K18产品图2"></div>
+        <div class="brand-img-label">Detox洗发水</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image12.jpeg" alt="K18产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2020年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2023年营收突破$3亿；2024年预期$4.1亿；Unilever 2024年2月完成收购</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Sephora / Ulta / Salon Channel / Amazon，全球55+国家</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Sephora + Salon Channel + Amazon（精准护发高端线）</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">K18 PEPTIDE PREP™ Detox Shampoo（pH优化深层清洁洗发水）</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$38 / 8.5oz；$58 / 16oz</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">K18PEPTIDE™专利生物仿生肽 + 玻尿酸 + 凝灰石（Zeolite，矿物去污）</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">先Salon后Consumer的逆向上市路径；pH优化配方保护头皮微生物群；"分子级修复"概念重塑消费者认知</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#K18Hair 话题超20亿次播放；"K18修复受损发质"before/after为全球美发TikTok内容质量天花板；被大量专业发型师背书</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>K18的崛起路径与传统品牌完全不同——先攻克Salon（专业沙龙）渠道建立专业可信度，再借助TikTok viral破圈消费者市场。Unilever以高溢价收购验证了"科技成分叙事"的长期价值。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 5: OLAPLEX -->
+<div class="brand-section-wrap" id="brand5">
+  <div class="brand-card">
+    <div class="brand-hero olaplex">
+      <div class="brand-num">05</div>
+      <div class="brand-emoji">🧪</div>
+      <div class="brand-title">Olaplex</div>
+      <div class="brand-subtitle">"键合修复"品类开创者 —— 独立上市的专业发品品牌</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2014年创立</span>
+        <span class="brand-tag">Sephora/Salon</span>
+        <span class="brand-tag">$4.23亿营收</span>
+        <span class="brand-tag">NASDAQ上市</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image13.jpeg" alt="Olaplex产品图1"></div>
+        <div class="brand-img-label">Olaplex经典No.0+No.3</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image14.jpeg" alt="Olaplex产品图2"></div>
+        <div class="brand-img-label">产品全家福</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image15.jpeg" alt="Olaplex产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2014年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2025年营收$4.23亿（独立上市公司）；Rosemary Mint系列月销持续位居Amazon前3</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Sephora / Ulta / Salon Channel / Amazon / 品牌官网</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Sephora + Salon Channel + Amazon</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Olaplex No.0 Intensive Bond Builder + No.3 Hair Perfector（明星组合）</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$30 / 1.7oz（No.3）；$30 / 8oz（Shampoo）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">Bis-Aminopropyl Diglycol Dimaleate（专利键合活性成分）；独家专利，业界无直接竞品</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">开创"键合修复（Bond Repair）"全新品类；沙龙渠道为品牌背书，消费者渠道快速放量；专利壁垒极高</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#Olaplex 话题超50亿次播放；专业发型师为主要传播节点；"Olaplex处理"在沙龙成为标配服务词汇</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>开创了"键合修复（Bond Repair）"全新洗发品类，成为整个行业的品类定义者。股价从峰值回落，但品牌认知度依然是全球洗发品类前三，正通过产品线拓展（No.4Fine等）寻求第二增长曲线。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 6: AMIKA -->
+<div class="brand-section-wrap" id="brand6">
+  <div class="brand-card">
+    <div class="brand-hero amika">
+      <div class="brand-num">06</div>
+      <div class="brand-emoji">🎨</div>
+      <div class="brand-title">amika</div>
+      <div class="brand-subtitle">沙龙出身的"活力美学"品牌 —— 美国洗发品类第二大品牌</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2007年创立</span>
+        <span class="brand-tag">Sephora/Ulta</span>
+        <span class="brand-tag">$2.5亿营收</span>
+        <span class="brand-tag">2025 Ulta扩张</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image16.jpeg" alt="amika产品图1"></div>
+        <div class="brand-img-label">amika标志性瓶身</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image17.jpeg" alt="amika产品图2"></div>
+        <div class="brand-img-label">Perk Up干洗喷雾</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image18.jpeg" alt="amika产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2007年（创立于布鲁克林）</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国（布鲁克林）</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2025年预计$2.5亿营收；美国洗发品类第二大品牌（仅次于Olaplex系）</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Sephora / Ulta / 独立Salon / Amazon</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Sephora + Ulta（2025年大规模扩张）</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">amika Perk Up Dry Shampoo / Hydro-Surge / The Wizard Detangling Primer</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$15–$32（单品）；$28–$38（精华类）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">海枣（Bluberry）+ Keravis + Abyssinian Oil；无对羟基苯甲酸酯/无邻苯二甲酸盐</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">布鲁克林创意美学基因，"乐趣与美学"而非"严肃科技"的品牌调性；Perk Up干洗喷雾为全球同类销量冠军；2025年进入Ulta是其扩张里程碑</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#amikahair TikTok播放量超8亿；Perk Up系列ASMR喷发视频病毒传播；与发型师KOL深度合作内容矩阵完善</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>沙龙渠道给amika提供了"专业可信度背书"，TikTok给其带来了"大众破圈"。与Olaplex/K18不同，amika强调"乐趣与美学"而非"严肃科技"，在Z世代中形成鲜明的个性认同。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 7: NATIVE -->
+<div class="brand-section-wrap" id="brand7">
+  <div class="brand-card">
+    <div class="brand-hero native">
+      <div class="brand-num">07</div>
+      <div class="brand-emoji">🌱</div>
+      <div class="brand-title">Native</div>
+      <div class="brand-subtitle">"清洁标签"大众先锋 —— Walmart / Target 清洁美发品类王者</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2015年创立</span>
+        <span class="brand-tag">Walmart/Target</span>
+        <span class="brand-tag">P&G旗下</span>
+        <span class="brand-tag">$10.99大众价</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image19.jpeg" alt="Native产品图1"></div>
+        <div class="brand-img-label">Native大众线</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image20.jpeg" alt="Native产品图2"></div>
+        <div class="brand-img-label">产品包装</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image21.jpeg" alt="Native产品图3"></div>
+        <div class="brand-img-label">品牌视觉</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2015年（P&G 2017年收购）</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">P&G旗下品牌；体香膏起家，洗发线快速扩张；Walmart/Target清洁品类头部品牌</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Walmart / Target（核心大众渠道）</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Walmart + Target（大众清洁美发线）</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Native Clean &amp; Fresh Shampoo / Coconut &amp; Vanilla / Eucalyptus &amp; Mint</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$10.99 / 12oz（大众价）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">椰子油 + 迷迭香 + 活性炭 + 乳木果；无硫酸盐、无对羟基苯甲酸酯、无邻苯二甲酸盐</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">"清洁美容"从小众走向大众的代表性品牌；以$10.99的大众定价实现了原本属于高端品牌的成分价值主张；先体香膏后洗发的品类拓展路径</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#nativeshampoo TikTok播放量超3亿；以"成分对比测评""环保选择""换洗发水30天感受"为主要内容形式</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>"清洁美容"从小众走向大众的代表性品牌。Native先以体香膏起家证明了清洁成分的市场需求，再复制到洗发领域。最重要的是：以$10.99的大众定价实现了原本属于高端品牌的成分价值主张。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 8: ACT+ACRE -->
+<div class="brand-section-wrap" id="brand8">
+  <div class="brand-card">
+    <div class="brand-hero actacre">
+      <div class="brand-num">08</div>
+      <div class="brand-emoji">🧬</div>
+      <div class="brand-title">Act+Acre</div>
+      <div class="brand-subtitle">"冷处理工艺"头皮科技品牌 —— Allure 2024/2025双年度最佳</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2019年创立</span>
+        <span class="brand-tag">Sephora</span>
+        <span class="brand-tag">Allure双冠</span>
+        <span class="brand-tag">Cold Processed®</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image22.jpeg" alt="Act+Acre产品图1"></div>
+        <div class="brand-img-label">品牌视觉</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image23.jpeg" alt="Act+Acre产品图2"></div>
+        <div class="brand-img-label">Cold Processed®工艺</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image24.jpeg" alt="Act+Acre产品图3"></div>
+        <div class="brand-img-label">头皮护理系列</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2019年</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">精品新锐品牌；Sephora独售；Allure年度最佳背书带动快速成长</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Sephora全渠道（独售）+ 品牌官网</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Sephora（精品定位渠道）</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Act+Acre Hair Density System™（头皮活力系统，含洗发+精华套装）</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$48–$85（套装）；$28–$38（单品）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">Cold Processed®植物提取物 + Redensyl™专利成分 + 咖啡因 + 南非博士茶</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">Cold Processed®工艺是真实的技术壁垒（低温保留活性成分），而非营销噱头。双年度Allure奖项使其在高端消费者中建立了极高的专业可信度。</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#actandacre TikTok播放量超1亿；以"头皮健康科普"+"临床级成分解析"为内容主轴；dermatologist（皮肤科医生）推荐内容为主</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>代表了"洗发品类护肤化"最前沿的方向。Cold Processed®工艺是真实的技术壁垒（低温保留活性成分），而非营销噱头。双年度Allure奖项使其在高端消费者中建立了极高的专业可信度。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 9: DAE -->
+<div class="brand-section-wrap" id="brand9">
+  <div class="brand-card">
+    <div class="brand-hero dae">
+      <div class="brand-num">09</div>
+      <div class="brand-emoji">🏜️</div>
+      <div class="brand-title">dae Hair</div>
+      <div class="brand-subtitle">网红博主创立的"沙漠植物"清洁美发品牌 —— Sephora明星新锐</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇺🇸 美国</span>
+        <span class="brand-tag">2020年创立</span>
+        <span class="brand-tag">Sephora</span>
+        <span class="brand-tag">$10–20M</span>
+        <span class="brand-tag">Founder-Led</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image25.jpeg" alt="dae产品图1"></div>
+        <div class="brand-img-label">dae标志性瓶身</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image26.jpeg" alt="dae产品图2"></div>
+        <div class="brand-img-label">Desert Botanicals系列</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image27.jpeg" alt="dae产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2020年（创始人：博主 Amber Fillerup Clark，粉丝超400万）</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇺🇸 美国（犹他州）</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2022年完成$1060万A轮融资；2023年预计营收$10–20M；Sephora销量三位数增长</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">Sephora全渠道 / Amazon / 品牌官网</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">Sephora + Amazon（KOL驱动的精品线）</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">dae Signature Shampoo – Daily Moisturizing with Desert Botanicals</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">$28 / 10oz；$52 / 32oz（大容量）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">沙漠瓶子草（Saguaro Cactus Flower）+ 仙人掌提取物 + 摩洛哥坚果油；无硫酸盐、无对羟基苯甲酸酯</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">暖沙色/杏色极简圆柱瓶身，沙漠美学视觉语言统一；创始人博主身份天然带来忠实粉丝社群；仙人掌植物成分叙事独特</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>#daehair TikTok播放量超5亿；创始人Amber本人账号内容驱动购买；"素净浴室台面+dae瓶身"成为Life Aesthetic标志性画面</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>典型的"Founder-Led Brand（创始人驱动品牌）"。Amber的博主身份（400万粉丝）提供了比任何广告都有效的初始用户来源。沙漠植物成分叙事在全球"Clean Beauty"浪潮中具有鲜明的差异化识别度。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND 10: SPES -->
+<div class="brand-section-wrap" id="brand10">
+  <div class="brand-card">
+    <div class="brand-hero spes">
+      <div class="brand-num">10</div>
+      <div class="brand-emoji">🇨🇳</div>
+      <div class="brand-title">Spes 诗裴丝</div>
+      <div class="brand-subtitle">"功效洗护"国产新兴黑马 —— 抖音/天猫洗发品类销量冠军</div>
+      <div class="brand-tags">
+        <span class="brand-tag">🇨🇳 中国</span>
+        <span class="brand-tag">2021年创立</span>
+        <span class="brand-tag">抖音/天猫</span>
+        <span class="brand-tag">近20亿人民币</span>
+        <span class="brand-tag">海盐洗头膏开创者</span>
+      </div>
+    </div>
+
+    <div class="brand-images">
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image28.jpeg" alt="Spes产品图1"></div>
+        <div class="brand-img-label">海盐洗头膏</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image29.jpeg" alt="Spes产品图2"></div>
+        <div class="brand-img-label">品牌全家福</div>
+      </div>
+      <div>
+        <div class="brand-img-wrap"><img src="shampoo_report_images/image30.jpeg" alt="Spes产品图3"></div>
+        <div class="brand-img-label">品牌场景</div>
+      </div>
+    </div>
+
+    <div class="brand-info-grid">
+      <div class="info-cell"><div class="label">创立时间</div><div class="value">2021年（创始人：网易严选前CEO 郑如晶）</div></div>
+      <div class="info-cell"><div class="label">品牌国家</div><div class="value">🇨🇳 中国（杭州）</div></div>
+      <div class="info-cell highlight"><div class="label">营收规模</div><div class="value">2024年全年销售额近20亿人民币；抖音/天猫洗发品类排名第一；同比增速超25000%</div></div>
+      <div class="info-cell"><div class="label">渠道分布</div><div class="value">抖音 / 天猫 / 小红书 / 屈臣氏，线上为主+线下快速扩张</div></div>
+      <div class="info-cell"><div class="label">核心渠道</div><div class="value">抖音电商（核心） + 天猫 + 小红书种草</div></div>
+      <div class="info-cell"><div class="label">明星产品</div><div class="value">Spes 诗裴丝 净润蓬松海盐洗头膏 / 海盐玻尿酸控油洗发水</div></div>
+      <div class="info-cell"><div class="label">零售价格</div><div class="value">¥39.9 / 280g（洗头膏）；¥49.9 / 500ml（洗发水）</div></div>
+      <div class="info-cell"><div class="label">核心成分</div><div class="value">海盐矿物质 + 玻尿酸 + 青蒿（Artemisia）+ 侧柏叶；无硅酮（Silicone-free）无硫酸盐</div></div>
+      <div class="info-cell highlight"><div class="label">产品特色</div><div class="value">蓝绿色圆柱罐装（洗头膏为固态膏体形态，差异化极强）；"头皮磨砂膏"概念开创细分品类；SKU精简但每款均针对核心痛点；创始人的互联网背景使其在流量运营上优于传统日化公司</div></div>
+    </div>
+
+    <div class="insight-section">
+      <div class="insight-card">
+        <div class="insight-card-label tiktok">📱 TikTok 热度</div>
+        <p>抖音自播+KOL种草双轮驱动；#诗裴丝 话题播放量超30亿；"控油蓬松实测""海盐洗头膏开箱"为爆款内容形式；美国华人社区通过Weee!等平台也可购买</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-card-label insight">💡 市场洞察</div>
+        <p>诗裴丝是国产洗护品"功效升级+内容营销"模式的教科书。海盐洗头膏的"固态膏体"形态是其最大的差异化壁垒——视觉新奇、体验独特、极易被短视频传播。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="comparison-wrap" id="comparison">
+  <div class="section-header">
+    <h2>二、品牌综合对比矩阵</h2>
+    <p>10大新兴品牌 · 7大维度系统性横向对比</p>
+  </div>
+  <div class="comp-table-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>品牌</th>
+          <th>国家</th>
+          <th>营收规模</th>
+          <th>定位</th>
+          <th>核心渠道</th>
+          <th>TikTok热度</th>
+          <th>白牌参考价值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MONDAY</td><td>澳大利亚</td><td class="value-row">$3–4亿（2025E）</td><td>大众颜值</td><td>Walmart/Target</td><td class="star-row">★★★★★</td><td class="star-row">★★★★★</td>
+        </tr>
+        <tr>
+          <td>Mielle</td><td>美国</td><td class="value-row">估值$10亿+</td><td>生发功效</td><td>Target/Amazon</td><td class="star-row">★★★★★</td><td class="star-row">★★★★★</td>
+        </tr>
+        <tr>
+          <td>OUAI</td><td>美国</td><td class="value-row">$1.5亿（2025E）</td><td>轻奢沙龙</td><td>Sephora/Ulta</td><td class="star-row">★★★★</td><td class="star-row">★★★</td>
+        </tr>
+        <tr>
+          <td>K18</td><td>美国</td><td class="value-row">$4.1亿（2024E）</td><td>生物科技</td><td>Sephora/Salon</td><td class="star-row">★★★★★</td><td class="star-row">★★★</td>
+        </tr>
+        <tr>
+          <td>Olaplex</td><td>美国</td><td class="value-row">$4.23亿（2025）</td><td>键合修复</td><td>Sephora/Salon</td><td class="star-row">★★★★★</td><td class="star-row">★★★</td>
+        </tr>
+        <tr>
+          <td>amika</td><td>美国</td><td class="value-row">$2.5亿（2025E）</td><td>活力美学</td><td>Sephora/Ulta</td><td class="star-row">★★★★</td><td class="star-row">★★★★</td>
+        </tr>
+        <tr>
+          <td>Native</td><td>美国</td><td class="value-row">P&G旗下</td><td>清洁大众</td><td>Walmart/Target</td><td class="star-row">★★★</td><td class="star-row">★★★★★</td>
+        </tr>
+        <tr>
+          <td>Act+Acre</td><td>美国</td><td class="value-row">精品新锐</td><td>头皮科技</td><td>Sephora</td><td class="star-row">★★★</td><td class="star-row">★★</td>
+        </tr>
+        <tr>
+          <td>dae</td><td>美国</td><td class="value-row">$10–20M</td><td>KOL驱动</td><td>Sephora</td><td class="star-row">★★★★</td><td class="star-row">★★★</td>
+        </tr>
+        <tr>
+          <td>Spes诗裴丝</td><td>中国</td><td class="value-row">近20亿人民币</td><td>功效洗护</td><td>抖音/天猫</td><td class="star-row">★★★★★</td><td class="star-row">★★★★★</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- STRATEGY INSIGHTS -->
+<div class="strategy-wrap" id="strategy">
+  <div class="section-header">
+    <h2>三、对跨境卖家的战略启示</h2>
+    <p>基于10大新兴品牌成功路径提炼的5大可执行战略方向</p>
+  </div>
+  <div class="strategy-cards">
+    <div class="strategy-card">
+      <h3>▶ 包装即产品力</h3>
+      <p>参考MONDAY模式：在同质化严重的洗发水货架上，哑光莫兰迪色调的极简方瓶是低成本高回报的差异化杠杆。白牌开发时需将包装设计提升到品牌战略层级，而非成本控制环节。</p>
+    </div>
+    <div class="strategy-card">
+      <h3>▶ 成分叙事即内容</h3>
+      <p>参考Mielle模式："迷迭香=生发"的简洁成分故事，在TikTok可以驱动数十亿次自发传播。选择一个有科学依据、视觉感强、故事性强的成分（如迷迭香、海盐、苹果干细胞）作为品牌核心成分锚点。</p>
+    </div>
+    <div class="strategy-card">
+      <h3>▶ 头皮健康是确定性趋势</h3>
+      <p>参考Act+Acre/K18：将洗发水定位为"头皮护肤品"而非"清洁用品"，配合咖啡因、水杨酸、玻尿酸等成分，满足消费者对头皮健康的升级需求。这个方向在欧美市场具有3–5年的窗口期。</p>
+    </div>
+    <div class="strategy-card">
+      <h3>▶ 国内白牌最大机会</h3>
+      <p>诗裴丝的成功证明：固态膏体+成分差异化+短视频运营，是中国品牌突破洗发水红海的有效路径。参考海盐洗头膏的产品形态创新，开发"固态洗发皂/洗发膏/浓缩洗发片"等新形态产品。</p>
+    </div>
+    <div class="strategy-card">
+      <h3>▶ TikTok Shop 核心内容公式</h3>
+      <p>① ASMR洗发日常（视听体验）② Before/After 30天使用对比 ③ 创始人/博主真实使用Vlog ④ 头皮健康科普+产品植入。建议4类内容同步产出，覆盖不同算法推荐场景。</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>本报告综合品牌官网、Incidecoder成分数据库、EWG数据库、TikTok趋势数据及公开市场研究报告整理。</p>
+  <p style="margin-top:8px;">全球洗发水新兴品牌深度调研报告 · 2026年4月 · C端平台 · 线下商超 · TikTok热度</p>
+</div>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+  // Active toc
+  const tocItems = document.querySelectorAll('.toc-item');
+  const sections = document.querySelectorAll('[id^="brand"], [id="trend"], [id="comparison"], [id="strategy"]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocItems.forEach(item => item.classList.remove('active'));
+        const active = document.querySelector(`.toc-item[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
