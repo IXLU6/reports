@@ -1255,6 +1255,27 @@
 
 
 <script>
+// ===== ixlu reports auto-migrate (2026-04-16) =====
+;(function(){
+  if(localStorage.getItem('karseell_2026_fixed')) return;
+  try{
+    var raw=localStorage.getItem('kaijie_tools_v1');
+    if(!raw) return;
+    var arr=JSON.parse(raw);
+    var i=arr.findIndex(function(c){return c.name&&c.name.indexOf('\u62a5\u544a\u5b58\u6863')>=0;});
+    if(i<0) return;
+    arr[i].tools=[{"name":"\ud83c\udf1b \ud83d\udccb \u5934\u76ae\u5934\u53d1\u7cbe\u6cb9\u8c03\u7814\u62a5\u544a","url":"https://ixlu6.github.io/reports/hair-oil-report.html","desc":"Cliganic/Langhaar/The Ordinary \u4e09\u54c1\u724c\u6df1\u5ea6\u8c03\u7814","emoji":"\ud83c\udf1b"},{"name":"\ud83e\udddf\ud83e\uddff \u5168\u7403\u6d17\u53d1\u6c34\u65b0\u5174\u54c1\u724c\u8c03\u7814","url":"https://ixlu6.github.io/reports/global-shampoo-report.html","desc":"10\u5927\u65b0\u5174\u54c1\u724c\u6df1\u5ea6\u5206\u6790\uff08\u542bTikTok\u70ed\u5ea6\uff09","emoji":"\ud83e\udddf\ud83e\uddff"},{"name":"\ud83d\udfe3 \u5168\u7403\u67d3\u818f\u65b0\u5174\u54c1\u724c\u8c03\u7814","url":"https://ixlu6.github.io/reports/global-hair-dye-report.html","desc":"8\u5927\u54c1\u724c\u5e02\u573a\u6d1e\u5bdf\u4e0eOEM\u6218\u7565\u5efa\u8bae","emoji":"\ud83d\udfe3"},{"name":"\ud83d\udccb Karseell \u54c1\u724c\u8c03\u7814","url":"https://ixlu6.github.io/reports/karseell-brand-report.html","desc":"\u5361\u585e\u5c14\u7f8e\u53d1\u54c1\u724c\u6df1\u5ea6\u5206\u6790","emoji":"\ud83d\udccb"},{"name":"\ud83d\udd2c \u7f8e\u53d1\u70ed\u95e8\u6210\u5206\u8c03\u7814","url":"https://ixlu6.github.io/reports/global-ingredients-report.html","desc":"\u5168\u7403\u70ed\u95e8\u6210\u5206\u8d8b\u52bf\u62a5\u544a","emoji":"\ud83d\udd2c"},{"name":"\ud83d\udec1 \u6c90\u6d74\u9732\u8eab\u4f53\u4e73\u8c03\u7814","url":"https://ixlu6.github.io/reports/bath-body-report.html","desc":"\u6c90\u6d74\u62a4\u7406\u5e02\u573a\u5206\u6790","emoji":"\ud83d\udec1"},{"name":"\ud83c\udf1f \u6d17\u53d1\u6c34\u65b0\u5174\u54c1\u724c\u8c03\u7814","url":"https://ixlu6.github.io/reports/shampoo-brand-report.html","desc":"\u65b0\u5174\u54c1\u724c\u6df1\u5ea6\u8c03\u7814","emoji":"\ud83c\udf1f"},{"name":"\ud83d\udcca 2026\u5e743\u6708\u8fd0\u8425\u62a5\u544a","url":"https://ixlu6.github.io/reports/march-2026-report.html","desc":"\u6708\u5ea6\u8fd0\u8425\u6570\u636e\u5206\u6790\u62a5\u544a","emoji":"\ud83d\udcca"},{"name":"\ud83d\udcc8 \u7efc\u5408\u8fd0\u8425\u62a5\u544a","url":"https://ixlu6.github.io/reports/report.html","desc":"\u7efc\u5408\u8fd0\u8425\u6570\u636e\u62a5\u544a","emoji":"\ud83d\udcc8"}];
+    localStorage.setItem('kaijie_tools_v1',JSON.stringify(arr));
+    localStorage.setItem('karseell_2026_fixed','1');
+    // re-render immediately
+    var els=document.querySelectorAll('.tool-card, .report-card, .item');
+    els.forEach(function(e){e.remove();});
+    if(typeof renderPage==='function') renderPage();
+    else if(typeof loadTools==='function') loadTools();
+  }catch(e){console.warn('[ixlu migrate]',e);}
+})();
+// ===== end migrate =====
+
 
 // ======================== DATA ========================
 
