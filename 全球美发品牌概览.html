@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球美发行业</title>
+<style>
+:root{
+  --bg: #f5f7fa;
+  --bg2: #ffffff;
+  --bg3: #eef2ff;
+  --bg4: #e8f4f8;
+  --primary: #5b6ef5;
+  --primary2: #3b5bdb;
+  --accent: #f72585;
+  --accent2: #ff6b6b;
+  --teal: #00b4d8;
+  --text: #1a1a2e;
+  --text2: #4a5568;
+  --text3: #a0aec0;
+  --border: #e2e8f0;
+  --card_border: #dde4ee;
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(91,110,245,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+  line-height:1.8;
+  font-size:15px;
+  padding-bottom:80px;
+}
+
+/* 顶部导航 */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 12px rgba(91,110,245,.06);
+}
+.nav-inner{
+  display:flex;align-items:center;height:56px;
+  padding:0 24px;max-width:1200px;margin:0 auto;
+  overflow-x:auto;gap:4px;
+  scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav a{
+  display:inline-flex;align-items:center;height:32px;
+  padding:0 14px;border-radius:20px;font-size:12px;
+  color:var(--text2);white-space:nowrap;
+  transition:all .25s;text-decoration:none;
+  border:1.5px solid transparent;
+  flex-shrink:0;
+  font-weight:500;
+}
+.nav a:hover,.nav a.active{
+  color:var(--primary);
+  border-color:var(--primary);
+  background:rgba(91,110,245,.07);
+}
+
+/* Hero 区域 */
+.hero{
+  padding:100px 24px 56px;
+  background:linear-gradient(160deg,var(--bg3) 0%,var(--bg) 60%);
+  border-bottom:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;top:-60px;right:-60px;
+  width:320px;height:320px;
+  background:radial-gradient(circle,rgba(91,110,245,.12) 0%,transparent 70%);
+  border-radius:50%;
+}
+.hero::after{
+  content:'';
+  position:absolute;bottom:-40px;left:-40px;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(247,37,133,.10) 0%,transparent 70%);
+  border-radius:50%;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg, var(--primary), var(--accent));
+  color:#fff;border-radius:20px;
+  padding:6px 18px;font-size:12px;font-weight:600;
+  margin-bottom:20px;letter-spacing:.5px;
+}
+.hero h1{
+  font-size:clamp(26px,5vw,52px);
+  font-weight:800;color:var(--text);
+  line-height:1.2;margin-bottom:14px;
+  letter-spacing:-.5px;
+}
+.hero-sub{
+  color:var(--text2);font-size:15px;margin-bottom:6px;
+}
+.hero-meta{
+  display:flex;gap:16px;flex-wrap:wrap;
+  margin-top:16px;
+}
+.hero-meta span{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12px;color:var(--text3);font-weight:500;
+}
+.hero-stat-row{
+  display:flex;flex-wrap:wrap;gap:16px;
+  padding:28px 0 0;max-width:900px;margin:0 auto;
+}
+.scard{
+  flex:1;min-width:130px;
+  background:var(--bg2);
+  border:1.5px solid var(--card_border);
+  border-radius:14px;padding:20px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.scard .num{
+  font-size:clamp(20px,4vw,32px);
+  font-weight:800;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1.1;
+}
+.scard .lbl{color:var(--text3);font-size:12px;margin-top:6px;font-weight:500}
+
+/* 主内容区 */
+.main{padding:40px 24px;max-width:960px;margin:0 auto}
+
+/* 章节块 */
+.chapter-block{
+  background:var(--bg2);
+  border:1.5px solid var(--card_border);
+  border-radius:var(--radius);
+  padding:28px 32px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow);
+  border-left:4px solid;
+  border-image:linear-gradient(135deg, #ff6b6b 0%, #f72585 100%) 1;
+}
+.chapter-title{
+  font-size:20px;font-weight:700;color:var(--text);
+  line-height:1.3;
+}
+.sub-header{
+  font-size:16px;font-weight:600;color:var(--primary2);
+  padding:14px 0 6px;
+  margin-top:8px;
+  border-bottom:2px solid var(--primary);
+  display:inline-block;
+}
+
+/* 表格 */
+.tbl-wrap{
+  overflow-x:auto;margin:14px 0;
+  border-radius:12px;
+  border:1.5px solid var(--border);
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{
+  background:linear-gradient(135deg,var(--bg3),var(--bg4));
+  color:var(--primary2);padding:10px 14px;
+  text-align:left;font-weight:700;
+  border-bottom:2px solid var(--border);
+  white-space:nowrap;font-size:13px;
+}
+.tbl td{
+  padding:9px 14px;
+  border-bottom:1px solid var(--border);
+  color:var(--text2);font-size:13px;
+}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:var(--bg)}
+
+/* 要点 */
+.bullet-item{
+  padding:5px 0 5px 20px;
+  color:var(--text2);font-size:14px;
+  position:relative;line-height:1.7;
+}
+.bullet-item::before{
+  content:'';position:absolute;
+  left:6px;top:13px;
+  width:6px;height:6px;
+  background:var(--accent);border-radius:50%;
+}
+
+/* 正文 */
+.body-text{
+  color:var(--text2);font-size:14px;
+  margin:6px 0;line-height:1.8;
+}
+
+/* 标签卡片 */
+.tag-card{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;border-radius:12px;
+  padding:3px 12px;font-size:11px;font-weight:600;
+  margin-right:6px;margin-bottom:4px;
+}
+
+/* 分隔线 */
+.divider{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;padding:36px 24px;color:var(--text3);font-size:13px;
+}
+.divider::before,.divider::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+/* 页脚 */
+.footer{
+  text-align:center;padding:40px 24px;
+  color:var(--text3);font-size:12px;
+  border-top:1px solid var(--border);
+  margin-top:40px;
+}
+
+/* 移动端 */
+@media(max-width:600px){
+  .hero{padding:80px 16px 40px}
+  .main{padding:24px 16px}
+  .chapter-block{padding:20px 18px}
+  .nav-inner{padding:0 12px}
+  .tbl{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#ch1" onclick="return false;">大众修护，全球销量最大之一</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">🏆 品牌图谱</div>
+  <h1>全球美发行业</h1>
+  <p class="hero-sub">知名品牌概览</p>
+  <div class="hero-stat-row">
+    <div class="scard">
+      <div class="num">185</div>
+      <div class="lbl">内容段落</div>
+    </div>
+    <div class="scard">
+      <div class="num">1</div>
+      <div class="lbl">核心章节</div>
+    </div>
+    <div class="scard">
+      <div class="num">2026</div>
+      <div class="lbl">报告年份</div>
+    </div>
+  </div>
+</div>
+
+<!-- 正文内容 -->
+<div class="main">
+<p class="body-text">全球美发行业</p>
+<p class="body-text">知名品牌概览</p>
+<p class="body-text">涵盖护发 · 染发 · 造型 · 亚洲品牌 · 集团归属</p>
+<p class="body-text">肇庆凯乔科技有限公司  |  市场调研参考资料</p>
+<p class="body-text">整理日期：2026年4月</p>
+<p class="body-text">一、护发 / 洗护类品牌</p>
+<p class="body-text">品牌</p>
+<p class="body-text">母公司 / 国家</p>
+<p class="body-text">市场定位</p>
+<p class="body-text">Pantene（潘婷）</p>
+<p class="body-text">美国 · 宝洁（P&G）旗下</p>
+<div id="ch1" class="chapter-block"><h2 class="chapter-title">大众修护，全球销量最大之一</h2></div>
+<p class="body-text">Head & Shoulders（海飞丝）</p>
+<p class="body-text">美国 · 宝洁（P&G）旗下</p>
+<p class="body-text">去屑专家，全球领导地位</p>
+<p class="body-text">Dove（多芬）</p>
+<p class="body-text">荷兰 · 联合利华（Unilever）旗下</p>
+<p class="body-text">滋润保湿，温和护发，全球畅销</p>
+<p class="body-text">TRESemmé</p>
+<p class="body-text">美国 · 联合利华旗下</p>
+<p class="body-text">沙龙级专业护发，性价比高</p>
+<p class="body-text">Herbal Essences</p>
+<p class="body-text">美国 · 宝洁旗下</p>
+<p class="body-text">植物精华，有机路线，清新定位</p>
+<p class="body-text">Olaplex</p>
+<p class="body-text">美国 · 独立品牌</p>
+<p class="body-text">高端修护，键合修复黑科技</p>
+<p class="body-text">Moroccanoil（摩洛哥坚果油）</p>
+<p class="body-text">以色列/加拿大 · 独立品牌</p>
+<p class="body-text">精油护发，高端专业，全球网红</p>
+<p class="body-text">Kérastase（卡诗）</p>
+<p class="body-text">法国 · 欧莱雅集团旗下</p>
+<p class="body-text">奢华沙龙专业线，高净值客群</p>
+<p class="body-text">Wella（威娜）</p>
+<p class="body-text">德国 · 科蒂（Coty）旗下</p>
+<p class="body-text">专业沙龙，百年历史，覆盖广</p>
+<p class="body-text">Schwarzkopf（施华蔻）</p>
+<p class="body-text">德国 · 汉高（Henkel）旗下</p>
+<p class="body-text">专业染护双线，全球覆盖极广</p>
+<p class="body-text">L'Oréal Professionnel（欧莱雅专业）</p>
+<p class="body-text">法国 · 欧莱雅集团旗下</p>
+<p class="body-text">专业沙龙线行业标杆</p>
+<p class="body-text">Redken</p>
+<p class="body-text">美国 · 欧莱雅集团旗下</p>
+<p class="body-text">专业沙龙，科技护发定位</p>
+<p class="body-text">Pureology</p>
+<p class="body-text">美国 · 欧莱雅集团旗下</p>
+<p class="body-text">纯素·无硫酸盐，染后护色专家</p>
+<p class="body-text">Aveda</p>
+<p class="body-text">美国 · 雅诗兰黛集团旗下</p>
+<p class="body-text">有机植萃，环保高端，SPA感</p>
+<p class="body-text">Paul Mitchell</p>
+<p class="body-text">美国 · 独立专业品牌</p>
+<p class="body-text">专业沙龙独立品牌，历史悠久</p>
+<p class="body-text">Joico</p>
+<p class="body-text">美国 · Henkel旗下</p>
+<p class="body-text">损伤修复专家，沙龙专用</p>
+<p class="body-text">Matrix</p>
+<p class="body-text">美国 · 欧莱雅集团旗下</p>
+<p class="body-text">中高端沙龙专业线，性价比强</p>
+<p class="body-text">OGX</p>
+<p class="body-text">美国 · 强生（J&J）旗下</p>
+<p class="body-text">异域成分配方，平价高质感</p>
+<p class="body-text">二、染发 / 烫发类品牌</p>
+<p class="body-text">品牌</p>
+<p class="body-text">母公司 / 国家</p>
+<p class="body-text">市场定位</p>
+<p class="body-text">Schwarzkopf（施华蔻）</p>
+<p class="body-text">德国 · 汉高旗下</p>
+<p class="body-text">染发全球市占最大，专业+大众双线</p>
+<p class="body-text">Wella Koleston</p>
+<p class="body-text">德国 · 科蒂旗下</p>
+<p class="body-text">专业沙龙染发行业标准</p>
+<p class="body-text">L'Oréal（欧莱雅大众线）</p>
+<p class="body-text">法国 · 欧莱雅集团旗下</p>
+<p class="body-text">Excellence/Casting系列，全球畅销</p>
+<p class="body-text">Garnier（卡尼尔）</p>
+<p class="body-text">法国 · 欧莱雅集团旗下</p>
+<p class="body-text">中低端大众染发，性价比首选</p>
+<p class="body-text">Revlon Colorsilk</p>
+<p class="body-text">美国 · 露华浓</p>
+<p class="body-text">大众家用染发，美国市占高</p>
+<p class="body-text">Clairol</p>
+<p class="body-text">美国 · 宝洁旗下</p>
+<p class="body-text">Nice n' Easy，家用染发代表</p>
+<p class="body-text">Ion</p>
+<p class="body-text">美国 · 独立专业品牌</p>
+<p class="body-text">专业沙龙染发，色彩丰富</p>
+<p class="body-text">Manic Panic</p>
+<p class="body-text">美国 · 独立品牌</p>
+<p class="body-text">创意潮流染发，个性色彩</p>
+<p class="body-text">Goldwell</p>
+<p class="body-text">德国 · 科蒂旗下</p>
+<p class="body-text">高端专业沙龙染发，欧洲主流</p>
+<p class="body-text">Igora（施华蔻旗下）</p>
+<p class="body-text">德国 · 汉高旗下</p>
+<p class="body-text">专业沙龙染发系列，色号齐全</p>
+<p class="body-text">三、造型类品牌</p>
+<p class="body-text">品牌</p>
+<p class="body-text">母公司 / 国家</p>
+<p class="body-text">市场定位</p>
+<p class="body-text">TIGI / Bed Head</p>
+<p class="body-text">英国 · 联合利华旗下</p>
+<p class="body-text">潮流造型，年轻化，创意包装</p>
+<p class="body-text">Kenra</p>
+<p class="body-text">美国 · 独立专业品牌</p>
+<p class="body-text">专业定型，沙龙专用，高持久</p>
+<p class="body-text">Got2b（施华蔻旗下）</p>
+<p class="body-text">德国 · 汉高旗下</p>
+<p class="body-text">强力定型，年轻用户，潮流感</p>
+<p class="body-text">Sebastian Professional</p>
+<p class="body-text">美国 · 科蒂旗下</p>
+<p class="body-text">专业沙龙造型，质感高端</p>
+<p class="body-text">L'Oréal Elnett</p>
+<p class="body-text">法国 · 欧莱雅旗下</p>
+<p class="body-text">经典定型喷雾，百年经典系列</p>
+<p class="body-text">Bumble and bumble</p>
+<p class="body-text">美国 · 雅诗兰黛旗下</p>
+<p class="body-text">高端沙龙造型，纽约设计师品牌</p>
+<p class="body-text">四、亚洲知名美发品牌</p>
+<p class="body-text">品牌</p>
+<p class="body-text">国家 / 集团</p>
+<p class="body-text">市场定位</p>
+<p class="body-text">资生堂（Shiseido）</p>
+<p class="body-text">日本 · 资生堂集团</p>
+<p class="body-text">高端护发，亚洲奢护代表品牌</p>
+<p class="body-text">花王（KAO）</p>
+<p class="body-text">日本 · 花王集团</p>
+<p class="body-text">Merit / Essential，日系温和路线</p>
+<p class="body-text">狮王（Lion）</p>
+<p class="body-text">日本 · 狮王集团</p>
+<p class="body-text">口腔+发护双线，日本国民品牌</p>
+<p class="body-text">Milbon（米尔本）</p>
+<p class="body-text">日本 · 独立专业品牌</p>
+<p class="body-text">专业沙龙线，亚洲沙龙市场强势</p>
+<p class="body-text">Shiseido Professional</p>
+<p class="body-text">日本 · 资生堂集团</p>
+<p class="body-text">专业沙龙线，亚洲高端染护</p>
+<p class="body-text">Sunsilk（夏士莲）</p>
+<p class="body-text">泰国 · 联合利华旗下</p>
+<p class="body-text">东南亚市场主导，大众洗护</p>
+<p class="body-text">霸王</p>
+<p class="body-text">中国 · 霸王集团</p>
+<p class="body-text">中草药防脱，国内知名大众品牌</p>
+<p class="body-text">滋源</p>
+<p class="body-text">中国 · 伽蓝集团旗下</p>
+<p class="body-text">无硅油代表，国货崛起标志</p>
+<p class="body-text">薇诺娜</p>
+<p class="body-text">中国 · 贝泰妮集团旗下</p>
+<p class="body-text">敏感头皮专研，医研共创路线</p>
+<p class="body-text">蒂花之秀</p>
+<p class="body-text">中国 · 独立品牌</p>
+<p class="body-text">大众护发，中国市场多年畅销</p>
+<p class="body-text">施爱德（Syoss）</p>
+<p class="body-text">德国 · 汉高旗下</p>
+<p class="body-text">亚洲市场主推，专业护色护发</p>
+<p class="body-text">五、主要集团旗下美发品牌速查</p>
+<p class="body-text">集团名称</p>
+<p class="body-text">国家</p>
+<p class="body-text">旗下主要美发品牌</p>
+<p class="body-text">欧莱雅集团（L'Oréal）</p>
+<p class="body-text">法国</p>
+<p class="body-text">卡诗（Kérastase）· 欧莱雅专业 · Redken · Matrix · Pureology · Garnier · Garnier</p>
+<p class="body-text">宝洁集团（P&G）</p>
+<p class="body-text">美国</p>
+<p class="body-text">潘婷（Pantene）· 海飞丝（H&S）· Herbal Essences · Clairol</p>
+<p class="body-text">联合利华（Unilever）</p>
+<p class="body-text">荷兰/英国</p>
+<p class="body-text">多芬（Dove）· TRESemmé · TIGI/Bed Head · Sunsilk（夏士莲）</p>
+<p class="body-text">汉高集团（Henkel）</p>
+<p class="body-text">德国</p>
+<p class="body-text">施华蔻（Schwarzkopf）· Got2b · Igora · Syoss · Joico</p>
+<p class="body-text">科蒂集团（Coty）</p>
+<p class="body-text">美国</p>
+<p class="body-text">Wella · Wella Koleston · Goldwell · Sebastian Professional</p>
+<p class="body-text">雅诗兰黛（Estée Lauder）</p>
+<p class="body-text">美国</p>
+<p class="body-text">Aveda · Bumble and bumble</p>
+<p class="body-text">资生堂（Shiseido）</p>
+<p class="body-text">日本</p>
+<p class="body-text">资生堂专业护发 · Shiseido Professional</p>
+<p class="body-text">花王（KAO）</p>
+<p class="body-text">日本</p>
+<p class="body-text">Merit · Essential · John Frieda（约翰·弗里达）</p>
+<p class="body-text">本资料仅供内部市场调研与竞品分析参考，数据截至 2026 年 4 月</p>
+</div>
+
+<div class="divider">— END OF REPORT —</div>
+<div class="footer">
+  肇庆凯捷科技有限公司 · 市场调研部 · 生成时间 2026年4月
+</div>
+
+<script>
+// IntersectionObserver for nav highlighting
+const navLinks = document.querySelectorAll('.nav a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector('.nav a[href="#' + entry.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.2, rootMargin: '-70px 0px -50% 0px' });
+document.querySelectorAll('[id]').forEach(s => obs.observe(s));
+</script>
+
+</body>
+</html>
