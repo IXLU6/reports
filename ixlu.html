@@ -1193,6 +1193,34 @@ const DEFAULT_TOOLS = {
 const STORAGE_KEY = 'kaijie_tools_v1';
 let tools = null; // 运行时数据，首次由 loadTools() 初始化
 
+// === 自动迁移：报告存档（解决旧 localStorage 数据不更新问题）===
+(function(){
+  try{
+    var raw = localStorage.getItem('kaijie_tools_v1');
+    if(!raw) return;
+    var cats = JSON.parse(raw);
+    var repIdx = cats.findIndex(function(c){ return c.id === 'reports'; });
+    if(repIdx < 0) return;
+    var repTools = cats[repIdx].tools;
+    var isOld = repTools.some(function(t){ return t.url && t.url.indexOf('karseell-brand-report-v2') > -1; });
+    if(!isOld) return; // 已是新数据，无需迁移
+    var NEW = [
+      {name:'🟡 头皮头发精油调研报告', url:'https://ixlu6.github.io/reports/hair-oil-report.html', desc:'Cliganic/Langhaar/The Ordinary 三品牌深度调研', emoji:'🟡'},
+      {name:'🧴 全球洗发水新兴品牌调研', url:'https://ixlu6.github.io/reports/global-shampoo-report.html', desc:'10大新兴品牌深度分析（含TikTok热度）', emoji:'🧴'},
+      {name:'🟣 全球染膏新兴品牌调研', url:'https://ixlu6.github.io/reports/global-hair-dye-report.html', desc:'8大品牌市场洞察与OEM战略建议', emoji:'🟣'},
+      {name:'📑 Karseell 品牌调研', url:'https://ixlu6.github.io/reports/karseell-brand-report.html', desc:'卡塞尔美发品牌深度分析', emoji:'📑'},
+      {name:'🔬 美发热门成分调研', url:'https://ixlu6.github.io/reports/global-ingredients-report.html', desc:'全球热门成分趋势报告', emoji:'🔬'},
+      {name:'🛁 沐浴露身体乳调研', url:'https://ixlu6.github.io/reports/bath-body-report.html', desc:'沐浴护理市场分析', emoji:'🛁'},
+      {name:'🌟 洗发水新兴品牌调研', url:'https://ixlu6.github.io/reports/shampoo-brand-report.html', desc:'新兴品牌深度调研', emoji:'🌟'},
+      {name:'📊 2026年3月运营报告', url:'https://ixlu6.github.io/reports/march-2026-report.html', desc:'月度运营数据分析报告', emoji:'📊'},
+      {name:'📈 综合运营报告', url:'https://ixlu6.github.io/reports/report.html', desc:'综合运营数据报告', emoji:'📈'}
+    ];
+    cats[repIdx].tools = NEW;
+    localStorage.setItem('kaijie_tools_v1', JSON.stringify(cats));
+    console.log('[ixlu] 报告存档已自动迁移至9个报告');
+  }catch(e){ console.warn('[ixlu] migration skip:', e); }
+})();
+
 function loadTools() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
