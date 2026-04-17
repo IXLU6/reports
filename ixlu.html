@@ -2581,7 +2581,7 @@ const ZHIHU_FALLBACK = [
 
 function init() {
 
-  tools = _mergeReports(loadTools()); // 始终与 DEFAULT_TOOLS.reports 合并（2026-04-16 修复）
+  tools = _mergeReports(loadTools().reports || []); tools.reports = tools; // 修复：传 reports 数组，再挂回 tools
 
   renderNav();
 
