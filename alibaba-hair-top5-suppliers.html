@@ -8,797 +8,276 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: #fef9f3;
-            background-image: linear-gradient(135deg, #fef9f3 0%, #fff5eb 100%);
+            background: linear-gradient(135deg, #fef9f3 0%, #fff5eb 100%);
             color: #2d3436;
-            line-height: 1.8;
+            line-height: 1.6;
         }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #ffe4d6;
-            z-index: 1000;
-            padding: 0 20px;
-        }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            height: 60px;
-            gap: 30px;
-        }
-        .nav-logo {
-            font-weight: 700;
-            color: #ff6b6b;
-            font-size: 1.1rem;
-        }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            flex: 1;
-        }
-        .nav-links a {
-            color: #636e72;
-            text-decoration: none;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            padding: 5px 10px;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            background: #ff6b6b;
-            color: white;
-        }
-        .hero {
-            padding: 120px 20px 60px;
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        .header {
             text-align: center;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #4ecdc4 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.3;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        .hero-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            margin-bottom: 20px;
-        }
-        .hero-meta {
-            font-size: 0.9rem;
-            opacity: 0.85;
-            background: rgba(255,255,255,0.2);
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 30px;
-        }
-        .overview-section {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .overview-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(255,107,107,0.1);
-            border: 1px solid #ffe4d6;
-        }
-        .overview-card h2 {
-            color: #ff6b6b;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .overview-text {
-            color: #636e72;
-            font-size: 1.05rem;
-            line-height: 2;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .stat-card {
+            padding: 60px 20px;
             background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
             color: white;
-            padding: 25px;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(255,107,107,0.3);
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 16px; font-weight: 700; }
+        .header .subtitle { font-size: 1.2em; opacity: 0.95; margin-bottom: 8px; }
+        .header .meta { font-size: 0.9em; opacity: 0.8; }
+        
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px;
             border-radius: 16px;
-            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            z-index: 100;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .stat-card:nth-child(2) {
-            background: linear-gradient(135deg, #4ecdc4 0%, #6ee7df 100%);
+        .nav a {
+            padding: 10px 20px;
+            background: #fff;
+            border: 2px solid #ff6b6b;
+            color: #ff6b6b;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
         }
-        .stat-card:nth-child(3) {
-            background: linear-gradient(135deg, #ffd166 0%, #ffe4a3 100%);
-            color: #2d3436;
-        }
-        .stat-card:nth-child(4) {
-            background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-        .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-        .category-section {
-            padding: 60px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .category-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .category-tag {
-            display: inline-block;
+        .nav a:hover, .nav a.active {
             background: #ff6b6b;
             color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
         }
-        .category-title {
-            font-size: 2rem;
-            color: #2d3436;
-            margin-bottom: 10px;
+        
+        /* Category Section */
+        .category {
+            margin-bottom: 60px;
         }
-        .category-subtitle {
-            color: #636e72;
-        }
-        .suppliers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 25px;
-        }
-        .supplier-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #ffe4d6;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .supplier-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-        }
-        .supplier-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255,107,107,0.15);
-        }
-        .supplier-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        .supplier-rank {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+        .category-header {
+            background: linear-gradient(135deg, #4ecdc4 0%, #6ee7df 100%);
             color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(78,205,196,0.3);
+        }
+        .category-header h2 {
+            font-size: 1.8em;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.1rem;
+            gap: 12px;
         }
-        .supplier-rating {
-            text-align: right;
+        .category-header .icon {
+            font-size: 1.5em;
         }
-        .stars {
-            color: #ffd166;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+        
+        /* Supplier Grid */
+        .supplier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
         }
-        .rating-score {
-            font-size: 0.85rem;
-            color: #636e72;
-            margin-top: 3px;
+        
+        /* Supplier Card */
+        .supplier-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #ffe4d6;
         }
-        .supplier-name-en {
-            font-size: 1.15rem;
+        .supplier-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        
+        /* Card Header */
+        .card-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        .card-header.rank-1 { background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%); }
+        .card-header.rank-2 { background: linear-gradient(135deg, #c0c0c0 0%, #a0a0a0 100%); }
+        .card-header.rank-3 { background: linear-gradient(135deg, #cd7f32 0%, #b87333 100%); }
+        
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
             font-weight: 700;
-            color: #2d3436;
-            margin-bottom: 5px;
+            font-size: 0.9em;
         }
-        .supplier-name-cn {
-            font-size: 0.95rem;
-            color: #636e72;
-            margin-bottom: 20px;
+        .company-en {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 6px;
+            padding-right: 60px;
         }
-        .products-section {
-            background: rgba(255,107,107,0.05);
+        .company-cn {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+        .rating {
+            margin-top: 10px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Card Body */
+        .card-body {
+            padding: 20px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .info-item {
+            background: #fff8f5;
+            padding: 12px;
             border-radius: 12px;
-            padding: 15px 20px;
+            border-left: 4px solid #ff6b6b;
+        }
+        .info-item.full-width {
+            grid-column: 1 / -1;
+        }
+        .info-label {
+            font-size: 0.75em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .info-value {
+            font-size: 0.95em;
+            color: #2d3436;
+            font-weight: 500;
+        }
+        
+        /* Products Section */
+        .products-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 16px;
         }
         .products-title {
-            font-size: 0.85rem;
-            color: #ff6b6b;
-            font-weight: 600;
+            font-size: 0.85em;
+            color: #666;
             margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .product-item {
-            font-size: 0.9rem;
-            color: #2d3436;
-            padding: 6px 0;
-            border-bottom: 1px dashed #ffe4d6;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
+            background: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            color: #444;
+            border-left: 3px solid #4ecdc4;
         }
         .product-item:last-child {
-            border-bottom: none;
+            margin-bottom: 0;
         }
-        .product-num {
-            color: #ff6b6b;
-            font-weight: 600;
-            min-width: 20px;
-        }
-        .table-section {
-            padding: 40px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .table-card {
-            background: #ffffff;
-            border-radius: 20px;
+        
+        /* Summary Table */
+        .summary-section {
+            background: white;
             padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #ffe4d6;
-            overflow-x: auto;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
-        .table-card h2 {
+        .summary-section h2 {
             color: #ff6b6b;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 0.9em;
+        }
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
         }
         th {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
             color: white;
-            padding: 15px 12px;
-            text-align: left;
             font-weight: 600;
-            white-space: nowrap;
         }
-        th:first-child {
-            border-radius: 10px 0 0 0;
+        tr:hover {
+            background: #fff8f5;
         }
-        th:last-child {
-            border-radius: 0 10px 0 0;
-        }
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #ffe4d6;
-            color: #2d3436;
-        }
-        tr:hover td {
-            background: rgba(255,107,107,0.03);
-        }
+        
+        /* Footer */
         .footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #636e72;
-            font-size: 0.9rem;
-            border-top: 1px solid #ffe4d6;
-            margin-top: 40px;
+            padding: 40px;
+            color: #888;
+            font-size: 0.9em;
         }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .suppliers-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .supplier-card { padding: 20px; }
+            .supplier-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">供应商调研</div>
-            <div class="nav-links">
-                <a href="#overview">概览</a>
-                <a href="#summary">汇总表</a>
-                <a href="#cat1">染发膏 Hair Dye</a>
-                <a href="#cat2">发膜 Hair Mask</a>
-                <a href="#cat3">护发精油 Hair Oil</a>
-                <a href="#cat4">其他头发产品 Other Hair Products（造型</a>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1>阿里巴巴国际站美发产品供应商调研报告</h1>
+            <div class="subtitle">染发膏 | 发膜 | 护发精油 | 其他产品</div>
+            <div class="meta">调研日期：2026年4月3日 | 调研单位：肇庆凯捷科技有限公司</div>
         </div>
-    </nav>
-    
-    <header class="hero">
-        <div class="hero-content">
-            <h1>阿里巴巴国际站<br>美发产品供应商调研报告</h1>
-            <div class="hero-subtitle">染发膏 | | | 发膜 | | | 护发精油 | | | 其他产品</div>
-            <div class="hero-meta">调研日期：2026年4月3日   |   调研单位：肇庆凯捷科技有限公司   |   机密文件</div>
+        
+        <div class="nav">
+            <a href="#summary">📊 汇总对比</a>
+            <a href="#hair-dye">💇 染发膏</a>
+            <a href="#hair-mask">🧴 发膜</a>
+            <a href="#hair-oil">💧 护发精油</a>
+            <a href="#others">✨ 其他产品</a>
         </div>
-    </header>
-    
-    <section id="overview" class="overview-section">
-        <div class="overview-card">
-            <h2>报告概览</h2>
-            <p class="overview-text">本报告针对阿里巴巴国际站（Alibaba.com）美发类目下4大子类目（染发膏、发膜、护发精油、其他产品），分别筛选出综合实力TOP5的供应商，从公司年限、星等级、交易额、认证资质、工厂规模、热销产品等多维度进行深度竞品分析，为肇庆凯捷科技有限公司的产品布局、定价策略及市场竞争提供数据参考依据。</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">调研类目</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">20</div>
-                    <div class="stat-label">TOP供应商</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">60+</div>
-                    <div class="stat-label">热销产品</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">21</div>
-                    <div class="stat-label">数据表格</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="cat1" class="category-section">
-        <div class="category-header">
-            <div class="category-tag">类目 1</div>
-            <h2 class="category-title">染发膏 Hair Dye</h2>
-            <p class="category-subtitle">Hair Color Cream</p>
-        </div>
-        <div class="suppliers-grid">
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">1</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★★</div>
-                        <div class="rating-score">5.0/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Maykay Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州名凯化妆品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>IVS Private Label Hair Color Cream Kit</div>
-                    <div class="product-item"><span class="product-num">2.</span>IVS 400ml Professional Permanent Halal Argan Oil Black Hair Shampoo</div>
-                    <div class="product-item"><span class="product-num">3.</span>Maykay Herbal Darkening Shampoo 3 in 1</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">2</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.7/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangdong Haoxin Daily Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广东皓鑫日化用品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>HAOXIN Professional Salon 100ml Hair Color Cream</div>
-                    <div class="product-item"><span class="product-num">2.</span>HAOXIN Famous Brand Low Damage Color Cream</div>
-                    <div class="product-item"><span class="product-num">3.</span>Haoxin Factory Wholesale Permanent 100ml Hair Color + Developer</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">3</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.8/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Zhaoqing Kaijoe Technology Co., Ltd.</div>
-                <div class="supplier-name-cn">肇庆凯捷科技有限公司 (本公司)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Professional Hair Color Cream with Italian Formula</div>
-                    <div class="product-item"><span class="product-num">2.</span>Mocheqi Professional Hair Color Cream</div>
-                    <div class="product-item"><span class="product-num">3.</span>Ammonia Free Organic Hair Dye Cream</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">4</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.7/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Yucaitang Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州御采堂化妆品有限公司 (Dexe品牌)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Dexe Black Hair Shampoo (Sachet)</div>
-                    <div class="product-item"><span class="product-num">2.</span>Dexe Hair Color Shampoo 3 in 1</div>
-                    <div class="product-item"><span class="product-num">3.</span>Magic Hair Color Shampoo for Gray Coverage</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">5</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.6/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangdong Aite Biotechnology Co., Ltd.</div>
-                <div class="supplier-name-cn">广东艾特生物科技有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Ammonia-free Dark Brown Instant Hair Dye Cream</div>
-                    <div class="product-item"><span class="product-num">2.</span>Hair Color Natural Professional Dye Permanent Organic</div>
-                    <div class="product-item"><span class="product-num">3.</span>Aite Premium Permanent Hair Color Cream</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="cat2" class="category-section">
-        <div class="category-header">
-            <div class="category-tag">类目 2</div>
-            <h2 class="category-title">发膜 Hair Mask</h2>
-            <p class="category-subtitle">Hair Treatment</p>
-        </div>
-        <div class="suppliers-grid">
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">1</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.6/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Cimei Bio Technology Co., Ltd.</div>
-                <div class="supplier-name-cn"></div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Bio-Plant Argan Oil Hair Mask 500ml</div>
-                    <div class="product-item"><span class="product-num">2.</span>Keratin Smoothing Hair Treatment 1000ml</div>
-                    <div class="product-item"><span class="product-num">3.</span>Collagen Nourishing Hair Mask</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">2</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★★</div>
-                        <div class="rating-score">4.9/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Chinchy Cosmetic Co., Ltd.</div>
-                <div class="supplier-name-cn">广州芊茜化妆品有限公司 (Karseell)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Karseell Maca Essence Collagen Hair Treatment</div>
-                    <div class="product-item"><span class="product-num">2.</span>Argan Oil Luxurious Hair Mask 500ml</div>
-                    <div class="product-item"><span class="product-num">3.</span>Deep Repair Keratin Hair Treatment</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">3</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★★</div>
-                        <div class="rating-score">4.9/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Hodm Professionals Cosmetics Ltd.</div>
-                <div class="supplier-name-cn">广州博楚化妆品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Silk Smoothing Argan Oil Shea Butter Conditioner/Mask</div>
-                    <div class="product-item"><span class="product-num">2.</span>Deep Repair Keratin Hair Mask 500ml</div>
-                    <div class="product-item"><span class="product-num">3.</span>Pure Keratin Smoothing Treatment</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">4</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.7/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Meidu Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州美度化妆品有限公司 (Augeas)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Ginger Anti Hair Loss Shea Butter Hair Mask 800ml</div>
-                    <div class="product-item"><span class="product-num">2.</span>Argan Oil Nourishing Repair Hair Mask</div>
-                    <div class="product-item"><span class="product-num">3.</span>Deep Moisturizing Coconut Oil Hair Mask</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">5</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.8/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Codie Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州寇迪化妆品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Hyaluronic Acid Deep Moisturizing Hair Mask</div>
-                    <div class="product-item"><span class="product-num">2.</span>Keratin Damaged Hair Repair Treatment</div>
-                    <div class="product-item"><span class="product-num">3.</span>Color-Treated Hair Repair Hair Mask</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="cat3" class="category-section">
-        <div class="category-header">
-            <div class="category-tag">类目 3</div>
-            <h2 class="category-title">护发精油 Hair Oil</h2>
-            <p class="category-subtitle">Hair Serum</p>
-        </div>
-        <div class="suppliers-grid">
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">1</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.8/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Meidu Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州美度化妆品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Augeas Strong Hold Edge Control</div>
-                    <div class="product-item"><span class="product-num">2.</span>Luodais Professional Hair Serum 100ml</div>
-                    <div class="product-item"><span class="product-num">3.</span>Argan Oil Nourishing Hair Care Oil</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">2</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★★</div>
-                        <div class="rating-score">4.9/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Hodm Professionals Cosmetics Ltd.</div>
-                <div class="supplier-name-cn">广州博楚化妆品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Custom Logo Damaged Repair Argan Oil 100ml</div>
-                    <div class="product-item"><span class="product-num">2.</span>Private Label Hair Mask Shea Butter Coconut Oil</div>
-                    <div class="product-item"><span class="product-num">3.</span>Organic Biotin Hair Growth Oil</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">3</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★★</div>
-                        <div class="rating-score">4.9/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Baytiful Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州柏缇化妆品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Romacy Organic Hair Shampoo & Mask Set</div>
-                    <div class="product-item"><span class="product-num">2.</span>Delofil Hot Selling Natural Collagen Mask</div>
-                    <div class="product-item"><span class="product-num">3.</span>Pallamina Moroccan Argan Oil Hair Serum</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">4</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.8/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Nongcai Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州弄采化妆品有限公司 (IKT)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>IKT Natural Anti-Frizz Hair Wax Stick (TikTok爆款)</div>
-                    <div class="product-item"><span class="product-num">2.</span>1000ml Castor Oil Anti Hair Loss Mask</div>
-                    <div class="product-item"><span class="product-num">3.</span>Augeas Travel Size Color Stick</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">5</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.4/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Perfect Link Cosmetic Co., Ltd.</div>
-                <div class="supplier-name-cn">广州名联化妆品有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Natural Argan Oil Capsule Hair Serum</div>
-                    <div class="product-item"><span class="product-num">2.</span>Private Brand Matte Hair Styling Pomade</div>
-                    <div class="product-item"><span class="product-num">3.</span>Wholesale Hair Finishing Quick Slick Stick</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="cat4" class="category-section">
-        <div class="category-header">
-            <div class="category-tag">类目 4</div>
-            <h2 class="category-title">其他头发产品 Other Hair Products（造型</h2>
-            <p class="category-subtitle">防脱</p>
-        </div>
-        <div class="suppliers-grid">
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">1</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.6/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Cimei Bio Technology Co., Ltd.</div>
-                <div class="supplier-name-cn">广州赐美生物科技有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>烫发液 Perm Lotion Professional (专业院线级)</div>
-                    <div class="product-item"><span class="product-num">2.</span>角蛋白修复霜 Keratin Repair Cream 1000ml</div>
-                    <div class="product-item"><span class="product-num">3.</span>生发液 Magic Hair Growth Serum</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">2</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.8/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Tinsun Biotechnology Co., Ltd.</div>
-                <div class="supplier-name-cn">广州天圣生物科技有限公司</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Biotin Hair Growth Serum 60ml</div>
-                    <div class="product-item"><span class="product-num">2.</span>Argan Oil Collagen Repair Mask</div>
-                    <div class="product-item"><span class="product-num">3.</span>Black Hair Shampoo Ginger Formula</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">3</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★★</div>
-                        <div class="rating-score">5.0/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Amarrie Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州爱玛黎化妆品有限公司 (Neutriherbs)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Neutriherbs Vitamin C Brightening Set</div>
-                    <div class="product-item"><span class="product-num">2.</span>Vegan Organic Hair Growth Oil</div>
-                    <div class="product-item"><span class="product-num">3.</span>Natural Scalp Treatment Serum</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">4</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.8/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Nongcai Cosmetics Co., Ltd.</div>
-                <div class="supplier-name-cn">广州弄采化妆品有限公司 (造型类)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>IKT Wax Stick Natural Anti-Frizz 100g</div>
-                    <div class="product-item"><span class="product-num">2.</span>Edge Control Wax Strong Hold</div>
-                    <div class="product-item"><span class="product-num">3.</span>Hair Color Shampoo Fast Dyeing</div>
-                </div>
-            </div>
-
-            <div class="supplier-card">
-                <div class="supplier-header">
-                    <div class="supplier-rank">5</div>
-                    <div class="supplier-rating">
-                        <div class="stars">★★★★☆</div>
-                        <div class="rating-score">4.4/5</div>
-                    </div>
-                </div>
-                <div class="supplier-name-en">Guangzhou Perfect Link Cosmetic Co., Ltd.</div>
-                <div class="supplier-name-cn">广州名联化妆品有限公司 (防脱类)</div>
-                <div class="products-section">
-                    <div class="products-title">热销产品</div>
-                    <div class="product-item"><span class="product-num">1.</span>Ginger Anti-Hair Loss Shampoo 500ml</div>
-                    <div class="product-item"><span class="product-num">2.</span>Matte Pomade Water-Based Hair Wax</div>
-                    <div class="product-item"><span class="product-num">3.</span>Argan Oil Capsule Hair Serum</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="summary" class="table-section">
-        <div class="table-card">
-            <h2>全类目汇总对比一览表</h2>
+        <div id="summary" class="summary-section">
+            <h2>📊 全类目供应商汇总对比</h2>
             <table>
                 <thead>
                     <tr>
                         <th>类目</th>
                         <th>排名</th>
-                        <th>供应商简称</th>
+                        <th>供应商</th>
                         <th>年限</th>
                         <th>星级</th>
                         <th>交易额</th>
@@ -806,1345 +285,1647 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>染发膏</td>
-                        <td>No.1</td>
-                        <td>Maykay</td>
-                        <td>17年</td>
-                        <td>5.0★</td>
-                        <td>$850K+</td>
-                        <td>HALAL认证，100+色号，中东东南亚王者</td>
-                    </tr>
-                    <tr>
-                        <td>染发膏</td>
-                        <td>No.2</td>
-                        <td>Haoxin</td>
-                        <td>3年</td>
-                        <td>4.7★</td>
-                        <td>$20K+</td>
-                        <td>32700m²超大工厂，低损伤，100%准时</td>
-                    </tr>
-                    <tr>
-                        <td>染发膏</td>
-                        <td>No.3</td>
-                        <td>Kaijoe(本厂)</td>
-                        <td>10+年</td>
-                        <td>4.8★</td>
-                        <td>$1M+</td>
-                        <td>意大利配方，现代化实验室，多品牌矩阵</td>
-                    </tr>
-                    <tr>
-                        <td>染发膏</td>
-                        <td>No.4</td>
-                        <td>Yucaitang/Dexe</td>
-                        <td>15+年</td>
-                        <td>4.7★</td>
-                        <td>N/A</td>
-                        <td>一洗黑全球爆款，5分钟快染，草本配方</td>
-                    </tr>
-                    <tr>
-                        <td>染发膏</td>
-                        <td>No.5</td>
-                        <td>Aite</td>
-                        <td>2年</td>
-                        <td>4.6★</td>
-                        <td>$6K+</td>
-                        <td>日本热销款，美洲精准市场，环保配方</td>
-                    </tr>
-                    <tr>
-                        <td>发膜</td>
-                        <td>No.1</td>
-                        <td>Cimei</td>
-                        <td>10年</td>
-                        <td>4.6★</td>
-                        <td>$510K+</td>
-                        <td>沙龙级修复，98.1%准时，CPNP欧盟认证</td>
-                    </tr>
-                    <tr>
-                        <td>发膜</td>
-                        <td>No.2</td>
-                        <td>Chinchy</td>
-                        <td>11年</td>
-                        <td>4.9★</td>
-                        <td>$690K+</td>
-                        <td>Karseell爆款，100%准时，5品牌矩阵</td>
-                    </tr>
-                    <tr>
-                        <td>发膜</td>
-                        <td>No.3</td>
-                        <td>Hodm</td>
-                        <td>8年</td>
-                        <td>4.9★</td>
-                        <td>$130K+</td>
-                        <td>响应≤1h，欧洲认证最全，支持高端免洗</td>
-                    </tr>
-                    <tr>
-                        <td>发膜</td>
-                        <td>No.4</td>
-                        <td>Meidu</td>
-                        <td>12+年</td>
-                        <td>4.7★</td>
-                        <td>$2M/年</td>
-                        <td>SKU最多1144+，生姜防脱发膜热销</td>
-                    </tr>
-                    <tr>
-                        <td>发膜</td>
-                        <td>No.5</td>
-                        <td>Codie</td>
-                        <td>8+年</td>
-                        <td>4.8★</td>
-                        <td>N/A</td>
-                        <td>玻尿酸补水，专为漂染受损发质设计</td>
-                    </tr>
-                    <tr>
-                        <td>护发精油</td>
-                        <td>No.1</td>
-                        <td>Meidu</td>
-                        <td>16年</td>
-                        <td>4.8★</td>
-                        <td>$2M/年</td>
-                        <td>行业资历最深，Augeas品牌，北美40%</td>
-                    </tr>
-                    <tr>
-                        <td>护发精油</td>
-                        <td>No.2</td>
-                        <td>Hodm</td>
-                        <td>8年</td>
-                        <td>4.9★</td>
-                        <td>$130K+</td>
-                        <td>欧洲认证最全(CPNP/CE)，响应速度最快</td>
-                    </tr>
-                    <tr>
-                        <td>护发精油</td>
-                        <td>No.3</td>
-                        <td>Baytiful</td>
-                        <td>6年</td>
-                        <td>4.9★</td>
-                        <td>$60K+</td>
-                        <td>玛咖精华差异化，100%准时，精品路线</td>
-                    </tr>
-                    <tr>
-                        <td>护发精油</td>
-                        <td>No.4</td>
-                        <td>Nongcai</td>
-                        <td>6年</td>
-                        <td>4.8★</td>
-                        <td>$2M/年</td>
-                        <td>IKT造型棒TikTok爆款，价格优势极大</td>
-                    </tr>
-                    <tr>
-                        <td>护发精油</td>
-                        <td>No.5</td>
-                        <td>Perfect Link</td>
-                        <td>11年</td>
-                        <td>4.4★</td>
-                        <td>$150K+</td>
-                        <td>25400m²超大厂，HALAL，年产1.32亿件</td>
-                    </tr>
-                    <tr>
-                        <td>其他</td>
-                        <td>No.1</td>
-                        <td>Cimei</td>
-                        <td>10年</td>
-                        <td>4.6★</td>
-                        <td>$510K+</td>
-                        <td>专业烫发/角蛋白护理，院线级产品</td>
-                    </tr>
-                    <tr>
-                        <td>其他</td>
-                        <td>No.2</td>
-                        <td>Tinsun</td>
-                        <td>5年</td>
-                        <td>4.8★</td>
-                        <td>$120K+</td>
-                        <td>Biotin防脱专家，头皮护理，产品设计现代</td>
-                    </tr>
-                    <tr>
-                        <td>其他</td>
-                        <td>No.3</td>
-                        <td>Amarrie</td>
-                        <td>15年</td>
-                        <td>5.0★</td>
-                        <td>$540K+</td>
-                        <td>纯素/有机，Neutriherbs品牌，认证最全</td>
-                    </tr>
-                    <tr>
-                        <td>其他</td>
-                        <td>No.4</td>
-                        <td>Nongcai</td>
-                        <td>6年</td>
-                        <td>4.8★</td>
-                        <td>$2M/年</td>
-                        <td>造型王者，价格极低，99.4%准时率</td>
-                    </tr>
-                    <tr>
-                        <td>其他</td>
-                        <td>No.5</td>
-                        <td>Perfect Link</td>
-                        <td>11年</td>
-                        <td>4.4★</td>
-                        <td>$150K+</td>
-                        <td>防脱+造型双赛道，超大规模供应链</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★★ 5.0/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified Custom Manufacturer</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $850,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>48+</td>
-                    </tr>
-                    <tr>
-                        <td>平均客单价</td>
-                        <td>~US $17,708</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤3h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>91.3%</td>
-                    </tr>
-                    <tr>
-                        <td>产品数量</td>
-                        <td>310+</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>染发膏、染发洗发水、植物染发、无氨染发</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 22716, GMP, HALAL</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>4,974m², 9条生产线, 36台设备</td>
-                    </tr>
-                    <tr>
-                        <td>年产值</td>
-                        <td>约 US $5M - $10M</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>东南亚 (55%), 非洲 (10%), 中东 (10%)</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市白云区</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>IVS, Maykay, Mifeina</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>极强，支持全定制 (Full customization)</td>
-                    </tr>
-                    <tr>
-                        <td>色号数量</td>
-                        <td>100+ shades</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>无氨 (Ammonia-free), 摩洛哥油 (Argan oil), 清真认证 (Halal)</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.05 - $2.00</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://gzmingkai.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.7/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified Custom Manufacturer</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $20,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>40+</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤2h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>100.0%</td>
-                    </tr>
-                    <tr>
-                        <td>产品数量</td>
-                        <td>200+</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>专业线染发膏、褪色粉、双氧奶、洗护套装</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 9001, GMPC</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>32,700m² (大规模生产基地)</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>欧美、东南亚</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>HAOXIN</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>支持 ODM/OEM，小批量定制</td>
-                    </tr>
-                    <tr>
-                        <td>色号数量</td>
-                        <td>80-120 shades</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>低损伤 (Low damage), 高显色度 (Fast pigment)</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.40 - $1.70</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://haoxinhaircare.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.8/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified Manufacturer</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $1,000,000+</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤3h</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>染发膏、烫发水、专业洗护</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO, GMPC, SGS</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>40,000+m², 现代化研发实验室</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>欧美、东南亚、中东</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省肇庆市</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>KAIJOE, Mocheqi, COLOURWAY, OLORCHEE</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>极强，拥有大型现代化研发实验室</td>
-                    </tr>
-                    <tr>
-                        <td>色号数量</td>
-                        <td>100-150 shades</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>意大利配方 (Italian formula), 持久锁色 (Long lasting)</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.45 - $2.50</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://kaijoe.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.7/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Gold Supplier</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>一洗黑、彩色染发洗发水、染发喷雾</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>FDA, GMPC, ISO</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>20,000+m²</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>全球 (中东、东南亚为主)</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Dexe, Yucaitang</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>擅长袋装 (Sachet) 和泵头装 (Pump) 快速染发产品</td>
-                    </tr>
-                    <tr>
-                        <td>色号数量</td>
-                        <td>以黑/棕为主，彩色约10-15色</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>5分钟快染 (5 mins fast dye), 草本配方 (Herbal formula)</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.20 - $3.00</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://gzyucaitang.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.6/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified Supplier</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $6,000+</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤1h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>100.0%</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>染发霜、染发套装、褪色粉</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 22716, GMPC</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>5,000m², 12条生产线</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>北美 (25%), 中美 (25%), 南美 (20%)</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Feiqu, Aite, Chaoben</td>
-                    </tr>
-                    <tr>
-                        <td>色号数量</td>
-                        <td>60+ shades</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>日本热销款 (Japan best-selling), 环保配方</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.40 - $3.50</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://gdaite.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.6/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $510,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>128+</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>98.1%</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>22,280m²</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>摩洛哥油 (Argan oil), 角蛋白 (Keratin), 胶原蛋白 (Collagen)</td>
-                    </tr>
-                    <tr>
-                        <td>使用方式</td>
-                        <td>洗去式 (Wash-off)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>500ml, 1000ml</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>GMPC, ISO 22716, MSDS, CPNP</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Bio-Plant</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>专业沙龙级修复, 改善分叉 (Repair split ends)</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://gzcimei.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★★ 4.9/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $690,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>198+</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>100%</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>Karseell Maca Essence, 摩洛哥油</td>
-                    </tr>
-                    <tr>
-                        <td>使用方式</td>
-                        <td>深度修复发膜 (Wash-off)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>500ml</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO, GMPC, SGS</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Karseell, Delofil</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>爆款 Karseell 系列, 极致滋润，全球热销</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://chinchy.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★★ 4.9/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $130,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>158+</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>94.0%</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>9,514m²</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>乳木果油 (Shea butter), 角蛋白, 蚕丝蛋白</td>
-                    </tr>
-                    <tr>
-                        <td>使用方式</td>
-                        <td>免洗/洗去式均有 (Leave-in & Wash-off)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>250ml, 500ml</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>CPNP, MSDS, CPSR, RoHS, CE, SGS</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>OTTO KAUNIS, PRO-TECHS</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤1h</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>品牌矩阵丰富，支持高端免洗产品，欧洲认证齐全</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://bochu.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.7/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>年出口额约 $2,000,000</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>98.6%</td>
-                    </tr>
-                    <tr>
-                        <td>产品总数</td>
-                        <td>1,144+ SKU</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>生姜 (Ginger), 摩洛哥油, 椰子油</td>
-                    </tr>
-                    <tr>
-                        <td>使用方式</td>
-                        <td>护发素/发膜二合一</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>500ml, 800ml</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>SDS, CE, IEC 62321, SGS</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Augeas, Meidu</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>控油生姜发膜, 固发防脱，SKU最多</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://gzmeidu.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.8/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>玻尿酸 (Hyaluronic acid), 角蛋白</td>
-                    </tr>
-                    <tr>
-                        <td>使用方式</td>
-                        <td>补水发膜 (Wash-off)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>500ml</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 22716, GMPC</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Codie</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>极致补水, 专为漂染后受损发质设计</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://codie.en.alibaba.com/</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.8/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>年出口额 $2,000,000+</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤3h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>98.6%</td>
-                    </tr>
-                    <tr>
-                        <td>产品数量</td>
-                        <td>1,144+</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>护发油、染发膏、洗发水、发膜、发蜡</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>摩洛哥坚果油 (Argan Oil)、角蛋白、生姜、植物精华</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>SDS, CE, IEC 62321, SGS</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>22年行业经验</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>北美 (40%), 东南亚 (30%), 中东 (20%)</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市白云区</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Augeas, Meidu</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>强 (提供全定制、图样加工)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>30ml, 50ml, 100ml, 500ml</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.09 - $5.00</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://gzmeidu.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★★ 4.9/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $130,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>158+</td>
-                    </tr>
-                    <tr>
-                        <td>平均客单价</td>
-                        <td>$822</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤1h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>94.0%</td>
-                    </tr>
-                    <tr>
-                        <td>产品数量</td>
-                        <td>640+</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>洗护套装、护发油 (Hair Oil)、发膜</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>有机摩洛哥油、乳木果油、椰子油、生物素 (Biotin)</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>CPNP, MSDS, CPSR, RoHS, CE, SGS</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>9,514m² / 年出口额 $230万</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>北美 (30%), 大洋洲 (10%), 中东 (10%)</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Top Care, OTTO KEUNIS</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>强 (ODM服务、全定制)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>10ml, 50ml, 100ml, 500ml</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$1.00 - $7.89</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://bochu.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★★ 4.9/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $60,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>30+</td>
-                    </tr>
-                    <tr>
-                        <td>平均客单价</td>
-                        <td>$2,000</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤4h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>100.0%</td>
-                    </tr>
-                    <tr>
-                        <td>产品数量</td>
-                        <td>200+</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>发膜、洗发水、护发精油、角蛋白护理</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>玛咖精华 (Maca)、角蛋白、有机摩洛哥油、胶原蛋白</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>TüVRheinland, GMPC</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>中小型精品工厂 (20+员工)</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>北美 (30%), 南美 (10%), 东欧 (10%)</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Romacy, Delofil, Pallamina</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>提供 (轻量定制)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>50ml, 100ml, 500ml</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$2.00 - $4.50</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://baytiful123.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.8/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>年出口额 $2,000,000</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤2h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>99.4%</td>
-                    </tr>
-                    <tr>
-                        <td>产品数量</td>
-                        <td>1,000+</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>染发霜、洗发水、护发油、发膜、发蜡</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>黑蓖麻油 (Castor Oil)、迷迭香、人参精华、角蛋白</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 9001, SDS, IEC 62321</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>12,982m² / 年产值 $200万</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>北美、东南亚、西欧</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市白云区</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>IKT, Augeas</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>强 (大批量生产)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>20g, 30ml, 100ml, 500ml, 1000ml</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.08 - $2.00</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://hairshampoo.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.4/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $150,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>137+</td>
-                    </tr>
-                    <tr>
-                        <td>平均客单价</td>
-                        <td>$1,095</td>
-                    </tr>
-                    <tr>
-                        <td>响应时效</td>
-                        <td>≤3h</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>84.1%</td>
-                    </tr>
-                    <tr>
-                        <td>产品数量</td>
-                        <td>500+</td>
-                    </tr>
-                    <tr>
-                        <td>主营品类</td>
-                        <td>造型产品、防脱洗发水、护发胶囊/精油</td>
-                    </tr>
-                    <tr>
-                        <td>核心成分</td>
-                        <td>摩洛哥油胶囊、生姜、薄荷、茶树油</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 22716, CE, RoHS, HALAL</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>25,400m² / 年产1.32亿件</td>
-                    </tr>
-                    <tr>
-                        <td>目标市场</td>
-                        <td>北美 (50%), 大洋洲 (25%), 东南亚 (20%)</td>
-                    </tr>
-                    <tr>
-                        <td>地址</td>
-                        <td>广东省广州市</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Perfect Link</td>
-                    </tr>
-                    <tr>
-                        <td>OEM能力</td>
-                        <td>强 (大型供应链)</td>
-                    </tr>
-                    <tr>
-                        <td>容量规格</td>
-                        <td>胶囊装, 50ml, 100ml, 500ml</td>
-                    </tr>
-                    <tr>
-                        <td>价格区间</td>
-                        <td>$0.66 - $6.89</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://perfectlink.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.6/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $510,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>128+</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>98.1%</td>
-                    </tr>
-                    <tr>
-                        <td>细分品类</td>
-                        <td>烫发液 (Perm)、角蛋白护理 (Keratin)、生发液 (Hair Growth)</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>冷烫不伤发、高浓度角蛋白修复、3合1染发</td>
-                    </tr>
-                    <tr>
-                        <td>目标客户</td>
-                        <td>专业发廊、受损发质人群</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>GMPC, ISO 22716, MSDS, CPNP</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>22,280m²</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://gzcimei.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.8/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $120,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>21+</td>
-                    </tr>
-                    <tr>
-                        <td>细分品类</td>
-                        <td>防脱生发 (Anti-Loss)、头皮护理 (Scalp Care)</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>生物素 (Biotin) 强根健发、有机姜油固发</td>
-                    </tr>
-                    <tr>
-                        <td>目标客户</td>
-                        <td>脱发人群、头皮敏感人群</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>GMP, CE</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>12,000m²</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://cntinsun.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★★ 5.0/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $540,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>3+</td>
-                    </tr>
-                    <tr>
-                        <td>细分品类</td>
-                        <td>护肤/护发全类目、头皮护理、纯素产品</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>纯素 (Vegan)、天然有机、高端品牌视觉</td>
-                    </tr>
-                    <tr>
-                        <td>目标客户</td>
-                        <td>高端零售商、品牌代加工</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 9001, ISO 22716, CPNP, SCPN</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>中型研发型工厂</td>
-                    </tr>
-                    <tr>
-                        <td>自有品牌</td>
-                        <td>Neutriherbs</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://amarrie.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.8/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>年出口额 $2,000,000</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>99.4%</td>
-                    </tr>
-                    <tr>
-                        <td>细分品类</td>
-                        <td>造型产品 (Styling/Edge Control)、染发洗发水</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>极强定型 (Strong Hold)、24小时不油腻、天然染色</td>
-                    </tr>
-                    <tr>
-                        <td>目标客户</td>
-                        <td>美发沙龙、造型产品买家</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 9001, SDS, IEC 62321</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>12,982m²</td>
-                    </tr>
-                    <tr>
-                        <td>价格优势</td>
-                        <td>$0.3-$0.9 工厂直销价，极具竞争力</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://hairshampoo.en.alibaba.com</td>
-                    </tr>
-                    <tr>
-                        <td>星等级</td>
-                        <td>★★★★☆ 4.4/5</td>
-                    </tr>
-                    <tr>
-                        <td>供应商类型</td>
-                        <td>Verified</td>
-                    </tr>
-                    <tr>
-                        <td>累计交易金额</td>
-                        <td>US $150,000+</td>
-                    </tr>
-                    <tr>
-                        <td>累计订单数</td>
-                        <td>137+</td>
-                    </tr>
-                    <tr>
-                        <td>准时交货率</td>
-                        <td>84.1%</td>
-                    </tr>
-                    <tr>
-                        <td>细分品类</td>
-                        <td>防脱产品 (Anti-Hair Loss)、造型发泥 (Pomade)</td>
-                    </tr>
-                    <tr>
-                        <td>核心卖点</td>
-                        <td>防脱+育发双效、水基易清洗、12种香味可选</td>
-                    </tr>
-                    <tr>
-                        <td>目标客户</td>
-                        <td>防脱功能产品买家、造型品牌商</td>
-                    </tr>
-                    <tr>
-                        <td>认证资质</td>
-                        <td>ISO 22716, CE, RoHS, HALAL</td>
-                    </tr>
-                    <tr>
-                        <td>工厂规模</td>
-                        <td>25,400m² / 年产1.32亿件</td>
-                    </tr>
-                    <tr>
-                        <td>店铺URL</td>
-                        <td>https://perfectlink.en.alibaba.com</td>
-                    </tr>
+                    <tr><td>染发膏</td><td>No.1</td><td>Maykay/名凯</td><td>17年</td><td>5.0★</td><td>$850K+</td><td>HALAL认证，100+色号，中东东南亚王者</td></tr>
+                    <tr><td>染发膏</td><td>No.2</td><td>Haoxin/皓鑫</td><td>3年</td><td>4.7★</td><td>$20K+</td><td>32700m²超大工厂，低损伤，100%准时</td></tr>
+                    <tr><td>染发膏</td><td>No.3</td><td>Kaijoe/凯捷</td><td>10+年</td><td>4.8★</td><td>$1M+</td><td>意大利配方，现代化实验室，多品牌矩阵</td></tr>
+                    <tr><td>染发膏</td><td>No.4</td><td>Yucaitang/御采堂</td><td>15+年</td><td>4.7★</td><td>N/A</td><td>一洗黑全球爆款，5分钟快染，草本配方</td></tr>
+                    <tr><td>染发膏</td><td>No.5</td><td>Aite/艾特</td><td>2年</td><td>4.6★</td><td>$6K+</td><td>日本热销款，美洲精准市场，环保配方</td></tr>
+                    <tr><td>发膜</td><td>No.1</td><td>Cimei/熙美</td><td>10年</td><td>4.6★</td><td>$510K+</td><td>沙龙级修复，98.1%准时，CPNP欧盟认证</td></tr>
+                    <tr><td>发膜</td><td>No.2</td><td>Chinchy/芊茜</td><td>11年</td><td>4.9★</td><td>$690K+</td><td>Karseell爆款，100%准时，5品牌矩阵</td></tr>
+                    <tr><td>发膜</td><td>No.3</td><td>Hodm/博楚</td><td>8年</td><td>4.9★</td><td>$130K+</td><td>响应≤1h，欧洲认证最全，支持高端免洗</td></tr>
+                    <tr><td>发膜</td><td>No.4</td><td>Meidu/美度</td><td>12+年</td><td>4.7★</td><td>$2M/年</td><td>SKU最多1144+，生姜防脱发膜热销</td></tr>
+                    <tr><td>发膜</td><td>No.5</td><td>Codie/寇迪</td><td>8+年</td><td>4.8★</td><td>N/A</td><td>玻尿酸补水，专为漂染受损发质设计</td></tr>
+                    <tr><td>护发精油</td><td>No.1</td><td>Meidu/美度</td><td>16年</td><td>4.8★</td><td>$2M/年</td><td>行业资历最深，Augeas品牌，北美40%</td></tr>
+                    <tr><td>护发精油</td><td>No.2</td><td>Hodm/博楚</td><td>8年</td><td>4.9★</td><td>$130K+</td><td>欧洲认证最全(CPNP/CE)，响应速度最快</td></tr>
+                    <tr><td>护发精油</td><td>No.3</td><td>Baytiful</td><td>6年</td><td>4.9★</td><td>$60K+</td><td>玛咖精华差异化，100%准时，精品路线</td></tr>
+                    <tr><td>护发精油</td><td>No.4</td><td>Nongcai/农彩</td><td>6年</td><td>4.8★</td><td>$2M/年</td><td>IKT造型棒TikTok爆款，价格优势极大</td></tr>
+                    <tr><td>护发精油</td><td>No.5</td><td>Perfect Link</td><td>11年</td><td>4.4★</td><td>$150K+</td><td>25400m²超大厂，HALAL，年产1.32亿件</td></tr>
+                    <tr><td>其他</td><td>No.1</td><td>Cimei/熙美</td><td>10年</td><td>4.6★</td><td>$510K+</td><td>专业烫发/角蛋白护理，院线级产品</td></tr>
+                    <tr><td>其他</td><td>No.2</td><td>Tinsun</td><td>5年</td><td>4.8★</td><td>$120K+</td><td>Biotin防脱专家，头皮护理，产品设计现代</td></tr>
+                    <tr><td>其他</td><td>No.3</td><td>Amarrie</td><td>15年</td><td>5.0★</td><td>$540K+</td><td>纯素/有机，Neutriherbs品牌，认证最全</td></tr>
+                    <tr><td>其他</td><td>No.4</td><td>Nongcai/农彩</td><td>6年</td><td>4.8★</td><td>$2M/年</td><td>造型王者，价格极低，99.4%准时率</td></tr>
+                    <tr><td>其他</td><td>No.5</td><td>Perfect Link</td><td>11年</td><td>4.4★</td><td>$150K+</td><td>防脱+造型双赛道，超大规模供应链</td></tr>
                 </tbody>
             </table>
         </div>
-    </section>
 
-    <footer class="footer">
-        <p>调研日期：2026年4月3日 | 调研单位：肇庆凯捷科技有限公司 | 机密文件</p>
-        <p style="margin-top: 10px; opacity: 0.7;">阿里巴巴国际站美发产品供应商调研报告</p>
-    </footer>
+        <div id="hair-dye" class="category">
+            <div class="category-header">
+                <h2><span class="icon">💇</span> 染发膏</h2>
+            </div>
+            <div class="supplier-grid">
+
+                <div class="supplier-card">
+                    <div class="card-header rank-1">
+                        <span class="rank-badge">No.1</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州名凯化妆品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">17年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★★ 5.0/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $850,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">91.3%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤3h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">4,974m², 9条生产线, 36台设备</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 22716, GMP, HALAL</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">无氨 (Ammonia-free), 摩洛哥油 (Argan oil), 清真认证 (Halal)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.05 - $2.00</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified Custom Manufacturer</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">48+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">平均客单价</div>
+                                <div class="info-value">~US $17,708</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品数量</div>
+                                <div class="info-value">310+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">染发膏、染发洗发水、植物染发、无氨染发</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">年产值</div>
+                                <div class="info-value">约 US $5M - $10M</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">东南亚 (55%), 非洲 (10%), 中东 (10%)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市白云区</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">IVS, Maykay, Mifeina</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">极强，支持全定制 (Full customization)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">色号数量</div>
+                                <div class="info-value">100+ shades</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://gzmingkai.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. IVS Private Label Hair Color Cream Kit</div>
+                            <div class="product-item">2. IVS 400ml Professional Permanent Halal Argan Oil Black Hair Shampoo</div>
+                            <div class="product-item">3. Maykay Herbal Darkening Shampoo 3 in 1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-2">
+                        <span class="rank-badge">No.2</span>
+                        <div class="company-en">Guangdong</div>
+                        <div class="company-cn">广东皓鑫日化用品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">3年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.7/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $20,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">100.0%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤2h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">32,700m² (大规模生产基地)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 9001, GMPC</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">低损伤 (Low damage), 高显色度 (Fast pigment)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.40 - $1.70</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified Custom Manufacturer</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">40+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品数量</div>
+                                <div class="info-value">200+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">专业线染发膏、褪色粉、双氧奶、洗护套装</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">欧美、东南亚</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">HAOXIN</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">支持 ODM/OEM，小批量定制</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">色号数量</div>
+                                <div class="info-value">80-120 shades</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://haoxinhaircare.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. HAOXIN Professional Salon 100ml Hair Color Cream</div>
+                            <div class="product-item">2. HAOXIN Famous Brand Low Damage Color Cream</div>
+                            <div class="product-item">3. Haoxin Factory Wholesale Permanent 100ml Hair Color + Developer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-3">
+                        <span class="rank-badge">No.3</span>
+                        <div class="company-en">Zhaoqing</div>
+                        <div class="company-cn">肇庆凯捷科技有限公司 (本公司)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">10+年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.8/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $1,000,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤3h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">40,000+m², 现代化研发实验室</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO, GMPC, SGS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">意大利配方 (Italian formula), 持久锁色 (Long lasting)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.45 - $2.50</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified Manufacturer</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">染发膏、烫发水、专业洗护</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">欧美、东南亚、中东</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省肇庆市</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">KAIJOE, Mocheqi, COLOURWAY, OLORCHEE</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">极强，拥有大型现代化研发实验室</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">色号数量</div>
+                                <div class="info-value">100-150 shades</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://kaijoe.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Professional Hair Color Cream with Italian Formula</div>
+                            <div class="product-item">2. Mocheqi Professional Hair Color Cream</div>
+                            <div class="product-item">3. Ammonia Free Organic Hair Dye Cream</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.4</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州御采堂化妆品有限公司 (Dexe品牌)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">15+年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.7/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">20,000+m²</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">FDA, GMPC, ISO</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">5分钟快染 (5 mins fast dye), 草本配方 (Herbal formula)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.20 - $3.00</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Gold Supplier</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">一洗黑、彩色染发洗发水、染发喷雾</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">全球 (中东、东南亚为主)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Dexe, Yucaitang</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">擅长袋装 (Sachet) 和泵头装 (Pump) 快速染发产品</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">色号数量</div>
+                                <div class="info-value">以黑/棕为主，彩色约10-15色</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://gzyucaitang.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Dexe Black Hair Shampoo (Sachet)</div>
+                            <div class="product-item">2. Dexe Hair Color Shampoo 3 in 1</div>
+                            <div class="product-item">3. Magic Hair Color Shampoo for Gray Coverage</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.5</span>
+                        <div class="company-en">Guangdong</div>
+                        <div class="company-cn">广东艾特生物科技有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">2年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.6/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $6,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">100.0%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤1h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">5,000m², 12条生产线</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 22716, GMPC</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">日本热销款 (Japan best-selling), 环保配方</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.40 - $3.50</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified Supplier</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">染发霜、染发套装、褪色粉</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">北美 (25%), 中美 (25%), 南美 (20%)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Feiqu, Aite, Chaoben</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">色号数量</div>
+                                <div class="info-value">60+ shades</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://gdaite.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Ammonia-free Dark Brown Instant Hair Dye Cream</div>
+                            <div class="product-item">2. Hair Color Natural Professional Dye Permanent Organic</div>
+                            <div class="product-item">3. Aite Premium Permanent Hair Color Cream</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hair-mask" class="category">
+            <div class="category-header">
+                <h2><span class="icon">🧴</span> 发膜</h2>
+            </div>
+            <div class="supplier-grid">
+
+                <div class="supplier-card">
+                    <div class="card-header rank-1">
+                        <span class="rank-badge">No.1</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn"></div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">广州熙美国际 (Bio-Plant)</div>
+                                <div class="info-value">阿里年限</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">10年</div>
+                                <div class="info-value">星等级</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">★★★★☆ 4.6/5</div>
+                                <div class="info-value">供应商类型</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Verified</div>
+                                <div class="info-value">累计交易金额</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">US $510,000+</div>
+                                <div class="info-value">累计订单数</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">128+</div>
+                                <div class="info-value">准时交货率</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">98.1%</div>
+                                <div class="info-value">工厂规模</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">22,280m²</div>
+                                <div class="info-value">核心成分</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">摩洛哥油 (Argan oil), 角蛋白 (Keratin), 胶原蛋白 (Collagen)</div>
+                                <div class="info-value">使用方式</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">洗去式 (Wash-off)</div>
+                                <div class="info-value">容量规格</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">500ml, 1000ml</div>
+                                <div class="info-value">认证资质</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">GMPC, ISO 22716, MSDS, CPNP</div>
+                                <div class="info-value">自有品牌</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Bio-Plant</div>
+                                <div class="info-value">核心卖点</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">专业沙龙级修复, 改善分叉 (Repair split ends)</div>
+                                <div class="info-value">店铺URL</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">https</div>
+                                <div class="info-value">//gzcimei.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Bio-Plant Argan Oil Hair Mask 500ml</div>
+                            <div class="product-item">2. Keratin Smoothing Hair Treatment 1000ml</div>
+                            <div class="product-item">3. Collagen Nourishing Hair Mask</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-2">
+                        <span class="rank-badge">No.2</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州芊茜化妆品有限公司 (Karseell)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">11年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★★ 4.9/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $690,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">100%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO, GMPC, SGS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">爆款 Karseell 系列, 极致滋润，全球热销</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">198+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">Karseell Maca Essence, 摩洛哥油</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">使用方式</div>
+                                <div class="info-value">深度修复发膜 (Wash-off)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">500ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Karseell, Delofil</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://chinchy.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Karseell Maca Essence Collagen Hair Treatment</div>
+                            <div class="product-item">2. Argan Oil Luxurious Hair Mask 500ml</div>
+                            <div class="product-item">3. Deep Repair Keratin Hair Treatment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-3">
+                        <span class="rank-badge">No.3</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州博楚化妆品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">8年 (行业13年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★★ 4.9/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $130,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">94.0%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤1h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">9,514m²</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">CPNP, MSDS, CPSR, RoHS, CE, SGS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">品牌矩阵丰富，支持高端免洗产品，欧洲认证齐全</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">158+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">乳木果油 (Shea butter), 角蛋白, 蚕丝蛋白</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">使用方式</div>
+                                <div class="info-value">免洗/洗去式均有 (Leave-in & Wash-off)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">250ml, 500ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">OTTO KAUNIS, PRO-TECHS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://bochu.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Silk Smoothing Argan Oil Shea Butter Conditioner/Mask</div>
+                            <div class="product-item">2. Deep Repair Keratin Hair Mask 500ml</div>
+                            <div class="product-item">3. Pure Keratin Smoothing Treatment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.4</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州美度化妆品有限公司 (Augeas)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">12+年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.7/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">年出口额约 $2,000,000</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">98.6%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">SDS, CE, IEC 62321, SGS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">控油生姜发膜, 固发防脱，SKU最多</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品总数</div>
+                                <div class="info-value">1,144+ SKU</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">生姜 (Ginger), 摩洛哥油, 椰子油</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">使用方式</div>
+                                <div class="info-value">护发素/发膜二合一</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">500ml, 800ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Augeas, Meidu</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://gzmeidu.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Ginger Anti Hair Loss Shea Butter Hair Mask 800ml</div>
+                            <div class="product-item">2. Argan Oil Nourishing Repair Hair Mask</div>
+                            <div class="product-item">3. Deep Moisturizing Coconut Oil Hair Mask</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.5</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州寇迪化妆品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">8+年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.8/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 22716, GMPC</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">极致补水, 专为漂染后受损发质设计</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">玻尿酸 (Hyaluronic acid), 角蛋白</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">使用方式</div>
+                                <div class="info-value">补水发膜 (Wash-off)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">500ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Codie</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://codie.en.alibaba.com/</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Hyaluronic Acid Deep Moisturizing Hair Mask</div>
+                            <div class="product-item">2. Keratin Damaged Hair Repair Treatment</div>
+                            <div class="product-item">3. Color-Treated Hair Repair Hair Mask</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hair-oil" class="category">
+            <div class="category-header">
+                <h2><span class="icon">💧</span> 护发精油</h2>
+            </div>
+            <div class="supplier-grid">
+
+                <div class="supplier-card">
+                    <div class="card-header rank-1">
+                        <span class="rank-badge">No.1</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州美度化妆品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">16年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.8/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">年出口额 $2,000,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">98.6%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤3h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">22年行业经验</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">SDS, CE, IEC 62321, SGS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.09 - $5.00</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品数量</div>
+                                <div class="info-value">1,144+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">护发油、染发膏、洗发水、发膜、发蜡</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">摩洛哥坚果油 (Argan Oil)、角蛋白、生姜、植物精华</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">北美 (40%), 东南亚 (30%), 中东 (20%)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市白云区</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Augeas, Meidu</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">强 (提供全定制、图样加工)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">30ml, 50ml, 100ml, 500ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://gzmeidu.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Augeas Strong Hold Edge Control</div>
+                            <div class="product-item">2. Luodais Professional Hair Serum 100ml</div>
+                            <div class="product-item">3. Argan Oil Nourishing Hair Care Oil</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-2">
+                        <span class="rank-badge">No.2</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州博楚化妆品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">8年 (行业13年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★★ 4.9/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $130,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">94.0%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤1h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">9,514m² / 年出口额 $230万</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">CPNP, MSDS, CPSR, RoHS, CE, SGS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$1.00 - $7.89</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">158+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">平均客单价</div>
+                                <div class="info-value">$822</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品数量</div>
+                                <div class="info-value">640+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">洗护套装、护发油 (Hair Oil)、发膜</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">有机摩洛哥油、乳木果油、椰子油、生物素 (Biotin)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">北美 (30%), 大洋洲 (10%), 中东 (10%)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Top Care, OTTO KEUNIS</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">强 (ODM服务、全定制)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">10ml, 50ml, 100ml, 500ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://bochu.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Custom Logo Damaged Repair Argan Oil 100ml</div>
+                            <div class="product-item">2. Private Label Hair Mask Shea Butter Coconut Oil</div>
+                            <div class="product-item">3. Organic Biotin Hair Growth Oil</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-3">
+                        <span class="rank-badge">No.3</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州柏缇化妆品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">6年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★★ 4.9/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $60,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">100.0%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤4h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">中小型精品工厂 (20+员工)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">TüVRheinland, GMPC</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$2.00 - $4.50</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">30+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">平均客单价</div>
+                                <div class="info-value">$2,000</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品数量</div>
+                                <div class="info-value">200+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">发膜、洗发水、护发精油、角蛋白护理</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">玛咖精华 (Maca)、角蛋白、有机摩洛哥油、胶原蛋白</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">北美 (30%), 南美 (10%), 东欧 (10%)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Romacy, Delofil, Pallamina</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">提供 (轻量定制)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">50ml, 100ml, 500ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://baytiful123.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Romacy Organic Hair Shampoo & Mask Set</div>
+                            <div class="product-item">2. Delofil Hot Selling Natural Collagen Mask</div>
+                            <div class="product-item">3. Pallamina Moroccan Argan Oil Hair Serum</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.4</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州弄采化妆品有限公司 (IKT)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">6年 (行业10年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.8/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">年出口额 $2,000,000</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">99.4%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤2h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">12,982m² / 年产值 $200万</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 9001, SDS, IEC 62321</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.08 - $2.00</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品数量</div>
+                                <div class="info-value">1,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">染发霜、洗发水、护发油、发膜、发蜡</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">黑蓖麻油 (Castor Oil)、迷迭香、人参精华、角蛋白</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">北美、东南亚、西欧</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市白云区</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">IKT, Augeas</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">强 (大批量生产)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">20g, 30ml, 100ml, 500ml, 1000ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://hairshampoo.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. IKT Natural Anti-Frizz Hair Wax Stick (TikTok爆款)</div>
+                            <div class="product-item">2. 1000ml Castor Oil Anti Hair Loss Mask</div>
+                            <div class="product-item">3. Augeas Travel Size Color Stick</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.5</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州名联化妆品有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">11年 (行业14年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.4/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $150,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">84.1%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">响应时效</div>
+                                <div class="info-value">≤3h</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">25,400m² / 年产1.32亿件</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 22716, CE, RoHS, HALAL</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格区间</div>
+                                <div class="info-value">$0.66 - $6.89</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">137+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">平均客单价</div>
+                                <div class="info-value">$1,095</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">产品数量</div>
+                                <div class="info-value">500+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">主营品类</div>
+                                <div class="info-value">造型产品、防脱洗发水、护发胶囊/精油</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心成分</div>
+                                <div class="info-value">摩洛哥油胶囊、生姜、薄荷、茶树油</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标市场</div>
+                                <div class="info-value">北美 (50%), 大洋洲 (25%), 东南亚 (20%)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">地址</div>
+                                <div class="info-value">广东省广州市</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">自有品牌</div>
+                                <div class="info-value">Perfect Link</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">OEM能力</div>
+                                <div class="info-value">强 (大型供应链)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">容量规格</div>
+                                <div class="info-value">胶囊装, 50ml, 100ml, 500ml</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://perfectlink.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Natural Argan Oil Capsule Hair Serum</div>
+                            <div class="product-item">2. Private Brand Matte Hair Styling Pomade</div>
+                            <div class="product-item">3. Wholesale Hair Finishing Quick Slick Stick</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="others" class="category">
+            <div class="category-header">
+                <h2><span class="icon">✨</span> 其他</h2>
+            </div>
+            <div class="supplier-grid">
+
+                <div class="supplier-card">
+                    <div class="card-header rank-1">
+                        <span class="rank-badge">No.1</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州赐美生物科技有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">10年 (行业17年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.6/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $510,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">98.1%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">22,280m²</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">GMPC, ISO 22716, MSDS, CPNP</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">冷烫不伤发、高浓度角蛋白修复、3合1染发</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">128+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">细分品类</div>
+                                <div class="info-value">烫发液 (Perm)、角蛋白护理 (Keratin)、生发液 (Hair Growth)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标客户</div>
+                                <div class="info-value">专业发廊、受损发质人群</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://gzcimei.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. 烫发液 Perm Lotion Professional (专业院线级)</div>
+                            <div class="product-item">2. 角蛋白修复霜 Keratin Repair Cream 1000ml</div>
+                            <div class="product-item">3. 生发液 Magic Hair Growth Serum</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-2">
+                        <span class="rank-badge">No.2</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州天圣生物科技有限公司</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">5年 (行业10年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.8/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $120,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">12,000m²</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">GMP, CE</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">生物素 (Biotin) 强根健发、有机姜油固发</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">21+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">细分品类</div>
+                                <div class="info-value">防脱生发 (Anti-Loss)、头皮护理 (Scalp Care)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标客户</div>
+                                <div class="info-value">脱发人群、头皮敏感人群</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://cntinsun.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Biotin Hair Growth Serum 60ml</div>
+                            <div class="product-item">2. Argan Oil Collagen Repair Mask</div>
+                            <div class="product-item">3. Black Hair Shampoo Ginger Formula</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header rank-3">
+                        <span class="rank-badge">No.3</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州爱玛黎化妆品有限公司 (Neutriherbs)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">15年</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★★ 5.0/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $540,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">3+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.4</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州弄采化妆品有限公司 (造型类)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">6年 (行业10年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.8/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">年出口额 $2,000,000</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">99.4%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">12,982m²</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 9001, SDS, IEC 62321</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">极强定型 (Strong Hold)、24小时不油腻、天然染色</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">细分品类</div>
+                                <div class="info-value">造型产品 (Styling/Edge Control)、染发洗发水</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标客户</div>
+                                <div class="info-value">美发沙龙、造型产品买家</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">价格优势</div>
+                                <div class="info-value">$0.3-$0.9 工厂直销价，极具竞争力</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://hairshampoo.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. IKT Wax Stick Natural Anti-Frizz 100g</div>
+                            <div class="product-item">2. Edge Control Wax Strong Hold</div>
+                            <div class="product-item">3. Hair Color Shampoo Fast Dyeing</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="card-header ">
+                        <span class="rank-badge">No.5</span>
+                        <div class="company-en">Guangzhou</div>
+                        <div class="company-cn">广州名联化妆品有限公司 (防脱类)</div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">阿里年限</div>
+                                <div class="info-value">11年 (行业14年)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">星等级</div>
+                                <div class="info-value">★★★★☆ 4.4/5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计交易金额</div>
+                                <div class="info-value">US $150,000+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">准时交货率</div>
+                                <div class="info-value">84.1%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">工厂规模</div>
+                                <div class="info-value">25,400m² / 年产1.32亿件</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">认证资质</div>
+                                <div class="info-value">ISO 22716, CE, RoHS, HALAL</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">核心卖点</div>
+                                <div class="info-value">防脱+育发双效、水基易清洗、12种香味可选</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">供应商类型</div>
+                                <div class="info-value">Verified</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">累计订单数</div>
+                                <div class="info-value">137+</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">细分品类</div>
+                                <div class="info-value">防脱产品 (Anti-Hair Loss)、造型发泥 (Pomade)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">目标客户</div>
+                                <div class="info-value">防脱功能产品买家、造型品牌商</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">店铺URL</div>
+                                <div class="info-value">https://perfectlink.en.alibaba.com</div>
+                            </div>
+                        </div>
+                        <div class="products-section">
+                            <div class="products-title">🔥 热销产品</div>
+                            <div class="product-item">1. Ginger Anti-Hair Loss Shampoo 500ml</div>
+                            <div class="product-item">2. Matte Pomade Water-Based Hair Wax</div>
+                            <div class="product-item">3. Argan Oil Capsule Hair Serum</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 肇庆凯捷科技有限公司 | 机密文件</p>
+        </div>
+    </div>
     
     <script>
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        // Navigation highlight
+        const sections = document.querySelectorAll('.category, .summary-section');
+        const navLinks = document.querySelectorAll('.nav a');
         
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 100) {
+                if (scrollY >= sectionTop - 200) {
                     current = section.getAttribute('id');
                 }
             });
@@ -2153,16 +1934,6 @@
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
-                }
-            });
-        });
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
