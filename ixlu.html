@@ -2581,7 +2581,7 @@ const ZHIHU_FALLBACK = [
 
 function init() {
 
-  tools = loadTools(); // 优先从 localStorage 加载，无数据时用默认数据
+  tools = _mergeReports(loadTools()); // 始终与 DEFAULT_TOOLS.reports 合并（2026-04-16 修复）
 
   renderNav();
 
