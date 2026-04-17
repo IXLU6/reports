@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿里巴巴国际站</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg: #070c18;
+  --bg2: #0d1528;
+  --bg3: #111e38;
+  --bg4: #162040;
+  --primary: #c8a44a;
+  --primary2: #e8c870;
+  --accent: #4a8ac8;
+  --text: #d8e4f0;
+  --text2: #8aa4c8;
+  --text3: #5a78a0;
+  --border: #1e3060;
+  --radius: 10px;
+  --card_border: #2a4060;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;font-size:15px;padding-bottom:80px}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,12,24,.95);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.nav-inner{display:flex;align-items:center;height:56px;padding:0 24px;max-width:1100px;margin:0 auto;overflow-x:auto;gap:4px}
+.nav a{display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:20px;font-size:13px;color:var(--text2);white-space:nowrap;transition:all .2s;text-decoration:none;border:1px solid transparent;flex-shrink:0}
+.nav a:hover,.nav a.active{color:var(--primary);border-color:var(--primary);background:rgba(74,232,112,.08)}
+
+.hero{padding:90px 24px 50px;text-align:center;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);border-bottom:1px solid var(--border)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg4);border:1px solid var(--primary);border-radius:20px;padding:5px 16px;font-size:12px;color:var(--primary);margin-bottom:24px}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:700;background:linear-gradient(135deg,var(--primary2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero-sub{color:var(--text2);font-size:16px;margin-bottom:20px}
+
+.section{padding:40px 24px;max-width:960px;margin:0 auto}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.section-title::before{content:'';display:block;width:4px;height:28px;background:linear-gradient(180deg,var(--primary2),var(--primary));border-radius:2px;flex-shrink:0}
+.section-title h2{font-size:22px;color:var(--primary2);font-weight:600}
+
+[id]{scroll-margin-top:80px}
+
+.tbl-wrap{overflow-x:auto;margin-bottom:24px;border-radius:var(--radius);border:1px solid var(--border)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{background:var(--bg3);color:var(--primary2);padding:10px 14px;text-align:left;font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap}
+.tbl td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+
+.logic-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:14px}
+.logic-card p{color:var(--text);font-size:14px;line-height:1.8}
+
+.stats-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:30px 24px;max-width:900px;margin:0 auto}
+.scard{flex:1;min-width:140px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center}
+.scard .num{font-size:clamp(22px,4vw,34px);font-weight:700;color:var(--primary2);line-height:1.1}
+.scard .lbl{color:var(--text3);font-size:12px;margin-top:6px}
+
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;padding:32px 24px;color:var(--text3);font-size:13px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.footer{text-align:center;padding:40px 24px;color:var(--text3);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
+
+@media(max-width:600px){
+  .stats-row{gap:10px}
+  .tbl{font-size:12px}
+  .nav-inner{padding:0 12px}
+}
+</style></head><body>
+<!-- 动态内容将由 build 函数填充 -->
+<div class="hero"><div class="hero-badge">📊 可视化报告</div>
+<h1>阿里巴巴国际站</h1>
+<p class="hero-sub">——  TOP 15 供应商深度档案  ——</p></div>
+<div class="section" id="ch1"><div class="section-title"><h2>目录</h2></div>
+<div class="logic-card"><p>报告共 981 段 · 详细内容请查看下方各章节</p></div>
+</div>
+<script>
+// IntersectionObserver for nav
+const navLinks = document.querySelectorAll('.nav a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector('.nav a[href="#' + entry.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
+document.querySelectorAll('[id]').forEach(s => obs.observe(s));
+</script></body></html>
