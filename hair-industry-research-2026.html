@@ -3,1214 +3,840 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>美发行业深度研究报告 2026</title>
+    <title>全球美发行业深度研究报告</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             background: linear-gradient(135deg, #fef9f3 0%, #fff5eb 100%);
-            color: #2d3436;
             line-height: 1.8;
+            color: #333;
+            padding: 20px;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
         
+        /* 头部 */
         .header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-            color: white;
-            border-radius: 24px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 60px rgba(255,107,107,0.3);
-        }
-        .header h1 { font-size: 2.2em; margin-bottom: 16px; font-weight: 700; }
-        .header .subtitle { font-size: 1.1em; opacity: 0.95; }
-        .header .meta { font-size: 0.9em; opacity: 0.8; margin-top: 10px; }
-        
-        .nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            padding: 16px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            z-index: 100;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .nav a {
-            padding: 8px 16px;
-            background: #fff;
-            border: 2px solid #ff6b6b;
-            color: #ff6b6b;
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .nav a:hover, .nav a.active {
-            background: #ff6b6b;
-            color: white;
-        }
-        
-        /* Chapter */
-        .chapter-block {
-            background: white;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            padding: 40px;
             border-radius: 20px;
             margin-bottom: 30px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.2);
         }
-        .chapter-title {
-            background: linear-gradient(135deg, #4ecdc4 0%, #6ee7df 100%);
-            color: white;
+        .header h1 {
+            font-size: 2.2em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .header .meta {
+            color: rgba(255,255,255,0.95);
+            font-size: 1em;
+        }
+        
+        /* 章节卡片 */
+        .chapter-card {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
             padding: 25px 30px;
+            border-radius: 16px;
+            margin: 30px 0 20px 0;
+            box-shadow: 0 8px 30px rgba(78, 205, 196, 0.3);
+        }
+        .chapter-card h2 {
+            color: #fff;
             font-size: 1.5em;
             font-weight: 700;
         }
-        .chapter-body {
-            padding: 30px;
-        }
         
-        /* Section */
-        .section-block {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 2px solid #f5f5f5;
-        }
-        .section-block:last-child {
-            border-bottom: none;
-        }
-        .section-title {
-            font-size: 1.3em;
-            color: #ff6b6b;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding: 12px 20px;
-            background: #fff5f5;
-            border-radius: 12px;
+        /* 小节卡片 */
+        .section-card {
+            background: #fff;
             border-left: 5px solid #ff6b6b;
-        }
-        
-        /* Subsection */
-        .subsection-block {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #fafafa;
-            border-radius: 12px;
-        }
-        .subsection-title {
-            font-size: 1.1em;
-            color: #2d3436;
-            font-weight: 600;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #ddd;
-        }
-        
-        /* Content */
-        .content-text {
-            color: #555;
-            margin-bottom: 12px;
-            text-align: justify;
-            line-height: 1.9;
-        }
-        
-        /* Highlight */
-        .highlight-box {
-            background: linear-gradient(135deg, #fff8f5 0%, #fff0e8 100%);
-            border-left: 4px solid #ff6b6b;
-            padding: 20px;
+            padding: 20px 25px;
+            margin: 20px 0;
             border-radius: 0 12px 12px 0;
-            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .highlight-box strong {
+        .section-card h3 {
             color: #ff6b6b;
+            font-size: 1.3em;
+            font-weight: 600;
         }
         
-        /* Stats */
-        .stats-row {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 20px 0;
+        /* 子节 */
+        .subsection {
+            background: #fff;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-bottom: 2px solid #f0f0f0;
         }
-        .stat-box {
-            flex: 1;
-            min-width: 150px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-            color: white;
+        .subsection h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        /* 高亮卡片 */
+        .highlight-card {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%);
+            border-left: 4px solid #ffc107;
+            padding: 18px 22px;
+            margin: 15px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 3px 10px rgba(255, 193, 7, 0.15);
+        }
+        .highlight-card strong {
+            color: #e65100;
+            font-weight: 600;
+        }
+        
+        /* 普通段落 */
+        .paragraph-card {
+            background: #fff;
+            padding: 18px 22px;
+            margin: 12px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        /* 列表项 */
+        .bullet-list {
+            background: #fff;
+            padding: 15px 22px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        .bullet-item {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .bullet-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        /* 表格 */
+        .table-container {
+            background: #fff;
             padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
-        .stat-value {
-            font-size: 1.6em;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        .stat-label {
-            font-size: 0.85em;
-            opacity: 0.9;
-        }
-        
-        /* Table */
-        .table-wrap {
-            overflow-x: auto;
             margin: 20px 0;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow-x: auto;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9em;
-            background: white;
         }
         th {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
             padding: 14px;
             text-align: left;
             font-weight: 600;
         }
         td {
             padding: 12px 14px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #eee;
         }
         tr:hover {
-            background: #fff8f5;
+            background: #f8f9ff;
         }
         
-        .footer {
+        /* 分隔线 */
+        .divider {
             text-align: center;
-            padding: 40px;
-            color: #888;
+            color: #ccc;
+            margin: 30px 0;
             font-size: 0.9em;
         }
         
-        @media (max-width: 768px) {
-            .header h1 { font-size: 1.6em; }
-            .chapter-body { padding: 20px; }
-            .stats-row { flex-direction: column; }
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+
         <div class="header">
-            <h1>美发行业深度研究报告</h1>
-            <div class="subtitle">2026年度 · 全球美发护理市场结构性变革分析</div>
-            <div class="meta">调研单位：肇庆凯捷科技有限公司 | 日期：2026年4月</div>
+            <h1>全球美发行业深度研究报告</h1>
+            <div class="meta">报告日期：2026年4月14日 | 出品方：肇庆凯捷科技有限公司</div>
         </div>
-        
-        <div class="nav">
-            <a href="#ch1">第一章</a>
-            <a href="#ch2">第二章</a>
-            <a href="#ch3">第三章</a>
-            <a href="#ch4">第四章</a>
-            <a href="#ch5">第五章</a>
-            <a href="#ch6">第六章</a>
-            <a href="#ch7">第七章</a>
+        <div class="divider">* * *</div>
+        <div class="paragraph-card">
+            执行摘要
         </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">1.1 市场规模与预测</div>
-                        <p class="content-text">年份</p>
-                        <p class="content-text">市场规模</p>
-                        <p class="content-text">备注</p>
-                        <p class="content-text">2024年</p>
-                        <p class="content-text">$1,072亿</p>
-                        <p class="content-text">基准年</p>
-                        <p class="content-text">2027年</p>
-                        <p class="content-text">$1,280亿</p>
-                        <p class="content-text">中期预测</p>
-                        <p class="content-text">2030年</p>
-                        <p class="content-text">$1,460-1,550亿</p>
-                        <p class="content-text">保守/乐观预测</p>
-                        <p class="content-text">CAGR</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.3%-5.9%</div>
-                        <p class="content-text">2024-2030</p>
-                        <p class="content-text">关键驱动因素：</p>
-                        <p class="content-text">**护肤化趋势（Skinification）**：头皮被视为皮肤延伸，精华液、安瓶进入护发领域</p>
-                        <p class="content-text">**成分透明化**：消费者主动搜索成分，科学背书成为购买决策关键</p>
-                        <p class="content-text">**包容性发质**：卷发/自然发质主流化，美国Black Hair Care增速+9%</p>
-                        <p class="content-text">**环保可持续**：固体皂/可降解包装/PCR材料溢价15-25%</p>
-                        <p class="content-text">**线上渗透率提升**：2024年线上占比33%，预计2030年超40%</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">1.2 线上渠道重要性</div>
-                        <p class="content-text">渠道</p>
-                        <p class="content-text">2024年占比</p>
-                        <p class="content-text">2030年预测</p>
-                        <p class="content-text">关键洞察</p>
-                        <p class="content-text">线上电商</p>
-                        <p class="content-text">33%</p>
-                        <p class="content-text">40%+</p>
-                        <p class="content-text">社媒种草+即时转化成为主流</p>
-                        <p class="content-text">专业沙龙</p>
-                        <p class="content-text">28%</p>
-                        <p class="content-text">25%</p>
-                        <p class="content-text">高端产品主要渠道</p>
-                        <p class="content-text">商超零售</p>
-                        <p class="content-text">25%</p>
-                        <p class="content-text">20%</p>
-                        <p class="content-text">大众品牌主阵地</p>
-                        <p class="content-text">其他</p>
-                        <p class="content-text">14%</p>
-                        <p class="content-text">15%</p>
-                        <p class="content-text">直销、专业店等</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">第二章：八大子类目深度分析</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">2.1 子类目规模与增速矩阵</div>
-                        <p class="content-text">排名</p>
-                        <p class="content-text">子类目</p>
-                        <p class="content-text">2024年规模</p>
-                        <p class="content-text">市场占比</p>
-                        <p class="content-text">CAGR</p>
-                        <p class="content-text">机会评级</p>
-                        <p class="content-text">1</p>
-                        <p class="content-text">洗发水</p>
-                        <p class="content-text">$362.7亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">33.8%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.2%</div>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">2</p>
-                        <p class="content-text">护发素/发膜</p>
-                        <p class="content-text">$198.4亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">18.5%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.8%</div>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">3</p>
-                        <p class="content-text">染发产品</p>
-                        <p class="content-text">$152.3亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">14.2%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.2%</div>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">4</p>
-                        <p class="content-text">造型品</p>
-                        <p class="content-text">$121.5亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">11.3%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">3.6%</div>
-                        <p class="content-text">⭐⭐⭐</p>
-                        <p class="content-text">5</p>
-                        <p class="content-text">护发精油</p>
-                        <p class="content-text">$87.6亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">8.2%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">6.1%</div>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">6</p>
-                        <p class="content-text">头皮护理</p>
-                        <p class="content-text">$63.8亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.9%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">7.1%-8.5%</div>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">7</p>
-                        <p class="content-text">男士专系列</p>
-                        <p class="content-text">$58.2亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.4%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">7.8%-9.7%</div>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">8</p>
-                        <p class="content-text">防脱育发</p>
-                        <p class="content-text">$31.6亿</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">2.9%</div>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">8.0%-9.0%</div>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">2.2 三大黄金赛道详解</div>
-                        <p class="content-text">赛道一：头皮护理（Scalp Care）</p>
-                        <p class="content-text">市场特征：</p>
-                        <p class="content-text">2024年规模：$63.8亿</p>
-                        <p class="content-text">CAGR：7.1%-8.5%（行业平均的1.5倍）</p>
-                        <p class="content-text">核心驱动力：护肤化趋势，头皮被视为"面部皮肤的延伸"</p>
-                        <p class="content-text">产品形态演进：</p>
-                        <p class="content-text">传统洗发水 → 头皮预洗精华 → 头皮磨砂膏 → 头皮安瓶 → 头皮微针</p>
-                        <p class="content-text">关键成分：</p>
-                        <p class="content-text">水杨酸：去角质、控油</p>
-                        <p class="content-text">烟酰胺：调节皮脂、强化屏障</p>
-                        <p class="content-text">迷迭香提取物：促进循环、防脱</p>
-                        <p class="content-text">益生菌：头皮微生态平衡</p>
-                        <p class="content-text">代表品牌：</p>
-                        <p class="content-text">Act+Acre（美国）：冷压工艺头皮护理，单品$30-50</p>
-                        <p class="content-text">Aveda（雅诗兰黛）：专业头皮护理线</p>
-                        <p class="content-text">卡诗（欧莱雅）：头皮系列高端定位</p>
-                        <p class="content-text">赛道二：男士美发（Men's Hair）</p>
-                        <p class="content-text">市场特征：</p>
-                        <p class="content-text">2024年规模：$58.2亿</p>
-                        <p class="content-text">CAGR：7.8%-9.7%（增速最快）</p>
-                        <p class="content-text">核心驱动力：男性美容意识觉醒，"颜值经济"向男性渗透</p>
-                        <p class="content-text">产品机会：</p>
-                        <p class="content-text">品类</p>
-                        <p class="content-text">机会点</p>
-                        <p class="content-text">代表产品</p>
-                        <p class="content-text">男士防脱</p>
-                        <p class="content-text">刚需高频，复购率高</p>
-                        <p class="content-text">Keeps、Hims订阅制防脱</p>
-                        <p class="content-text">胡须护理</p>
-                        <p class="content-text">增速+15%，蓝海市场</p>
-                        <p class="content-text">Beardbrand、Honest Amish</p>
-                        <p class="content-text">男士造型</p>
-                        <p class="content-text">发蜡/发泥/发油细分</p>
-                        <p class="content-text">American Crew、Baxter</p>
-                        <p class="content-text">男士洗护</p>
-                        <p class="content-text">清爽控油定位</p>
-                        <p class="content-text">Every Man Jack、Duke Cannon</p>
-                        <p class="content-text">关键洞察：</p>
-                        <p class="content-text">男性消费者偏好"一站式"解决方案</p>
-                        <p class="content-text">包装设计趋向"工业风""复古风"，避免女性化</p>
-                        <p class="content-text">订阅制模式在防脱品类验证成功</p>
-                        <p class="content-text">赛道三：防脱育发（Anti-Hair Loss）</p>
-                        <p class="content-text">市场特征：</p>
-                        <p class="content-text">2024年规模：$31.6亿</p>
-                        <p class="content-text">CAGR：8.0%-9.0%</p>
-                        <p class="content-text">阿里国际站增速：+67%（YoY）</p>
-                        <p class="content-text">产品形态：</p>
-                        <p class="content-text">形态</p>
-                        <p class="content-text">功效定位</p>
-                        <p class="content-text">价格带</p>
-                        <p class="content-text">防脱洗发水</p>
-                        <p class="content-text">日常预防</p>
-                        <p class="content-text">$15-30</p>
-                        <p class="content-text">头皮精华</p>
-                        <p class="content-text">密集修护</p>
-                        <p class="content-text">$30-60</p>
-                        <p class="content-text">生发液/安瓶</p>
-                        <p class="content-text">靶向治疗</p>
-                        <p class="content-text">$50-100</p>
-                        <p class="content-text">口服补充剂</p>
-                        <p class="content-text">内调外养</p>
-                        <p class="content-text">$20-40/月</p>
-                        <p class="content-text">激光生发仪</p>
-                        <p class="content-text">科技背书</p>
-                        <p class="content-text">$200-800</p>
-                        <p class="content-text">关键成分：</p>
-                        <p class="content-text">米诺地尔：FDA认证，临床验证</p>
-                        <p class="content-text">咖啡因：促进毛囊血液循环</p>
-                        <p class="content-text">生物素（Biotin）：强化发质</p>
-                        <p class="content-text">锯棕榈：天然DHT抑制剂</p>
-                        <p class="content-text">代表品牌：</p>
-                        <p class="content-text">Rogaine（强生）：米诺地尔鼻祖</p>
-                        <p class="content-text">Nutrafol：口服防脱，$80/月订阅</p>
-                        <p class="content-text">Vegamour：植物防脱，高端定位</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">第三章：成分趋势情报</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">3.1 P0级热门成分（立即布局）</div>
-                        <p class="content-text">成分</p>
-                        <p class="content-text">热度</p>
-                        <p class="content-text">适用产品</p>
-                        <p class="content-text">工厂成本</p>
-                        <p class="content-text">全球合规</p>
-                        <p class="content-text">科学背书</p>
-                        <p class="content-text">**氨基酸系**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">洗发水/护发素</p>
-                        <p class="content-text">低</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">温和清洁，pH平衡</p>
-                        <p class="content-text">**迷迭香提取物**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">精华液/头皮护理</p>
-                        <p class="content-text">低</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">促进头皮循环，防脱</p>
-                        <p class="content-text">**咖啡因**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">防脱精华/洗发水</p>
-                        <p class="content-text">低</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">促进毛囊血液循环</p>
-                        <p class="content-text">**生物素（Biotin）**</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">防脱/洗发水</p>
-                        <p class="content-text">低</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">强化发质，减少断裂</p>
-                        <p class="content-text">**烟酰胺**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">头皮护理/护发</p>
-                        <p class="content-text">低</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">调节皮脂，强化屏障</p>
-                        <p class="content-text">**透明质酸**</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">护发素/发膜</p>
-                        <p class="content-text">中</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">深层保湿</p>
-                        <p class="content-text">**角蛋白**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">修护发膜/精华</p>
-                        <p class="content-text">中</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">填补受损发质</p>
-                        <p class="content-text">**摩洛哥坚果油**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">护发精油</p>
-                        <p class="content-text">中</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">经典高端护发</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">3.2 键合修复技术成分（高端定位）</div>
-                        <p class="content-text">成分</p>
-                        <p class="content-text">功效机制</p>
-                        <p class="content-text">代表品牌</p>
-                        <p class="content-text">溢价能力</p>
-                        <p class="content-text">**Bis-Aminopropyl Diglycol Dimaleate**</p>
-                        <p class="content-text">分子级修复二硫键</p>
-                        <p class="content-text">Olaplex</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">**K18肽**</p>
-                        <p class="content-text">仿生肽修复</p>
-                        <p class="content-text">K18 Hair</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">**马来酸**</p>
-                        <p class="content-text">键合修复</p>
-                        <p class="content-text">各品牌平替</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">**半胱氨酸**</p>
-                        <p class="content-text">重建发质结构</p>
-                        <p class="content-text">专业沙龙线</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">市场洞察：</p>
-                        <p class="content-text">Olaplex凭单一成分建立$40亿市值</p>
-                        <p class="content-text">键合修复概念已从沙龙走向大众</p>
-                        <p class="content-text">平替机会：用"键合修复"概念+亲民价格切入</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">3.3 热门油脂成分（护发精油赛道）</div>
-                        <p class="content-text">成分</p>
-                        <p class="content-text">热度</p>
-                        <p class="content-text">来源</p>
-                        <p class="content-text">核心卖点</p>
-                        <p class="content-text">窗口期</p>
-                        <p class="content-text">**摩洛哥坚果油**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">摩洛哥</p>
-                        <p class="content-text">经典高端护发油</p>
-                        <p class="content-text">长期</p>
-                        <p class="content-text">**Batana Oil**</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">洪都拉斯</p>
-                        <p class="content-text">TikTok 2024爆火</p>
-                        <p class="content-text">**12-18个月**</p>
-                        <p class="content-text">**山茶花油**</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">亚洲</p>
-                        <p class="content-text">镜面光泽，轻盈不油腻</p>
-                        <p class="content-text">长期</p>
-                        <p class="content-text">**角鲨烷**</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">植物提取</p>
-                        <p class="content-text">轻盈保湿，模拟皮脂</p>
-                        <p class="content-text">长期</p>
-                        <p class="content-text">**荷荷巴油**</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">墨西哥</p>
-                        <p class="content-text">最接近人体皮脂</p>
-                        <p class="content-text">长期</p>
-                        <p class="content-text">**玫瑰果油**</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">智利</p>
-                        <p class="content-text">修护+抗氧化</p>
-                        <p class="content-text">长期</p>
-                        <p class="content-text">Batana Oil 机会窗口：</p>
-                        <p class="content-text">TikTok 2024年现象级爆火</p>
-                        <p class="content-text">目前供应链尚未完全成熟</p>
-                        <p class="content-text">建议：立即布局，抢占"Batana Oil护发"品类词</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">3.4 成分组合策略</div>
-                        <p class="content-text">功效定位</p>
-                        <p class="content-text">推荐成分组合</p>
-                        <p class="content-text">产品形态</p>
-                        <p class="content-text">防脱育发</p>
-                        <p class="content-text">咖啡因+生物素+迷迭香+锯棕榈</p>
-                        <p class="content-text">头皮精华/洗发水</p>
-                        <p class="content-text">深层修护</p>
-                        <p class="content-text">角蛋白+氨基酸+神经酰胺</p>
-                        <p class="content-text">发膜/护发素</p>
-                        <p class="content-text">染后护色</p>
-                        <p class="content-text">紫色色素+UV过滤+摩洛哥油</p>
-                        <p class="content-text">紫色洗发水/护发素</p>
-                        <p class="content-text">头皮平衡</p>
-                        <p class="content-text">水杨酸+烟酰胺+益生菌</p>
-                        <p class="content-text">头皮精华/磨砂膏</p>
-                        <p class="content-text">轻盈保湿</p>
-                        <p class="content-text">透明质酸+角鲨烷+山茶花油</p>
-                        <p class="content-text">护发精油/喷雾</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">第四章：竞争格局分析</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.1 阿里国际站美发TOP15供应商</div>
-                        <p class="content-text">排名</p>
-                        <p class="content-text">公司</p>
-                        <p class="content-text">年限</p>
-                        <p class="content-text">星级</p>
-                        <p class="content-text">年交易额</p>
-                        <p class="content-text">核心优势</p>
-                        <p class="content-text">品牌矩阵</p>
-                        <p class="content-text">#1</p>
-                        <p class="content-text">**Chinchy**</p>
-                        <p class="content-text">11年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.0⭐</div>
-                        <p class="content-text">$690K+</p>
-                        <p class="content-text">5品牌矩阵，多系列</p>
-                        <p class="content-text">Pallamina/Karseell/Romacy/Navensi</p>
-                        <p class="content-text">#2</p>
-                        <p class="content-text">**Maykay**</p>
-                        <p class="content-text">17年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.0⭐</div>
-                        <p class="content-text">$850K+</p>
-                        <p class="content-text">HALAL认证，中东王者</p>
-                        <p class="content-text">单一品牌高端定位</p>
-                        <p class="content-text">#3</p>
-                        <p class="content-text">**Lezon(Dexe)**</p>
-                        <p class="content-text">12年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.0⭐</div>
-                        <p class="content-text">$130K+</p>
-                        <p class="content-text">Dexe品牌全球知名</p>
-                        <p class="content-text">Dexe</p>
-                        <p class="content-text">#4</p>
-                        <p class="content-text">**Cimei**</p>
-                        <p class="content-text">10年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.6⭐</div>
-                        <p class="content-text">$510K+</p>
-                        <p class="content-text">7大产品线全覆盖</p>
-                        <p class="content-text">多品牌</p>
-                        <p class="content-text">#5</p>
-                        <p class="content-text">**Meihui**</p>
-                        <p class="content-text">8年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.9⭐</div>
-                        <p class="content-text">$230K+</p>
-                        <p class="content-text">头发纤维粉专家</p>
-                        <p class="content-text">单一品牌</p>
-                        <p class="content-text">#6</p>
-                        <p class="content-text">**Mebamy**</p>
-                        <p class="content-text">11年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.6⭐</div>
-                        <p class="content-text">$120K+</p>
-                        <p class="content-text">护肤品为主</p>
-                        <p class="content-text">多品牌</p>
-                        <p class="content-text">#7</p>
-                        <p class="content-text">**Yucaitang**</p>
-                        <p class="content-text">17年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.7⭐</div>
-                        <p class="content-text">-</p>
-                        <p class="content-text">Dexe关联</p>
-                        <p class="content-text">Dexe</p>
-                        <p class="content-text">#8</p>
-                        <p class="content-text">**Meidu**</p>
-                        <p class="content-text">16年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.8⭐</div>
-                        <p class="content-text">$2M/年</p>
-                        <p class="content-text">22年经验，17语言</p>
-                        <p class="content-text">22个商标</p>
-                        <p class="content-text">#9</p>
-                        <p class="content-text">**Hodm**</p>
-                        <p class="content-text">11年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.9⭐</div>
-                        <p class="content-text">$130K+</p>
-                        <p class="content-text">5专业系列</p>
-                        <p class="content-text">ARGAN OIL/BRRS/PRO/LOVEPLEX/SOORGANIC</p>
-                        <p class="content-text">#10</p>
-                        <p class="content-text">**Baytiful**</p>
-                        <p class="content-text">6年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.9⭐</div>
-                        <p class="content-text">$60K+</p>
-                        <p class="content-text">5品牌矩阵，精品路线</p>
-                        <p class="content-text">Pallamina/ECOLCHI/DELOFIL/ROMACY/KARSEELL</p>
-                        <p class="content-text">#11</p>
-                        <p class="content-text">**Nongcai**</p>
-                        <p class="content-text">10年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.8⭐</div>
-                        <p class="content-text">$2M/年</p>
-                        <p class="content-text">造型王者，价格极低</p>
-                        <p class="content-text">单一品牌</p>
-                        <p class="content-text">#12</p>
-                        <p class="content-text">**Perfect Link**</p>
-                        <p class="content-text">11年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.4⭐</div>
-                        <p class="content-text">$150K+</p>
-                        <p class="content-text">造型/护肤/彩妆/护发</p>
-                        <p class="content-text">多品牌</p>
-                        <p class="content-text">#13</p>
-                        <p class="content-text">**Tinsun**</p>
-                        <p class="content-text">5年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.8⭐</div>
-                        <p class="content-text">$120K+</p>
-                        <p class="content-text">Biotin防脱专家，5项专利</p>
-                        <p class="content-text">单一品牌</p>
-                        <p class="content-text">#14</p>
-                        <p class="content-text">**Amarrie**</p>
-                        <p class="content-text">15年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.0⭐</div>
-                        <p class="content-text">$540K+</p>
-                        <p class="content-text">纯素/有机</p>
-                        <p class="content-text">Neutriherbs</p>
-                        <p class="content-text">#15</p>
-                        <p class="content-text">**Yicai**</p>
-                        <p class="content-text">8年</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.8⭐</div>
-                        <p class="content-text">$4K+</p>
-                        <p class="content-text">角蛋白修护细分</p>
-                        <p class="content-text">单一品牌</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.2 头部竞品共性策略</div>
-                        <p class="content-text">策略维度</p>
-                        <p class="content-text">头部做法</p>
-                        <p class="content-text">凯捷现状</p>
-                        <p class="content-text">差距评估</p>
-                        <p class="content-text">**多品牌矩阵**</p>
-                        <p class="content-text">Chinchy 5个，Baytiful 5个</p>
-                        <p class="content-text">4个品牌</p>
-                        <p class="content-text">⚠️ 接近</p>
-                        <p class="content-text">**多语言站点**</p>
-                        <p class="content-text">15-17种语言是标配</p>
-                        <p class="content-text">需确认</p>
-                        <p class="content-text">⚠️ 待完善</p>
-                        <p class="content-text">**系列化产品**</p>
-                        <p class="content-text">Purple Shampoo/Argan Oil/Keratin全覆盖</p>
-                        <p class="content-text">部分覆盖</p>
-                        <p class="content-text">❌ 有差距</p>
-                        <p class="content-text">**认证展示**</p>
-                        <p class="content-text">Gold年限+验厂视频+生产线验证</p>
-                        <p class="content-text">14年金牌+FDA/GMP</p>
-                        <p class="content-text">✅ 领先</p>
-                        <p class="content-text">**客单价**</p>
-                        <p class="content-text">Maykay $17,708/单</p>
-                        <p class="content-text">需分析</p>
-                        <p class="content-text">⚠️ 待提升</p>
-                        <p class="content-text">**响应速度**</p>
-                        <p class="content-text">5星供应商≤3h</p>
-                        <p class="content-text">需确认</p>
-                        <p class="content-text">⚠️ 待优化</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">4.3 6大子类目TOP5供应商</div>
-                        <p class="content-text">染发膏类目</p>
-                        <p class="content-text">排名</p>
-                        <p class="content-text">公司</p>
-                        <p class="content-text">核心优势</p>
-                        <p class="content-text">热销产品</p>
-                        <p class="content-text">#1</p>
-                        <p class="content-text">**Maykay**</p>
-                        <p class="content-text">17年金牌，HALAL认证</p>
-                        <p class="content-text">染发膏、染发剂</p>
-                        <p class="content-text">#2</p>
-                        <p class="content-text">**Lezon(Dexe)**</p>
-                        <p class="content-text">Dexe品牌全球知名</p>
-                        <p class="content-text">染发膏、染发梳</p>
-                        <p class="content-text">#3</p>
-                        <p class="content-text">**Cimei**</p>
-                        <p class="content-text">10年金牌，CPNP欧盟认证</p>
-                        <p class="content-text">植物染发膏</p>
-                        <p class="content-text">#4</p>
-                        <p class="content-text">**Yucaitang**</p>
-                        <p class="content-text">Dexe关联</p>
-                        <p class="content-text">染发洗发水</p>
-                        <p class="content-text">#5</p>
-                        <p class="content-text">**Chinchy**</p>
-                        <p class="content-text">5品牌矩阵</p>
-                        <p class="content-text">染发膏套装</p>
-                        <p class="content-text">发膜类目</p>
-                        <p class="content-text">排名</p>
-                        <p class="content-text">公司</p>
-                        <p class="content-text">核心优势</p>
-                        <p class="content-text">热销产品</p>
-                        <p class="content-text">#1</p>
-                        <p class="content-text">**Chinchy**</p>
-                        <p class="content-text">角蛋白修护专家</p>
-                        <p class="content-text">角蛋白发膜</p>
-                        <p class="content-text">#2</p>
-                        <p class="content-text">**Cimei**</p>
-                        <p class="content-text">7大产品线</p>
-                        <p class="content-text">深层修护发膜</p>
-                        <p class="content-text">#3</p>
-                        <p class="content-text">**Hodm**</p>
-                        <p class="content-text">5专业系列</p>
-                        <p class="content-text">ARGAN OIL发膜</p>
-                        <p class="content-text">#4</p>
-                        <p class="content-text">**Baytiful**</p>
-                        <p class="content-text">精品路线</p>
-                        <p class="content-text">沙龙级发膜</p>
-                        <p class="content-text">#5</p>
-                        <p class="content-text">**Meidu**</p>
-                        <p class="content-text">22年经验</p>
-                        <p class="content-text">专业发膜</p>
-                        <p class="content-text">护发精油类目</p>
-                        <p class="content-text">排名</p>
-                        <p class="content-text">公司</p>
-                        <p class="content-text">核心优势</p>
-                        <p class="content-text">热销产品</p>
-                        <p class="content-text">#1</p>
-                        <p class="content-text">**Chinchy**</p>
-                        <p class="content-text">多系列布局</p>
-                        <p class="content-text">摩洛哥油/阿甘油</p>
-                        <p class="content-text">#2</p>
-                        <p class="content-text">**Hodm**</p>
-                        <p class="content-text">ARGAN OIL系列</p>
-                        <p class="content-text">摩洛哥坚果油</p>
-                        <p class="content-text">#3</p>
-                        <p class="content-text">**Cimei**</p>
-                        <p class="content-text">全覆盖</p>
-                        <p class="content-text">护发精油系列</p>
-                        <p class="content-text">#4</p>
-                        <p class="content-text">**Baytiful**</p>
-                        <p class="content-text">品牌溢价</p>
-                        <p class="content-text">高端护发油</p>
-                        <p class="content-text">#5</p>
-                        <p class="content-text">**Meidu**</p>
-                        <p class="content-text">出口经验</p>
-                        <p class="content-text">护发精油</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">第五章：新兴品牌对标研究</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.1 洗发水新兴品牌TOP10</div>
-                        <p class="content-text">排名</p>
-                        <p class="content-text">品牌</p>
-                        <p class="content-text">国家</p>
-                        <p class="content-text">营收</p>
-                        <p class="content-text">核心差异化</p>
-                        <p class="content-text">TikTok热度</p>
-                        <p class="content-text">#1</p>
-                        <p class="content-text">**MONDAY**</p>
-                        <p class="content-text">澳大利亚</p>
-                        <p class="content-text">$3-4亿</p>
-                        <p class="content-text">粉色方瓶颜值经济</p>
-                        <p class="content-text">★★★★★</p>
-                        <p class="content-text">#2</p>
-                        <p class="content-text">**Mielle**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">$10亿+</p>
-                        <p class="content-text">迷迭香生发概念</p>
-                        <p class="content-text">★★★★★</p>
-                        <p class="content-text">#3</p>
-                        <p class="content-text">**OUAI**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">$1.5亿</p>
-                        <p class="content-text">轻奢沙龙+Refill环保</p>
-                        <p class="content-text">★★★★</p>
-                        <p class="content-text">#4</p>
-                        <p class="content-text">**K18**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">$4.1亿</p>
-                        <p class="content-text">分子级修复科技</p>
-                        <p class="content-text">★★★★★</p>
-                        <p class="content-text">#5</p>
-                        <p class="content-text">**Olaplex**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">$4.23亿</p>
-                        <p class="content-text">键合修复黑科技</p>
-                        <p class="content-text">★★★★★</p>
-                        <p class="content-text">#6</p>
-                        <p class="content-text">**amika**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">$2.5亿</p>
-                        <p class="content-text">活力美学+免洗产品</p>
-                        <p class="content-text">★★★★</p>
-                        <p class="content-text">#7</p>
-                        <p class="content-text">**Native**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">P&G旗下</p>
-                        <p class="content-text">清洁大众+天然成分</p>
-                        <p class="content-text">★★★</p>
-                        <p class="content-text">#8</p>
-                        <p class="content-text">**Act+Acre**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">精品新锐</p>
-                        <p class="content-text">冷压工艺头皮护理</p>
-                        <p class="content-text">★★★</p>
-                        <p class="content-text">#9</p>
-                        <p class="content-text">**dae**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">$10-20M</p>
-                        <p class="content-text">沙漠植物KOL驱动</p>
-                        <p class="content-text">★★★★</p>
-                        <p class="content-text">#10</p>
-                        <p class="content-text">**Spes诗裴丝**</p>
-                        <p class="content-text">中国</p>
-                        <p class="content-text">20亿人民币</p>
-                        <p class="content-text">海盐洗头膏固态形态</p>
-                        <p class="content-text">★★★★★</p>
-                        <p class="content-text">关键洞察：</p>
-                        <p class="content-text">**颜值即营销**：MONDAY凭粉色方瓶成为TikTok爆款</p>
-                        <p class="content-text">**成分故事化**：Mielle靠"迷迭香生发"建立品牌心智</p>
-                        <p class="content-text">**科技背书**：K18/Olaplex用专利成分建立高端壁垒</p>
-                        <p class="content-text">**形态创新**：Spes诗裴丝以"固态洗头膏"差异化突围</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">5.2 染膏新兴品牌TOP8</div>
-                        <p class="content-text">排名</p>
-                        <p class="content-text">品牌</p>
-                        <p class="content-text">国家</p>
-                        <p class="content-text">核心创新</p>
-                        <p class="content-text">白牌参考价值</p>
-                        <p class="content-text">#1</p>
-                        <p class="content-text">**SHRINE (DROP IT)**</p>
-                        <p class="content-text">英国</p>
-                        <p class="content-text">滴剂形态，一瓶30次</p>
-                        <p class="content-text">形态创新，物流成本低</p>
-                        <p class="content-text">#2</p>
-                        <p class="content-text">**Hally Hair**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">无氨泡沫染，外卖盒包装</p>
-                        <p class="content-text">新手友好，泡沫泵头技术</p>
-                        <p class="content-text">#3</p>
-                        <p class="content-text">**Arctic Fox**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">纯素高饱和色，15%利润捐动物保护</p>
-                        <p class="content-text">粉丝忠诚度，高粘度配方</p>
-                        <p class="content-text">#4</p>
-                        <p class="content-text">**XMONDO Color**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">键合修复染膏，工业风包装</p>
-                        <p class="content-text">染护一体，溢价能力高</p>
-                        <p class="content-text">#5</p>
-                        <p class="content-text">**Madison Reed**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">AI测肤色选号，全套工具包</p>
-                        <p class="content-text">服务化产品，专业工具包</p>
-                        <p class="content-text">#6</p>
-                        <p class="content-text">**Lunar Tides**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">丝绒莫兰迪色系</p>
-                        <p class="content-text">冷门高级色差异化</p>
-                        <p class="content-text">#7</p>
-                        <p class="content-text">**Bleach London**</p>
-                        <p class="content-text">英国</p>
-                        <p class="content-text">漂发套装行业标杆</p>
-                        <p class="content-text">漂染系统化解决方案</p>
-                        <p class="content-text">#8</p>
-                        <p class="content-text">**Lime Crime**</p>
-                        <p class="content-text">美国</p>
-                        <p class="content-text">独角兽美学，梦幻包装</p>
-                        <p class="content-text">视觉系包装心理学</p>
-                        <p class="content-text">关键洞察：</p>
-                        <p class="content-text">**形态创新**：滴剂/泡沫/膏体多形态满足细分需求</p>
-                        <p class="content-text">**环保叙事**：纯素/无氨/可降解成为标配</p>
-                        <p class="content-text">**工具化**：染发套装+全套工具提升客单价</p>
-                        <p class="content-text">**视觉差异化**：工业风/梦幻风/极简风建立品牌识别</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">第六章：区域市场战略</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">6.1 中亚五国+俄罗斯（战略重点）</div>
-                        <p class="content-text">国家</p>
-                        <p class="content-text">人口</p>
-                        <p class="content-text">EAEU</p>
-                        <p class="content-text">人均GDP</p>
-                        <p class="content-text">市场规模</p>
-                        <p class="content-text">核心需求</p>
-                        <p class="content-text">优先级</p>
-                        <p class="content-text">**哈萨克斯坦**</p>
-                        <p class="content-text">1,980万</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">$9,800</p>
-                        <p class="content-text">$1.2亿</p>
-                        <p class="content-text">高端护发/抗衰老</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">**乌兹别克斯坦**</p>
-                        <p class="content-text">3,600万</p>
-                        <p class="content-text">✗</p>
-                        <p class="content-text">$2,200</p>
-                        <p class="content-text">$0.9亿</p>
-                        <p class="content-text">大众护发/防脱</p>
-                        <p class="content-text">⭐⭐⭐⭐</p>
-                        <p class="content-text">**吉尔吉斯斯坦**</p>
-                        <p class="content-text">700万</p>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">$1,500</p>
-                        <p class="content-text">$0.2亿</p>
-                        <p class="content-text">基础洗护</p>
-                        <p class="content-text">⭐⭐⭐</p>
-                        <p class="content-text">**塔吉克斯坦**</p>
-                        <p class="content-text">1,000万</p>
-                        <p class="content-text">✗</p>
-                        <p class="content-text">$1,100</p>
-                        <p class="content-text">$0.2亿</p>
-                        <p class="content-text">基础洗护</p>
-                        <p class="content-text">⭐⭐⭐</p>
-                        <p class="content-text">**土库曼斯坦**</p>
-                        <p class="content-text">600万</p>
-                        <p class="content-text">✗</p>
-                        <p class="content-text">$7,600</p>
-                        <p class="content-text">$0.1亿</p>
-                        <p class="content-text">中高端护发</p>
-                        <p class="content-text">⭐⭐⭐</p>
-                        <p class="content-text">**俄罗斯**</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">1.4亿</div>
-                        <p class="content-text">✓</p>
-                        <p class="content-text">-</p>
-                        <p class="content-text">$36亿</p>
-                        <p class="content-text">西方品牌退出后的空白市场</p>
-                        <p class="content-text">⭐⭐⭐⭐⭐</p>
-                        <p class="content-text">关键认证：EAC认证</p>
-                        <p class="content-text">标准：TR EAEU 009/2011（香水和化妆品安全技术法规）</p>
-                        <p class="content-text">覆盖：俄罗斯、哈萨克斯坦、白俄罗斯、吉尔吉斯斯坦、亚美尼亚</p>
-                        <p class="content-text">费用：$2,000-6,000</p>
-                        <p class="content-text">周期：2-4个月</p>
-                        <p class="content-text">优势：一次认证，五国通用</p>
-                        <p class="content-text">战略建议：</p>
-                        <p class="content-text">优先申请EAC认证，抢占俄罗斯市场空白</p>
-                        <p class="content-text">哈萨克斯坦作为高端市场突破口</p>
-                        <p class="content-text">乌兹别克斯坦作为大众市场放量</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">6.2 其他重点市场</div>
-                        <p class="content-text">市场</p>
-                        <p class="content-text">规模</p>
-                        <p class="content-text">特征</p>
-                        <p class="content-text">机会点</p>
-                        <p class="content-text">**北美**</p>
-                        <p class="content-text">$280亿</p>
-                        <p class="content-text">成熟市场，成分党主导</p>
-                        <p class="content-text">键合修复、防脱、头皮护理</p>
-                        <p class="content-text">**欧洲**</p>
-                        <p class="content-text">$220亿</p>
-                        <p class="content-text">环保法规严格，Clean Beauty</p>
-                        <p class="content-text">纯素认证、可持续包装</p>
-                        <p class="content-text">**东南亚**</p>
-                        <p class="content-text">$85亿</p>
-                        <p class="content-text">高速增长，价格敏感</p>
-                        <p class="content-text">性价比套装、防脱发</p>
-                        <p class="content-text">**中东**</p>
-                        <p class="content-text">$45亿</p>
-                        <p class="content-text">HALAL认证门槛，高客单价</p>
-                        <p class="content-text">HALAL染发、高端护发</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">第七章：凯捷科技战略建议</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">7.1 SWOT分析</div>
-                        <p class="content-text">**优势 (Strengths)**</p>
-                        <p class="content-text">**劣势 (Weaknesses)**</p>
-                        <p class="content-text">✓ 23年行业经验，14年阿里金牌</p>
-                        <p class="content-text">✗ 品牌化产品数量偏少</p>
-                        <p class="content-text">✓ 55,000㎡厂房，255人规模</p>
-                        <p class="content-text">✗ Purple Shampoo等趋势品类缺位</p>
-                        <p class="content-text">✓ FDA/GMP/ISO认证齐全</p>
-                        <p class="content-text">✗ 多语言站点建设待完善</p>
-                        <p class="content-text">✓ 5,000+成熟配方储备</p>
-                        <p class="content-text">✗ 客单价和头部有差距</p>
-                        <p class="content-text">✓ 4个自有品牌矩阵</p>
-                        <p class="content-text">✗ HALAL认证尚未布局</p>
-                        <p class="content-text">✓ 头发护理品类准时交货率第3</p>
-                        <p class="content-text">✗ 中亚/俄罗斯市场认证空白</p>
-                        <p class="content-text">**机会 (Opportunities)**</p>
-                        <p class="content-text">**威胁 (Threats)**</p>
-                        <p class="content-text">✓ 三大黄金赛道高速增长</p>
-                        <p class="content-text">✗ 头部竞品多品牌矩阵优势</p>
-                        <p class="content-text">✓ 俄罗斯市场西方品牌退出</p>
-                        <p class="content-text">✗ 新兴品牌形态创新冲击</p>
-                        <p class="content-text">✓ Batana Oil等窗口期成分</p>
-                        <p class="content-text">✗ 中亚市场EAC认证门槛</p>
-                        <p class="content-text">✓ 键合修复技术平替机会</p>
-                        <p class="content-text">✗ 价格战压力（Nongcai等）</p>
-                        <p class="content-text">✓ 男士美发蓝海市场</p>
-                        <p class="content-text">✗ 成分透明化带来的教育成本</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">7.2 90天行动计划</div>
-                        <p class="content-text">Phase 1：产品补全（第1-30天）</p>
-                        <p class="content-text">优先级</p>
-                        <p class="content-text">行动项</p>
-                        <p class="content-text">目标</p>
-                        <p class="content-text">P0</p>
-                        <p class="content-text">开发Purple Shampoo（紫色护色洗发水）</p>
-                        <p class="content-text">卡位染后护理赛道</p>
-                        <p class="content-text">P0</p>
-                        <p class="content-text">开发Batana Oil护发精油</p>
-                        <p class="content-text">抢占TikTok窗口期</p>
-                        <p class="content-text">P0</p>
-                        <p class="content-text">开发Biotin防脱洗发水</p>
-                        <p class="content-text">切入防脱高增长赛道</p>
-                        <p class="content-text">P1</p>
-                        <p class="content-text">开发键合修复发膜（Olaplex平替）</p>
-                        <p class="content-text">高端修护市场</p>
-                        <p class="content-text">P1</p>
-                        <p class="content-text">开发男士专用洗护系列</p>
-                        <p class="content-text">切入男士蓝海</p>
-                        <p class="content-text">Phase 2：认证布局（第15-60天）</p>
-                        <p class="content-text">优先级</p>
-                        <p class="content-text">行动项</p>
-                        <p class="content-text">目标市场</p>
-                        <p class="content-text">P0</p>
-                        <p class="content-text">启动EAC认证申请</p>
-                        <p class="content-text">俄罗斯+中亚五国</p>
-                        <p class="content-text">P1</p>
-                        <p class="content-text">启动HALAL认证申请</p>
-                        <p class="content-text">中东+东南亚</p>
-                        <p class="content-text">P1</p>
-                        <p class="content-text">完善CPNP欧盟化妆品通报</p>
-                        <p class="content-text">欧洲市场合规</p>
-                        <p class="content-text">Phase 3：品牌升级（第30-90天）</p>
-                        <p class="content-text">优先级</p>
-                        <p class="content-text">行动项</p>
-                        <p class="content-text">目标</p>
-                        <p class="content-text">P0</p>
-                        <p class="content-text">阿里站产品品牌归属标注优化</p>
-                        <p class="content-text">一品牌一赛道清晰化</p>
-                        <p class="content-text">P0</p>
-                        <p class="content-text">主图/详情页品牌化改造</p>
-                        <p class="content-text">提升转化率</p>
-                        <p class="content-text">P1</p>
-                        <p class="content-text">建设15+语言站点</p>
-                        <p class="content-text">全球化布局</p>
-                        <p class="content-text">P1</p>
-                        <p class="content-text">响应速度优化至≤1h</p>
-                        <p class="content-text">超越头部竞品</p>
-                    </div>
-                    <div class="subsection-block">
-                        <div class="subsection-title">7.3 长期战略（12个月）</div>
-                        <p class="content-text">维度</p>
-                        <p class="content-text">目标</p>
-                        <p class="content-text">关键举措</p>
-                        <p class="content-text">**营收**</p>
-                        <p class="content-text">年出口额突破$3M</p>
-                        <p class="content-text">高端OBM订单+中亚市场放量</p>
-                        <p class="content-text">**品牌**</p>
-                        <p class="content-text">建立2个行业知名品牌</p>
-                        <p class="content-text">COLOURWAY染发 + OLOŔCHEE护发</p>
-                        <p class="content-text">**产品**</p>
-                        <p class="content-text">完成趋势品类全覆盖</p>
-                        <p class="content-text">Purple/Batana/Biotin/键合修复</p>
-                        <p class="content-text">**市场**</p>
-                        <p class="content-text">中亚+俄罗斯占比达20%</p>
-                        <p class="content-text">EAC认证+本地化运营</p>
-                        <p class="content-text">**认证**</p>
-                        <p class="content-text">完成HALAL+EAC+更多欧盟认证</p>
-                        <p class="content-text">全球市场无障碍准入</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">附录</p>
-                        <p class="content-text">附录A：关键术语表</p>
-                        <p class="content-text">术语</p>
-                        <p class="content-text">解释</p>
-                        <p class="content-text">**CAGR**</p>
-                        <p class="content-text">复合年均增长率</p>
-                        <p class="content-text">**EAC**</p>
-                        <p class="content-text">欧亚经济联盟合格认证</p>
-                        <p class="content-text">**HALAL**</p>
-                        <p class="content-text">清真认证</p>
-                        <p class="content-text">**CPNP**</p>
-                        <p class="content-text">欧盟化妆品通报门户</p>
-                        <p class="content-text">**OBM**</p>
-                        <p class="content-text">自有品牌制造</p>
-                        <p class="content-text">**OEM**</p>
-                        <p class="content-text">原始设备制造</p>
-                        <p class="content-text">**ODM**</p>
-                        <p class="content-text">原始设计制造</p>
-                        <p class="content-text">**MOQ**</p>
-                        <p class="content-text">最小起订量</p>
-                        <p class="content-text">**CIF**</p>
-                        <p class="content-text">成本+保险+运费</p>
-                        <p class="content-text">**FOB**</p>
-                        <p class="content-text">离岸价</p>
-                        <p class="content-text">附录B：数据来源</p>
-                        <p class="content-text">阿里国际站美发TOP15供应商调研报告</p>
-                        <p class="content-text">阿里国际站美发6大子类目TOP5供应商调研报告</p>
-                        <p class="content-text">全球美发产品市场深度调研报告_2025</p>
-                        <p class="content-text">全球美发品牌概览</p>
-                        <p class="content-text">全球染膏新兴品牌深度调研报告</p>
-                        <p class="content-text">全球洗发水新兴品牌深度调研报告</p>
-                        <p class="content-text">全球美发热门成分调研报告_2026年3月</p>
-                        <p class="content-text">各竞品官方网站及阿里国际站店铺</p>
-                        <p class="content-text">附录C：报告更新记录</p>
-                        <p class="content-text">日期</p>
-                        <p class="content-text">版本</p>
-                        <p class="content-text">更新内容</p>
-                        <p class="content-text">2026-04-14</p>
-                        <p class="content-text">v1.0</p>
-                        <p class="content-text">初始版本，整合8份研报及竞品调研</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">报告编制：AI战略研究助手</p>
-                        <p class="content-text">审核：待补充</p>
-                        <p class="content-text">分发：内部战略参考</p>
-                        <p class="content-text">──────────────────────────────────────────────────</p>
-                        <p class="content-text">*本报告基于公开信息及行业调研编制，仅供内部战略参考使用。*</p>
-                    </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>全球美发护理市场正处于结构性变革期。2024年市场规模约1,072亿美元，预计2030年将达到1,460-1,550亿美元（CAGR 5.3%-5.9%）。三大黄金赛道——头皮护理、男士美发、防脱育发——增速远超行业平均，成为品牌突围的关键战场。
+        </div>
+        <div class="paragraph-card">
+            中国供应链在全球美发产业中占据核心地位，阿里国际站头部供应商集中在广州，多品牌矩阵+系列化产品+多语言站点已成为出海标配。凯捷科技作为14年金牌供应商，具备与头部竞品正面竞争的完整资质，差距主要在于品牌化产品数量和趋势品类布局。
+        </div>
+        <div class="divider">* * *</div>
+        <div class="chapter-card">
+            <h2>第一章：全球市场规模与增长动力</h2>
+        </div>
+        <div class="section-card">
+            <h3>1.1 市场规模与预测</h3>
+        </div>
+        <div class="paragraph-card">
+            关键驱动因素：
+        </div>
+        <div class="paragraph-card">
+            **护肤化趋势（Skinification）**：头皮被视为皮肤延伸，精华液、安瓶进入护发领域
+        </div>
+        <div class="paragraph-card">
+            **成分透明化**：消费者主动搜索成分，科学背书成为购买决策关键
+        </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>**包容性发质**：卷发/自然发质主流化，美国Black Hair Care增速+9%
+        </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>**环保可持续**：固体皂/可降解包装/PCR材料溢价15-25%
+        </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>**线上渗透率提升**：2024年线上占比33%，预计2030年超40%
+        </div>
+        <div class="section-card">
+            <h3>1.2 线上渠道重要性</h3>
+        </div>
+        <div class="divider">* * *</div>
+        <div class="chapter-card">
+            <h2>第二章：八大子类目深度分析</h2>
+        </div>
+        <div class="section-card">
+            <h3>2.1 子类目规模与增速矩阵</h3>
+        </div>
+        <div class="section-card">
+            <h3>2.2 三大黄金赛道详解</h3>
+        </div>
+        <div class="paragraph-card">
+            赛道一：头皮护理（Scalp Care）
+        </div>
+        <div class="paragraph-card">
+            市场特征：
+        </div>
+        <div class="paragraph-card">
+            2024年规模：$63.8亿
+        </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>CAGR：7.1%-8.5%（行业平均的1.5倍）
+        </div>
+        <div class="paragraph-card">
+            核心驱动力：护肤化趋势，头皮被视为"面部皮肤的延伸"
+        </div>
+        <div class="paragraph-card">
+            产品形态演进：
+        </div>
+        <div class="paragraph-card">
+            传统洗发水 → 头皮预洗精华 → 头皮磨砂膏 → 头皮安瓶 → 头皮微针
+        </div>
+        <div class="paragraph-card">
+            关键成分：
+        </div>
+        <div class="paragraph-card">
+            水杨酸：去角质、控油
+        </div>
+        <div class="paragraph-card">
+            烟酰胺：调节皮脂、强化屏障
+        </div>
+        <div class="paragraph-card">
+            迷迭香提取物：促进循环、防脱
+        </div>
+        <div class="paragraph-card">
+            益生菌：头皮微生态平衡
+        </div>
+        <div class="paragraph-card">
+            代表品牌：
+        </div>
+        <div class="paragraph-card">
+            Act+Acre（美国）：冷压工艺头皮护理，单品$30-50
+        </div>
+        <div class="paragraph-card">
+            Aveda（雅诗兰黛）：专业头皮护理线
+        </div>
+        <div class="paragraph-card">
+            卡诗（欧莱雅）：头皮系列高端定位
+        </div>
+        <div class="paragraph-card">
+            赛道二：男士美发（Men's Hair）
+        </div>
+        <div class="paragraph-card">
+            市场特征：
+        </div>
+        <div class="paragraph-card">
+            2024年规模：$58.2亿
+        </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>CAGR：7.8%-9.7%（增速最快）
+        </div>
+        <div class="paragraph-card">
+            核心驱动力：男性美容意识觉醒，"颜值经济"向男性渗透
+        </div>
+        <div class="paragraph-card">
+            产品机会：
+        </div>
+        <div class="paragraph-card">
+            关键洞察：
+        </div>
+        <div class="paragraph-card">
+            男性消费者偏好"一站式"解决方案
+        </div>
+        <div class="paragraph-card">
+            包装设计趋向"工业风""复古风"，避免女性化
+        </div>
+        <div class="paragraph-card">
+            订阅制模式在防脱品类验证成功
+        </div>
+        <div class="paragraph-card">
+            赛道三：防脱育发（Anti-Hair Loss）
+        </div>
+        <div class="paragraph-card">
+            市场特征：
+        </div>
+        <div class="paragraph-card">
+            2024年规模：$31.6亿
+        </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>CAGR：8.0%-9.0%
+        </div>
+        <div class="highlight-card">
+            <strong>核心数据：</strong>阿里国际站增速：+67%（YoY）
+        </div>
+        <div class="paragraph-card">
+            产品形态：
+        </div>
+        <div class="paragraph-card">
+            关键成分：
+        </div>
+        <div class="paragraph-card">
+            米诺地尔：FDA认证，临床验证
+        </div>
+        <div class="paragraph-card">
+            咖啡因：促进毛囊血液循环
+        </div>
+        <div class="paragraph-card">
+            生物素（Biotin）：强化发质
+        </div>
+        <div class="paragraph-card">
+            锯棕榈：天然DHT抑制剂
+        </div>
+        <div class="paragraph-card">
+            代表品牌：
+        </div>
+        <div class="paragraph-card">
+            Rogaine（强生）：米诺地尔鼻祖
+        </div>
+        <div class="paragraph-card">
+            Nutrafol：口服防脱，$80/月订阅
+        </div>
+        <div class="paragraph-card">
+            Vegamour：植物防脱，高端定位
+        </div>
+        <div class="divider">* * *</div>
+        <div class="chapter-card">
+            <h2>第三章：成分趋势情报</h2>
+        </div>
+        <div class="section-card">
+            <h3>3.1 P0级热门成分（立即布局）</h3>
+        </div>
+        <div class="section-card">
+            <h3>3.2 键合修复技术成分（高端定位）</h3>
+        </div>
+        <div class="paragraph-card">
+            市场洞察：
+        </div>
+        <div class="paragraph-card">
+            Olaplex凭单一成分建立$40亿市值
+        </div>
+        <div class="paragraph-card">
+            键合修复概念已从沙龙走向大众
+        </div>
+        <div class="paragraph-card">
+            平替机会：用"键合修复"概念+亲民价格切入
+        </div>
+        <div class="section-card">
+            <h3>3.3 热门油脂成分（护发精油赛道）</h3>
+        </div>
+        <div class="paragraph-card">
+            Batana Oil 机会窗口：
+        </div>
+        <div class="paragraph-card">
+            TikTok 2024年现象级爆火
+        </div>
+        <div class="paragraph-card">
+            目前供应链尚未完全成熟
+        </div>
+        <div class="paragraph-card">
+            建议：立即布局，抢占"Batana Oil护发"品类词
+        </div>
+        <div class="section-card">
+            <h3>3.4 成分组合策略</h3>
+        </div>
+        <div class="divider">* * *</div>
+        <div class="chapter-card">
+            <h2>第四章：竞争格局分析</h2>
+        </div>
+        <div class="section-card">
+            <h3>4.1 阿里国际站美发TOP15供应商</h3>
+        </div>
+        <div class="section-card">
+            <h3>4.2 头部竞品共性策略</h3>
+        </div>
+        <div class="section-card">
+            <h3>4.3 6大子类目TOP5供应商</h3>
+        </div>
+        <div class="paragraph-card">
+            染发膏类目
+        </div>
+        <div class="paragraph-card">
+            发膜类目
+        </div>
+        <div class="paragraph-card">
+            护发精油类目
+        </div>
+        <div class="divider">* * *</div>
+        <div class="chapter-card">
+            <h2>第五章：新兴品牌对标研究</h2>
+        </div>
+        <div class="section-card">
+            <h3>5.1 洗发水新兴品牌TOP10</h3>
+        </div>
+        <div class="paragraph-card">
+            关键洞察：
+        </div>
+        <div class="paragraph-card">
+            **颜值即营销**：MONDAY凭粉色方瓶成为TikTok爆款
+        </div>
+        <div class="paragraph-card">
+            **成分故事化**：Mielle靠"迷迭香生发"建立品牌心智
+        </div>
+        <div class="paragraph-card">
+            **科技背书**：K18/Olaplex用专利成分建立高端壁垒
+        </div>
+        <div class="paragraph-card">
+            **形态创新**：Spes诗裴丝以"固态洗头膏"差异化突围
+        </div>
+        <div class="section-card">
+            <h3>5.2 染膏新兴品牌TOP8</h3>
+        </div>
+        <div class="paragraph-card">
+            关键洞察：
+        </div>
+        <div class="paragraph-card">
+            **形态创新**：滴剂/泡沫/膏体多形态满足细分需求
+        </div>
+        <div class="paragraph-card">
+            **环保叙事**：纯素/无氨/可降解成为标配
+        </div>
+        <div class="paragraph-card">
+            **工具化**：染发套装+全套工具提升客单价
+        </div>
+        <div class="paragraph-card">
+            **视觉差异化**：工业风/梦幻风/极简风建立品牌识别
+        </div>
+        <div class="divider">* * *</div>
+        <div class="chapter-card">
+            <h2>第六章：区域市场战略</h2>
+        </div>
+        <div class="section-card">
+            <h3>6.1 中亚五国+俄罗斯（战略重点）</h3>
+        </div>
+        <div class="paragraph-card">
+            关键认证：EAC认证
+        </div>
+        <div class="paragraph-card">
+            标准：TR EAEU 009/2011（香水和化妆品安全技术法规）
+        </div>
+        <div class="paragraph-card">
+            覆盖：俄罗斯、哈萨克斯坦、白俄罗斯、吉尔吉斯斯坦、亚美尼亚
+        </div>
+        <div class="paragraph-card">
+            费用：$2,000-6,000
+        </div>
+        <div class="paragraph-card">
+            周期：2-4个月
+        </div>
+        <div class="paragraph-card">
+            优势：一次认证，五国通用
+        </div>
+        <div class="paragraph-card">
+            战略建议：
+        </div>
+        <div class="paragraph-card">
+            优先申请EAC认证，抢占俄罗斯市场空白
+        </div>
+        <div class="paragraph-card">
+            哈萨克斯坦作为高端市场突破口
+        </div>
+        <div class="paragraph-card">
+            乌兹别克斯坦作为大众市场放量
+        </div>
+        <div class="section-card">
+            <h3>6.2 其他重点市场</h3>
+        </div>
+        <div class="divider">* * *</div>
+        <div class="chapter-card">
+            <h2>第七章：凯捷科技战略建议</h2>
+        </div>
+        <div class="section-card">
+            <h3>7.1 SWOT分析</h3>
+        </div>
+        <div class="section-card">
+            <h3>7.2 90天行动计划</h3>
+        </div>
+        <div class="paragraph-card">
+            Phase 1：产品补全（第1-30天）
+        </div>
+        <div class="paragraph-card">
+            Phase 2：认证布局（第15-60天）
+        </div>
+        <div class="paragraph-card">
+            Phase 3：品牌升级（第30-90天）
+        </div>
+        <div class="section-card">
+            <h3>7.3 长期战略（12个月）</h3>
+        </div>
+        <div class="divider">* * *</div>
+        <div class="paragraph-card">
+            附录
+        </div>
+        <div class="paragraph-card">
+            附录A：关键术语表
+        </div>
+        <div class="paragraph-card">
+            阿里国际站美发TOP15供应商调研报告
+        </div>
+        <div class="paragraph-card">
+            阿里国际站美发6大子类目TOP5供应商调研报告
+        </div>
+        <div class="paragraph-card">
+            全球美发产品市场深度调研报告_2025
+        </div>
+        <div class="paragraph-card">
+            全球美发品牌概览
+        </div>
+        <div class="paragraph-card">
+            全球染膏新兴品牌深度调研报告
+        </div>
+        <div class="paragraph-card">
+            全球洗发水新兴品牌深度调研报告
+        </div>
+        <div class="paragraph-card">
+            全球美发热门成分调研报告_2026年3月
+        </div>
+        <div class="paragraph-card">
+            各竞品官方网站及阿里国际站店铺
+        </div>
+        <div class="paragraph-card">
+            附录C：报告更新记录
+        </div>
+        <div class="divider">* * *</div>
+        <div class="paragraph-card">
+            报告编制：AI战略研究助手
+        </div>
+        <div class="paragraph-card">
+            审核：待补充
+        </div>
+        <div class="paragraph-card">
+            分发：内部战略参考
+        </div>
+        <div class="divider">* * *</div>
+        <div class="paragraph-card">
+            *本报告基于公开信息及行业调研编制，仅供内部战略参考使用。*
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>年份</th><th>市场规模</th><th>备注</th></tr>
+                <tr><td>2024年</td><td>$1,072亿</td><td>基准年</td></tr>
+                <tr><td>2027年</td><td>$1,280亿</td><td>中期预测</td></tr>
+                <tr><td>2030年</td><td>$1,460-1,550亿</td><td>保守/乐观预测</td></tr>
+                <tr><td>CAGR</td><td>5.3%-5.9%</td><td>2024-2030</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>渠道</th><th>2024年占比</th><th>2030年预测</th><th>关键洞察</th></tr>
+                <tr><td>线上电商</td><td>33%</td><td>40%+</td><td>社媒种草+即时转化成为主流</td></tr>
+                <tr><td>专业沙龙</td><td>28%</td><td>25%</td><td>高端产品主要渠道</td></tr>
+                <tr><td>商超零售</td><td>25%</td><td>20%</td><td>大众品牌主阵地</td></tr>
+                <tr><td>其他</td><td>14%</td><td>15%</td><td>直销、专业店等</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>排名</th><th>子类目</th><th>2024年规模</th><th>市场占比</th><th>CAGR</th><th>机会评级</th></tr>
+                <tr><td>1</td><td>洗发水</td><td>$362.7亿</td><td>33.8%</td><td>4.2%</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>2</td><td>护发素/发膜</td><td>$198.4亿</td><td>18.5%</td><td>4.8%</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>3</td><td>染发产品</td><td>$152.3亿</td><td>14.2%</td><td>5.2%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>4</td><td>造型品</td><td>$121.5亿</td><td>11.3%</td><td>3.6%</td><td>⭐⭐⭐</td></tr>
+                <tr><td>5</td><td>护发精油</td><td>$87.6亿</td><td>8.2%</td><td>6.1%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>6</td><td>头皮护理</td><td>$63.8亿</td><td>5.9%</td><td>7.1%-8.5%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>7</td><td>男士专系列</td><td>$58.2亿</td><td>5.4%</td><td>7.8%-9.7%</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>8</td><td>防脱育发</td><td>$31.6亿</td><td>2.9%</td><td>8.0%-9.0%</td><td>⭐⭐⭐⭐⭐</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>品类</th><th>机会点</th><th>代表产品</th></tr>
+                <tr><td>男士防脱</td><td>刚需高频，复购率高</td><td>Keeps、Hims订阅制防脱</td></tr>
+                <tr><td>胡须护理</td><td>增速+15%，蓝海市场</td><td>Beardbrand、Honest Amish</td></tr>
+                <tr><td>男士造型</td><td>发蜡/发泥/发油细分</td><td>American Crew、Baxter</td></tr>
+                <tr><td>男士洗护</td><td>清爽控油定位</td><td>Every Man Jack、Duke Cannon</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>形态</th><th>功效定位</th><th>价格带</th></tr>
+                <tr><td>防脱洗发水</td><td>日常预防</td><td>$15-30</td></tr>
+                <tr><td>头皮精华</td><td>密集修护</td><td>$30-60</td></tr>
+                <tr><td>生发液/安瓶</td><td>靶向治疗</td><td>$50-100</td></tr>
+                <tr><td>口服补充剂</td><td>内调外养</td><td>$20-40/月</td></tr>
+                <tr><td>激光生发仪</td><td>科技背书</td><td>$200-800</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>成分</th><th>热度</th><th>适用产品</th><th>工厂成本</th><th>全球合规</th><th>科学背书</th></tr>
+                <tr><td>**氨基酸系**</td><td>⭐⭐⭐⭐⭐</td><td>洗发水/护发素</td><td>低</td><td>✓</td><td>温和清洁，pH平衡</td></tr>
+                <tr><td>**迷迭香提取物**</td><td>⭐⭐⭐⭐⭐</td><td>精华液/头皮护理</td><td>低</td><td>✓</td><td>促进头皮循环，防脱</td></tr>
+                <tr><td>**咖啡因**</td><td>⭐⭐⭐⭐⭐</td><td>防脱精华/洗发水</td><td>低</td><td>✓</td><td>促进毛囊血液循环</td></tr>
+                <tr><td>**生物素（Biotin）**</td><td>⭐⭐⭐⭐</td><td>防脱/洗发水</td><td>低</td><td>✓</td><td>强化发质，减少断裂</td></tr>
+                <tr><td>**烟酰胺**</td><td>⭐⭐⭐⭐⭐</td><td>头皮护理/护发</td><td>低</td><td>✓</td><td>调节皮脂，强化屏障</td></tr>
+                <tr><td>**透明质酸**</td><td>⭐⭐⭐⭐</td><td>护发素/发膜</td><td>中</td><td>✓</td><td>深层保湿</td></tr>
+                <tr><td>**角蛋白**</td><td>⭐⭐⭐⭐⭐</td><td>修护发膜/精华</td><td>中</td><td>✓</td><td>填补受损发质</td></tr>
+                <tr><td>**摩洛哥坚果油**</td><td>⭐⭐⭐⭐⭐</td><td>护发精油</td><td>中</td><td>✓</td><td>经典高端护发</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>成分</th><th>功效机制</th><th>代表品牌</th><th>溢价能力</th></tr>
+                <tr><td>**Bis-Aminopropyl Diglycol Dimaleate**</td><td>分子级修复二硫键</td><td>Olaplex</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>**K18肽**</td><td>仿生肽修复</td><td>K18 Hair</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>**马来酸**</td><td>键合修复</td><td>各品牌平替</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>**半胱氨酸**</td><td>重建发质结构</td><td>专业沙龙线</td><td>⭐⭐⭐⭐</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>成分</th><th>热度</th><th>来源</th><th>核心卖点</th><th>窗口期</th></tr>
+                <tr><td>**摩洛哥坚果油**</td><td>⭐⭐⭐⭐⭐</td><td>摩洛哥</td><td>经典高端护发油</td><td>长期</td></tr>
+                <tr><td>**Batana Oil**</td><td>⭐⭐⭐⭐</td><td>洪都拉斯</td><td>TikTok 2024爆火</td><td>**12-18个月**</td></tr>
+                <tr><td>**山茶花油**</td><td>⭐⭐⭐⭐⭐</td><td>亚洲</td><td>镜面光泽，轻盈不油腻</td><td>长期</td></tr>
+                <tr><td>**角鲨烷**</td><td>⭐⭐⭐⭐</td><td>植物提取</td><td>轻盈保湿，模拟皮脂</td><td>长期</td></tr>
+                <tr><td>**荷荷巴油**</td><td>⭐⭐⭐⭐</td><td>墨西哥</td><td>最接近人体皮脂</td><td>长期</td></tr>
+                <tr><td>**玫瑰果油**</td><td>⭐⭐⭐⭐</td><td>智利</td><td>修护+抗氧化</td><td>长期</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>功效定位</th><th>推荐成分组合</th><th>产品形态</th></tr>
+                <tr><td>防脱育发</td><td>咖啡因+生物素+迷迭香+锯棕榈</td><td>头皮精华/洗发水</td></tr>
+                <tr><td>深层修护</td><td>角蛋白+氨基酸+神经酰胺</td><td>发膜/护发素</td></tr>
+                <tr><td>染后护色</td><td>紫色色素+UV过滤+摩洛哥油</td><td>紫色洗发水/护发素</td></tr>
+                <tr><td>头皮平衡</td><td>水杨酸+烟酰胺+益生菌</td><td>头皮精华/磨砂膏</td></tr>
+                <tr><td>轻盈保湿</td><td>透明质酸+角鲨烷+山茶花油</td><td>护发精油/喷雾</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>排名</th><th>公司</th><th>年限</th><th>星级</th><th>年交易额</th><th>核心优势</th><th>品牌矩阵</th></tr>
+                <tr><td>#1</td><td>**Chinchy**</td><td>11年</td><td>5.0⭐</td><td>$690K+</td><td>5品牌矩阵，多系列</td><td>Pallamina/Karseell/Romacy/Navensi</td></tr>
+                <tr><td>#2</td><td>**Maykay**</td><td>17年</td><td>5.0⭐</td><td>$850K+</td><td>HALAL认证，中东王者</td><td>单一品牌高端定位</td></tr>
+                <tr><td>#3</td><td>**Lezon(Dexe)**</td><td>12年</td><td>5.0⭐</td><td>$130K+</td><td>Dexe品牌全球知名</td><td>Dexe</td></tr>
+                <tr><td>#4</td><td>**Cimei**</td><td>10年</td><td>4.6⭐</td><td>$510K+</td><td>7大产品线全覆盖</td><td>多品牌</td></tr>
+                <tr><td>#5</td><td>**Meihui**</td><td>8年</td><td>4.9⭐</td><td>$230K+</td><td>头发纤维粉专家</td><td>单一品牌</td></tr>
+                <tr><td>#6</td><td>**Mebamy**</td><td>11年</td><td>4.6⭐</td><td>$120K+</td><td>护肤品为主</td><td>多品牌</td></tr>
+                <tr><td>#7</td><td>**Yucaitang**</td><td>17年</td><td>4.7⭐</td><td>-</td><td>Dexe关联</td><td>Dexe</td></tr>
+                <tr><td>#8</td><td>**Meidu**</td><td>16年</td><td>4.8⭐</td><td>$2M/年</td><td>22年经验，17语言</td><td>22个商标</td></tr>
+                <tr><td>#9</td><td>**Hodm**</td><td>11年</td><td>4.9⭐</td><td>$130K+</td><td>5专业系列</td><td>ARGAN OIL/BRRS/PRO/LOVEPLEX/SOORGANIC</td></tr>
+                <tr><td>#10</td><td>**Baytiful**</td><td>6年</td><td>4.9⭐</td><td>$60K+</td><td>5品牌矩阵，精品路线</td><td>Pallamina/ECOLCHI/DELOFIL/ROMACY/KARSEELL</td></tr>
+                <tr><td>#11</td><td>**Nongcai**</td><td>10年</td><td>4.8⭐</td><td>$2M/年</td><td>造型王者，价格极低</td><td>单一品牌</td></tr>
+                <tr><td>#12</td><td>**Perfect Link**</td><td>11年</td><td>4.4⭐</td><td>$150K+</td><td>造型/护肤/彩妆/护发</td><td>多品牌</td></tr>
+                <tr><td>#13</td><td>**Tinsun**</td><td>5年</td><td>4.8⭐</td><td>$120K+</td><td>Biotin防脱专家，5项专利</td><td>单一品牌</td></tr>
+                <tr><td>#14</td><td>**Amarrie**</td><td>15年</td><td>5.0⭐</td><td>$540K+</td><td>纯素/有机</td><td>Neutriherbs</td></tr>
+                <tr><td>#15</td><td>**Yicai**</td><td>8年</td><td>4.8⭐</td><td>$4K+</td><td>角蛋白修护细分</td><td>单一品牌</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>策略维度</th><th>头部做法</th><th>凯捷现状</th><th>差距评估</th></tr>
+                <tr><td>**多品牌矩阵**</td><td>Chinchy 5个，Baytiful 5个</td><td>4个品牌</td><td>⚠️ 接近</td></tr>
+                <tr><td>**多语言站点**</td><td>15-17种语言是标配</td><td>需确认</td><td>⚠️ 待完善</td></tr>
+                <tr><td>**系列化产品**</td><td>Purple Shampoo/Argan Oil/Keratin全覆盖</td><td>部分覆盖</td><td>❌ 有差距</td></tr>
+                <tr><td>**认证展示**</td><td>Gold年限+验厂视频+生产线验证</td><td>14年金牌+FDA/GMP</td><td>✅ 领先</td></tr>
+                <tr><td>**客单价**</td><td>Maykay $17,708/单</td><td>需分析</td><td>⚠️ 待提升</td></tr>
+                <tr><td>**响应速度**</td><td>5星供应商≤3h</td><td>需确认</td><td>⚠️ 待优化</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>排名</th><th>公司</th><th>核心优势</th><th>热销产品</th></tr>
+                <tr><td>#1</td><td>**Maykay**</td><td>17年金牌，HALAL认证</td><td>染发膏、染发剂</td></tr>
+                <tr><td>#2</td><td>**Lezon(Dexe)**</td><td>Dexe品牌全球知名</td><td>染发膏、染发梳</td></tr>
+                <tr><td>#3</td><td>**Cimei**</td><td>10年金牌，CPNP欧盟认证</td><td>植物染发膏</td></tr>
+                <tr><td>#4</td><td>**Yucaitang**</td><td>Dexe关联</td><td>染发洗发水</td></tr>
+                <tr><td>#5</td><td>**Chinchy**</td><td>5品牌矩阵</td><td>染发膏套装</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>排名</th><th>公司</th><th>核心优势</th><th>热销产品</th></tr>
+                <tr><td>#1</td><td>**Chinchy**</td><td>角蛋白修护专家</td><td>角蛋白发膜</td></tr>
+                <tr><td>#2</td><td>**Cimei**</td><td>7大产品线</td><td>深层修护发膜</td></tr>
+                <tr><td>#3</td><td>**Hodm**</td><td>5专业系列</td><td>ARGAN OIL发膜</td></tr>
+                <tr><td>#4</td><td>**Baytiful**</td><td>精品路线</td><td>沙龙级发膜</td></tr>
+                <tr><td>#5</td><td>**Meidu**</td><td>22年经验</td><td>专业发膜</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>排名</th><th>公司</th><th>核心优势</th><th>热销产品</th></tr>
+                <tr><td>#1</td><td>**Chinchy**</td><td>多系列布局</td><td>摩洛哥油/阿甘油</td></tr>
+                <tr><td>#2</td><td>**Hodm**</td><td>ARGAN OIL系列</td><td>摩洛哥坚果油</td></tr>
+                <tr><td>#3</td><td>**Cimei**</td><td>全覆盖</td><td>护发精油系列</td></tr>
+                <tr><td>#4</td><td>**Baytiful**</td><td>品牌溢价</td><td>高端护发油</td></tr>
+                <tr><td>#5</td><td>**Meidu**</td><td>出口经验</td><td>护发精油</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>排名</th><th>品牌</th><th>国家</th><th>营收</th><th>核心差异化</th><th>TikTok热度</th></tr>
+                <tr><td>#1</td><td>**MONDAY**</td><td>澳大利亚</td><td>$3-4亿</td><td>粉色方瓶颜值经济</td><td>★★★★★</td></tr>
+                <tr><td>#2</td><td>**Mielle**</td><td>美国</td><td>$10亿+</td><td>迷迭香生发概念</td><td>★★★★★</td></tr>
+                <tr><td>#3</td><td>**OUAI**</td><td>美国</td><td>$1.5亿</td><td>轻奢沙龙+Refill环保</td><td>★★★★</td></tr>
+                <tr><td>#4</td><td>**K18**</td><td>美国</td><td>$4.1亿</td><td>分子级修复科技</td><td>★★★★★</td></tr>
+                <tr><td>#5</td><td>**Olaplex**</td><td>美国</td><td>$4.23亿</td><td>键合修复黑科技</td><td>★★★★★</td></tr>
+                <tr><td>#6</td><td>**amika**</td><td>美国</td><td>$2.5亿</td><td>活力美学+免洗产品</td><td>★★★★</td></tr>
+                <tr><td>#7</td><td>**Native**</td><td>美国</td><td>P&G旗下</td><td>清洁大众+天然成分</td><td>★★★</td></tr>
+                <tr><td>#8</td><td>**Act+Acre**</td><td>美国</td><td>精品新锐</td><td>冷压工艺头皮护理</td><td>★★★</td></tr>
+                <tr><td>#9</td><td>**dae**</td><td>美国</td><td>$10-20M</td><td>沙漠植物KOL驱动</td><td>★★★★</td></tr>
+                <tr><td>#10</td><td>**Spes诗裴丝**</td><td>中国</td><td>20亿人民币</td><td>海盐洗头膏固态形态</td><td>★★★★★</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>排名</th><th>品牌</th><th>国家</th><th>核心创新</th><th>白牌参考价值</th></tr>
+                <tr><td>#1</td><td>**SHRINE (DROP IT)**</td><td>英国</td><td>滴剂形态，一瓶30次</td><td>形态创新，物流成本低</td></tr>
+                <tr><td>#2</td><td>**Hally Hair**</td><td>美国</td><td>无氨泡沫染，外卖盒包装</td><td>新手友好，泡沫泵头技术</td></tr>
+                <tr><td>#3</td><td>**Arctic Fox**</td><td>美国</td><td>纯素高饱和色，15%利润捐动物保护</td><td>粉丝忠诚度，高粘度配方</td></tr>
+                <tr><td>#4</td><td>**XMONDO Color**</td><td>美国</td><td>键合修复染膏，工业风包装</td><td>染护一体，溢价能力高</td></tr>
+                <tr><td>#5</td><td>**Madison Reed**</td><td>美国</td><td>AI测肤色选号，全套工具包</td><td>服务化产品，专业工具包</td></tr>
+                <tr><td>#6</td><td>**Lunar Tides**</td><td>美国</td><td>丝绒莫兰迪色系</td><td>冷门高级色差异化</td></tr>
+                <tr><td>#7</td><td>**Bleach London**</td><td>英国</td><td>漂发套装行业标杆</td><td>漂染系统化解决方案</td></tr>
+                <tr><td>#8</td><td>**Lime Crime**</td><td>美国</td><td>独角兽美学，梦幻包装</td><td>视觉系包装心理学</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>国家</th><th>人口</th><th>EAEU</th><th>人均GDP</th><th>市场规模</th><th>核心需求</th><th>优先级</th></tr>
+                <tr><td>**哈萨克斯坦**</td><td>1,980万</td><td>✓</td><td>$9,800</td><td>$1.2亿</td><td>高端护发/抗衰老</td><td>⭐⭐⭐⭐⭐</td></tr>
+                <tr><td>**乌兹别克斯坦**</td><td>3,600万</td><td>✗</td><td>$2,200</td><td>$0.9亿</td><td>大众护发/防脱</td><td>⭐⭐⭐⭐</td></tr>
+                <tr><td>**吉尔吉斯斯坦**</td><td>700万</td><td>✓</td><td>$1,500</td><td>$0.2亿</td><td>基础洗护</td><td>⭐⭐⭐</td></tr>
+                <tr><td>**塔吉克斯坦**</td><td>1,000万</td><td>✗</td><td>$1,100</td><td>$0.2亿</td><td>基础洗护</td><td>⭐⭐⭐</td></tr>
+                <tr><td>**土库曼斯坦**</td><td>600万</td><td>✗</td><td>$7,600</td><td>$0.1亿</td><td>中高端护发</td><td>⭐⭐⭐</td></tr>
+                <tr><td>**俄罗斯**</td><td>1.4亿</td><td>✓</td><td>-</td><td>$36亿</td><td>西方品牌退出后的空白市场</td><td>⭐⭐⭐⭐⭐</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>市场</th><th>规模</th><th>特征</th><th>机会点</th></tr>
+                <tr><td>**北美**</td><td>$280亿</td><td>成熟市场，成分党主导</td><td>键合修复、防脱、头皮护理</td></tr>
+                <tr><td>**欧洲**</td><td>$220亿</td><td>环保法规严格，Clean Beauty</td><td>纯素认证、可持续包装</td></tr>
+                <tr><td>**东南亚**</td><td>$85亿</td><td>高速增长，价格敏感</td><td>性价比套装、防脱发</td></tr>
+                <tr><td>**中东**</td><td>$45亿</td><td>HALAL认证门槛，高客单价</td><td>HALAL染发、高端护发</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>**优势 (Strengths)**</th><th>**劣势 (Weaknesses)**</th></tr>
+                <tr><td>✓ 23年行业经验，14年阿里金牌</td><td>✗ 品牌化产品数量偏少</td></tr>
+                <tr><td>✓ 55,000㎡厂房，255人规模</td><td>✗ Purple Shampoo等趋势品类缺位</td></tr>
+                <tr><td>✓ FDA/GMP/ISO认证齐全</td><td>✗ 多语言站点建设待完善</td></tr>
+                <tr><td>✓ 5,000+成熟配方储备</td><td>✗ 客单价和头部有差距</td></tr>
+                <tr><td>✓ 4个自有品牌矩阵</td><td>✗ HALAL认证尚未布局</td></tr>
+                <tr><td>✓ 头发护理品类准时交货率第3</td><td>✗ 中亚/俄罗斯市场认证空白</td></tr>
+                <tr><td>**机会 (Opportunities)**</td><td>**威胁 (Threats)**</td></tr>
+                <tr><td>✓ 三大黄金赛道高速增长</td><td>✗ 头部竞品多品牌矩阵优势</td></tr>
+                <tr><td>✓ 俄罗斯市场西方品牌退出</td><td>✗ 新兴品牌形态创新冲击</td></tr>
+                <tr><td>✓ Batana Oil等窗口期成分</td><td>✗ 中亚市场EAC认证门槛</td></tr>
+                <tr><td>✓ 键合修复技术平替机会</td><td>✗ 价格战压力（Nongcai等）</td></tr>
+                <tr><td>✓ 男士美发蓝海市场</td><td>✗ 成分透明化带来的教育成本</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>优先级</th><th>行动项</th><th>目标</th></tr>
+                <tr><td>P0</td><td>开发Purple Shampoo（紫色护色洗发水）</td><td>卡位染后护理赛道</td></tr>
+                <tr><td>P0</td><td>开发Batana Oil护发精油</td><td>抢占TikTok窗口期</td></tr>
+                <tr><td>P0</td><td>开发Biotin防脱洗发水</td><td>切入防脱高增长赛道</td></tr>
+                <tr><td>P1</td><td>开发键合修复发膜（Olaplex平替）</td><td>高端修护市场</td></tr>
+                <tr><td>P1</td><td>开发男士专用洗护系列</td><td>切入男士蓝海</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>优先级</th><th>行动项</th><th>目标市场</th></tr>
+                <tr><td>P0</td><td>启动EAC认证申请</td><td>俄罗斯+中亚五国</td></tr>
+                <tr><td>P1</td><td>启动HALAL认证申请</td><td>中东+东南亚</td></tr>
+                <tr><td>P1</td><td>完善CPNP欧盟化妆品通报</td><td>欧洲市场合规</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>优先级</th><th>行动项</th><th>目标</th></tr>
+                <tr><td>P0</td><td>阿里站产品品牌归属标注优化</td><td>一品牌一赛道清晰化</td></tr>
+                <tr><td>P0</td><td>主图/详情页品牌化改造</td><td>提升转化率</td></tr>
+                <tr><td>P1</td><td>建设15+语言站点</td><td>全球化布局</td></tr>
+                <tr><td>P1</td><td>响应速度优化至≤1h</td><td>超越头部竞品</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>维度</th><th>目标</th><th>关键举措</th></tr>
+                <tr><td>**营收**</td><td>年出口额突破$3M</td><td>高端OBM订单+中亚市场放量</td></tr>
+                <tr><td>**品牌**</td><td>建立2个行业知名品牌</td><td>COLOURWAY染发 + OLOŔCHEE护发</td></tr>
+                <tr><td>**产品**</td><td>完成趋势品类全覆盖</td><td>Purple/Batana/Biotin/键合修复</td></tr>
+                <tr><td>**市场**</td><td>中亚+俄罗斯占比达20%</td><td>EAC认证+本地化运营</td></tr>
+                <tr><td>**认证**</td><td>完成HALAL+EAC+更多欧盟认证</td><td>全球市场无障碍准入</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>术语</th><th>解释</th></tr>
+                <tr><td>**CAGR**</td><td>复合年均增长率</td></tr>
+                <tr><td>**EAC**</td><td>欧亚经济联盟合格认证</td></tr>
+                <tr><td>**HALAL**</td><td>清真认证</td></tr>
+                <tr><td>**CPNP**</td><td>欧盟化妆品通报门户</td></tr>
+                <tr><td>**OBM**</td><td>自有品牌制造</td></tr>
+                <tr><td>**OEM**</td><td>原始设备制造</td></tr>
+                <tr><td>**ODM**</td><td>原始设计制造</td></tr>
+                <tr><td>**MOQ**</td><td>最小起订量</td></tr>
+                <tr><td>**CIF**</td><td>成本+保险+运费</td></tr>
+                <tr><td>**FOB**</td><td>离岸价</td></tr>
+            </table>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr><th>日期</th><th>版本</th><th>更新内容</th></tr>
+                <tr><td>2026-04-14</td><td>v1.0</td><td>初始版本，整合8份研报及竞品调研</td></tr>
+            </table>
+        </div>
 
         <div class="footer">
-            <p>© 2026 肇庆凯捷科技有限公司 | 机密文件</p>
+            全球美发行业深度研究报告 · 肇庆凯捷科技有限公司 · 2026年4月
         </div>
     </div>
 </body>
