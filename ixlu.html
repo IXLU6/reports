@@ -2428,14 +2428,7 @@ let tools = null; // 运行时数据，首次由 loadTools() 初始化
 
 
 
-// loadTools reports-merge (2026-04-16): always include DEFAULT_TOOLS.reports
-var _reports_from_default = DEFAULT_TOOLS ? (DEFAULT_TOOLS.reports || []) : [];
-function _mergeReports(localArr) {
-  var seen={}; var merged=[];
-  _reports_from_default.forEach(function(r){ merged.push(r); seen[r.url]=true; });
-  if(localArr && localArr.forEach) localArr.forEach(function(r){ if(!seen[r.url]) merged.push(r); });
-  return merged;
-}
+// 不再强制合并默认reports，完全信任localStorage数据
 
 function loadTools() {
 
@@ -2581,7 +2574,7 @@ const ZHIHU_FALLBACK = [
 
 function init() {
 
-  var _lt = loadTools(); _lt.reports = _mergeReports(_lt.reports || []); tools = _lt;
+  var _lt = loadTools(); tools = _lt;
 
   renderNav();
 
