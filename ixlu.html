@@ -12907,9 +12907,13 @@ const DEFAULT_TOOLS = {
 
 // ===== localStorage 持久化 =====
 
-const STORAGE_KEY = 'kaijie_tools_v1';
+const STORAGE_KEY = 'kaijie_tools_v3';
 
 let tools = null; // 运行时数据，首次由 loadTools() 初始化
+
+
+
+
 
 
 
@@ -12917,6 +12921,9 @@ let tools = null; // 运行时数据，首次由 loadTools() 初始化
 // 不再强制合并默认reports，完全信任localStorage数据
 
 function loadTools() {
+
+  // 深拷贝默认数据作为基础
+  const defaults = JSON.parse(JSON.stringify(DEFAULT_TOOLS));
 
   try {
 
@@ -12926,17 +12933,26 @@ function loadTools() {
 
       const parsed = JSON.parse(stored);
 
-      if (parsed && typeof parsed === 'object') return parsed;
+      if (parsed && typeof parsed === 'object') {
+        // 合并：DEFAULT_TOOLS 中有的分类，如果 localStorage 没有，自动补上
+        Object.keys(defaults).forEach(key => {
+          if (!parsed[key] || !Array.isArray(parsed[key])) {
+            parsed[key] = defaults[key];
+          }
+        });
+        return parsed;
+      }
 
     }
 
   } catch(e) {}
 
-  // 无数据时深拷贝默认数据
-
-  return JSON.parse(JSON.stringify(DEFAULT_TOOLS));
+  // 无数据时使用默认数据
+  return defaults;
 
 }
+
+
 
 
 
@@ -14277,38 +14293,5 @@ init();
 
 
 
-<script>
-  // Force cache refresh
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-      for(let registration of registrations) {
-        registration.unregister();
-      }
-    });
-  }
-  
-  // Clear browser cache
-  if (window.location.protocol !== 'file:') {
-    // Add version parameter to force refresh
-    const url = new URL(window.location.href);
-    url.searchParams.set('v', new Date().getTime());
-    window.history.replaceState({}, '', url);
-  }
-  
-  // Check if page is cached
-  document.addEventListener('DOMContentLoaded', function() {
-    const cacheStatus = document.createElement('div');
-    cacheStatus.style.position = 'fixed';
-    cacheStatus.style.top = '10px';
-    cacheStatus.style.right = '10px';
-    cacheStatus.style.padding = '5px 10px';
-    cacheStatus.style.backgroundColor = '#ff6b6b';
-    cacheStatus.style.color = 'white';
-    cacheStatus.style.borderRadius = '4px';
-    cacheStatus.style.fontSize = '12px';
-    cacheStatus.style.zIndex = '9999';
-    cacheStatus.textContent = 'Cache: Forced Refresh';
-    document.body.appendChild(cacheStatus);
-  });
-</script>
+
 </body></html>
