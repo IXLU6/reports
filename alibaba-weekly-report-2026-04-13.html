@@ -9,12 +9,11 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
             background: linear-gradient(135deg, #fef9f3 0%, #fff5eb 100%);
-            line-height: 1.8;
+            line-height: 1.85;
             color: #333;
             padding: 20px;
-            min-height: 100vh;
         }
-        .container { max-width: 960px; margin: 0 auto; padding-bottom: 40px; }
+        .container { max-width: 1000px; margin: 0 auto; padding-bottom: 50px; }
 
         /* 头部 */
         .header {
@@ -31,12 +30,6 @@
             margin-bottom: 12px;
             letter-spacing: 1px;
         }
-        .header .subtitle {
-            color: rgba(255,255,255,0.88);
-            font-size: 1.05em;
-        }
-
-        /* 元信息 */
         .meta-row {
             display: flex;
             gap: 15px;
@@ -50,7 +43,6 @@
             padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.9em;
-            backdrop-filter: blur(4px);
         }
 
         /* 总计概览 */
@@ -95,7 +87,7 @@
         /* 客户卡片 */
         .customer {
             background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
-            padding: 20px 26px;
+            padding: 22px 28px;
             border-radius: 14px;
             margin: 18px 0 14px 0;
             border: 2px solid #c7d2fe;
@@ -103,27 +95,26 @@
         }
         .customer-name {
             color: #4f46e5;
-            font-size: 1.2em;
+            font-size: 1.25em;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         /* 信息项 */
         .info-item {
             background: #fff;
-            padding: 12px 18px;
+            padding: 13px 20px;
             border-radius: 10px;
-            margin: 8px 0;
+            margin: 9px 0;
             display: flex;
-            gap: 12px;
+            gap: 14px;
             align-items: flex-start;
             box-shadow: 0 1px 6px rgba(0,0,0,0.03);
         }
         .info-label {
-            min-width: 90px;
+            min-width: 95px;
             font-weight: 600;
-            color: #6b7280;
-            font-size: 0.92em;
+            font-size: 0.93em;
             white-space: nowrap;
             flex-shrink: 0;
         }
@@ -131,21 +122,21 @@
             color: #374151;
             flex: 1;
             word-break: break-word;
+            line-height: 1.7;
         }
-        /* 特殊样式 */
-        .info-item.highlight-product .info-label { color: #059669; }
-        .info-item.highlight-qty .info-label { color: #d97706; }
-        .info-item.highlight-quote .info-label { color: #7c3aed; font-style: italic; }
-        .info-item.highlight-signal .info-label { color: #dc2626; }
-        .info-item.highlight-reply .info-label { color: #2563eb; }
-        .info-item.highlight-advice .info-label { color: #db2777; font-weight: 700; }
+        .hl-product .info-label { color: #059669; }
+        .hl-qty .info-label { color: #d97706; }
+        .hl-quote .info-label { color: #7c3aed; font-style: italic; }
+        .hl-signal .info-label { color: #dc2626; }
+        .hl-reply .info-label { color: #2563eb; }
+        .hl-advice .info-label { color: #db2777; font-weight: 700; }
 
         /* 普通段落 */
         .paragraph {
             background: #fff;
-            padding: 16px 22px;
+            padding: 17px 24px;
             border-radius: 11px;
-            margin: 10px 0;
+            margin: 11px 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             text-align: justify;
             line-height: 1.85;
@@ -154,7 +145,7 @@
         /* 表格 */
         .table-container {
             background: #fff;
-            padding: 20px;
+            padding: 22px;
             border-radius: 14px;
             margin: 18px 0;
             overflow-x: auto;
@@ -163,18 +154,18 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9em;
+            font-size: 0.88em;
         }
         th {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
-            padding: 13px 14px;
+            padding: 12px 14px;
             text-align: left;
             font-weight: 600;
             white-space: nowrap;
         }
         td {
-            padding: 11px 14px;
+            padding: 10px 14px;
             border-bottom: 1px solid #eef0f6;
             vertical-align: top;
         }
@@ -196,146 +187,172 @@
         <div class="header">
             <h1>阿里巴巴国际站询盘复盘报告</h1>
             <div class="meta-tag">周报 · 统计周期：2026年4月13日（周一）～ 2026年4月19日（周日）</div>
+            <div class="meta-tag">2026-04-20 | 阿里巴巴国际站（询盘+TM消息）</div>
         </div>
 
         <div class="summary-card">总计：共55条（询盘22条/TM 33条），涉及24个国家/地区</div>
 
         <div class="chapter"><h2>模块一：询盘总览</h2></div>
         <div class="paragraph">概况段落：本周共55条（询盘22条/TM 33条），涉及24个国家。A级客户14位，意向质量为近期最高，其中两位客户（Andleeb Tahir/英国、McCarl Degreat/加纳）已进入付款流程讨论，MR N（尼日利亚）明确询问私标定制，整体本周转化潜力突出。</div>
+        <div class="table-container">
+            <table><thead><tr><th>国家</th><th>条数</th><th>主要业务员</th></tr></thead><tbody><tr><td>英国</td><td>5</td><td>Tracey/Naiya</td></tr><tr><td>尼日利亚</td><td>3</td><td>Aget</td></tr><tr><td>印度</td><td>3</td><td>Katherine/Jaime</td></tr><tr><td>巴基斯坦</td><td>3</td><td>Katherine</td></tr><tr><td>巴西</td><td>3</td><td>Naiya/Tracey</td></tr><tr><td>加纳</td><td>2</td><td>Naiya/Aget</td></tr><tr><td>委内瑞拉</td><td>2</td><td>Aget</td></tr><tr><td>法国</td><td>2</td><td>Naiya</td></tr><tr><td>加拿大</td><td>2</td><td>Aget/Tracey</td></tr><tr><td>菲律宾</td><td>1</td><td>Katherine</td></tr><tr><td>新西兰</td><td>1</td><td>Aget</td></tr><tr><td>乌拉圭</td><td>1</td><td>Tracey</td></tr><tr><td>葡萄牙</td><td>1</td><td>Tracey</td></tr><tr><td>科威特</td><td>1</td><td>Aget</td></tr><tr><td>沙特阿拉伯</td><td>1</td><td>Christy</td></tr><tr><td>黑山</td><td>1</td><td>Aget</td></tr><tr><td>其他（利比亚/芬兰/柬埔寨/香港/伊拉克/阿富汗/阿根廷/坦桑尼亚/美国）</td><td>约9条</td><td>多人</td></tr></tbody>
+            </table>
+        </div>
 
         <div class="chapter"><h2>模块二：客户全览</h2></div>
         <div class="section">A级表格</div>
+        <div class="table-container">
+            <table><thead><tr><th>序号</th><th>客户名</th><th>国家</th><th>咨询产品</th><th>内容摘要</th><th>需求量</th><th>意向信号</th><th>状态</th><th>跟进业务</th><th>建议行动</th></tr></thead><tbody><tr><td>1</td><td>Andleeb Tahir</td><td>英国</td><td>MOCHEQI麝香角蛋白发膜</td><td>明确表示要付款下单，询问ClearPay支付及TikTok推广合规性（CPNP）</td><td>100件</td><td>价格✓ MOQ✓ 样品✓ 认证✓</td><td>付款流程讨论中</td><td>Tracey Zhang</td><td>立即提供信保订单入口或付款方式，确认CPNP认证资料，今日促成下单</td></tr><tr><td>2</td><td>McCarl Degreat</td><td>加纳</td><td>一洗黑染发洗发水</td><td>要求发草稿发票以付款，需确认样品重量后支付运费</td><td>5盒样品</td><td>价格✓ MOQ✓ 样品✓</td><td>等待发票/运费确认</td><td>Naiya Ding</td><td>立即发草稿发票+告知样品重量，推动付款</td></tr><tr><td>3</td><td>MR N</td><td>尼日利亚</td><td>染发膏/洗发水/护发素</td><td>明确询问是否可定制私标，索取批发价格表和目录</td><td>批发级别</td><td>价格✓ MOQ✓ 样品✓</td><td>已确认可私标，已回复（2分钟极速）</td><td>Aget Huang</td><td>跟进发送私标MOQ和报价方案，推动样品意向</td></tr><tr><td>4</td><td>Pooja thapar</td><td>新西兰</td><td>待核实</td><td>提及MOQ 20箱</td><td>20箱</td><td>MOQ✓</td><td>洽谈中</td><td>Aget Huang</td><td>核实具体产品，发20箱报价</td></tr><tr><td>5</td><td>Mrs. Jones</td><td>英国</td><td>定制产品</td><td>提到其MOQ为10,000件</td><td>10,000件</td><td>MOQ✓</td><td>大单洽谈</td><td>Naiya Ding</td><td>确认定制产品类型，发工厂OEM方案，这是本周潜在最大订单</td></tr><tr><td>6</td><td>Pricila p</td><td>乌拉圭</td><td>护发产品（样品）</td><td>正在确认哪些样品可提供</td><td>样品</td><td>样品✓</td><td>样品确认中</td><td>Tracey Zhang</td><td>发可提供样品清单，推动样品订单</td></tr><tr><td>7</td><td>Nassim Banu</td><td>葡萄牙</td><td>领秀一洗黑</td><td>询问购买品牌还是定制自己品牌</td><td>待定</td><td>品牌/定制意向</td><td>初步咨询</td><td>Tracey Zhang</td><td>发品牌介绍+OEM对比方案，推动决策</td></tr><tr><td>8</td><td>Abdulrahman alshiekh</td><td>科威特</td><td>护发产品</td><td>询问价格/样品/MOQ</td><td>待核实</td><td>价格✓ MOQ✓ 样品✓</td><td>已回复，等待确认</td><td>Aget Huang</td><td>跟进确认具体需求，发报价单</td></tr><tr><td>9</td><td>Aisha Baydhi</td><td>沙特阿拉伯</td><td>定制品牌产品</td><td>询问定制品牌MOQ/价格/报价</td><td>待核实</td><td>价格✓ MOQ✓</td><td>初步咨询</td><td>Christy Kam</td><td>发OEM/私标MOQ和报价方案</td></tr><tr><td>10</td><td>maria Laureano</td><td>委内瑞拉</td><td>待核实</td><td>询问运费情况</td><td>待核实</td><td>价格✓</td><td>运费咨询</td><td>Aget Huang</td><td>确认货代运费，推动明确采购需求</td></tr></tbody>
+            </table>
+        </div>
         <div class="section">B级表格</div>
+        <div class="table-container">
+            <table><thead><tr><th>序号</th><th>客户名</th><th>国家</th><th>咨询产品</th><th>内容摘要</th><th>需求量</th><th>当前状态</th><th>回复状态</th><th>跟进业务</th><th>建议行动</th></tr></thead><tbody><tr><td>1</td><td>Militsa Radovich</td><td>黑山</td><td>待核实</td><td>告知周一会更新交货期</td><td>待定</td><td>跟进交货期</td><td>已回复</td><td>Aget Huang</td><td>周一主动跟进，确认交货期和订单进展</td></tr><tr><td>2</td><td>Summer Joy</td><td>菲律宾</td><td>待核实</td><td>确认是否个人用途</td><td>个人</td><td>确认用途</td><td>已回复</td><td>Katherine Chan</td><td>引导至零售渠道或推荐合适规格</td></tr><tr><td>3</td><td>Sahra ismail</td><td>英国</td><td>待核实</td><td>确认是沙龙还是批发商身份</td><td>批发/沙龙</td><td>确认身份</td><td>已回复</td><td>Naiya Ding</td><td>身份确认后发对应价格表</td></tr><tr><td>4</td><td>Anand Kumar</td><td>印度</td><td>待核实</td><td>询问需要多少数量</td><td>待回复</td><td>待确认</td><td>已回复</td><td>Katherine Chan</td><td>等待回复，跟进数量确认</td></tr><tr><td>5</td><td>siso reception</td><td>印度</td><td>成分/规格</td><td>询问是否有成分表</td><td>待定</td><td>规格咨询</td><td>已回复</td><td>Jaime Wu</td><td>发产品成分表/规格书</td></tr><tr><td>6</td><td>Sohaib Khan</td><td>巴基斯坦</td><td>待核实</td><td>询问是否感兴趣</td><td>待定</td><td>初步接触</td><td>已回复</td><td>Katherine Chan</td><td>发产品目录，了解具体需求</td></tr><tr><td>7</td><td>AlineJesus Lima</td><td>法国</td><td>染发膏</td><td>确认是20件还是20箱</td><td>20件或20箱</td><td>数量确认中</td><td>已回复</td><td>Naiya Ding</td><td>等待客户确认数量，发对应报价</td></tr><tr><td>8</td><td>Hadjer Lassouani</td><td>法国</td><td>染发膏色系</td><td>询问颜色需求</td><td>待定</td><td>色系咨询</td><td>已回复</td><td>Katherine Chan</td><td>发色卡，推荐热销色号</td></tr><tr><td>9</td><td>Man Bee</td><td>柬埔寨</td><td>染发膏色系</td><td>询问颜色需求</td><td>待定</td><td>色系咨询</td><td>已回复</td><td>Katherine Chan</td><td>发色卡，推荐热销色号</td></tr><tr><td>10</td><td>anderson garcia</td><td>巴西</td><td>待核实</td><td>初步打招呼</td><td>待定</td><td>初步接触</td><td>已回复</td><td>Jaime Wu</td><td>发产品目录，询问需求</td></tr></tbody>
+            </table>
+        </div>
         <div class="section">C级表格</div>
+        <div class="table-container">
+            <table><thead><tr><th>序号</th><th>客户名</th><th>国家</th><th>摘要</th><th>跟进业务</th><th>建议行动</th></tr></thead><tbody><tr><td>1</td><td>salman noor</td><td>巴基斯坦</td><td>已加好友</td><td>Naiya Ding</td><td>发目录试探需求</td></tr><tr><td>2</td><td>Irina Volskaya</td><td>俄罗斯</td><td>无摘要</td><td>Tracey Zhang</td><td>发产品目录</td></tr><tr><td>3</td><td>Jolie Munyerenkana</td><td>加拿大</td><td>My pleasure</td><td>Tracey Zhang</td><td>无需跟进</td></tr><tr><td>4</td><td>diego martino</td><td>阿根廷</td><td>🌈表情</td><td>Naiya Ding</td><td>无需跟进</td></tr><tr><td>5</td><td>Ramesh Purohit</td><td>印度</td><td>Yes</td><td>Jaime Wu</td><td>跟进上下文</td></tr><tr><td>6</td><td>Lilian Johnson</td><td>坦桑尼亚</td><td>ok dear no problem</td><td>Katherine Chan</td><td>无需跟进</td></tr><tr><td>7</td><td>tejesh tejesh</td><td>美国</td><td>already revised</td><td>Christy Kam</td><td>跟进修改内容</td></tr><tr><td>8</td><td>Bakhtiar Hama</td><td>芬兰</td><td>Ok</td><td>Jaime Wu</td><td>无需跟进</td></tr><tr><td>9</td><td>Klenam Portia</td><td>加纳</td><td>发文件</td><td>Aget Huang</td><td>确认文件内容</td></tr><tr><td>10</td><td>sherko company</td><td>伊拉克</td><td>视频卡片</td><td>Christy Kam</td><td>无需跟进</td></tr><tr><td>11</td><td>Liviani Justi</td><td>巴西</td><td>已告知有巴西代理</td><td>Tracey Zhang</td><td>无需跟进</td></tr><tr><td>12</td><td>Mahmood Zawak</td><td>阿富汗</td><td>发图片</td><td>Christy Kam</td><td>无需跟进</td></tr></tbody>
+            </table>
+        </div>
 
         <div class="chapter"><h2>模块三：深度对话分析（A级TOP5）</h2></div>
         <div class="paragraph">1. Andleeb Tahir（英国）</div>
-            <div class="info-item highlight-product">
+            <div class="info-item hl-product">
                 <span class="info-label">📦 咨询产品：</span>
                 <span class="info-value">MOCHEQI麝香角蛋白发膜</span>
             </div>
-            <div class="info-item highlight-qty">
+            <div class="info-item hl-qty">
                 <span class="info-label">📊 需求量：</span>
                 <span class="info-value">100件，发英国</span>
             </div>
-            <div class="info-item highlight-quote">
+            <div class="info-item hl-quote">
                 <span class="info-label">💬 询问原文：</span>
                 <span class="info-value">"Ok I would like to pay and place order. Hi I wana use clear pay app for payment method."</span>
             </div>
-            <div class="info-item highlight-signal">
+            <div class="info-item hl-signal">
                 <span class="info-label">🎯 采购信号：</span>
                 <span class="info-value">价格✓ · MOQ✓ · 样品✓ · 认证✓</span>
             </div>
-            <div class="info-item highlight-reply">
+            <div class="info-item hl-reply">
                 <span class="info-label">💬 我方回复：</span>
                 <span class="info-value">Tracey Zhang，<1小时极速回复，提供信保订单联系方式</span>
             </div>
-            <div class="info-item highlight-reply">
+            <div class="info-item hl-reply">
                 <span class="info-label">💬 最后消息：</span>
                 <span class="info-value">请求邮箱+电话以创建信保订单</span>
             </div>
-            <div class="info-item highlight-advice">
+            <div class="info-item hl-advice">
                 <span class="info-label">⚡ 建议：</span>
                 <span class="info-value">本周最紧迫跟进项，今日提供信保订单入口，同时提供CPNP认证资料以消除TikTok推广合规顾虑，促成本月第一笔成交。</span>
             </div>
+        </div>
         <div class="paragraph">2. McCarl Degreat（加纳）</div>
-            <div class="info-item highlight-product">
+            <div class="info-item hl-product">
                 <span class="info-label">📦 咨询产品：</span>
                 <span class="info-value">一洗黑染发洗发水</span>
             </div>
-            <div class="info-item highlight-qty">
+            <div class="info-item hl-qty">
                 <span class="info-label">📊 需求量：</span>
                 <span class="info-value">5盒样品</span>
             </div>
-            <div class="info-item highlight-quote">
+            <div class="info-item hl-quote">
                 <span class="info-label">💬 询问原文：</span>
                 <span class="info-value">"Can you draft invoice for payment? I need to know the weight of the sample in order to initiate the link for paying the shipping fee."</span>
             </div>
-            <div class="info-item highlight-signal">
+            <div class="info-item hl-signal">
                 <span class="info-label">🎯 采购信号：</span>
                 <span class="info-value">价格✓ · MOQ✓ · 样品✓</span>
             </div>
-            <div class="info-item highlight-reply">
+            <div class="info-item hl-reply">
                 <span class="info-label">💬 我方回复：</span>
                 <span class="info-value">Naiya Ding，约2小时回复</span>
             </div>
-            <div class="info-item highlight-advice">
+            <div class="info-item hl-advice">
                 <span class="info-label">⚡ 建议：</span>
                 <span class="info-value">立即发草稿发票+样品重量信息，客户主动要求付款，是本周第二紧迫跟进项。</span>
             </div>
+        </div>
         <div class="paragraph">3. Mrs. Jones（英国）</div>
-            <div class="info-item highlight-product">
+            <div class="info-item hl-product">
                 <span class="info-label">📦 咨询产品：</span>
                 <span class="info-value">定制产品</span>
             </div>
-            <div class="info-item highlight-qty">
+            <div class="info-item hl-qty">
                 <span class="info-label">📊 需求量：</span>
                 <span class="info-value">10,000件（自报MOQ）</span>
             </div>
-            <div class="info-item highlight-quote">
+            <div class="info-item hl-quote">
                 <span class="info-label">💬 询问原文：</span>
                 <span class="info-value">"Our custom minimum order quantity is 10,000"</span>
             </div>
-            <div class="info-item highlight-signal">
+            <div class="info-item hl-signal">
                 <span class="info-label">🎯 采购信号：</span>
                 <span class="info-value">MOQ✓（大单）</span>
             </div>
-            <div class="info-item highlight-advice">
+            <div class="info-item hl-advice">
                 <span class="info-label">⚡ 建议：</span>
                 <span class="info-value">本周最大潜在订单，Naiya需立即确认定制产品类型（洗发水/发膜/染膏），发工厂OEM能力介绍+报价方案。10,000件规模已达工厂标准MOQ。</span>
             </div>
+        </div>
         <div class="paragraph">4. MR N（尼日利亚）</div>
-            <div class="info-item highlight-product">
+            <div class="info-item hl-product">
                 <span class="info-label">📦 咨询产品：</span>
                 <span class="info-value">染发膏/洗发水/护发素</span>
             </div>
-            <div class="info-item highlight-qty">
+            <div class="info-item hl-qty">
                 <span class="info-label">📊 需求量：</span>
                 <span class="info-value">批发级别</span>
             </div>
-            <div class="info-item highlight-quote">
+            <div class="info-item hl-quote">
                 <span class="info-label">💬 询问原文：</span>
                 <span class="info-value">"Do you do private label? Can you please give me wholesale price list? Can you send the catalogue please?"</span>
             </div>
-            <div class="info-item highlight-signal">
+            <div class="info-item hl-signal">
                 <span class="info-label">🎯 采购信号：</span>
                 <span class="info-value">价格✓ · MOQ✓ · 样品✓</span>
             </div>
-            <div class="info-item highlight-reply">
+            <div class="info-item hl-reply">
                 <span class="info-label">💬 我方回复：</span>
                 <span class="info-value">Aget Huang，2分钟极速回复</span>
             </div>
-            <div class="info-item highlight-advice">
+            <div class="info-item hl-advice">
                 <span class="info-label">⚡ 建议：</span>
                 <span class="info-value">已确认可私标，下一步发私标MOQ（5000pcs）和阶梯批发报价，推动样品意向。</span>
             </div>
+        </div>
         <div class="paragraph">5. Aisha Baydhi（沙特阿拉伯）</div>
-            <div class="info-item highlight-product">
+            <div class="info-item hl-product">
                 <span class="info-label">📦 咨询产品：</span>
                 <span class="info-value">定制品牌产品</span>
             </div>
-            <div class="info-item highlight-qty">
+            <div class="info-item hl-qty">
                 <span class="info-label">📊 需求量：</span>
                 <span class="info-value">待核实</span>
             </div>
-            <div class="info-item highlight-quote">
+            <div class="info-item hl-quote">
                 <span class="info-label">💬 询问原文：</span>
                 <span class="info-value">询问定制品牌MOQ/价格/报价</span>
             </div>
-            <div class="info-item highlight-signal">
+            <div class="info-item hl-signal">
                 <span class="info-label">🎯 采购信号：</span>
                 <span class="info-value">价格✓ · MOQ✓</span>
             </div>
-            <div class="info-item highlight-reply">
+            <div class="info-item hl-reply">
                 <span class="info-label">💬 我方回复：</span>
                 <span class="info-value">Christy Kam已回复</span>
             </div>
-            <div class="info-item highlight-advice">
+            <div class="info-item hl-advice">
                 <span class="info-label">⚡ 建议：</span>
                 <span class="info-value">发OEM/私标完整方案，重点说明可接受MOQ及配方定制能力，沙特市场潜力大。</span>
             </div>
+        </div>
 
         <div class="chapter"><h2>模块四：产品热度分析</h2></div>
+        <div class="table-container">
+            <table><thead><tr><th>排名</th><th>产品/品类</th><th>询盘次数</th><th>主要来源国</th><th>热度趋势</th></tr></thead><tbody><tr><td>1</td><td>慕川琦发膜（角蛋白/麝香）</td><td>8</td><td>英国/印度</td><td>↑ 本周显著上升</td></tr><tr><td>2</td><td>染发膏/一洗黑</td><td>7</td><td>尼日利亚/加纳/法国/葡萄牙</td><td>→ 稳定</td></tr><tr><td>3</td><td>洗发水+护发素套装</td><td>6</td><td>新西兰/科威特/委内瑞拉</td><td>→ 稳定</td></tr><tr><td>4</td><td>私标/OEM定制</td><td>5</td><td>尼日利亚/沙特/英国</td><td>↑↑ 本周明显增加</td></tr><tr><td>5</td><td>大容量/批发装</td><td>2</td><td>新西兰/法国</td><td>→ 平稳</td></tr></tbody>
+            </table>
+        </div>
         <div class="paragraph">产品洞察：本周发膜类询盘显著上升，私标/OEM定制需求集中爆发（3个不同市场），MR N（尼日利亚）更明确提出私标合作，建议准备标准化私标方案文件便于快速发送。</div>
 
         <div class="chapter"><h2>模块五：话术建议（3条，中英双语）</h2></div>
@@ -360,11 +377,20 @@
         <div class="paragraph">4. MR N（尼日利亚）询问私标，建议Aget准备标准化私标方案PDF（含MOQ/价格/配方定制流程），便于今后快速发送同类询盘。</div>
         <div class="customer">
             <div class="customer-name">5. 本周私标/OEM询盘集中出现（尼日利亚/沙特/英国），建议运营部整理标准OEM能力介绍文件，统一各业务员对外说辞。</div>
+        </div>
 
         <div class="chapter"><h2>模块七：本周趋势（按日统计）</h2></div>
+        <div class="table-container">
+            <table><thead><tr><th>日期</th><th>星期</th><th>询盘数</th><th>TM数</th><th>合计</th><th>环比前日</th></tr></thead><tbody><tr><td>2026-04-13</td><td>周一</td><td>3</td><td>5</td><td>8</td><td>—</td></tr><tr><td>2026-04-14</td><td>周二</td><td>4</td><td>6</td><td>10</td><td>↑2</td></tr><tr><td>2026-04-15</td><td>周三</td><td>3</td><td>5</td><td>8</td><td>↓2</td></tr><tr><td>2026-04-16</td><td>周四</td><td>3</td><td>4</td><td>7</td><td>↓1</td></tr><tr><td>2026-04-17</td><td>周五</td><td>4</td><td>6</td><td>10</td><td>↑3</td></tr><tr><td>2026-04-18</td><td>周六</td><td>3</td><td>5</td><td>8</td><td>↓2</td></tr><tr><td>2026-04-19</td><td>周日</td><td>2</td><td>2</td><td>4</td><td>↓4</td></tr><tr><td>合计</td><td>—</td><td>22</td><td>33</td><td>55</td><td>—</td></tr></tbody>
+            </table>
+        </div>
         <div class="paragraph">峰值：周二/周五并列（各10条），最低周日（4条）</div>
 
         <div class="chapter"><h2>模块八：本周客户跟进状态</h2></div>
+        <div class="table-container">
+            <table><thead><tr><th>客户</th><th>国家</th><th>意向级别</th><th>咨询产品</th><th>本周进展</th><th>下周行动</th></tr></thead><tbody><tr><td>Andleeb Tahir</td><td>英国</td><td>A级</td><td>MOCHEQI发膜</td><td>明确付款意向，讨论ClearPay/信保</td><td>Tracey：今日提供信保入口+CPNP证书，促成下单</td></tr><tr><td>McCarl Degreat</td><td>加纳</td><td>A级</td><td>一洗黑样品</td><td>要求草稿发票和样品重量</td><td>Naiya：今日发草稿发票+重量，推动付款</td></tr><tr><td>Mrs. Jones</td><td>英国</td><td>A级</td><td>定制产品(10000件)</td><td>提出MOQ 10,000件</td><td>Naiya：确认产品类型，发OEM方案</td></tr><tr><td>MR N</td><td>尼日利亚</td><td>A级</td><td>染发膏/洗护私标</td><td>已确认可私标，已发目录</td><td>Aget：发私标MOQ+报价，推样品</td></tr><tr><td>Pooja thapar</td><td>新西兰</td><td>A级</td><td>待核实</td><td>提MOQ 20箱</td><td>Aget：核实产品，发20箱报价</td></tr><tr><td>Aisha Baydhi</td><td>沙特阿拉伯</td><td>A级</td><td>定制品牌</td><td>询问MOQ/价格</td><td>Christy：发OEM完整方案</td></tr><tr><td>Militsa Radovich</td><td>黑山</td><td>B级</td><td>待核实</td><td>承诺周一更新交货期</td><td>Aget：主动跟进交货期</td></tr></tbody>
+            </table>
+        </div>
 
         <div class="chapter"><h2>模块九：本周核心结论</h2></div>
         <div class="paragraph">本周是近期意向质量最高的一周。两位客户（Andleeb Tahir/英国、McCarl Degreat/加纳）已明确进入付款流程，本月首笔成交机会就在本周；Mrs. Jones（英国）提出10,000件定制需求，是本周最大潜力订单。MR N（尼日利亚）明确询问私标，私标/OEM需求本周集中爆发。</div>
@@ -373,27 +399,5 @@
         <div class="paragraph">2. Naiya → McCarl Degreat：发草稿发票+样品重量，推动付款</div>
         <div class="paragraph">3. Naiya → Mrs. Jones：确认产品类型，发OEM方案，抓住10,000件大单机会</div>
     </div>
-        <div class="table-container">
-            <table><thead><tr><th>国家</th><th>条数</th><th>主要业务员</th></tr></thead><tbody><tr><td>英国</td><td>5</td><td>Tracey/Naiya</td></tr><tr><td>尼日利亚</td><td>3</td><td>Aget</td></tr><tr><td>印度</td><td>3</td><td>Katherine/Jaime</td></tr><tr><td>巴基斯坦</td><td>3</td><td>Katherine</td></tr><tr><td>巴西</td><td>3</td><td>Naiya/Tracey</td></tr><tr><td>加纳</td><td>2</td><td>Naiya/Aget</td></tr><tr><td>委内瑞拉</td><td>2</td><td>Aget</td></tr><tr><td>法国</td><td>2</td><td>Naiya</td></tr><tr><td>加拿大</td><td>2</td><td>Aget/Tracey</td></tr><tr><td>菲律宾</td><td>1</td><td>Katherine</td></tr><tr><td>新西兰</td><td>1</td><td>Aget</td></tr><tr><td>乌拉圭</td><td>1</td><td>Tracey</td></tr><tr><td>葡萄牙</td><td>1</td><td>Tracey</td></tr><tr><td>科威特</td><td>1</td><td>Aget</td></tr><tr><td>沙特阿拉伯</td><td>1</td><td>Christy</td></tr><tr><td>黑山</td><td>1</td><td>Aget</td></tr><tr><td>其他（利比亚/芬兰/柬埔寨/香港/伊拉克/阿富汗/阿根廷/坦桑尼亚/美国）</td><td>约9条</td><td>多人</td></tr></tbody>
-            </table>
-        </div>        <div class="table-container">
-            <table><thead><tr><th>序号</th><th>客户名</th><th>国家</th><th>咨询产品</th><th>内容摘要</th><th>需求量</th><th>意向信号</th><th>状态</th><th>跟进业务</th><th>建议行动</th></tr></thead><tbody><tr><td>1</td><td>Andleeb Tahir</td><td>英国</td><td>MOCHEQI麝香角蛋白发膜</td><td>明确表示要付款下单，询问ClearPay支付及TikTok推广合规性（CPNP）</td><td>100件</td><td>价格✓ MOQ✓ 样品✓ 认证✓</td><td>付款流程讨论中</td><td>Tracey Zhang</td><td>立即提供信保订单入口或付款方式，确认CPNP认证资料，今日促成下单</td></tr><tr><td>2</td><td>McCarl Degreat</td><td>加纳</td><td>一洗黑染发洗发水</td><td>要求发草稿发票以付款，需确认样品重量后支付运费</td><td>5盒样品</td><td>价格✓ MOQ✓ 样品✓</td><td>等待发票/运费确认</td><td>Naiya Ding</td><td>立即发草稿发票+告知样品重量，推动付款</td></tr><tr><td>3</td><td>MR N</td><td>尼日利亚</td><td>染发膏/洗发水/护发素</td><td>明确询问是否可定制私标，索取批发价格表和目录</td><td>批发级别</td><td>价格✓ MOQ✓ 样品✓</td><td>已确认可私标，已回复（2分钟极速）</td><td>Aget Huang</td><td>跟进发送私标MOQ和报价方案，推动样品意向</td></tr><tr><td>4</td><td>Pooja thapar</td><td>新西兰</td><td>待核实</td><td>提及MOQ 20箱</td><td>20箱</td><td>MOQ✓</td><td>洽谈中</td><td>Aget Huang</td><td>核实具体产品，发20箱报价</td></tr><tr><td>5</td><td>Mrs. Jones</td><td>英国</td><td>定制产品</td><td>提到其MOQ为10,000件</td><td>10,000件</td><td>MOQ✓</td><td>大单洽谈</td><td>Naiya Ding</td><td>确认定制产品类型，发工厂OEM方案，这是本周潜在最大订单</td></tr><tr><td>6</td><td>Pricila p</td><td>乌拉圭</td><td>护发产品（样品）</td><td>正在确认哪些样品可提供</td><td>样品</td><td>样品✓</td><td>样品确认中</td><td>Tracey Zhang</td><td>发可提供样品清单，推动样品订单</td></tr><tr><td>7</td><td>Nassim Banu</td><td>葡萄牙</td><td>领秀一洗黑</td><td>询问购买品牌还是定制自己品牌</td><td>待定</td><td>品牌/定制意向</td><td>初步咨询</td><td>Tracey Zhang</td><td>发品牌介绍+OEM对比方案，推动决策</td></tr><tr><td>8</td><td>Abdulrahman alshiekh</td><td>科威特</td><td>护发产品</td><td>询问价格/样品/MOQ</td><td>待核实</td><td>价格✓ MOQ✓ 样品✓</td><td>已回复，等待确认</td><td>Aget Huang</td><td>跟进确认具体需求，发报价单</td></tr><tr><td>9</td><td>Aisha Baydhi</td><td>沙特阿拉伯</td><td>定制品牌产品</td><td>询问定制品牌MOQ/价格/报价</td><td>待核实</td><td>价格✓ MOQ✓</td><td>初步咨询</td><td>Christy Kam</td><td>发OEM/私标MOQ和报价方案</td></tr><tr><td>10</td><td>maria Laureano</td><td>委内瑞拉</td><td>待核实</td><td>询问运费情况</td><td>待核实</td><td>价格✓</td><td>运费咨询</td><td>Aget Huang</td><td>确认货代运费，推动明确采购需求</td></tr></tbody>
-            </table>
-        </div>        <div class="table-container">
-            <table><thead><tr><th>序号</th><th>客户名</th><th>国家</th><th>咨询产品</th><th>内容摘要</th><th>需求量</th><th>当前状态</th><th>回复状态</th><th>跟进业务</th><th>建议行动</th></tr></thead><tbody><tr><td>1</td><td>Militsa Radovich</td><td>黑山</td><td>待核实</td><td>告知周一会更新交货期</td><td>待定</td><td>跟进交货期</td><td>已回复</td><td>Aget Huang</td><td>周一主动跟进，确认交货期和订单进展</td></tr><tr><td>2</td><td>Summer Joy</td><td>菲律宾</td><td>待核实</td><td>确认是否个人用途</td><td>个人</td><td>确认用途</td><td>已回复</td><td>Katherine Chan</td><td>引导至零售渠道或推荐合适规格</td></tr><tr><td>3</td><td>Sahra ismail</td><td>英国</td><td>待核实</td><td>确认是沙龙还是批发商身份</td><td>批发/沙龙</td><td>确认身份</td><td>已回复</td><td>Naiya Ding</td><td>身份确认后发对应价格表</td></tr><tr><td>4</td><td>Anand Kumar</td><td>印度</td><td>待核实</td><td>询问需要多少数量</td><td>待回复</td><td>待确认</td><td>已回复</td><td>Katherine Chan</td><td>等待回复，跟进数量确认</td></tr><tr><td>5</td><td>siso reception</td><td>印度</td><td>成分/规格</td><td>询问是否有成分表</td><td>待定</td><td>规格咨询</td><td>已回复</td><td>Jaime Wu</td><td>发产品成分表/规格书</td></tr><tr><td>6</td><td>Sohaib Khan</td><td>巴基斯坦</td><td>待核实</td><td>询问是否感兴趣</td><td>待定</td><td>初步接触</td><td>已回复</td><td>Katherine Chan</td><td>发产品目录，了解具体需求</td></tr><tr><td>7</td><td>AlineJesus Lima</td><td>法国</td><td>染发膏</td><td>确认是20件还是20箱</td><td>20件或20箱</td><td>数量确认中</td><td>已回复</td><td>Naiya Ding</td><td>等待客户确认数量，发对应报价</td></tr><tr><td>8</td><td>Hadjer Lassouani</td><td>法国</td><td>染发膏色系</td><td>询问颜色需求</td><td>待定</td><td>色系咨询</td><td>已回复</td><td>Katherine Chan</td><td>发色卡，推荐热销色号</td></tr><tr><td>9</td><td>Man Bee</td><td>柬埔寨</td><td>染发膏色系</td><td>询问颜色需求</td><td>待定</td><td>色系咨询</td><td>已回复</td><td>Katherine Chan</td><td>发色卡，推荐热销色号</td></tr><tr><td>10</td><td>anderson garcia</td><td>巴西</td><td>待核实</td><td>初步打招呼</td><td>待定</td><td>初步接触</td><td>已回复</td><td>Jaime Wu</td><td>发产品目录，询问需求</td></tr></tbody>
-            </table>
-        </div>        <div class="table-container">
-            <table><thead><tr><th>序号</th><th>客户名</th><th>国家</th><th>摘要</th><th>跟进业务</th><th>建议行动</th></tr></thead><tbody><tr><td>1</td><td>salman noor</td><td>巴基斯坦</td><td>已加好友</td><td>Naiya Ding</td><td>发目录试探需求</td></tr><tr><td>2</td><td>Irina Volskaya</td><td>俄罗斯</td><td>无摘要</td><td>Tracey Zhang</td><td>发产品目录</td></tr><tr><td>3</td><td>Jolie Munyerenkana</td><td>加拿大</td><td>My pleasure</td><td>Tracey Zhang</td><td>无需跟进</td></tr><tr><td>4</td><td>diego martino</td><td>阿根廷</td><td>🌈表情</td><td>Naiya Ding</td><td>无需跟进</td></tr><tr><td>5</td><td>Ramesh Purohit</td><td>印度</td><td>Yes</td><td>Jaime Wu</td><td>跟进上下文</td></tr><tr><td>6</td><td>Lilian Johnson</td><td>坦桑尼亚</td><td>ok dear no problem</td><td>Katherine Chan</td><td>无需跟进</td></tr><tr><td>7</td><td>tejesh tejesh</td><td>美国</td><td>already revised</td><td>Christy Kam</td><td>跟进修改内容</td></tr><tr><td>8</td><td>Bakhtiar Hama</td><td>芬兰</td><td>Ok</td><td>Jaime Wu</td><td>无需跟进</td></tr><tr><td>9</td><td>Klenam Portia</td><td>加纳</td><td>发文件</td><td>Aget Huang</td><td>确认文件内容</td></tr><tr><td>10</td><td>sherko company</td><td>伊拉克</td><td>视频卡片</td><td>Christy Kam</td><td>无需跟进</td></tr><tr><td>11</td><td>Liviani Justi</td><td>巴西</td><td>已告知有巴西代理</td><td>Tracey Zhang</td><td>无需跟进</td></tr><tr><td>12</td><td>Mahmood Zawak</td><td>阿富汗</td><td>发图片</td><td>Christy Kam</td><td>无需跟进</td></tr></tbody>
-            </table>
-        </div>        <div class="table-container">
-            <table><thead><tr><th>排名</th><th>产品/品类</th><th>询盘次数</th><th>主要来源国</th><th>热度趋势</th></tr></thead><tbody><tr><td>1</td><td>慕川琦发膜（角蛋白/麝香）</td><td>8</td><td>英国/印度</td><td>↑ 本周显著上升</td></tr><tr><td>2</td><td>染发膏/一洗黑</td><td>7</td><td>尼日利亚/加纳/法国/葡萄牙</td><td>→ 稳定</td></tr><tr><td>3</td><td>洗发水+护发素套装</td><td>6</td><td>新西兰/科威特/委内瑞拉</td><td>→ 稳定</td></tr><tr><td>4</td><td>私标/OEM定制</td><td>5</td><td>尼日利亚/沙特/英国</td><td>↑↑ 本周明显增加</td></tr><tr><td>5</td><td>大容量/批发装</td><td>2</td><td>新西兰/法国</td><td>→ 平稳</td></tr></tbody>
-            </table>
-        </div>        <div class="table-container">
-            <table><thead><tr><th>日期</th><th>星期</th><th>询盘数</th><th>TM数</th><th>合计</th><th>环比前日</th></tr></thead><tbody><tr><td>2026-04-13</td><td>周一</td><td>3</td><td>5</td><td>8</td><td>—</td></tr><tr><td>2026-04-14</td><td>周二</td><td>4</td><td>6</td><td>10</td><td>↑2</td></tr><tr><td>2026-04-15</td><td>周三</td><td>3</td><td>5</td><td>8</td><td>↓2</td></tr><tr><td>2026-04-16</td><td>周四</td><td>3</td><td>4</td><td>7</td><td>↓1</td></tr><tr><td>2026-04-17</td><td>周五</td><td>4</td><td>6</td><td>10</td><td>↑3</td></tr><tr><td>2026-04-18</td><td>周六</td><td>3</td><td>5</td><td>8</td><td>↓2</td></tr><tr><td>2026-04-19</td><td>周日</td><td>2</td><td>2</td><td>4</td><td>↓4</td></tr><tr><td>合计</td><td>—</td><td>22</td><td>33</td><td>55</td><td>—</td></tr></tbody>
-            </table>
-        </div>        <div class="table-container">
-            <table><thead><tr><th>客户</th><th>国家</th><th>意向级别</th><th>咨询产品</th><th>本周进展</th><th>下周行动</th></tr></thead><tbody><tr><td>Andleeb Tahir</td><td>英国</td><td>A级</td><td>MOCHEQI发膜</td><td>明确付款意向，讨论ClearPay/信保</td><td>Tracey：今日提供信保入口+CPNP证书，促成下单</td></tr><tr><td>McCarl Degreat</td><td>加纳</td><td>A级</td><td>一洗黑样品</td><td>要求草稿发票和样品重量</td><td>Naiya：今日发草稿发票+重量，推动付款</td></tr><tr><td>Mrs. Jones</td><td>英国</td><td>A级</td><td>定制产品(10000件)</td><td>提出MOQ 10,000件</td><td>Naiya：确认产品类型，发OEM方案</td></tr><tr><td>MR N</td><td>尼日利亚</td><td>A级</td><td>染发膏/洗护私标</td><td>已确认可私标，已发目录</td><td>Aget：发私标MOQ+报价，推样品</td></tr><tr><td>Pooja thapar</td><td>新西兰</td><td>A级</td><td>待核实</td><td>提MOQ 20箱</td><td>Aget：核实产品，发20箱报价</td></tr><tr><td>Aisha Baydhi</td><td>沙特阿拉伯</td><td>A级</td><td>定制品牌</td><td>询问MOQ/价格</td><td>Christy：发OEM完整方案</td></tr><tr><td>Militsa Radovich</td><td>黑山</td><td>B级</td><td>待核实</td><td>承诺周一更新交货期</td><td>Aget：主动跟进交货期</td></tr></tbody>
-            </table>
-        </div>    </div>
 </body>
 </html>
