@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAIJOE 2026年4月询盘月度报告</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2330;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --accent3: #f78166;
+    --accent4: #d2a8ff;
+    --accent5: #ffa657;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --text3: #c9d1d9;
+    --gold: #e3b341;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  /* ===== HEADER ===== */
+  .report-header {
+    background: linear-gradient(135deg, #0d2137 0%, #0f3460 50%, #1a1a2e 100%);
+    padding: 48px 60px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(88,166,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .brand { font-size: 13px; color: var(--text2); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+  .report-title { font-size: 32px; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .report-subtitle { font-size: 15px; color: var(--text2); margin-top: 6px; }
+  .header-meta { text-align: right; }
+  .period-badge {
+    display: inline-block;
+    background: rgba(88,166,255,0.12);
+    border: 1px solid rgba(88,166,255,0.3);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .generated-at { font-size: 12px; color: var(--text2); margin-top: 8px; }
+  .header-divider { height: 1px; background: linear-gradient(90deg, rgba(88,166,255,0.3), transparent); margin: 24px 0 0; }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 1200px; margin: 0 auto; padding: 40px 40px; }
+  section { margin-bottom: 48px; }
+  .section-title {
+    font-size: 18px; font-weight: 600; color: var(--text);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .icon { font-size: 20px; }
+  .section-title .tag {
+    font-size: 11px; font-weight: 500; color: var(--text2);
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 2px 8px; border-radius: 4px;
+    margin-left: auto;
+  }
+
+  /* ===== KPI CARDS ===== */
+  .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .kpi-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .kpi-card:hover { border-color: var(--accent); }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+  }
+  .kpi-card.blue::before { background: var(--accent); }
+  .kpi-card.green::before { background: var(--accent2); }
+  .kpi-card.red::before { background: var(--accent3); }
+  .kpi-card.purple::before { background: var(--accent4); }
+  .kpi-card.orange::before { background: var(--accent5); }
+  .kpi-label { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
+  .kpi-value { font-size: 32px; font-weight: 700; color: var(--text); }
+  .kpi-value.blue { color: var(--accent); }
+  .kpi-value.green { color: var(--accent2); }
+  .kpi-value.red { color: var(--accent3); }
+  .kpi-value.purple { color: var(--accent4); }
+  .kpi-value.orange { color: var(--accent5); }
+  .kpi-sub { font-size: 12px; color: var(--text2); margin-top: 6px; }
+
+  /* ===== TWO-COL ===== */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+
+  /* ===== CHART CARD ===== */
+  .chart-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .chart-title { font-size: 14px; font-weight: 600; color: var(--text3); margin-bottom: 18px; }
+
+  /* ===== BAR CHART ===== */
+  .bar-row { display: flex; align-items: center; margin-bottom: 12px; gap: 12px; }
+  .bar-label { font-size: 12px; color: var(--text2); width: 80px; flex-shrink: 0; text-align: right; }
+  .bar-label.wide { width: 110px; }
+  .bar-track { flex: 1; background: var(--bg3); border-radius: 4px; height: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
+  .bar-val { font-size: 12px; color: var(--text2); width: 40px; flex-shrink: 0; text-align: right; }
+
+  /* ===== TABLE ===== */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .data-table th {
+    background: var(--bg3);
+    color: var(--text2);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #21262d;
+    color: var(--text3);
+    vertical-align: top;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(88,166,255,0.03); }
+  .data-table .num { text-align: center; font-variant-numeric: tabular-nums; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .badge-blue { background: rgba(88,166,255,0.12); color: var(--accent); }
+  .badge-green { background: rgba(63,185,80,0.12); color: var(--accent2); }
+  .badge-orange { background: rgba(255,166,87,0.12); color: var(--accent5); }
+  .badge-purple { background: rgba(210,168,255,0.12); color: var(--accent4); }
+  .badge-red { background: rgba(247,129,102,0.12); color: var(--accent3); }
+  .badge-gray { background: rgba(139,148,158,0.12); color: var(--text2); }
+  .badge-gold { background: rgba(227,179,65,0.12); color: var(--gold); }
+
+  /* ===== PERSON CARDS ===== */
+  .person-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .person-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .person-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .person-avatar {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--accent), var(--accent4));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; color: white;
+  }
+  .person-name { font-size: 15px; font-weight: 600; color: var(--text); }
+  .person-role { font-size: 11px; color: var(--text2); }
+  .person-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .pstat { text-align: center; }
+  .pstat-val { font-size: 20px; font-weight: 700; }
+  .pstat-lbl { font-size: 11px; color: var(--text2); margin-top: 2px; }
+  .person-divider { height: 1px; background: var(--border); margin: 14px 0; }
+  .person-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .person-note { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  /* ===== INSIGHT BOX ===== */
+  .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .insight-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .insight-icon { font-size: 24px; margin-bottom: 10px; }
+  .insight-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .insight-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+  .insight-body li { margin-left: 16px; margin-bottom: 4px; }
+
+  /* ===== PIE-LIKE DONUT CHART ===== */
+  .donut-wrap { display: flex; align-items: center; gap: 24px; }
+  .donut-legend { flex: 1; }
+  .legend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .legend-name { font-size: 12px; color: var(--text2); flex: 1; }
+  .legend-count { font-size: 12px; color: var(--text3); font-weight: 500; }
+
+  /* ===== HIGHLIGHT ROW ===== */
+  .data-table .highlight td { background: rgba(255,166,87,0.04); }
+  .data-table .key-client td { background: rgba(63,185,80,0.04); }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text2);
+  }
+
+  /* ===== PROGRESS RING ===== */
+  .ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .ring-label { font-size: 12px; color: var(--text2); }
+
+  /* ===== DIVIDER TAG ===== */
+  .divider-tag {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--text2); font-size: 12px; margin: 32px 0 24px;
+  }
+  .divider-tag::before, .divider-tag::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ===== SUMMARY BOX ===== */
+  .summary-box {
+    background: linear-gradient(135deg, rgba(88,166,255,0.05), rgba(210,168,255,0.05));
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+  .summary-box p { font-size: 14px; color: var(--text3); line-height: 1.8; }
+  .summary-box strong { color: var(--text); }
+
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .person-grid { grid-template-columns: 1fr 1fr; }
+    .two-col, .three-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="report-header">
+  <div class="header-top">
+    <div>
+      <div class="brand">KAIJOE · 肇庆凯乔科技有限公司</div>
+      <div class="report-title">平台月度询盘跟进报告</div>
+      <div class="report-subtitle">阿里国际站 · 中国制造网 · 独立站 — 多平台综合分析</div>
+    </div>
+    <div class="header-meta">
+      <div class="period-badge">2026年 4月</div>
+      <div class="generated-at">生成时间：2026-05-07 &nbsp;|&nbsp; 统计周期：2026-04-01 ~ 04-30</div>
+    </div>
+  </div>
+  <div class="header-divider"></div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- 执行摘要 -->
+  <div class="summary-box">
+    <p>
+      本期共汇总 <strong>6位业务人员</strong>（伍勋/JAIME、Christy、Naiya、小K/Katherine、Tracey、AGET）4月全月询盘数据。
+      全渠道总询盘量 <strong>213条</strong>，覆盖 <strong>60+个国家和地区</strong>，主要来自阿里国际站、中国制造网及独立站三大平台。
+      本月产生 <strong>1笔确认成交</strong>（Tracey·刚果客户），多个高意向客户处于打样/跟进阶段，具备近期转化潜力。
+    </p>
+  </div>
+
+  <!-- ===== 01 总体KPI ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">📊</span> 一、本月核心数据概览
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card blue">
+        <div class="kpi-label">总询盘量</div>
+        <div class="kpi-value blue">213</div>
+        <div class="kpi-sub">6位业务员 合计</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">覆盖国家 / 地区</div>
+        <div class="kpi-value green">62</div>
+        <div class="kpi-sub">非洲、亚洲、美洲、欧洲均有分布</div>
+      </div>
+      <div class="kpi-card orange">
+        <div class="kpi-label">OEM意向客户</div>
+        <div class="kpi-value orange">17</div>
+        <div class="kpi-sub">含定制、贴标、私模需求</div>
+      </div>
+      <div class="kpi-card purple">
+        <div class="kpi-label">已打样 / 核价中</div>
+        <div class="kpi-value purple">5</div>
+        <div class="kpi-sub">高转化潜力跟进中</div>
+      </div>
+      <div class="kpi-card red">
+        <div class="kpi-label">本月成交笔数</div>
+        <div class="kpi-value red">1</div>
+        <div class="kpi-sub">刚果 Jolie — 慕川琦产品</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 业务员绩效 ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">👤</span> 二、各业务员询盘量对比
+      <span class="tag">按询盘条数排序</span>
+    </div>
+    <div class="two-col">
+      <div class="chart-card">
+        <div class="chart-title">询盘条数 — 各业务员</div>
+        <!-- AGET 51 -->
+        <div class="bar-row">
+          <div class="bar-label wide">AGET</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--accent);"></div></div>
+          <div class="bar-val">51</div>
+        </div>
+        <!-- christy 40 -->
+        <div class="bar-row">
+          <div class="bar-label wide">Christy</div>
+          <div class="bar-track"><div class="bar-fill" style="width:78%;background:var(--accent4);"></div></div>
+          <div class="bar-val">40</div>
+        </div>
+        <!-- tracey 41 -->
+        <div class="bar-row">
+          <div class="bar-label wide">Tracey</div>
+          <div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--accent2);"></div></div>
+          <div class="bar-val">41</div>
+        </div>
+        <!-- 小K 36 -->
+        <div class="bar-row">
+          <div class="bar-label wide">小K / Katherine</div>
+          <div class="bar-track"><div class="bar-fill" style="width:71%;background:var(--gold);"></div></div>
+          <div class="bar-val">36</div>
+        </div>
+        <!-- naiya 18 -->
+        <div class="bar-row">
+          <div class="bar-label wide">Naiya</div>
+          <div class="bar-track"><div class="bar-fill" style="width:35%;background:var(--accent5);"></div></div>
+          <div class="bar-val">18</div>
+        </div>
+        <!-- 伍勋 27 -->
+        <div class="bar-row">
+          <div class="bar-label wide">伍勋 / JAIME</div>
+          <div class="bar-track"><div class="bar-fill" style="width:53%;background:var(--accent3);"></div></div>
+          <div class="bar-val">27</div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">各业务员 OEM客户占比</div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>业务员</th>
+              <th class="num">总询盘</th>
+              <th class="num">OEM意向</th>
+              <th class="num">OEM占比</th>
+              <th>成交情况</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-purple">Tracey</span></td>
+              <td class="num">41</td>
+              <td class="num">3</td>
+              <td class="num">7.3%</td>
+              <td><span class="badge badge-green">✓ 1笔成交</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-orange">小K</span></td>
+              <td class="num">36</td>
+              <td class="num">5</td>
+              <td class="num">13.9%</td>
+              <td><span class="badge badge-blue">跟进中</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-blue">伍勋</span></td>
+              <td class="num">27</td>
+              <td class="num">3</td>
+              <td class="num">11.1%</td>
+              <td><span class="badge badge-blue">跟进中</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-green">Naiya</span></td>
+              <td class="num">18</td>
+              <td class="num">3</td>
+              <td class="num">16.7%</td>
+              <td><span class="badge badge-purple">1客打样中</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-gold">Christy</span></td>
+              <td class="num">40</td>
+              <td class="num">2</td>
+              <td class="num">5.0%</td>
+              <td><span class="badge badge-blue">跟进中</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-gray">AGET</span></td>
+              <td class="num">51</td>
+              <td class="num">0</td>
+              <td class="num">—</td>
+              <td><span class="badge badge-gray">仅初步回复</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 03 个人卡片 ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">🙋</span> 三、业务员个人表现详情
+    </div>
+    <div class="person-grid">
+
+      <!-- 伍勋 -->
+      <div class="person-card">
+        <div class="person-header">
+          <div class="person-avatar">J</div>
+          <div>
+            <div class="person-name">伍勋 (JAIME)</div>
+            <div class="person-role">平台：阿里巴巴 + 中国制造网</div>
+          </div>
+        </div>
+        <div class="person-stats">
+          <div class="pstat"><div class="pstat-val blue">27</div><div class="pstat-lbl">总询盘</div></div>
+          <div class="pstat"><div class="pstat-val orange">3</div><div class="pstat-lbl">OEM意向</div></div>
+          <div class="pstat"><div class="pstat-val green">2</div><div class="pstat-lbl">加微信/WhatsApp</div></div>
+        </div>
+        <div class="person-divider"></div>
+        <div class="person-tags">
+          <span class="badge badge-blue">慕川琦洗护</span>
+          <span class="badge badge-purple">欧诺姿</span>
+          <span class="badge badge-orange">芊丝炭</span>
+          <span class="badge badge-green">OEM定制</span>
+        </div>
+        <div class="person-note">
+          覆盖国家广（比利时、哥伦比亚、俄罗斯、巴西等15+国）。本月亮点：<strong>Chi Jun (新加坡)</strong> OEM洗护意向强，已要成分表；<strong>Anastasia (俄罗斯)</strong> 加微信寄样测试中；<strong>Sarah (俄罗斯)</strong> OEM儿童品加微信。需重点跟进货代问题客户。
+        </div>
+      </div>
+
+      <!-- Christy -->
+      <div class="person-card">
+        <div class="person-header">
+          <div class="person-avatar" style="background:linear-gradient(135deg,#d2a8ff,#f78166)">C</div>
+          <div>
+            <div class="person-name">Christy</div>
+            <div class="person-role">平台：阿里巴巴国际站</div>
+          </div>
+        </div>
+        <div class="person-stats">
+          <div class="pstat"><div class="pstat-val purple">40</div><div class="pstat-lbl">总询盘</div></div>
+          <div class="pstat"><div class="pstat-val orange">2</div><div class="pstat-lbl">OEM意向</div></div>
+          <div class="pstat"><div class="pstat-val red">5</div><div class="pstat-lbl">无效询盘</div></div>
+        </div>
+        <div class="person-divider"></div>
+        <div class="person-tags">
+          <span class="badge badge-blue">慕川琦染膏</span>
+          <span class="badge badge-green">一洗黑</span>
+          <span class="badge badge-purple">领秀系列</span>
+        </div>
+        <div class="person-note">
+          询盘量大，但有效率中等。亮点：<strong>Paulo (巴西)</strong> 头皮护理OEM意向，已报价进行中；<strong>Chloe (美国)</strong> 定制欧诺姿意向，打样中。代理冲突较多，推荐建立更清晰的代理区域说明。部分客户因不含氨/PPD等特殊要求无法满足。
+        </div>
+      </div>
+
+      <!-- Naiya -->
+      <div class="person-card">
+        <div class="person-header">
+          <div class="person-avatar" style="background:linear-gradient(135deg,#3fb950,#58a6ff)">N</div>
+          <div>
+            <div class="person-name">Naiya</div>
+            <div class="person-role">平台：阿里国际站</div>
+          </div>
+        </div>
+        <div class="person-stats">
+          <div class="pstat"><div class="pstat-val green">18</div><div class="pstat-lbl">总询盘</div></div>
+          <div class="pstat"><div class="pstat-val orange">3</div><div class="pstat-lbl">OEM意向</div></div>
+          <div class="pstat"><div class="pstat-val purple">1</div><div class="pstat-lbl">打样中</div></div>
+        </div>
+        <div class="person-divider"></div>
+        <div class="person-tags">
+          <span class="badge badge-blue">慕川琦洗护</span>
+          <span class="badge badge-orange">欧诺姿OEM</span>
+          <span class="badge badge-green">芊丝炭染膏</span>
+        </div>
+        <div class="person-note">
+          询盘量较少但质量较高。<strong>本月最优质客户</strong>：Jaqueline (巴西) 已入打样阶段 — 定制欧诺姿洗发水，更换香精+客户提供标贴设计，需跟进标贴尺寸确认。mohit sh (印度) 来访参观拿样，是本月唯一线下到访客户，价值高，需持续维护。
+        </div>
+      </div>
+
+      <!-- 小K -->
+      <div class="person-card">
+        <div class="person-header">
+          <div class="person-avatar" style="background:linear-gradient(135deg,#e3b341,#ffa657)">K</div>
+          <div>
+            <div class="person-name">小K / Katherine</div>
+            <div class="person-role">平台：阿里国际站 + 中国制造网 + 独立站</div>
+          </div>
+        </div>
+        <div class="person-stats">
+          <div class="pstat"><div class="pstat-val" style="color:var(--gold)">36</div><div class="pstat-lbl">总询盘</div></div>
+          <div class="pstat"><div class="pstat-val orange">5</div><div class="pstat-lbl">OEM意向</div></div>
+          <div class="pstat"><div class="pstat-val blue">3</div><div class="pstat-lbl">多平台覆盖</div></div>
+        </div>
+        <div class="person-divider"></div>
+        <div class="person-tags">
+          <span class="badge badge-blue">领秀染膏</span>
+          <span class="badge badge-green">领秀洗发水</span>
+          <span class="badge badge-gold">OEM贴标</span>
+          <span class="badge badge-purple">独立站</span>
+        </div>
+        <div class="person-note">
+          <strong>本月平台覆盖最广</strong>（国际站+制造网+独立站）。OEM客户比例高：Manzoor (澳大利亚) 300-500单位私标；Sohaib (巴基斯坦) 创业公司全面了解；独立站3个OEM询盘，其中Elvin (阿塞拜疆) 已寄样漂粉代理。样品需求多，建议制定系统化寄样流程。
+        </div>
+      </div>
+
+      <!-- Tracey -->
+      <div class="person-card">
+        <div class="person-header">
+          <div class="person-avatar" style="background:linear-gradient(135deg,#58a6ff,#3fb950)">T</div>
+          <div>
+            <div class="person-name">Tracey</div>
+            <div class="person-role">平台：阿里巴巴 + 中国制造网</div>
+          </div>
+        </div>
+        <div class="person-stats">
+          <div class="pstat"><div class="pstat-val blue">41</div><div class="pstat-lbl">总询盘</div></div>
+          <div class="pstat"><div class="pstat-val green">1</div><div class="pstat-lbl">已成交</div></div>
+          <div class="pstat"><div class="pstat-val purple">2</div><div class="pstat-lbl">高意向跟进</div></div>
+        </div>
+        <div class="person-divider"></div>
+        <div class="person-tags">
+          <span class="badge badge-green">✓ 本月成交</span>
+          <span class="badge badge-blue">欧诺姿洗护</span>
+          <span class="badge badge-orange">慕川琦染膏</span>
+          <span class="badge badge-purple">定制发膜</span>
+        </div>
+        <div class="person-note">
+          <strong>本月唯一确认成交</strong>：Jolie Munyerenkana (刚果) — 下单慕川琦产品。高潜客户：azdeen (利比亚) 已报价发PI，需持续催单；Andleeb (英国) 发膜报价中，等待欧盟注册信息；Irina (俄罗斯) 定制发膜已打样，等寄样回复。
+        </div>
+      </div>
+
+      <!-- AGET -->
+      <div class="person-card">
+        <div class="person-header">
+          <div class="person-avatar" style="background:linear-gradient(135deg,#8b949e,#6e7681)">A</div>
+          <div>
+            <div class="person-name">AGET</div>
+            <div class="person-role">平台：中国制造网 + 阿里国际站</div>
+          </div>
+        </div>
+        <div class="person-stats">
+          <div class="pstat"><div class="pstat-val" style="color:var(--text2)">51</div><div class="pstat-lbl">总询盘</div></div>
+          <div class="pstat"><div class="pstat-val red">1</div><div class="pstat-lbl">无效/推销</div></div>
+          <div class="pstat"><div class="pstat-val red">1</div><div class="pstat-lbl">零售需求</div></div>
+        </div>
+        <div class="person-divider"></div>
+        <div class="person-tags">
+          <span class="badge badge-gray">询染膏</span>
+          <span class="badge badge-gray">询洗护</span>
+          <span class="badge badge-red">待深度跟进</span>
+        </div>
+        <div class="person-note">
+          询盘量最多，但当前以初步回复为主，均记录为"发信息无回复"状态。询盘分布广泛（巴西、越南、伊拉克、印度等），仍在初期建联阶段。<strong>建议</strong>：后续需加强跟进节奏，区分高低意向客户，提升询盘→有效沟通的转化。
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 04 平台分布 ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">🌐</span> 四、平台来源分布
+    </div>
+    <div class="three-col">
+      <div class="chart-card">
+        <div class="chart-title">各平台询盘量</div>
+        <div class="bar-row">
+          <div class="bar-label wide">阿里国际站</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--accent);"></div></div>
+          <div class="bar-val">~108</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label wide">中国制造网</div>
+          <div class="bar-track"><div class="bar-fill" style="width:82%;background:var(--accent5);"></div></div>
+          <div class="bar-val">~88</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label wide">独立站</div>
+          <div class="bar-track"><div class="bar-fill" style="width:17%;background:var(--accent2);"></div></div>
+          <div class="bar-val">3</div>
+        </div>
+        <div style="margin-top:16px;font-size:12px;color:var(--text2);line-height:1.7;">
+          阿里国际站仍为主力获客渠道，占比约51%；中国制造网表现强劲；独立站起步，3条询盘均有OEM意向，质量较高。
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">询盘类型分布（全体）</div>
+        <div class="bar-row">
+          <div class="bar-label wide">询盘 (RFQ)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:72%;background:var(--accent);"></div></div>
+          <div class="bar-val">~154</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label wide">TM主动触达</div>
+          <div class="bar-track"><div class="bar-fill" style="width:28%;background:var(--accent4);"></div></div>
+          <div class="bar-val">~59</div>
+        </div>
+        <div style="margin-top:16px;font-size:12px;color:var(--text2);line-height:1.7;">
+          主动TM占比约28%，说明团队具备一定主动开发能力。RFQ为主体来源，流量质量依赖平台关键词排名。
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">客户新老结构</div>
+        <div class="bar-row">
+          <div class="bar-label wide">新客户</div>
+          <div class="bar-track"><div class="bar-fill" style="width:97%;background:var(--accent2);"></div></div>
+          <div class="bar-val">~209</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label wide">老客户</div>
+          <div class="bar-track"><div class="bar-fill" style="width:3%;background:var(--gold);"></div></div>
+          <div class="bar-val">~4</div>
+        </div>
+        <div style="margin-top:16px;font-size:12px;color:var(--text2);line-height:1.7;">
+          本月几乎全为新客询盘，老客户回购比例极低（&lt;2%）。建议加强老客维护策略，提升客户生命周期价值。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 国家热力 ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">🗺️</span> 五、主要国家 / 地区分布（询盘量 TOP 15）
+    </div>
+    <div class="two-col">
+      <div class="chart-card">
+        <div class="chart-title">询盘量 Top 15 国家</div>
+        <div class="bar-row"><div class="bar-label wide">🇧🇷 巴西</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#3fb950;"></div></div><div class="bar-val">19</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇮🇳 印度</div><div class="bar-track"><div class="bar-fill" style="width:84%;background:#58a6ff;"></div></div><div class="bar-val">16</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇵🇰 巴基斯坦</div><div class="bar-track"><div class="bar-fill" style="width:68%;background:#ffa657;"></div></div><div class="bar-val">13</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇮🇶 伊拉克</div><div class="bar-track"><div class="bar-fill" style="width:58%;background:#d2a8ff;"></div></div><div class="bar-val">11</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇻🇳 越南</div><div class="bar-track"><div class="bar-fill" style="width:47%;background:#f78166;"></div></div><div class="bar-val">9</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇷🇺 俄罗斯</div><div class="bar-track"><div class="bar-fill" style="width:42%;background:#e3b341;"></div></div><div class="bar-val">8</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇲🇦 摩洛哥</div><div class="bar-track"><div class="bar-fill" style="width:37%;background:#58a6ff;"></div></div><div class="bar-val">7</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇨🇴 哥伦比亚</div><div class="bar-track"><div class="bar-fill" style="width:32%;background:#3fb950;"></div></div><div class="bar-val">6</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇫🇷 法国</div><div class="bar-track"><div class="bar-fill" style="width:26%;background:#d2a8ff;"></div></div><div class="bar-val">5</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇬🇭 加纳</div><div class="bar-track"><div class="bar-fill" style="width:26%;background:#ffa657;"></div></div><div class="bar-val">5</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇺🇸 美国</div><div class="bar-track"><div class="bar-fill" style="width:26%;background:#f78166;"></div></div><div class="bar-val">5</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇬🇧 英国</div><div class="bar-track"><div class="bar-fill" style="width:21%;background:#e3b341;"></div></div><div class="bar-val">4</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇨🇩 刚果/非洲</div><div class="bar-track"><div class="bar-fill" style="width:21%;background:#3fb950;"></div></div><div class="bar-val">4</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇦🇪 阿联酋</div><div class="bar-track"><div class="bar-fill" style="width:16%;background:#58a6ff;"></div></div><div class="bar-val">3</div></div>
+        <div class="bar-row"><div class="bar-label wide">🇲🇾 马来西亚</div><div class="bar-track"><div class="bar-fill" style="width:16%;background:#d2a8ff;"></div></div><div class="bar-val">3</div></div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">大洲分布</div>
+        <div class="bar-row"><div class="bar-label wide">🌍 非洲</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#ffa657;"></div></div><div class="bar-val">~58</div></div>
+        <div class="bar-row"><div class="bar-label wide">🌏 亚洲</div><div class="bar-track"><div class="bar-fill" style="width:79%;background:#58a6ff;"></div></div><div class="bar-val">~46</div></div>
+        <div class="bar-row"><div class="bar-label wide">🌎 南美洲</div><div class="bar-track"><div class="bar-fill" style="width:64%;background:#3fb950;"></div></div><div class="bar-val">~37</div></div>
+        <div class="bar-row"><div class="bar-label wide">🌍 中东</div><div class="bar-track"><div class="bar-fill" style="width:50%;background:#d2a8ff;"></div></div><div class="bar-val">~29</div></div>
+        <div class="bar-row"><div class="bar-label wide">🌍 欧洲/CIS</div><div class="bar-track"><div class="bar-fill" style="width:36%;background:#f78166;"></div></div><div class="bar-val">~21</div></div>
+        <div class="bar-row"><div class="bar-label wide">🌎 北美洲</div><div class="bar-track"><div class="bar-fill" style="width:21%;background:#e3b341;"></div></div><div class="bar-val">~12</div></div>
+        <div style="margin-top:16px;font-size:12px;color:var(--text2);line-height:1.8;">
+          <strong style="color:var(--text3);">非洲市场</strong>持续活跃，为最大流量来源。南美洲（尤其巴西）势头强劲，成交记录也来自非洲市场。亚洲（印度/巴基斯坦/越南）OEM意向质量较高，值得重点投入。欧洲市场客单价高、要求严，适合以样品和欧盟合规为切入点。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 产品热度 ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">🧴</span> 六、产品咨询热度分布
+    </div>
+    <div class="two-col">
+      <div class="chart-card">
+        <div class="chart-title">产品系列询盘量</div>
+        <div class="bar-row"><div class="bar-label wide">慕川琦 全系</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#58a6ff;"></div></div><div class="bar-val">~72</div></div>
+        <div class="bar-row"><div class="bar-label wide">领秀 全系</div><div class="bar-track"><div class="bar-fill" style="width:68%;background:#3fb950;"></div></div><div class="bar-val">~49</div></div>
+        <div class="bar-row"><div class="bar-label wide">欧诺姿 全系</div><div class="bar-track"><div class="bar-fill" style="width:42%;background:#d2a8ff;"></div></div><div class="bar-val">~30</div></div>
+        <div class="bar-row"><div class="bar-label wide">芊丝炭 全系</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:#f78166;"></div></div><div class="bar-val">~16</div></div>
+        <div class="bar-row"><div class="bar-label wide">卡洛威 系列</div><div class="bar-track"><div class="bar-fill" style="width:14%;background:#ffa657;"></div></div><div class="bar-val">~10</div></div>
+        <div class="bar-row"><div class="bar-label wide">OEM定制</div><div class="bar-track"><div class="bar-fill" style="width:23%;background:#e3b341;"></div></div><div class="bar-val">~17</div></div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-title">产品品类热度</div>
+        <div class="bar-row"><div class="bar-label wide">染膏/一洗黑</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#f78166;"></div></div><div class="bar-val">~68</div></div>
+        <div class="bar-row"><div class="bar-label wide">洗发水/洗护套装</div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#58a6ff;"></div></div><div class="bar-val">~61</div></div>
+        <div class="bar-row"><div class="bar-label wide">发膜</div><div class="bar-track"><div class="bar-fill" style="width:35%;background:#d2a8ff;"></div></div><div class="bar-val">~24</div></div>
+        <div class="bar-row"><div class="bar-label wide">护发素/精油</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:#3fb950;"></div></div><div class="bar-val">~15</div></div>
+        <div class="bar-row"><div class="bar-label wide">冷烫/双氧奶</div><div class="bar-track"><div class="bar-fill" style="width:12%;background:#ffa657;"></div></div><div class="bar-val">~8</div></div>
+        <div style="margin-top:14px;font-size:12px;color:var(--text2);">
+          染膏 &amp; 洗发水为最热品类，合计占询盘约60%。OEM定制需求同步增长（约8%），以发膜、洗护定制为主。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07 重点客户追踪 ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">⭐</span> 七、高意向客户追踪表
+      <span class="tag">需重点跟进</span>
+    </div>
+    <div class="chart-card" style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>优先级</th>
+            <th>客户姓名</th>
+            <th>国家</th>
+            <th>业务员</th>
+            <th>需求</th>
+            <th>当前进度</th>
+            <th>建议下一步</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="key-client">
+            <td><span class="badge badge-green">P0 · 已成交</span></td>
+            <td>Jolie Munyerenkana</td>
+            <td>🇨🇩 刚果</td>
+            <td>Tracey</td>
+            <td>慕川琦产品</td>
+            <td><span class="badge badge-green">✓ 已下单</span></td>
+            <td>跟进发货，争取复购</td>
+          </tr>
+          <tr class="highlight">
+            <td><span class="badge badge-red">P1 · 催单</span></td>
+            <td>azdeen mousa</td>
+            <td>🇱🇾 利比亚</td>
+            <td>Tracey</td>
+            <td>欧诺姿洗护</td>
+            <td>已报价，发PI未付款</td>
+            <td>48h内催单，确认付款节点</td>
+          </tr>
+          <tr class="highlight">
+            <td><span class="badge badge-red">P1 · 打样</span></td>
+            <td>Irina Volskaya</td>
+            <td>🇷🇺 俄罗斯</td>
+            <td>Tracey</td>
+            <td>定制发膜（炭粒改色）</td>
+            <td>打样中，等寄样</td>
+            <td>确认样品寄出日期，推进客户确认</td>
+          </tr>
+          <tr class="highlight">
+            <td><span class="badge badge-orange">P1 · 打样</span></td>
+            <td>Jaqueline (巴西客户)</td>
+            <td>🇧🇷 巴西</td>
+            <td>Naiya</td>
+            <td>定制欧诺姿洗发水 (OEM)</td>
+            <td>打样中，标贴尺寸待确认</td>
+            <td>沟通标贴尺寸，锁定配方/瓶型</td>
+          </tr>
+          <tr class="highlight">
+            <td><span class="badge badge-orange">P1 · 核价</span></td>
+            <td>Rucha Patel</td>
+            <td>🇺🇸 美国</td>
+            <td>Tracey</td>
+            <td>贴标定制欧诺姿洗护</td>
+            <td>核价中</td>
+            <td>加快报价，确认MOQ</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Chi Jun</td>
+            <td>🇸🇬 新加坡</td>
+            <td>伍勋</td>
+            <td>OEM洗护定制</td>
+            <td>已要成分表，等反馈</td>
+            <td>跟进成分表审核结果，推进打样</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Andleeb Tahir</td>
+            <td>🇬🇧 英国</td>
+            <td>Tracey</td>
+            <td>慕川琦发膜，欧盟注册</td>
+            <td>报价中，等欧盟资料</td>
+            <td>准备欧盟注册所需文件清单，加速推进</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Anastasia Yakunina</td>
+            <td>🇷🇺 俄罗斯</td>
+            <td>伍勋</td>
+            <td>领秀发膜+七洗一护</td>
+            <td>加微信，已寄样测试</td>
+            <td>5-7天后跟进样品测试反馈</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Cynthiara Tara</td>
+            <td>🇮🇩 印尼</td>
+            <td>伍勋</td>
+            <td>OEM染膏（马赛龙）</td>
+            <td>加微信，计划来华参观</td>
+            <td>邀约来访，准备OEM方案</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Manzoor Qasimi</td>
+            <td>🇦🇺 澳大利亚</td>
+            <td>小K</td>
+            <td>领秀私标 300-500单位</td>
+            <td>已告知MOQ 5000pcs/款</td>
+            <td>探讨是否可降MOQ或合并单款</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Paulo (巴西)</td>
+            <td>🇧🇷 巴西</td>
+            <td>Christy</td>
+            <td>头皮护理OEM</td>
+            <td>进行报价中</td>
+            <td>催促报价确认，推进样品</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Song Dosung</td>
+            <td>🇫🇯 斐济</td>
+            <td>伍勋</td>
+            <td>洗发水+沐浴露 (15家超市)</td>
+            <td>初步沟通</td>
+            <td>发目录册，了解具体采购品类和量</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-blue">P2 · 高潜</span></td>
+            <td>Salman Rajpoot</td>
+            <td>🇵🇰 巴基斯坦</td>
+            <td>小K</td>
+            <td>领秀染膏 OEM 500-1000pcs</td>
+            <td>已推荐品牌</td>
+            <td>确认具体款式和颜色，准备报价</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 08 洞察与建议 ===== -->
+  <section>
+    <div class="section-title">
+      <span class="icon">💡</span> 八、管理洞察与行动建议
+    </div>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-icon">📉</div>
+        <div class="insight-title">问题一：回复率偏低 / 已读未回比例高</div>
+        <div class="insight-body">
+          <ul>
+            <li>多数询盘处于"已发信息/已读未回"状态，尤其 AGET 51条记录几乎全为"发信息无回复"</li>
+            <li>建议设定<strong>3天跟进节奏</strong>：首次回复→3天内二次跟进→7天发样品/目录册</li>
+            <li>对于已读未回客户，可尝试更换话术（如发视频、价格钩子等）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🌍</div>
+        <div class="insight-title">问题二：代理冲突频繁影响跟进效率</div>
+        <div class="insight-body">
+          <ul>
+            <li>多个国家（伊拉克、越南、菲律宾、柬埔寨等）因已有代理导致业务员直接推让，询盘浪费</li>
+            <li>建议建立<strong>代理地图</strong>，每个国家的代理信息同步给全体业务员，避免重复接盘再转让</li>
+            <li>对于有代理国家，可以发展代理商客户关系，让代理主动拉动需求</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🎯</div>
+        <div class="insight-title">机遇一：OEM需求快速增长</div>
+        <div class="insight-body">
+          <ul>
+            <li>本月 OEM/私标意向客户 17个，占全量约 8%，且集中在英国、美国、澳大利亚等高单价市场</li>
+            <li>打样客户转化周期较长，<strong>建议专设OEM专员</strong>或建立OEM跟进SOP</li>
+            <li>欧盟合规（CPSR/注册）成为欧洲OEM客户的核心痛点，可以作为竞争壁垒提前布局</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">📦</div>
+        <div class="insight-title">机遇二：非洲市场渗透加深</div>
+        <div class="insight-body">
+          <ul>
+            <li>非洲询盘量占比最高（约27%），且本月唯一成交也来自非洲（刚果）</li>
+            <li>建议优先在非洲高频国家（加纳、尼日利亚、肯尼亚、刚果等）<strong>提速建立代理网络</strong></li>
+            <li>非洲市场对价格敏感，建议针对性整合"非洲专属小包装"或"非洲推荐产品组合"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🔁</div>
+        <div class="insight-title">问题三：老客户复购率近乎为零</div>
+        <div class="insight-body">
+          <ul>
+            <li>全月213条询盘中老客户不足2%，复购机制缺失</li>
+            <li>建议每月初对上季度下单客户进行主动回访，询问库存消耗情况</li>
+            <li>Tracey的刚果客户成交后，应立即纳入复购跟进计划（30天回访节点）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🚀</div>
+        <div class="insight-title">5月重点行动清单</div>
+        <div class="insight-body">
+          <ul>
+            <li><strong>[催单]</strong> azdeen (利比亚) · Rucha Patel (美国) — 本周内跟进确认</li>
+            <li><strong>[打样确认]</strong> Irina (俄) · Jaqueline (巴西) — 确认样品寄出时间</li>
+            <li><strong>[成交跟进]</strong> Jolie (刚果) — 发货+复购预热</li>
+            <li><strong>[系统化]</strong> 制定代理地图 + OEM跟进SOP</li>
+            <li><strong>[老客回访]</strong> 清查Q1成交客户，启动回购联系</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="report-footer">
+  <div>KAIJOE · 肇庆凯乔科技有限公司 &nbsp;|&nbsp; 平台询盘月度报告 · 2026年4月</div>
+  <div>数据来源：6位业务员询盘跟进表（伍勋 / Christy / Naiya / 小K / Tracey / AGET）&nbsp;|&nbsp; 报告生成：2026-05-07</div>
+</div>
+
+</body>
+</html>
