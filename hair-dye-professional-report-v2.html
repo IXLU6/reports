@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球B端专业线染膏市场调研报告(增强版) | KAIJOE 凯捷</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --card-bg: #ffffff;
+    --accent: #7c9eb2;
+    --accent-light: #d4e3ed;
+    --accent-pale: #edf4f8;
+    --warm: #e8b4a2;
+    --warm-light: #fce8e0;
+    --warm-pale: #fdf5f0;
+    --green: #8db580;
+    --green-light: #e2f0de;
+    --green-pale: #f2f8f0;
+    --purple: #a89bc9;
+    --purple-light: #e8e3f4;
+    --purple-pale: #f5f3fa;
+    --gold: #d4a853;
+    --gold-light: #faf0d7;
+    --text: #3d3d3d;
+    --text-light: #6b6b6b;
+    --text-muted: #999;
+    --border: #e8e5e0;
+    --shadow: 0 2px 12px rgba(0,0,0,0.05);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #e8edf2 0%, #f2efe9 30%, #eaf0f4 60%, #f5f0ec 100%);
+    padding: 80px 40px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(124,158,178,0.12) 0%, transparent 70%);
+    top: -100px; right: -100px; border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(232,180,162,0.10) 0%, transparent 70%);
+    bottom: -80px; left: -60px; border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block; background: var(--accent-pale); color: var(--accent);
+    padding: 6px 20px; border-radius: 20px; font-size: 13px; font-weight: 600;
+    letter-spacing: 1px; margin-bottom: 24px;
+  }
+  .hero h1 { font-size: 42px; font-weight: 700; color: #2c3e4e; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { font-size: 17px; color: var(--text-light); max-width: 680px; margin: 0 auto 28px; }
+  .hero-meta { display: flex; justify-content: center; gap: 36px; font-size: 14px; color: var(--text-muted); flex-wrap: wrap; }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+  .section { padding: 64px 0; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-tag {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 12px; padding: 4px 14px; border-radius: 12px;
+  }
+  .section h2 { font-size: 32px; font-weight: 700; color: #2c3e4e; margin-bottom: 10px; }
+  .section-desc { font-size: 15px; color: var(--text-light); max-width: 640px; margin: 0 auto; }
+
+  .cards { display: grid; gap: 24px; }
+  .cards-2 { grid-template-columns: repeat(2, 1fr); }
+  .cards-3 { grid-template-columns: repeat(3, 1fr); }
+  .cards-4 { grid-template-columns: repeat(4, 1fr); }
+  .card {
+    background: var(--card-bg); border-radius: var(--radius); padding: 32px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+
+  .big-num { text-align: center; padding: 28px 20px; }
+  .big-num .num { font-size: 40px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
+  .big-num .label { font-size: 13px; color: var(--text-light); margin-top: 6px; }
+  .big-num .sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .num-accent { color: var(--accent); }
+  .num-warm { color: var(--warm); }
+  .num-green { color: var(--green); }
+  .num-purple { color: var(--purple); }
+
+  .chart-area {
+    background: var(--card-bg); border-radius: var(--radius); padding: 32px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .chart-area h3 { font-size: 18px; font-weight: 700; margin-bottom: 24px; color: #2c3e4e; }
+
+  .bar-chart { display: flex; flex-direction: column; gap: 14px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-label { width: 130px; font-size: 13px; font-weight: 600; color: var(--text); text-align: right; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 32px; background: #f5f3f0; border-radius: 16px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 16px; display: flex; align-items: center; padding-left: 14px; font-size: 13px; font-weight: 700; color: #fff; transition: width 1.5s ease; }
+  .bar-val { width: 55px; font-size: 14px; font-weight: 700; color: var(--text); flex-shrink: 0; }
+
+  .donut-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .donut-item { text-align: center; }
+  .donut-circle { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; position: relative; }
+  .donut-circle .inner { width: 64px; height: 64px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; }
+  .donut-circle .inner span { font-size: 20px; font-weight: 800; }
+  .donut-item .donut-label { font-size: 13px; color: var(--text); font-weight: 600; }
+  .donut-item .donut-sub { font-size: 11px; color: var(--text-muted); }
+
+  .styled-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .styled-table thead th {
+    background: var(--accent-pale); color: var(--accent); font-weight: 700;
+    font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; padding: 14px 16px; text-align: left;
+  }
+  .styled-table tbody td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--text); }
+  .styled-table tbody tr:hover td { background: #fafcfd; }
+  .styled-table .highlight { background: var(--warm-pale); }
+  .styled-table .highlight:hover td { background: var(--warm-light); }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+  .tag-hot { background: #fde8e8; color: #c55555; }
+  .tag-trend { background: #e2f0de; color: #6a9b5e; }
+  .tag-stable { background: #e8e3f4; color: #8a78b8; }
+
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent-light), var(--warm-light)); }
+  .tl-item { position: relative; margin-bottom: 28px; padding-left: 24px; }
+  .tl-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid #fff; box-shadow: 0 0 0 3px var(--accent-light); }
+  .tl-item:nth-child(even)::before { background: var(--warm); box-shadow: 0 0 0 3px var(--warm-light); }
+  .tl-year { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 4px; }
+  .tl-item:nth-child(even) .tl-year { color: var(--warm); }
+  .tl-title { font-size: 16px; font-weight: 700; color: #2c3e4e; margin-bottom: 4px; }
+  .tl-desc { font-size: 14px; color: var(--text-light); }
+
+  .insight-box {
+    background: var(--accent-pale); border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 20px 24px; margin: 24px 0;
+  }
+  .insight-box.warm { background: var(--warm-pale); border-left-color: var(--warm); }
+  .insight-box.green { background: var(--green-pale); border-left-color: var(--green); }
+  .insight-box h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #2c3e4e; }
+  .insight-box p { font-size: 14px; color: var(--text-light); }
+
+  .vs-row { display: flex; align-items: center; gap: 16px; padding: 20px 0; }
+  .vs-side { flex: 1; text-align: center; padding: 24px 16px; border-radius: var(--radius-sm); }
+  .vs-side.left { background: var(--warm-pale); }
+  .vs-side.right { background: var(--accent-pale); }
+  .vs-side .vs-num { font-size: 36px; font-weight: 800; }
+  .vs-side.left .vs-num { color: var(--warm); }
+  .vs-side.right .vs-num { color: var(--accent); }
+  .vs-side .vs-label { font-size: 14px; font-weight: 600; color: var(--text); margin-top: 4px; }
+  .vs-side .vs-detail { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+  .vs-divider { font-size: 22px; font-weight: 800; color: var(--text-muted); background: var(--bg); padding: 8px 14px; border-radius: 50%; flex-shrink: 0; }
+
+  .divider { width: 60px; height: 3px; border-radius: 2px; margin: 0 auto 32px; }
+  .divider-accent { background: var(--accent-light); }
+  .divider-warm { background: var(--warm-light); }
+
+  .heatmap-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .heat-cell { padding: 20px 12px; border-radius: var(--radius-sm); text-align: center; font-weight: 700; font-size: 14px; }
+  .heat-cell .cell-pct { font-size: 28px; font-weight: 800; display: block; }
+  .heat-cell .cell-label { font-size: 12px; margin-top: 4px; opacity: 0.85; }
+  .heat-1 { background: #f5f3fa; color: #6a5a9a; }
+  .heat-2 { background: #e8e3f4; color: #6a5a9a; }
+  .heat-3 { background: #e2f0de; color: #5a8a4a; }
+  .heat-4 { background: #faf0d7; color: #b8902a; }
+  .heat-5 { background: #fce8e0; color: #c56a40; }
+
+  /* Product Image Card */
+  .product-showcase { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .product-card {
+    background: var(--card-bg); border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+    transition: transform 0.2s;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,0.1); }
+  .product-visual {
+    height: 180px; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .product-visual .prod-svg { width: 100%; height: 100%; }
+  .product-body { padding: 20px; }
+  .product-body .brand { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .product-body h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #2c3e4e; }
+  .product-body .specs { font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
+  .product-body .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .product-body .pricing { font-size: 14px; font-weight: 700; color: var(--accent); margin-top: 8px; }
+
+  /* Trend SVG Chart */
+  .trend-chart-container { margin: 24px 0; text-align: center; }
+  .trend-chart-container svg { max-width: 100%; }
+
+  /* Year data grid */
+  .year-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+  .year-card {
+    background: var(--card-bg); border-radius: var(--radius-sm); padding: 24px 16px;
+    text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .year-card .yr { font-size: 24px; font-weight: 800; color: var(--accent); }
+  .year-card .val { font-size: 32px; font-weight: 800; margin: 8px 0; }
+  .year-card .growth { font-size: 13px; font-weight: 600; }
+  .year-card:nth-child(2) .yr { color: var(--warm); }
+  .year-card:nth-child(2) .val { color: var(--warm); }
+  .year-card:nth-child(3) .yr { color: var(--green); }
+  .year-card:nth-child(3) .val { color: var(--green); }
+  .year-card:nth-child(4) .yr { color: var(--purple); }
+  .year-card:nth-child(4) .val { color: var(--purple); }
+
+  .footer {
+    text-align: center; padding: 48px 32px;
+    background: linear-gradient(135deg, #edf4f8 0%, #faf9f7 50%, #fdf5f0 100%);
+    color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border);
+  }
+  .source-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 40px; }
+
+  @media (max-width: 900px) {
+    .cards-2, .cards-3, .cards-4 { grid-template-columns: 1fr; }
+    .product-showcase { grid-template-columns: 1fr; }
+    .year-grid { grid-template-columns: repeat(2, 1fr); }
+    .donut-grid { grid-template-columns: 1fr 1fr; }
+    .heatmap-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero h1 { font-size: 30px; }
+    .vs-row { flex-direction: column; }
+    .vs-divider { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📊 B2B PROFESSIONAL MARKET RESEARCH · ENHANCED EDITION</div>
+    <h1>全球专业线<span>染膏</span>市场调研报告</h1>
+    <p>聚焦美发沙龙专业线染膏 · 覆盖2022-2025逐年数据与趋势图 · 沙龙热销产品详解 · 家用染发产品类型分析 · 为凯捷品牌出海与产品研发提供数据决策支持</p>
+    <div class="hero-meta">
+      <span>📅 2026年6月11日 增强版</span>
+      <span>📁 Fortune BI · Grand View · Global Growth Insights · QY Research · GIR</span>
+      <span>🔖 KAIJOE 凯捷定制</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════ SECTION 01: 逐年数据 + 趋势图 ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--accent-pale);color:var(--accent);">Section 01</span>
+    <h2>2022-2025 全球染发市场逐年数据</h2>
+    <p class="section-desc">基于 Fortune Business Insights · Global Growth Insights · SkyQuest · Cognitive Market Research 多源交叉验证</p>
+  </div>
+  <div class="divider divider-accent"></div>
+
+  <div class="year-grid">
+    <div class="year-card">
+      <div class="yr">2022</div>
+      <div class="val" style="color:var(--accent);">$235亿</div>
+      <div class="growth" style="color:var(--green);">▲ +5.8%</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">疫情后复苏期 · DIY回落<br>沙龙染发强势反弹</div>
+    </div>
+    <div class="year-card">
+      <div class="yr">2023</div>
+      <div class="val" style="color:var(--warm);">$250亿</div>
+      <div class="growth" style="color:var(--green);">▲ +6.4%</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">TikTok潮流色爆发<br>奶茶灰单月7463万件</div>
+    </div>
+    <div class="year-card">
+      <div class="yr">2024</div>
+      <div class="val" style="color:var(--green);">$265亿</div>
+      <div class="growth" style="color:var(--green);">▲ +6.0%</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">AI试色+可持续包装<br>无氨产品需求+47%</div>
+    </div>
+    <div class="year-card">
+      <div class="yr">2025</div>
+      <div class="val" style="color:var(--purple);">$281亿</div>
+      <div class="growth" style="color:var(--green);">▲ +6.0%</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">沙龙渠道全面复苏<br>个性化定制成壁垒</div>
+    </div>
+  </div>
+
+  <!-- SVG Trend Chart -->
+  <div class="chart-area">
+    <h3>📈 2022-2034 全球染发市场规模趋势（亿美元）</h3>
+    <div class="trend-chart-container">
+      <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid lines -->
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7c9eb2" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#7c9eb2" stop-opacity="0.02"/>
+          </linearGradient>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#a89bc9"/>
+            <stop offset="40%" stop-color="#7c9eb2"/>
+            <stop offset="100%" stop-color="#e8b4a2"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Y-axis labels -->
+        <text x="50" y="60" font-size="12" fill="#999" text-anchor="end">$500亿</text>
+        <text x="50" y="120" font-size="12" fill="#999" text-anchor="end">$400亿</text>
+        <text x="50" y="180" font-size="12" fill="#999" text-anchor="end">$300亿</text>
+        <text x="50" y="240" font-size="12" fill="#999" text-anchor="end">$200亿</text>
+        <text x="50" y="300" font-size="12" fill="#999" text-anchor="end">$100亿</text>
+
+        <!-- Grid horizontal -->
+        <line x1="65" y1="55" x2="770" y2="55" stroke="#eee" stroke-width="0.5"/>
+        <line x1="65" y1="115" x2="770" y2="115" stroke="#eee" stroke-width="0.5"/>
+        <line x1="65" y1="175" x2="770" y2="175" stroke="#eee" stroke-width="0.5"/>
+        <line x1="65" y1="235" x2="770" y2="235" stroke="#eee" stroke-width="0.5"/>
+        <line x1="65" y1="295" x2="770" y2="295" stroke="#eee" stroke-width="0.5"/>
+
+        <!-- Area fill -->
+        <path d="M95,248 L163,235 C231,222 299,215 367,205 C411,199 455,190 499,178 C543,166 587,152 631,138 C653,130 675,120 697,108 L697,295 L95,295 Z" fill="url(#areaGrad)"/>
+
+        <!-- Main trend line (historical 2022-2025 solid) -->
+        <path d="M95,248 C115,241 135,236 163,235 C177,234 191,229 215,222 C239,215 250,212 275,204 C300,196 315,192 335,188" stroke="#7c9eb2" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+        <!-- Dashed line for 2025-2034 projection -->
+        <path d="M335,188 C355,184 375,175 400,165 C430,152 460,138 490,125 C530,108 570,95 600,88 C630,81 660,73 690,68 C710,65 730,60 750,55" stroke="#e8b4a2" stroke-width="3.5" stroke-dasharray="8,5" fill="none" stroke-linecap="round"/>
+
+        <!-- Data points + labels: 2022 -->
+        <circle cx="95" cy="248" r="7" fill="#a89bc9" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="95" cy="248" r="14" fill="none" stroke="#a89bc9" stroke-width="1" opacity="0.3"/>
+        <text x="95" y="268" font-size="12" font-weight="700" fill="#a89bc9" text-anchor="middle">2022</text>
+        <text x="95" y="282" font-size="11" fill="#999" text-anchor="middle">$235亿</text>
+
+        <!-- 2023 -->
+        <circle cx="163" cy="235" r="7" fill="#a89bc9" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="163" cy="235" r="14" fill="none" stroke="#a89bc9" stroke-width="1" opacity="0.3"/>
+        <text x="163" y="258" font-size="12" font-weight="700" fill="#a89bc9" text-anchor="middle">2023</text>
+        <text x="163" y="272" font-size="11" fill="#999" text-anchor="middle">$250亿</text>
+
+        <!-- 2024 -->
+        <circle cx="250" cy="214" r="7" fill="#a89bc9" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="250" cy="214" r="14" fill="none" stroke="#a89bc9" stroke-width="1" opacity="0.3"/>
+        <text x="250" y="237" font-size="12" font-weight="700" fill="#a89bc9" text-anchor="middle">2024</text>
+        <text x="250" y="251" font-size="11" fill="#999" text-anchor="middle">$265亿</text>
+
+        <!-- 2025 -->
+        <circle cx="335" cy="188" r="8" fill="#7c9eb2" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="335" cy="188" r="16" fill="none" stroke="#7c9eb2" stroke-width="1.5" opacity="0.3"/>
+        <text x="335" y="210" font-size="13" font-weight="800" fill="#7c9eb2" text-anchor="middle">2025</text>
+        <text x="335" y="226" font-size="12" font-weight="700" fill="#7c9eb2" text-anchor="middle">$281亿</text>
+
+        <!-- 2026+ prediction labels -->
+        <text x="450" y="170" font-size="11" fill="#e8b4a2" text-anchor="middle">2026</text>
+        <text x="450" y="183" font-size="10" fill="#ccc" text-anchor="middle">$298亿</text>
+        <text x="560" y="148" font-size="11" fill="#e8b4a2" text-anchor="middle">2028</text>
+        <text x="560" y="161" font-size="10" fill="#ccc" text-anchor="middle">$336亿</text>
+        <text x="730" y="120" font-size="11" fill="#e8b4a2" text-anchor="middle">2034</text>
+        <text x="730" y="133" font-size="10" fill="#ccc" text-anchor="middle">$474亿</text>
+
+        <!-- Legend -->
+        <rect x="570" y="300" width="14" height="14" rx="3" fill="#7c9eb2"/>
+        <text x="590" y="312" font-size="11" fill="#666">历史数据</text>
+        <rect x="660" y="300" width="14" height="14" rx="3" fill="none" stroke="#e8b4a2" stroke-width="2.5" stroke-dasharray="4,3"/>
+        <text x="680" y="312" font-size="11" fill="#666">预测数据 (CAGR 5.98%)</text>
+
+        <!-- CAGR annotation -->
+        <rect x="250" y="330" width="300" height="28" rx="14" fill="#f2f8f0"/>
+        <text x="400" y="349" font-size="12" font-weight="700" fill="#8db580" text-anchor="middle">CAGR: 5.98% | 十年增长 102% | 绝对增量 $239亿</text>
+      </svg>
+    </div>
+    <div style="text-align:center;font-size:11px;color:var(--text-muted);margin-top:8px;">
+      数据来源：Fortune Business Insights (2026.01) · Global Growth Insights (2026.03) · Cognitive Market Research (2025) 交叉验证
+    </div>
+  </div>
+
+  <!-- Professional Salon Segment -->
+  <div class="chart-area" style="margin-top:24px;">
+    <h3>💈 专业沙龙染膏细分市场逐年数据（2022-2025）</h3>
+    <div class="trend-chart-container">
+      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#a89bc9"/>
+            <stop offset="100%" stop-color="#d4cee8"/>
+          </linearGradient>
+          <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7c9eb2"/>
+            <stop offset="100%" stop-color="#b8d0e0"/>
+          </linearGradient>
+          <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8db580"/>
+            <stop offset="100%" stop-color="#c2dfba"/>
+          </linearGradient>
+          <linearGradient id="barGrad4" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e8b4a2"/>
+            <stop offset="100%" stop-color="#f4d8cc"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Y axis -->
+        <text x="45" y="40" font-size="11" fill="#999" text-anchor="end">$100亿</text>
+        <text x="45" y="100" font-size="11" fill="#999" text-anchor="end">$80亿</text>
+        <text x="45" y="160" font-size="11" fill="#999" text-anchor="end">$60亿</text>
+        <text x="45" y="220" font-size="11" fill="#999" text-anchor="end">$40亿</text>
+        <text x="45" y="280" font-size="11" fill="#999" text-anchor="end">$20亿</text>
+
+        <line x1="55" y1="35" x2="770" y2="35" stroke="#eee" stroke-width="0.5"/>
+        <line x1="55" y1="95" x2="770" y2="95" stroke="#eee" stroke-width="0.5"/>
+        <line x1="55" y1="155" x2="770" y2="155" stroke="#eee" stroke-width="0.5"/>
+        <line x1="55" y1="215" x2="770" y2="215" stroke="#eee" stroke-width="0.5"/>
+        <line x1="55" y1="275" x2="770" y2="275" stroke="#eee" stroke-width="0.5"/>
+
+        <!-- Bars Grouped: Overall Market (light) + Professional Segment (dark) -->
+        <!-- 2022: ~$235B total, ~$79.9B professional (~34%) -->
+        <rect x="100" y="195" width="55" height="80" rx="4" fill="#eee" opacity="0.5"/>
+        <rect x="110" y="227" width="35" height="48" rx="4" fill="url(#barGrad1)"/>
+        <text x="127" y="220" font-size="12" font-weight="700" fill="#a89bc9" text-anchor="middle">$79.9亿</text>
+        <text x="127" y="290" font-size="12" font-weight="600" fill="#666" text-anchor="middle">2022</text>
+
+        <!-- 2023: ~$250B total, ~$85B professional -->
+        <rect x="235" y="185" width="55" height="90" rx="4" fill="#eee" opacity="0.5"/>
+        <rect x="245" y="214" width="35" height="61" rx="4" fill="url(#barGrad2)"/>
+        <text x="262" y="207" font-size="12" font-weight="700" fill="#7c9eb2" text-anchor="middle">$85亿</text>
+        <text x="262" y="290" font-size="12" font-weight="600" fill="#666" text-anchor="middle">2023</text>
+
+        <!-- 2024: ~$265B total, ~$90.1B professional -->
+        <rect x="370" y="175" width="55" height="100" rx="4" fill="#eee" opacity="0.5"/>
+        <rect x="380" y="201" width="35" height="74" rx="4" fill="url(#barGrad3)"/>
+        <text x="397" y="194" font-size="12" font-weight="700" fill="#8db580" text-anchor="middle">$90.1亿</text>
+        <text x="397" y="290" font-size="12" font-weight="600" fill="#666" text-anchor="middle">2024</text>
+
+        <!-- 2025: ~$281B total, ~$95B professional -->
+        <rect x="505" y="160" width="55" height="115" rx="4" fill="#eee" opacity="0.5"/>
+        <rect x="515" y="184" width="35" height="91" rx="4" fill="url(#barGrad4)"/>
+        <text x="532" y="177" font-size="12" font-weight="700" fill="#e8b4a2" text-anchor="middle">$95亿</text>
+        <text x="532" y="290" font-size="12" font-weight="600" fill="#666" text-anchor="middle">2025</text>
+
+        <!-- Growth arrow -->
+        <path d="M555,230 L585,215 L585,225 M585,215 L575,205" stroke="#8db580" stroke-width="2" fill="none"/>
+        <text x="600" y="218" font-size="11" fill="#8db580" font-weight="600">+6.3%</text>
+
+        <!-- Share percentage -->
+        <text x="127" y="250" font-size="11" fill="#a89bc9" text-anchor="middle">34%</text>
+        <text x="262" y="237" font-size="11" fill="#7c9eb2" text-anchor="middle">34%</text>
+        <text x="397" y="224" font-size="11" fill="#8db580" text-anchor="middle">34%</text>
+        <text x="532" y="207" font-size="11" fill="#e8b4a2" text-anchor="middle">~34%</text>
+
+        <!-- Legend -->
+        <rect x="620" y="252" width="12" height="12" rx="2" fill="#7c9eb2"/>
+        <text x="638" y="263" font-size="11" fill="#666">专业沙龙染膏细分市场</text>
+        <rect x="620" y="272" width="12" height="12" rx="2" fill="#eee" opacity="0.5"/>
+        <text x="638" y="283" font-size="11" fill="#666">整体染发市场（含家用）</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="insight-box" style="margin-top:24px;">
+    <h4>📌 逐年关键发现</h4>
+    <p>
+      <strong>2022→2023</strong>：TikTok驱动的潮流色（奶茶灰/樱桃红）使染发市场增长加速0.6个百分点，社交媒体影响60%购买决策。<br>
+      <strong>2023→2024</strong>：AI虚拟试色采纳率+62%、可持续包装品牌达58%，技术+环保双轮驱动。<br>
+      <strong>2024→2025</strong>：关税不确定性带来供应链重组，亚洲制造商承接替代订单增加，专业沙龙渠道全面恢复至疫情前水平。<br>
+      专业线染膏<strong>连续4年保持约34%的整体市场占比</strong>，但绝对值从$79.9亿增至$95亿，增量$15.1亿。
+    </p>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 02: 家用 vs 专业 ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--warm-pale);color:var(--warm);">Section 02</span>
+    <h2>家用染发 vs 专业沙龙染膏占比</h2>
+    <p class="section-desc">全球染发市场两大渠道的份额对比与趋势演变（2022-2025）</p>
+  </div>
+  <div class="divider divider-warm"></div>
+
+  <div class="vs-row">
+    <div class="vs-side left">
+      <div class="vs-num">64-68%</div>
+      <div class="vs-label">🏠 家用/零售渠道</div>
+      <div class="vs-detail">超市、药妆店、电商平台<br>DIY染发套装增长+54%<br>71%女性在家染发<br>2024年家用染发市场$41亿</div>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-side right">
+      <div class="vs-num">32-36%</div>
+      <div class="vs-label">💈 专业沙龙渠道</div>
+      <div class="vs-detail">沙龙专属品牌占44%份额<br>高端沙龙服务增长+30%<br>60%消费者偏好沙龙永久染<br>2024年沙龙染膏市场$90亿</div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;">
+    <div class="chart-area">
+      <h3>📊 2022-2025 家用 vs 专业 占比趋势变化</h3>
+      <div class="trend-chart-container">
+        <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+          <!-- 2022 -->
+          <text x="135" y="55" font-size="12" font-weight="700" fill="#888" text-anchor="middle">2022</text>
+          <rect x="90" y="70" width="90" height="170" rx="6" fill="#fce8e0"/>
+          <text x="135" y="95" font-size="14" font-weight="800" fill="#e8b4a2" text-anchor="middle">66%</text>
+          <text x="135" y="115" font-size="11" fill="#c56a40" text-anchor="middle">家用</text>
+          <rect x="90" y="130" width="90" height="110" rx="6" fill="#d4e3ed"/>
+          <text x="135" y="155" font-size="14" font-weight="800" fill="#7c9eb2" text-anchor="middle">34%</text>
+          <text x="135" y="175" font-size="11" fill="#5a7a8a" text-anchor="middle">专业</text>
+
+          <!-- 2023 -->
+          <text x="310" y="55" font-size="12" font-weight="700" fill="#888" text-anchor="middle">2023</text>
+          <rect x="265" y="70" width="90" height="165" rx="6" fill="#fce8e0"/>
+          <text x="310" y="95" font-size="14" font-weight="800" fill="#e8b4a2" text-anchor="middle">65%</text>
+          <rect x="265" y="128" width="90" height="112" rx="6" fill="#d4e3ed"/>
+          <text x="310" y="155" font-size="14" font-weight="800" fill="#7c9eb2" text-anchor="middle">35%</text>
+
+          <!-- 2024 -->
+          <text x="485" y="55" font-size="12" font-weight="700" fill="#888" text-anchor="middle">2024</text>
+          <rect x="440" y="70" width="90" height="160" rx="6" fill="#fce8e0"/>
+          <text x="485" y="95" font-size="14" font-weight="800" fill="#e8b4a2" text-anchor="middle">64%</text>
+          <rect x="440" y="125" width="90" height="115" rx="6" fill="#d4e3ed"/>
+          <text x="485" y="152" font-size="14" font-weight="800" fill="#7c9eb2" text-anchor="middle">36%</text>
+
+          <!-- 2025 -->
+          <text x="660" y="55" font-size="12" font-weight="700" fill="#888" text-anchor="middle">2025</text>
+          <rect x="615" y="70" width="90" height="155" rx="6" fill="#fce8e0"/>
+          <text x="660" y="95" font-size="14" font-weight="800" fill="#e8b4a2" text-anchor="middle">64%</text>
+          <rect x="615" y="122" width="90" height="118" rx="6" fill="#d4e3ed"/>
+          <text x="660" y="150" font-size="14" font-weight="800" fill="#7c9eb2" text-anchor="middle">36%</text>
+
+          <!-- Trend arrow -->
+          <path d="M175,190 C230,185 285,183 340,180 C395,177 450,175 505,172 C560,169 580,168 605,166" stroke="#8db580" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+          <text x="400" y="210" font-size="11" fill="#8db580" text-anchor="middle" font-weight="600">专业沙龙占比缓慢上升（34%→36%）</text>
+
+          <!-- Legend -->
+          <rect x="250" y="250" width="14" height="14" rx="3" fill="#fce8e0"/>
+          <text x="270" y="262" font-size="12" fill="#666">家用/零售渠道</text>
+          <rect x="380" y="250" width="14" height="14" rx="3" fill="#d4e3ed"/>
+          <text x="400" y="262" font-size="12" fill="#666">专业沙龙渠道</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 03: 沙龙热销产品 ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--green-pale);color:var(--green);">Section 03</span>
+    <h2>全球沙龙热销专业染膏产品详解</h2>
+    <p class="section-desc">基于Byrdie、Science Insights、SalonCentric等专业评测平台，甄选沙龙销量最高的6款核心产品</p>
+  </div>
+  <div class="divider" style="background:var(--green-light);"></div>
+
+  <div class="product-showcase">
+    <!-- Product 1: Redken Shades EQ -->
+    <div class="product-card">
+      <div class="product-visual" style="background:linear-gradient(135deg, #f0e6f6, #e8d5f0);">
+        <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="20" width="100" height="140" rx="16" fill="#c8a2c8"/>
+          <rect x="85" y="25" width="90" height="130" rx="14" fill="#dcc4dc"/>
+          <text x="130" y="80" font-size="11" font-weight="800" fill="#7b4f7b" text-anchor="middle">SHADES</text>
+          <text x="130" y="96" font-size="11" font-weight="800" fill="#7b4f7b" text-anchor="middle">EQ</text>
+          <rect x="95" y="108" width="70" height="6" rx="3" fill="#c8a2c8"/>
+          <text x="130" y="165" font-size="9" fill="#7b4f7b" text-anchor="middle">60ml · Acidic Gloss</text>
+        </svg>
+      </div>
+      <div class="product-body">
+        <div class="brand" style="color:var(--purple);">Redken · L'Oréal 旗下</div>
+        <h4>Shades EQ 酸性半永久釉彩</h4>
+        <div class="specs">全球沙龙使用最广泛的半永久染膏。酸性pH配方，像护发素一样包裹发丝，零损伤。用于打底后调色和闭合毛鳞片。</div>
+        <div class="tags">
+          <span class="tag tag-trend">半永久</span>
+          <span class="tag tag-stable">#1 沙龙最爱</span>
+        </div>
+        <div class="pricing">B端批发参考: $4.5-6.5/支 | 100+色号</div>
+      </div>
+    </div>
+
+    <!-- Product 2: Wella Koleston Perfect -->
+    <div class="product-card">
+      <div class="product-visual" style="background:linear-gradient(135deg, #faf0d7, #f5e6c8);">
+        <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="70" y="15" width="120" height="150" rx="18" fill="#d4a853"/>
+          <rect x="75" y="20" width="110" height="140" rx="16" fill="#2c2c2c"/>
+          <rect x="80" y="25" width="100" height="130" rx="14" fill="#3d3d3d"/>
+          <text x="130" y="75" font-size="13" font-weight="800" fill="#d4a853" text-anchor="middle">WELLA</text>
+          <text x="130" y="95" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">KOLESTON</text>
+          <text x="130" y="112" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">PERFECT</text>
+          <text x="130" y="170" font-size="9" fill="#d4a853" text-anchor="middle">60ml · Permanent</text>
+        </svg>
+      </div>
+      <div class="product-body">
+        <div class="brand" style="color:var(--gold);">Wella Professionals · Coty 旗下</div>
+        <h4>Koleston Perfect 永久染膏</h4>
+        <div class="specs">全球沙龙永久染发标杆。ME+技术替代PPD/PTD，过敏率大幅降低。12%全球市场份额。纯色粒子技术实现精准呈色。</div>
+        <div class="tags">
+          <span class="tag tag-stable">永久性</span>
+          <span class="tag tag-hot">低敏配方ME+</span>
+        </div>
+        <div class="pricing">B端批发参考: $3.8-5.5/支 | 120+色号</div>
+      </div>
+    </div>
+
+    <!-- Product 3: Schwarzkopf Igora Royal -->
+    <div class="product-card">
+      <div class="product-visual" style="background:linear-gradient(135deg, #e8e3f4, #dcd5f0);">
+        <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="75" y="20" width="110" height="140" rx="15" fill="#1a1a2e"/>
+          <rect x="80" y="25" width="100" height="130" rx="13" fill="#2d2d44"/>
+          <text x="130" y="70" font-size="10" font-weight="800" fill="#a89bc9" text-anchor="middle">SCHWARZKOPF</text>
+          <text x="130" y="88" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">IGORA</text>
+          <text x="130" y="105" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">ROYAL</text>
+          <rect x="100" y="115" width="60" height="4" rx="2" fill="#a89bc9"/>
+          <text x="130" y="170" font-size="9" fill="#a89bc9" text-anchor="middle">60ml · Permanent</text>
+        </svg>
+      </div>
+      <div class="product-body">
+        <div class="brand" style="color:var(--purple);">Schwarzkopf Professional · Henkel 旗下</div>
+        <h4>Igora Royal 皇家永久染膏</h4>
+        <div class="specs">德国汉高旗下核心专业线。HD⁺高清色素技术提供极致色彩饱和度。全球11%市场份额。覆盖白发能力业界领先。</div>
+        <div class="tags">
+          <span class="tag tag-stable">永久性</span>
+          <span class="tag tag-trend">HD⁺色素技术</span>
+        </div>
+        <div class="pricing">B端批发参考: $3.5-5.0/支 | 100+色号</div>
+      </div>
+    </div>
+
+    <!-- Product 4: L'Oréal Majirel -->
+    <div class="product-card">
+      <div class="product-visual" style="background:linear-gradient(135deg, #fde8e8, #fad4d4);">
+        <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="75" y="15" width="110" height="150" rx="16" fill="#c55555"/>
+          <rect x="80" y="20" width="100" height="140" rx="14" fill="#fff"/>
+          <text x="130" y="70" font-size="11" font-weight="800" fill="#c55555" text-anchor="middle">L'ORÉAL</text>
+          <text x="130" y="88" font-size="11" font-weight="800" fill="#333" text-anchor="middle">PROFESSIONNEL</text>
+          <line x1="90" y1="100" x2="170" y2="100" stroke="#c55555" stroke-width="2"/>
+          <text x="130" y="120" font-size="13" font-weight="800" fill="#c55555" text-anchor="middle">MAJIREL</text>
+          <text x="130" y="170" font-size="9" fill="#c55555" text-anchor="middle">50ml · Permanent</text>
+        </svg>
+      </div>
+      <div class="product-body">
+        <div class="brand" style="color:#c55555;">L'Oréal Professionnel</div>
+        <h4>Majirel 专业永久染膏</h4>
+        <div class="specs">欧莱雅全球明星专业线。Ionène G⁺护发技术3倍修护。全球市场份额25%的母品牌旗舰。真色调呈现，100%覆盖白发。</div>
+        <div class="tags">
+          <span class="tag tag-stable">永久性</span>
+          <span class="tag tag-hot">3倍修护</span>
+        </div>
+        <div class="pricing">B端批发参考: $4.0-6.0/支 | 130+色号</div>
+      </div>
+    </div>
+
+    <!-- Product 5: Matrix SoColor -->
+    <div class="product-card">
+      <div class="product-visual" style="background:linear-gradient(135deg, #e2f0de, #d0e8cc);">
+        <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="75" y="25" width="110" height="130" rx="14" fill="#2c4a2c"/>
+          <rect x="80" y="30" width="100" height="120" rx="12" fill="#3d5a3d"/>
+          <text x="130" y="70" font-size="12" font-weight="800" fill="#8db580" text-anchor="middle">MATRIX</text>
+          <text x="130" y="90" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">SOCOLOR</text>
+          <text x="130" y="110" font-size="9" fill="#8db580" text-anchor="middle">PRE-BONDED</text>
+          <text x="130" y="165" font-size="9" fill="#8db580" text-anchor="middle">90ml · Permanent</text>
+        </svg>
+      </div>
+      <div class="product-body">
+        <div class="brand" style="color:var(--green);">Matrix · L'Oréal 旗下</div>
+        <h4>SoColor 预键合永久染膏</h4>
+        <div class="specs">率先将Bonding键合保护技术融入染膏配方。染发同时修复发质。90ml大容量管装，沙龙经济实惠之选。</div>
+        <div class="tags">
+          <span class="tag tag-stable">永久性</span>
+          <span class="tag tag-trend">键合技术先驱</span>
+        </div>
+        <div class="pricing">B端批发参考: $3.2-4.8/支 | 80+色号</div>
+      </div>
+    </div>
+
+    <!-- Product 6: Shiseido Primience -->
+    <div class="product-card">
+      <div class="product-visual" style="background:linear-gradient(135deg, #fdf5f0, #f9ece0);">
+        <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="80" y="18" width="100" height="144" rx="15" fill="#e8b4a2"/>
+          <rect x="85" y="23" width="90" height="134" rx="13" fill="#fff"/>
+          <text x="130" y="65" font-size="9" font-weight="800" fill="#e8b4a2" text-anchor="middle">SHISEIDO</text>
+          <text x="130" y="82" font-size="10" font-weight="800" fill="#333" text-anchor="middle">PROFESSIONAL</text>
+          <rect x="95" y="95" width="70" height="3" rx="1.5" fill="#e8b4a2"/>
+          <text x="130" y="115" font-size="13" font-weight="800" fill="#e8b4a2" text-anchor="middle">PRIMIENCE</text>
+          <text x="130" y="168" font-size="9" fill="#e8b4a2" text-anchor="middle">80g · Permanent</text>
+        </svg>
+      </div>
+      <div class="product-body">
+        <div class="brand" style="color:var(--warm);">Shiseido Professional</div>
+        <h4>Primience 资生堂专业染膏</h4>
+        <div class="specs">亚洲市场高端沙龙首选。专门针对亚洲人发质研发。DuaLight渗透技术实现均匀着色。灰色系/奶茶色在亚太市场现象级热销。</div>
+        <div class="tags">
+          <span class="tag tag-stable">永久性</span>
+          <span class="tag tag-hot">亚洲发质专研</span>
+        </div>
+        <div class="pricing">B端批发参考: $5.0-7.5/支 | 90+色号</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box green" style="margin-top:32px;">
+    <h4>🎯 沙龙热销产品的共同特征</h4>
+    <p>① 全部为<strong>管装膏状（Cream Tube）</strong>剂型，60-90ml标准规格；② 均为<strong>永久性或高覆盖半永久</strong>；③ 核心技术壁垒集中在色素稳定、低敏配方和键合修护三个方向；④ 色号数量100+是入门门槛；⑤ B端批发价集中在$3.2-$7.5/支区间。对于凯捷OEM代工而言，<strong>$0.44-$1.02/支的中国工厂价</strong>对比沙龙品牌零售端$10-25/支的价差，正是B端代工的核心价值。</p>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 04: 家用染发产品类型 ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--warm-pale);color:var(--warm);">Section 04</span>
+    <h2>家用染发产品：哪些类型销量最高</h2>
+    <p class="section-desc">零售/电商渠道家用染发产品形态与热销类型分析</p>
+  </div>
+  <div class="divider divider-warm"></div>
+
+  <div class="chart-area">
+    <table class="styled-table">
+      <thead>
+        <tr><th>产品类型</th><th>家用市场份额</th><th>典型品牌/产品</th><th>核心特征</th><th>B端机会</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td><strong>盒装永久染发套装（Box Dye）</strong></td>
+          <td><span style="font-size:22px;font-weight:800;color:var(--accent);">~55%</span></td>
+          <td>Garnier Nutrisse、L'Oréal Excellence、Clairol Nice'n Easy</td>
+          <td>染膏+显色剂+手套+说明书全套，覆盖白发最强。零售价$6-15/盒。65%家用消费者选择永久染。</td>
+          <td>⭐⭐⭐⭐ 最大体量</td>
+        </tr>
+        <tr>
+          <td><strong>泡沫染发剂（Foam Color）</strong></td>
+          <td><span style="font-size:22px;font-weight:800;color:var(--purple);">~20%</span></td>
+          <td>L'Oréal Superior Preference Mousse、John Frieda Precision Foam</td>
+          <td>操作简便、均匀度高、新手友好。日韩市场极受欢迎。泡泡质地，像洗头一样染发。</td>
+          <td>⭐⭐⭐⭐⭐ 增长最快</td>
+        </tr>
+        <tr>
+          <td><strong>补根/快速补染（Root Touch-Up）</strong></td>
+          <td><span style="font-size:22px;font-weight:800;color:var(--green);">~12%</span></td>
+          <td>Clairol Root Touch-Up、L'Oréal Magic Root Cover Up</td>
+          <td>10分钟快速覆盖新生白发/发根。喷雾/刷头二合一。复购率极高（4-6周一次）。</td>
+          <td>⭐⭐⭐⭐ 高复购品类</td>
+        </tr>
+        <tr>
+          <td><strong>半永久/临时染色（Demi/Semi）</strong></td>
+          <td><span style="font-size:22px;font-weight:800;color:var(--gold);">~8%</span></td>
+          <td>Clairol Natural Instincts、Manic Panic、Arctic Fox</td>
+          <td>28天渐褪，无氨无损伤。Gen Z最爱（38%偏好临时染）。Instagram/TikTok种草驱动。</td>
+          <td>⭐⭐⭐ 潮流色赛道</td>
+        </tr>
+        <tr>
+          <td><strong>植物/有机染发粉（Henna/Herbal）</strong></td>
+          <td><span style="font-size:22px;font-weight:800;color:var(--warm);">~5%</span></td>
+          <td>Light Mountain、Surya Brasil、Radico</td>
+          <td>100%纯植物（海娜/靛蓝/木蓝粉）。中东/南亚市场刚需，非GMO/有机认证。染发+养发一体。</td>
+          <td>⭐⭐⭐⭐⭐ 中东蓝海</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:12px;font-size:11px;color:var(--text-muted);text-align:center;">
+      数据来源：Verified Market Reports · Global Growth Insights · Amazon Best Sellers Hair Color 交叉验证
+    </div>
+  </div>
+
+  <div style="margin-top:32px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:40px;margin-bottom:8px;">🛒</div>
+      <h4>家用染发核心购买驱动力</h4>
+      <p style="font-size:13px;color:var(--text-light);margin-top:8px;">
+        ① 经济性（<$15 vs 沙龙$60-200）<br>
+        ② 便利性（在家操作，无需预约）<br>
+        ③ 社交媒体驱动（TikTok #hairdye 200亿+播放）<br>
+        ④ 定期补染刚需（每4-6周一次）
+      </p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:40px;margin-bottom:8px;">📱</div>
+      <h4>家用染发最新趋势（2024-2025）</h4>
+      <p style="font-size:13px;color:var(--text-light);margin-top:8px;">
+        ① AI虚拟试色工具采纳率+62%<br>
+        ② 泡沫染发剂在日韩增长+35%<br>
+        ③ 补根产品线上销售增长+45%<br>
+        ④ 可洗型临时染发剂使用量+40%（Gen Z）
+      </p>
+    </div>
+  </div>
+
+  <div class="insight-box warm" style="margin-top:24px;">
+    <h4>💡 对凯捷的产品线启示</h4>
+    <p>专业线染膏（管装永久染）是B端利润核心，但<strong>泡沫染发剂</strong>和<strong>补根产品</strong>是家用端增长最快的品类。如果凯捷未来拓展家用线/零售线，泡沫染发剂可以作为低价引流爆款（$3-5/瓶出厂价），盒装永久染套装作为利润主力。但现阶段建议<strong>优先深耕B端专业线管装染膏</strong>——一个品类做透再横向拓展。</p>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 05: PRODUCT TYPES THAT SELL BEST ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--green-pale);color:var(--green);">Section 05</span>
+    <h2>什么类型的染膏销量最显著</h2>
+    <p class="section-desc">按持久性、配方、产品形态分类的销量与趋势分析</p>
+  </div>
+  <div class="divider" style="background:var(--green-light);"></div>
+
+  <div style="margin-bottom:48px;">
+    <h3 style="font-size:22px;font-weight:700;color:#2c3e4e;margin-bottom:24px;text-align:center;">🔬 按持久性分类</h3>
+    <table class="styled-table">
+      <thead><tr><th>产品类型</th><th>市场份额</th><th>特点</th><th>使用场景</th><th>热度趋势</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td><strong>永久性染膏</strong><br><span style="font-size:11px;color:var(--text-muted);">Permanent Hair Color Cream</span></td><td><span style="font-size:22px;font-weight:800;color:var(--accent);">42-65%</span></td><td>渗透发干，永久改变色素，需配双氧奶。含氨或无氨配方。</td><td>遮盖白发、彻底换色、沙龙核心服务</td><td><span class="tag tag-stable">主导品类</span><br><span style="font-size:12px;color:var(--green);">无氨配方增长+47%</span></td></tr>
+        <tr><td><strong>半永久性染膏</strong><br><span style="font-size:11px;color:var(--text-muted);">Semi-Permanent Color</span></td><td><span style="font-size:22px;font-weight:800;color:var(--purple);">31%</span></td><td>包裹发丝表面，不涉及化学反应。45%首次染发者选择此类。</td><td>色彩尝试、时尚造型</td><td><span class="tag tag-trend">快速增长</span><br><span style="font-size:12px;color:var(--green);">无氨需求+50%</span></td></tr>
+        <tr><td><strong>挑染与漂发产品</strong><br><span style="font-size:11px;color:var(--text-muted);">Highlights & Bleach</span></td><td><span style="font-size:22px;font-weight:800;color:var(--gold);">22%</span></td><td>55%沙龙服务涉及漂浅程序。漂粉/漂膏+双氧奶组合。</td><td>渐变/双色/挑染</td><td><span class="tag tag-hot">热度上升</span><br><span style="font-size:12px;color:var(--warm);">渐变风格+48%</span></td></tr>
+        <tr><td><strong>临时性染发剂</strong><br><span style="font-size:11px;color:var(--text-muted);">Temporary Color</span></td><td><span style="font-size:22px;font-weight:800;color:var(--text-muted);">~5%</span></td><td>1-2次洗发褪去。Gen Z追捧（38%偏好）</td><td>节日/派对/短期造型</td><td><span class="tag tag-hot">年轻市场热</span><br><span style="font-size:12px;color:var(--green);">+26%使用</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-bottom:24px;">
+    <h3 style="font-size:22px;font-weight:700;color:#2c3e4e;margin-bottom:24px;text-align:center;">🧪 按产品形态分类（B端畅销榜）</h3>
+    <div class="cards cards-3">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;">🧴</div>
+        <h4>染膏管装 Cream Tube</h4>
+        <div style="font-size:28px;font-weight:800;color:var(--accent);margin:8px 0;">#1 核心品类</div>
+        <p style="font-size:13px;color:var(--text-light);">100ml标准管装，专业沙龙最主流剂型。涂抹精准、显色均匀、覆盖力强。B端批发价 <strong>$0.44-1.02/支</strong></p>
+        <p style="font-size:12px;color:var(--green);font-weight:700;margin-top:8px;">⭐ 凯捷核心切入品类</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;">⚪</div>
+        <h4>漂粉/漂膏 Bleach</h4>
+        <div style="font-size:28px;font-weight:800;color:var(--warm);margin:8px 0;">#2 高复购品类</div>
+        <p style="font-size:13px;color:var(--text-light);">漂粉粉末状、漂膏膏状。沙龙前置必备品。55%沙龙服务涉及漂浅程序。高消耗、高复购。</p>
+        <p style="font-size:12px;color:var(--warm);font-weight:700;margin-top:8px;">⭐ 搭配染膏提升客单价</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;">💧</div>
+        <h4>双氧奶 Developer</h4>
+        <div style="font-size:28px;font-weight:800;color:var(--green);margin:8px 0;">#3 配套刚需</div>
+        <p style="font-size:13px;color:var(--text-light);">3%/6%/9%/12%浓度。永久染和漂浅必需配套品。消耗量是染膏的1.5-2倍。</p>
+        <p style="font-size:12px;color:var(--green);font-weight:700;margin-top:8px;">⭐ 绑定染膏组合出货</p>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 06: COLOR SHADE ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--purple-pale);color:var(--purple);">Section 06</span>
+    <h2>染膏色系销量分析</h2>
+    <p class="section-desc">哪些颜色在全球B端市场最畅销</p>
+  </div>
+  <div class="divider" style="background:var(--purple-light);"></div>
+
+  <div class="heatmap-grid">
+    <div class="heat-cell heat-1"><span class="cell-pct">25.8%</span><span class="cell-label">深棕色</span><span style="font-size:10px;display:block;margin-top:2px;">#1 销量冠军</span></div>
+    <div class="heat-cell heat-2"><span class="cell-pct">~20%</span><span class="cell-label">自然黑色</span><span style="font-size:10px;display:block;margin-top:2px;">#2 亚洲核心色</span></div>
+    <div class="heat-cell heat-3"><span class="cell-pct">~18%</span><span class="cell-label">金色/浅棕系</span><span style="font-size:10px;display:block;margin-top:2px;">搜索量+6300%</span></div>
+    <div class="heat-cell heat-4"><span class="cell-pct">~15%</span><span class="cell-label">红色/铜色系</span><span style="font-size:10px;display:block;margin-top:2px;">搜索量+1530%</span></div>
+    <div class="heat-cell heat-5"><span class="cell-pct">~22%</span><span class="cell-label">灰色/奶茶/潮流色</span><span style="font-size:10px;display:block;margin-top:2px;">亚太增长最快</span></div>
+  </div>
+
+  <div style="margin-top:24px;">
+    <div class="chart-area">
+      <h3>🌍 各地区最畅销色系偏好</h3>
+      <div class="cards cards-4" style="margin-top:20px;">
+        <div class="card" style="text-align:center;"><div style="font-size:36px;margin-bottom:12px;">🌎</div><h4>北美</h4><p style="font-size:13px;color:var(--text-light);">金色/浅棕 #1<br>非传统醒目色 +55%<br>渐变/双色染 +48%</p></div>
+        <div class="card" style="text-align:center;"><div style="font-size:36px;margin-bottom:12px;">🏰</div><h4>欧洲</h4><p style="font-size:13px;color:var(--text-light);">永久染占60%<br>挑染产品占35%<br>粉彩/渐变 +50%</p></div>
+        <div class="card" style="text-align:center;"><div style="font-size:36px;margin-bottom:12px;">🎌</div><h4>亚太</h4><p style="font-size:13px;color:var(--text-light);">自然棕/黑 核心<br>日韩占区域68%<br>奶茶灰/银灰 爆款</p></div>
+        <div class="card" style="text-align:center;"><div style="font-size:36px;margin-bottom:12px;">🏜️</div><h4>中东/非洲</h4><p style="font-size:13px;color:var(--text-light);">海娜有机 54%<br>自然深色系<br>防损伤需求 +48%</p></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 07: REGIONAL ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--warm-pale);color:var(--warm);">Section 07</span>
+    <h2>全球区域市场分布</h2>
+    <p class="section-desc">专业线染膏的全球市场格局与各区域特征</p>
+  </div>
+  <div class="divider divider-warm"></div>
+
+  <div class="chart-area">
+    <h3>📊 全球染发市场区域份额（2024-2025）</h3>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">亚太地区</div><div class="bar-track"><div class="bar-fill" style="width:35%;background:var(--accent);">35%</div></div><div class="bar-val">35%</div></div>
+      <div class="bar-row"><div class="bar-label">北美地区</div><div class="bar-track"><div class="bar-fill" style="width:30%;background:var(--warm);">30-38%</div></div><div class="bar-val">30-38%</div></div>
+      <div class="bar-row"><div class="bar-label">欧洲地区</div><div class="bar-track"><div class="bar-fill" style="width:25%;background:var(--green);">25-28%</div></div><div class="bar-val">25-28%</div></div>
+      <div class="bar-row"><div class="bar-label">中东与非洲</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--purple);">10%</div></div><div class="bar-val">~10%</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <table class="styled-table">
+      <thead><tr><th>区域</th><th>份额</th><th>沙龙渗透率</th><th>核心特征</th><th>凯捷机会</th></tr></thead>
+      <tbody>
+        <tr><td><strong>🌏 亚太</strong></td><td>35%</td><td>37% 沙龙</td><td>人口基数大、电商渠道强、日韩占区域68%、DIY偏好强</td><td>⭐⭐⭐⭐⭐ 主战场</td></tr>
+        <tr><td><strong>🌎 北美</strong></td><td>30-38%</td><td>62% 沙龙</td><td>沙龙文化强、高端消费力、无氨需求高、男性市场+48%</td><td>⭐⭐⭐⭐ 高端线</td></tr>
+        <tr><td><strong>🏰 欧洲</strong></td><td>25-28%</td><td>58% 沙龙</td><td>法规严、有机需求强、德法英占72%、成分透明</td><td>⭐⭐⭐ 需认证</td></tr>
+        <tr><td><strong>🏜️ 中东与非洲</strong></td><td>~10%</td><td>60% 沙龙</td><td>海娜/天然偏好54%、沙龙主导、增长潜力大</td><td>⭐⭐⭐⭐⭐ 蓝海</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 08: TREND TIMELINE ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--green-pale);color:var(--green);">Section 08</span>
+    <h2>专业线染膏热度趋势（2020-2026）</h2>
+    <p class="section-desc">近6年专业染膏赛道的演变与关键转折点</p>
+  </div>
+  <div class="divider" style="background:var(--green-light);"></div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-year">2020</div><div class="tl-title">疫情冲击 · 沙龙关闭 · DIY爆发</div><div class="tl-desc">全球沙龙大面积停业，家用染发套装销量暴涨。亚马逊染发类目搜索量同比增长超200%。专业线遭受短暂冲击，但催生了"专业产品家用化"新赛道。</div></div>
+    <div class="tl-item"><div class="tl-year">2021</div><div class="tl-title">沙龙反弹 · "报复性染发"</div><div class="tl-desc">欧美沙龙率先恢复营业，"Recession Blonde"衰退金发趋势爆发（+42%增长）。专业染膏需求V型反弹。</div></div>
+    <div class="tl-item"><div class="tl-year">2022</div><div class="tl-title">成分觉醒 · 无氨元年</div><div class="tl-desc">67%消费者表示偏好无氨产品。有机染发剂年增长28%。品牌纷纷推出Clean Beauty染发线。全球市场$235亿。</div></div>
+    <div class="tl-item"><div class="tl-year">2023</div><div class="tl-title">社交媒体驱动 · 潮流色爆发</div><div class="tl-desc">TikTok/Instagram推动奶茶灰、樱桃红等潮流色成为现象级爆款。奶茶灰色单品月销7463万+件。全球市场$250亿。</div></div>
+    <div class="tl-item"><div class="tl-year">2024</div><div class="tl-title">技术融合 · AI选色 + 可持续</div><div class="tl-desc">AI虚拟染发试色工具采纳率+62%。58%品牌采用环保包装。含角蛋白/植物油的"养染一体"产品线渗透率53%。全球市场$265亿。</div></div>
+    <div class="tl-item"><div class="tl-year">2025-2026</div><div class="tl-title">专业线全面复苏 · 供应链重构</div><div class="tl-desc">全球沙龙数量恢复至疫情前水平。沙龙专业线染膏市场达$95亿。关税政策带来供应链不确定性，为亚洲制造商创造替代供应机会。全球市场$281亿。</div></div>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 09: COMPETITIVE ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--accent-pale);color:var(--accent);">Section 09</span>
+    <h2>全球竞争格局</h2>
+    <p class="section-desc">专业线染膏市场的主要玩家与市场集中度</p>
+  </div>
+  <div class="divider divider-accent"></div>
+
+  <div class="chart-area">
+    <table class="styled-table">
+      <thead><tr><th>排名</th><th>企业</th><th>总部</th><th>全球份额</th><th>核心专业染膏品牌</th><th>主打特征</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td>🥇</td><td><strong>L'Oréal 欧莱雅</strong></td><td>法国</td><td>25-28%</td><td>Majirel · Shades EQ · SoColor</td><td>三品牌覆盖全价位·全球最大专业线</td></tr>
+        <tr><td>🥈</td><td><strong>Henkel 汉高</strong></td><td>德国</td><td>15-18%</td><td>Schwarzkopf IGORA · BlondMe</td><td>沙龙专业线强势·漂发产品市占第一</td></tr>
+        <tr><td>🥉</td><td><strong>Coty 科蒂（Wella）</strong></td><td>美国</td><td>~12%</td><td>Wella Koleston · Illumina</td><td>沙龙渠道深度绑定·ME+低敏技术领先</td></tr>
+        <tr><td>4</td><td><strong>Kao 花王</strong></td><td>日本</td><td>~7%</td><td>Goldwell · KMS</td><td>亚洲市场强势·日系色彩引领者</td></tr>
+        <tr><td>5</td><td><strong>Shiseido 资生堂</strong></td><td>日本</td><td>~5%</td><td>Shiseido Professional · Primience</td><td>亚洲发质适配·DuaLight渗透技术</td></tr>
+        <tr><td>6</td><td><strong>Amorepacific 爱茉莉</strong></td><td>韩国</td><td>~3%</td><td>Mise en Scène · Ryo</td><td>韩流驱动·亚太DIY渠道强</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:16px;font-size:12px;color:var(--text-muted);text-align:center;">
+      CR5 ≈ 64-70% | 品牌集中度中等 | Top品牌均在大力投入无氨/有机配方 | 代工厂机会在差异化细分赛道
+    </div>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SECTION 10: KAIJOE STRATEGY ═══════════════ -->
+<div class="container"><div class="section">
+  <div class="section-header">
+    <span class="section-tag" style="background:var(--warm-pale);color:var(--warm);">Section 10</span>
+    <h2>凯捷切入专业线染膏的战略建议</h2>
+    <p class="section-desc">基于调研数据，为凯捷量身定制的B端染膏市场进入策略</p>
+  </div>
+  <div class="divider divider-warm"></div>
+
+  <div class="cards cards-2">
+    <div class="card"><div class="card-icon" style="background:var(--accent-pale);">🎯</div><h3>核心品类选择</h3><p><strong>第一优先级：永久性染膏（管装）</strong>——占市场42-65%，是B端客户最大需求口。建议首批开发30-50个色号，覆盖深棕/自然黑（基石色）+ 金色/暖棕（增长色）+ 奶茶灰/亚麻（差异化色）。</p></div>
+    <div class="card"><div class="card-icon" style="background:var(--green-pale);">🌿</div><h3>配方差异化定位</h3><p><strong>"无氨/低氨 + 植物提取物"</strong>作为核心卖点。67%消费者偏好无氨但只有20%产品满足。结合凯捷自有工厂的研发能力，打造<strong>"沙龙级品质 + 工厂直供价格"</strong>的差异化定位。</p></div>
+    <div class="card"><div class="card-icon" style="background:var(--purple-pale);">📦</div><h3>配套品类组合</h3><p>染膏 + 漂粉 + 双氧奶 三件套组合出货。漂浅程序占沙龙服务55%，是刚需消耗品。配套销售可将<strong>客单价提升2-3倍</strong>，同时增强B端客户粘性。</p></div>
+    <div class="card"><div class="card-icon" style="background:var(--warm-pale);">🌍</div><h3>市场拓展优先级</h3><p><strong>Tier 1：中东/非洲</strong>——沙龙渗透率60%、天然偏好54%、B端需求旺盛、竞争相对低。<strong>Tier 2：亚太</strong>——最大市场，潮流色需求爆发。<strong>Tier 3：北美/欧洲</strong>——需认证但利润最高。</p></div>
+  </div>
+
+  <div class="insight-box green" style="margin-top:32px;">
+    <h4>✅ 总结：凯捷为什么应该做专业线染膏</h4>
+    <p>① 全球$95亿的确定性大盘，CAGR 5%持续增长；② 品牌集中度不高（CR5≈64%），新玩家有切入窗口；③ 无氨/植物基供需缺口巨大（67%需求 vs 20%供给）；④ 凯捷自有工厂的成本结构天然适合B端代工模式；⑤ 染膏与凯捷现有洗护/烫染产品线高度协同。建议<strong>优先以OEM/ODM模式切入中东和亚太市场</strong>，同步申请欧盟CPNP/美国MoCRA认证为长期品牌化铺路。</p>
+  </div>
+</div></div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <p style="margin-bottom:8px;">全球B端专业线染膏市场调研报告（增强版）· KAIJOE 凯捷定制</p>
+  <p>数据来源: Fortune Business Insights · Grand View Research · QY Research · Global Growth Insights · Global Info Research · SkyQuest · Cognitive Market Research · Valuates · Byrdie · Science Insights</p>
+  <p style="margin-top:4px;">报告日期: 2026年6月11日 | 版本: v2.0 Enhanced | 分析方法: 多源数据交叉验证 | 仅供内部决策参考</p>
+</footer>
+
+<script>
+// Animate bar charts on scroll
+(function(){function e(){document.querySelectorAll(".bar-fill").forEach(function(t){var i=t.getBoundingClientRect().top,n=window.innerHeight;i<n+100&&(t.style.width=t.textContent.trim().replace("%","")+"%")})}window.addEventListener("scroll",e);e()})();
+</script>
+
+</body>
+</html>
