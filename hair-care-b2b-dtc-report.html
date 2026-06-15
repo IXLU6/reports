@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>缇庡彂浜у搧 B2B & DTC 鐙珛绔欑珵鍝佽皟鐮旇〃 | KAOJOE HAIR BEAUTY</title>
+<style>
+  :root {
+    --red: #C8102E;
+    --dark: #1a1a2e;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --accent: #2d3436;
+    --gold: #e6b800;
+    --green: #27ae60;
+    --blue: #2980b9;
+    --border: #e0e0e0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+  
+  /* Header */
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 60px 40px; border-radius: 16px; margin-bottom: 30px; position: relative; overflow: hidden; }
+  .header::after { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(200,16,46,0.15) 0%, transparent 70%); border-radius: 50%; }
+  .header h1 { font-size: 2.4em; margin-bottom: 8px; position: relative; z-index: 1; }
+  .header .subtitle { font-size: 1.15em; opacity: 0.85; position: relative; z-index: 1; }
+  .header .badge-row { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .badge { background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px; font-size: 0.85em; }
+  .badge.highlight { background: var(--red); }
+  
+  /* Stats */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px; }
+  .stat-card { background: var(--card); border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .stat-card .num { font-size: 2.2em; font-weight: 700; color: var(--red); }
+  .stat-card .label { font-size: 0.9em; color: #666; margin-top: 4px; }
+  
+  /* Section */
+  .section-title { font-size: 1.5em; font-weight: 700; margin: 36px 0 16px; padding-bottom: 10px; border-bottom: 3px solid var(--red); display: flex; align-items: center; gap: 10px; }
+  .section-title .icon { font-size: 1.3em; }
+  .section-desc { color: #666; margin-bottom: 20px; font-size: 0.95em; }
+  
+  /* Table */
+  .table-wrap { overflow-x: auto; background: var(--card); border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 30px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+  thead { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; }
+  th { padding: 14px 12px; text-align: left; font-weight: 600; white-space: nowrap; }
+  td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: #f0f4ff; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  tr:nth-child(even):hover td { background: #f0f4ff; }
+  
+  .rank { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 0.95em; }
+  .rank.top1 { background: linear-gradient(135deg, #FFD700, #FFA500); }
+  .rank.top2 { background: linear-gradient(135deg, #C0C0C0, #A0A0A0); }
+  .rank.top3 { background: linear-gradient(135deg, #CD7F32, #A0522D); }
+  .rank.hot { background: var(--red); }
+  .rank.warm { background: var(--blue); }
+  .rank.normal { background: #7f8c8d; }
+  
+  .heat-bar { display: inline-block; width: 80px; height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; vertical-align: middle; margin-right: 6px; }
+  .heat-fill { height: 100%; border-radius: 4px; }
+  .heat-fill.very-high { background: var(--red); width: 100%; }
+  .heat-fill.high { background: #e74c3c; width: 85%; }
+  .heat-fill.medium-high { background: #f39c12; width: 70%; }
+  .heat-fill.medium { background: #f1c40f; width: 55%; }
+  .heat-fill.low { background: #3498db; width: 40%; }
+  
+  .tag { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; font-weight: 600; margin: 2px; }
+  .tag.red { background: #fde8ea; color: #C8102E; }
+  .tag.blue { background: #e8f0fe; color: #2980b9; }
+  .tag.green { background: #e8f8ef; color: #27ae60; }
+  .tag.gold { background: #fef9e7; color: #b8860b; }
+  .tag.purple { background: #f3e8fd; color: #7b2d8e; }
+  
+  .link-btn { display: inline-block; padding: 5px 14px; background: var(--red); color: #fff; border-radius: 6px; text-decoration: none; font-size: 0.82em; font-weight: 600; transition: all 0.2s; }
+  .link-btn:hover { background: #a00d24; transform: translateY(-1px); }
+  .link-btn.outline { background: #fff; color: var(--red); border: 1.5px solid var(--red); }
+  .link-btn.outline:hover { background: #fde8ea; }
+  
+  .country-flag { font-size: 1.1em; margin-right: 3px; }
+  
+  /* DTC Section */
+  .dtc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 30px; }
+  .dtc-card { background: var(--card); border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 4px solid var(--red); transition: transform 0.2s, box-shadow 0.2s; }
+  .dtc-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+  .dtc-card .rank-badge { font-size: 2em; font-weight: 800; color: var(--red); margin-bottom: 8px; }
+  .dtc-card h3 { font-size: 1.15em; margin-bottom: 4px; }
+  .dtc-card .url { color: var(--blue); font-size: 0.85em; margin-bottom: 10px; word-break: break-all; }
+  .dtc-card .desc { font-size: 0.85em; color: #555; margin-bottom: 12px; line-height: 1.5; }
+  .dtc-card .tags { margin-bottom: 12px; }
+  
+  /* Insight Box */
+  .insight-box { background: linear-gradient(135deg, #fff9e6, #fff3cd); border: 1px solid #e6b800; border-radius: 12px; padding: 24px; margin-bottom: 30px; }
+  .insight-box h3 { color: #b8860b; margin-bottom: 12px; }
+  .insight-box ul { list-style: none; padding: 0; }
+  .insight-box li { padding: 6px 0; padding-left: 20px; position: relative; }
+  .insight-box li::before { content: '鉁?; position: absolute; left: 0; color: var(--gold); }
+  
+  /* Strategy Box */
+  .strategy-box { background: linear-gradient(135deg, #e8f0fe, #d4e6f1); border: 1px solid #2980b9; border-radius: 12px; padding: 24px; margin-bottom: 30px; }
+  .strategy-box h3 { color: #2471a3; margin-bottom: 12px; }
+  
+  .footer { text-align: center; color: #999; font-size: 0.85em; padding: 30px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+  
+  .compare-section { margin-bottom: 30px; }
+  .compare-section h3 { margin-bottom: 12px; color: var(--accent); }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .header { padding: 30px 20px; }
+    .header h1 { font-size: 1.6em; }
+    .dtc-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>缇庡彂浜у搧 B2B & DTC 鐙珛绔欑珵鍝佽皟鐮旇〃</h1>
+  <p class="subtitle">鍩轰簬 KAOJOE HAIR BEAUTY (kaijoehairbeauty.com) 鐨勪笟鍔″畾浣嶏紝绯荤粺姊崇悊鍏ㄧ悆 B2B OEM/ODM 宸ュ巶鐙珛绔?+ 澶撮儴 DTC 鍝佺墝鐙珛绔?/p>
+  <div class="badge-row">
+    <span class="badge">浜у搧绾匡細娲楁姢 / 鍙戣啘 / 绮炬补 / 鏌撹啅 / 鐑彂</span>
+    <span class="badge">B2B 瑕嗙洊锛?6 瀹?/span>
+    <span class="badge">DTC 绮鹃€夛細10 瀹?/span>
+    <span class="badge highlight">鏇存柊锛?026骞?鏈?/span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-card"><div class="num">26</div><div class="label">B2B 鐙珛绔?/div></div>
+  <div class="stat-card"><div class="num">10</div><div class="label">DTC 鐙珛绔?/div></div>
+  <div class="stat-card"><div class="num">8</div><div class="label">瑕嗙洊鍥藉/鍦板尯</div></div>
+  <div class="stat-card"><div class="num">6</div><div class="label">鏍稿績娲炲療缁村害</div></div>
+</div>
+
+<!-- ==================== B2B SECTION ==================== -->
+<div class="section-title"><span class="icon">馃彮</span> 涓€銆丅2B 鍚岃鐙珛绔欒皟鐮旓紙26瀹讹紝鎸夌儹搴︽帓搴忥級</div>
+<p class="section-desc">鐑害璇勪及缁村害锛欸oogle 鎼滅储鍙搴?&times; 鐙珛绔欏唴瀹硅川閲?&times; 浜у搧绾胯鐩?&times; 璁よ瘉璧勮川 &times; 琛屼笟褰卞搷鍔涖€傛爣娉?<strong>馃敟</strong> 涓轰笌 KAOJOE 涓氬姟楂樺害閲嶅悎鐨勬煋鍙?鐑彂/娲楁姢宸ュ巶銆?/p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th style="width:50px">鎺掑悕</th>
+  <th style="width:60px">鐑害</th>
+  <th style="width:130px">鍏徃/鍝佺墝鍚?/th>
+  <th style="width:210px">鐙珛绔欑綉鍧€</th>
+  <th style="width:45px">鍥藉</th>
+  <th>鏍稿績浜у搧绾?/th>
+  <th>璁よ瘉/浼樺娍</th>
+  <th style="width:80px">閾炬帴</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- #1 Qyonz -->
+<tr>
+  <td><div class="rank top1">1</div></td>
+  <td><span class="heat-bar"><span class="heat-fill very-high"></span></span>鏋侀珮</td>
+  <td><strong>Qyonz</strong> 馃敟</td>
+  <td>qyonz.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span><span class="tag blue">閫犲瀷</span></td>
+  <td>ISO 22716 路 GMPC 路 12鏉¤嚜鍔ㄥ寲浜х嚎 路 浣嶮OQ 500璧?路 鏁版嵁椹卞姩鍙欎簨</td>
+  <td><a href="https://qyonz.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #2 Zhenyan -->
+<tr>
+  <td><div class="rank top2">2</div></td>
+  <td><span class="heat-bar"><span class="heat-fill very-high"></span></span>鏋侀珮</td>
+  <td><strong>Zhenyan 鑷婚</strong></td>
+  <td>zycosmeticmfg.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">鏌撹啅</span><span class="tag blue">鎶よ偆</span><span class="tag blue">褰╁</span></td>
+  <td>鍏ㄥ搧绫?OEM/ODM 路 閰嶆柟鐮斿彂+鍖呰璁捐涓€绔欏紡 路 涓撲笟鑻辨枃绔欑偣</td>
+  <td><a href="https://www.zycosmeticmfg.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #3 Beslo Cosmetics -->
+<tr>
+  <td><div class="rank top3">3</div></td>
+  <td><span class="heat-bar"><span class="heat-fill high"></span></span>寰堥珮</td>
+  <td><strong>Beslo Cosmetics</strong> 馃敟</td>
+  <td>beslocosmetics.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span><span class="tag blue">閫犲瀷</span></td>
+  <td>GMPC 路 ISO 路 BOV 姘旈浘缃愬厖濉?路 楂樼绉佹爣 路 涓撴敞鎶ゅ彂/閫犲瀷</td>
+  <td><a href="https://beslocosmetics.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #4 LocRoyal -->
+<tr>
+  <td><div class="rank hot">4</div></td>
+  <td><span class="heat-bar"><span class="heat-fill high"></span></span>寰堥珮</td>
+  <td><strong>LocRoyal 涔愬僵</strong> 馃敟</td>
+  <td>locroyalhaircare.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span><span class="tag blue">閫犲瀷</span></td>
+  <td>骞垮窞 路 鍏ㄥ搧绫荤編鍙?路 OEM/ODM/绉佹爣 路 鐙珛鍝佺墝+浠ｅ伐鍙屾ā寮?/td>
+  <td><a href="https://locroyalhaircare.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #5 Macamask -->
+<tr>
+  <td><div class="rank hot">5</div></td>
+  <td><span class="heat-bar"><span class="heat-fill high"></span></span>寰堥珮</td>
+  <td><strong>Macamask</strong> 馃敟</td>
+  <td>macamask.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag red">鏌撹啅</span></td>
+  <td>涓撲笟娌欓緳閰嶆柟 路 浣嶮OQ 2000璧?路 蹇€熶氦浠?路 鎴愮啛绉佹爣鏂规</td>
+  <td><a href="https://macamask.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #6 Hair ODM -->
+<tr>
+  <td><div class="rank hot">6</div></td>
+  <td><span class="heat-bar"><span class="heat-fill high"></span></span>寰堥珮</td>
+  <td><strong>HairODM</strong> 馃敟</td>
+  <td>hairodm.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag red">鏌撹啅</span><span class="tag blue">閫犲瀷</span></td>
+  <td>绔埌绔?OEM/ODM 路 浠庢蹇靛埌鎴愬搧 路 涓撴敞鎶ゅ彂鍏ㄥ搧绫诲畾鍒?/td>
+  <td><a href="https://www.hairodm.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #7 Yafei -->
+<tr>
+  <td><div class="rank hot">7</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium-high"></span></span>楂?/td>
+  <td><strong>Yafei 闆呰彶</strong> 馃敟</td>
+  <td>yafeilagd.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span><span class="tag blue">閫犲瀷</span></td>
+  <td>2004骞存垚绔?路 涓撲笟娌欓緳绾?路 棣欏瀷/棰滆壊/鍖呰鍏ㄥ畾鍒?路 鎵瑰彂</td>
+  <td><a href="https://yafeilagd.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #8 Leezon -->
+<tr>
+  <td><div class="rank hot">8</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium-high"></span></span>楂?/td>
+  <td><strong>Leezon 涓藉皧</strong></td>
+  <td>leezoncosmetics.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag blue">鎶よ偆</span></td>
+  <td>FDA娉ㄥ唽 路 20+骞寸粡楠?路 鎴愮啛绉佹爣鏂规 路 鍏ㄧ悆鍑哄彛</td>
+  <td><a href="https://leezoncosmetics.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #9 Laiyue -->
+<tr>
+  <td><div class="rank hot">9</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium-high"></span></span>楂?/td>
+  <td><strong>Laiyue 鑾辨偊</strong> 馃敟</td>
+  <td>laiyuegroup.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag red">鏌撹啅</span></td>
+  <td>鎴愮啛 OEM/ODM 路 涓板瘜浜у搧閰嶆柟搴?路 鍏ㄧ悆B2B渚涘簲</td>
+  <td><a href="https://laiyuegroup.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #10 Liyan Factory -->
+<tr>
+  <td><div class="rank hot">10</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium-high"></span></span>楂?/td>
+  <td><strong>Liyan Factory 涓介</strong></td>
+  <td>liyanfactory.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag blue">鎶よ偆</span><span class="tag blue">韬綋</span></td>
+  <td>涓撲笟 OEM/ODM 鍖栧鍝佸伐鍘?路 瀹氬埗閰嶆柟 路 浣嶮OQ 路 蹇€熶氦浠?/td>
+  <td><a href="https://liyanfactory.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #11 OEM-Cosmetic -->
+<tr>
+  <td><div class="rank hot">11</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium-high"></span></span>楂?/td>
+  <td><strong>OEM Co., Ltd.</strong></td>
+  <td>oem-cosmetic.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">鏌撹啅</span><span class="tag blue">鎶よ偆</span></td>
+  <td>涓撲笟绉佹爣鎶ゅ彂鍒堕€犲晢 路 瀹氬埗閰嶆柟 路 鍏ㄧ悆鍑哄彛</td>
+  <td><a href="https://oem-cosmetic.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #12 Guangzhou Shampoo Factory -->
+<tr>
+  <td><div class="rank hot">12</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓珮</td>
+  <td><strong>Guangzhou Shampoo Factory</strong></td>
+  <td>guangzhoushampoo.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag blue">閫犲瀷</span></td>
+  <td>涓撴敞娲楀彂姘翠唬宸?路 瀹氬埗閰嶆柟 路 绉佹爣璐寸墝 路 GMP鏍囧噯</td>
+  <td><a href="https://guangzhoushampoo.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #13 The Shampoo Factory -->
+<tr>
+  <td><div class="rank hot">13</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓珮</td>
+  <td><strong>The Shampoo Factory</strong></td>
+  <td>theshampoofactory.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">鏌撹啅</span></td>
+  <td>100+鏉′骇绾?路 10,000+鎴愮啛閰嶆柟 路 骞夸笢澶ц妯EM宸ュ巶</td>
+  <td><a href="https://theshampoofactory.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #14 Hair Color Creams Factory -->
+<tr>
+  <td><div class="rank hot">14</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓珮</td>
+  <td><strong>Famo Kemei 娉曡帿绉戠編</strong> 馃敟</td>
+  <td>haircolorcreams.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span></td>
+  <td>涓撴敞鏌撳彂鑶?鐑彂姘?路 鏌撶儷棰嗗煙鍨傜洿宸ュ巶 路 OEM瀹氬埗</td>
+  <td><a href="https://www.haircolorcreams.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #15 Hair Dye Supplier -->
+<tr>
+  <td><div class="rank hot">15</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓珮</td>
+  <td><strong>Hair Dye Supplier</strong> 馃敟</td>
+  <td>hairdyesupplier.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">鏌撹啅</span></td>
+  <td>GMPC 路 ISO 路 涓撴敞鏌撳彂鍓備唬宸?路 浣嶮OQ 路 鍏ㄧ鏍囨湇鍔?/td>
+  <td><a href="https://hairdyesupplier.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #16 ZYZM Hair -->
+<tr>
+  <td><div class="rank hot">16</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓珮</td>
+  <td><strong>ZYZM Hair 鑷讳紭缇?/strong> 馃敟</td>
+  <td>zyzmhair.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">鏌撹啅</span><span class="tag red">娲楁姢</span></td>
+  <td>鏌撳彂娲楀彂姘翠笓涓氬埗閫?路 OEM/ODM 路 閰嶆柟瀹氬埗+鍖呰璁捐</td>
+  <td><a href="https://www.zyzmhair.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #17 Yoyime -->
+<tr>
+  <td><div class="rank hot">17</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓珮</td>
+  <td><strong>Yoyime 浼樹紛缇?/strong> 馃敟</td>
+  <td>yoyime.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span></td>
+  <td>姘镐箙/鍗婃案涔?鑴辫壊鍏ㄧ郴鏌撹壊 路 涓撲笟娌欓緳鏌撳彂鏂规 路 OEM/ODM</td>
+  <td><a href="https://yoyime.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #18 Poleview -->
+<tr>
+  <td><div class="rank warm">18</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓?/td>
+  <td><strong>Poleview 鍗氫紭</strong></td>
+  <td>poleviewfactory.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag blue">澶寸毊鎶ょ悊</span></td>
+  <td>鎯犲窞 路 鍏ㄧ郴鍒楁姢鍙?路 鏈夋満/鏃犵～閰哥洂/绾礌 路 鐏垫椿MOQ</td>
+  <td><a href="https://www.poleviewfactory.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #19 XiangXiangDaily -->
+<tr>
+  <td><div class="rank warm">19</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓?/td>
+  <td><strong>XiangXiangDaily</strong></td>
+  <td>xiangxiangdaily.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag blue">鎶よ偆</span></td>
+  <td>B2B 涓姢鍒堕€犲晢 路 瀹氬埗閰嶆柟 路 鍝佺墝绉佹爣鏂规</td>
+  <td><a href="https://www.xiangxiangdaily.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #20 Metro Private Label -->
+<tr>
+  <td><div class="rank warm">20</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓?/td>
+  <td><strong>Metro Private Label</strong></td>
+  <td>metroprivatelabel.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">绮炬补</span><span class="tag blue">鐢熷彂</span></td>
+  <td>鍔熻兘鎬ф姢鍙?路 绫宠鍦板皵閰嶆柟 路 瑙掕泲鐧?姘ㄥ熀閰告椿鎬ф垚鍒?/td>
+  <td><a href="https://www.metroprivatelabel.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #21 Saehan Cosmetics (Korea) -->
+<tr>
+  <td><div class="rank warm">21</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓?/td>
+  <td><strong>Saehan 涓栭煩</strong> 馃敟</td>
+  <td>sae-han.com</td>
+  <td><span class="country-flag">馃嚢馃嚪</span>闊╁浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span><span class="tag blue">閫犲瀷</span></td>
+  <td>1956骞存垚绔?路 70骞?鍘嗗彶 路 闊╁浗椤剁骇鎶ゅ彂OEM 路 绾礌/澶寸毊鎶ょ悊</td>
+  <td><a href="https://sae-han.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #22 Tricobiotos (Italy) -->
+<tr>
+  <td><div class="rank warm">22</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓?/td>
+  <td><strong>Tricobiotos</strong> 馃敟</td>
+  <td>tricobiotos.it</td>
+  <td><span class="country-flag">馃嚠馃嚬</span>鎰忓ぇ鍒?/td>
+  <td><span class="tag red">鏌撹啅</span><span class="tag red">娲楁姢</span><span class="tag blue">閫犲瀷</span><span class="tag green">澶╃劧</span></td>
+  <td>涓撲笟鏌撳彂浜у搧绾?路 COLOREVO绯诲垪 路 澶╃劧鑺卞崏绯诲垪 路 鐜繚</td>
+  <td><a href="https://tricobiotos.it" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #23 Carsa Lab (Spain) -->
+<tr>
+  <td><div class="rank warm">23</div></td>
+  <td><span class="heat-bar"><span class="heat-fill medium"></span></span>涓?/td>
+  <td><strong>Carsa Lab</strong> 馃敟</td>
+  <td>carasalab.com</td>
+  <td><span class="country-flag">馃嚜馃嚫</span>瑗跨彮鐗?/td>
+  <td><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span><span class="tag blue">鎶よ偆</span></td>
+  <td>涓撲笟鏌撳彂+娌荤枟鍨嬫姢鍙?路 娆ф床B2B浠ｅ伐 路 鑷湁瀹為獙瀹?/td>
+  <td><a href="https://carasalab.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #24 Hair Cosmetic (Germany) -->
+<tr>
+  <td><div class="rank warm">24</div></td>
+  <td><span class="heat-bar"><span class="heat-fill low"></span></span>涓綆</td>
+  <td><strong>H.C.F. GmbH</strong> 馃敟</td>
+  <td>haircosmetic.biz</td>
+  <td><span class="country-flag">馃嚛馃嚜</span>寰峰浗</td>
+  <td><span class="tag red">鏌撹啅</span><span class="tag red">鐑彂</span><span class="tag blue">閫犲瀷</span></td>
+  <td>寰峰浗鏌撳彂涓撳 路 鍗婃案涔?姘镐箙鏌撳彂 路 鐩村彂鑶?路 鐫瘺鏌撹壊</td>
+  <td><a href="https://haircosmetic.biz" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #25 Global Cosmetics -->
+<tr>
+  <td><div class="rank warm">25</div></td>
+  <td><span class="heat-bar"><span class="heat-fill low"></span></span>涓綆</td>
+  <td><strong>Global Cosmetics</strong></td>
+  <td>global-cosmetics.com</td>
+  <td><span class="country-flag">馃嚚馃嚦</span>涓浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag blue">鎶よ偆</span><span class="tag blue">褰╁</span></td>
+  <td>棣欐腐鍏徃 路 涓滆帪宸ュ巶 路 鍏ㄥ搧绫讳唬宸?路 鍏ㄧ悆B2B</td>
+  <td><a href="https://www.global-cosmetics.com" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+<!-- #26 Von Haering (Germany) -->
+<tr>
+  <td><div class="rank warm">26</div></td>
+  <td><span class="heat-bar"><span class="heat-fill low"></span></span>涓綆</td>
+  <td><strong>Von Haering</strong></td>
+  <td>vonhaering.de</td>
+  <td><span class="country-flag">馃嚛馃嚜</span>寰峰浗</td>
+  <td><span class="tag red">娲楁姢</span><span class="tag red">鍙戣啘</span><span class="tag green">鏈夋満</span><span class="tag blue">鎶よ偆</span></td>
+  <td>BDIH 路 NATRUE 澶╃劧鏈夋満璁よ瘉 路 寰峰浗鍒堕€?路 楂樼绉佹爣</td>
+  <td><a href="https://www.vonhaering.de" target="_blank" class="link-btn">璁块棶</a></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<!-- B2B INSIGHTS -->
+<div class="insight-box">
+  <h3>馃搳 B2B 鐙珛绔欐牳蹇冩礊瀵?/h3>
+  <ul>
+    <li><strong>鍦扮悊闆嗕腑搴︽瀬楂橈細</strong>26瀹朵腑17瀹朵綅浜庡箍涓滐紙骞垮窞涓轰富锛夛紝褰㈡垚鍏ㄧ悆鏈€澶х編鍙戜骇鍝丱EM浜т笟闆嗙兢</li>
+    <li><strong>鏌撶儷鍨傜洿璧涢亾锛?/strong>#14-17銆?21-24 涓撴敞鏌撳彂/鐑彂浜у搧锛屼笌KAOJOE涓氬姟楂樺害閲嶅悎锛屾槸鐩存帴绔炲搧</li>
+    <li><strong>闊╁浗/娆ф床瀵规爣锛?/strong>Saehan锛堥煩鍥斤級銆乀ricobiotos锛堟剰澶у埄锛夈€丆arsa Lab锛堣タ鐝墮锛変唬琛ㄩ珮绔埗閫犳按骞?/li>
+    <li><strong>缃戠珯璐ㄩ噺鍒嗗眰锛?/strong>Top 5 鎷ユ湁涓撲笟鑻辨枃鍝佺墝绔欙紝SEO/鍐呭钀ラ攢鎴愮啛锛涗腑鍚庢澶氫负妯℃澘绔?/li>
+    <li><strong>璁よ瘉闂ㄦ锛?/strong>FDA+ISO+GMP涓夎璇佷粛涓烘牳蹇冪珵浜夊姏锛孠AOJOE鐨凢DA+ISO+GMP+SGS鍥涜璇佹湁浼樺娍</li>
+    <li><strong>MOQ瓒嬪娍锛?/strong>澶撮儴宸ュ巶鏅亶闄嶄綆璧疯閲忥紙500-2000浠讹級锛屾湁鍒╀簬涓皬鍝佺墝瀛靛寲</li>
+  </ul>
+</div>
+
+<!-- ==================== DTC SECTION ==================== -->
+<div class="section-title"><span class="icon">馃洅</span> 浜屻€乀op 10 DTC 缇庡彂鍝佺墝鐙珛绔?/div>
+<p class="section-desc">绮鹃€夊叏鐞冩渶鍏峰奖鍝嶅姏鍜屽弬鑰冧环鍊肩殑DTC锛圖irect-to-Consumer锛夌編鍙戝搧鐗岀嫭绔嬬珯锛屾兜鐩栭珮绔鎶€銆佸畾鍒跺寲銆佺函鍑€缇庡銆佹煋鎶ょ瓑璧涢亾锛屼负KAOJOE鐨勫搧鐗屽寲鍗囩骇鎻愪緵瀵规爣鍙傝€冦€?/p>
+
+<div class="dtc-grid">
+
+<!-- #1 Olaplex -->
+<div class="dtc-card">
+  <div class="rank-badge">#1</div>
+  <h3>Olaplex</h3>
+  <div class="url">olaplex.com</div>
+  <div class="desc">涓撳埄浜岀～鍖栭敭淇鎶€鏈紝鍏ㄧ悆鎶ゅ彂绉戞妧鏍囨潌銆備粠娌欓緳璧板悜DTC锛孖PO涓婂競鍝佺墝锛岀ぞ浜ゅ獟浣撶幇璞＄骇浼犳挱銆備骇鍝佺嚎瑕嗙洊鍏ㄩ摼璺慨鎶ゃ€?/div>
+  <div class="tags"><span class="tag red">淇绉戞妧</span><span class="tag gold">涓婂競鍏徃</span><span class="tag blue">鍏ㄦ笭閬?/span></div>
+  <a href="https://olaplex.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #2 K18 -->
+<div class="dtc-card">
+  <div class="rank-badge">#2</div>
+  <h3>K18 Biomimetic Hairscience</h3>
+  <div class="url">k18hair.com</div>
+  <div class="desc">浠跨敓绉戞妧鑲戒慨澶嶏紝4鍒嗛挓閫嗚浆鎹熶激銆俆ikTok鐥呮瘨寮忎紶鎾紝琚綉鍙嬬О涓?娑蹭綋榛勯噾"銆傜瀛﹀彊浜?鏋佺畝浜у搧绾裤€?/div>
+  <div class="tags"><span class="tag red">浠跨敓绉戞妧</span><span class="tag gold">鐜拌薄绾?/span><span class="tag blue">鏋佺畝SKU</span></div>
+  <a href="https://www.k18hair.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #3 Prose -->
+<div class="dtc-card">
+  <div class="rank-badge">#3</div>
+  <h3>Prose</h3>
+  <div class="url">prose.com</div>
+  <div class="desc">瓒呬釜鎬у寲瀹氬埗鎶ゅ彂锛屽熀浜庡湴鐞嗕綅缃€佺敓娲绘柟寮忋€佹按璐ㄧ瓑80+鍥犵礌AI閰嶆柟鐢熸垚銆傜湡姝ｇ殑"涓€浜轰竴鏂?銆?/div>
+  <div class="tags"><span class="tag red">AI瀹氬埗</span><span class="tag gold">璁㈤槄鍒?/span><span class="tag blue">鏁版嵁椹卞姩</span></div>
+  <a href="https://prose.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #4 Function of Beauty -->
+<div class="dtc-card">
+  <div class="rank-badge">#4</div>
+  <h3>Function of Beauty</h3>
+  <div class="url">functionofbeauty.com</div>
+  <div class="desc">瀹氬埗鍖朌TC鍏堥┍锛岀敤鎴峰彲閫夋嫨鍙戣川鐩爣銆侀鍛炽€侀鑹层€侻IT宸ョ▼甯堝垱绔嬶紝绉戝涓庝釜鎬у寲鐨勫畬缇庣粨鍚堛€?/div>
+  <div class="tags"><span class="tag red">瀹氬埗鍖?/span><span class="tag gold">MIT鑳屾櫙</span><span class="tag blue">鐙鍏?/span></div>
+  <a href="https://functionofbeauty.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #5 Ouai -->
+<div class="dtc-card">
+  <div class="rank-badge">#5</div>
+  <h3>Ouai</h3>
+  <div class="url">theouai.com</div>
+  <div class="desc">濂借幈鍧炴槑鏄熷彂鍨嬪笀 Jen Atkin 鍒涚珛锛屾瀬绠€缇庡+娌欓緳绾ф晥鏋溿€傜ぞ浜ゅ獟浣撹惀閿€鏁欑涔︼紝P&G鏀惰喘鍚庡姞閫熷闀裤€?/div>
+  <div class="tags"><span class="tag red">鏄庢槦IP</span><span class="tag gold">鏋佺畝缇庡</span><span class="tag blue">P&G鏃椾笅</span></div>
+  <a href="https://theouai.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #6 Gisou -->
+<div class="dtc-card">
+  <div class="rank-badge">#6</div>
+  <h3>Gisou</h3>
+  <div class="url">gisou.com</div>
+  <div class="desc">铚傝湝鎶ゅ彂濂㈠崕鍝佺墝锛岃嵎鍏板吇铚傚鏃忕鍏唬銆傝湝铚傚吇娈?鎶ゅ彂绉戝锛孖NS缇庡鏍囨潌锛岄珮婧环鑳藉姏銆?/div>
+  <div class="tags"><span class="tag red">铚傝湝鎶ゅ彂</span><span class="tag gold">濂㈠崕DTC</span><span class="tag blue">INS缇庡</span></div>
+  <a href="https://gisou.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #7 Briogeo -->
+<div class="dtc-card">
+  <div class="rank-badge">#7</div>
+  <h3>Briogeo</h3>
+  <div class="url">briogeo.com</div>
+  <div class="desc">"6-free"绾噣鎶ゅ彂锛屾棤纭吀鐩?纭呮补/瀵圭緹鍩鸿嫰鐢查吀閰瓑銆侰lean Beauty鎶ゅ彂璧涢亾棰嗗鑰咃紝Sephora鐣呴攢銆?/div>
+  <div class="tags"><span class="tag red">娓呮磥鎶ゅ彂</span><span class="tag gold">绾噣閰嶆柟</span><span class="tag green">鍏ㄥ彂璐?/span></div>
+  <a href="https://briogeo.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #8 Vegamour -->
+<div class="dtc-card">
+  <div class="rank-badge">#8</div>
+  <h3>Vegamour</h3>
+  <div class="url">vegamour.com</div>
+  <div class="desc">妞嶇墿鍩虹敓鍙?鎶ゅ彂DTC锛屼富鎵揋RO绯诲垪銆傜函绱?闆舵畫蹇嶏紝KOL+鍐呭钀ラ攢椹卞姩澧為暱锛岄珮閫熷闀緿TC鏂拌吹銆?/div>
+  <div class="tags"><span class="tag red">鐢熷彂鎶ゅ彂</span><span class="tag gold">妞嶇墿鍩?/span><span class="tag green">绾礌</span></div>
+  <a href="https://vegamour.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #9 Color WOW -->
+<div class="dtc-card">
+  <div class="rank-badge">#9</div>
+  <h3>Color WOW</h3>
+  <div class="url">colorwowhair.com</div>
+  <div class="desc">涓撴敞鏌撳悗鎶よ壊锛孌ream Coat闃叉疆鍠烽浘鍏ㄧ悆鐑攢銆傛煋鍙戞姢鐞嗗瀭鐩磋禌閬撶帇鑰咃紝瑙ｅ喅鐪熷疄鐥涚偣銆?/div>
+  <div class="tags"><span class="tag red">鏌撳悗鎶よ壊</span><span class="tag gold">鍨傜洿涓撴敞</span><span class="tag blue">鐖嗗搧绛栫暐</span></div>
+  <a href="https://colorwowhair.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+<!-- #10 Crown Affair -->
+<div class="dtc-card">
+  <div class="rank-badge">#10</div>
+  <h3>Crown Affair</h3>
+  <div class="url">crownaffair.com</div>
+  <div class="desc">鏋佺畝濂㈠崕鎶ゅ彂鏂拌吹锛岀敱Glossier鍓嶉珮绠″垱绔嬨€備华寮忔劅鎶ゅ彂+楂樼骇璁捐缇庡锛岀簿鍑嗗畾浣嶅崈绂?Gen Z楂樼鐢ㄦ埛銆?/div>
+  <div class="tags"><span class="tag red">鏋佺畝濂㈠崕</span><span class="tag gold">浠紡鎰?/span><span class="tag blue">鍗冪ΗGenZ</span></div>
+  <a href="https://crownaffair.com" target="_blank" class="link-btn outline">璁块棶缃戠珯</a>
+</div>
+
+</div>
+
+<!-- DTC INSIGHTS -->
+<div class="insight-box">
+  <h3>馃搳 DTC 鐙珛绔欐牳蹇冩礊瀵?/h3>
+  <ul>
+    <li><strong>绉戞妧鍙欎簨涓虹帇锛?/strong>Olaplex锛堜笓鍒╅敭淇锛夊拰K18锛堜豢鐢熻偨锛夌敤"绉戝"寤虹珛鍝佺墝鎶ゅ煄娌筹紝鏄渶楂樻孩浠风瓥鐣?/li>
+    <li><strong>瀹氬埗鍖栨槸瓒嬪娍锛?/strong>Prose鍜孎unction of Beauty鐢ˋI+闂嵎瀹炵幇"涓€浜轰竴鏂?锛岃闃呭埗鎻愰珮LTV</li>
+    <li><strong>鍨傜洿娣辫€?> 澶ц€屽叏锛?/strong>Color WOW涓撳仛鏌撳悗鎶よ壊鍗冲仛鍒板叏鐞冪煡鍚嶏紱鍝佺被鑱氱劍鍙嶈€屾洿寮?/li>
+    <li><strong>鏌撶儷浜у搧鏄疍TC绌虹櫧锛?/strong>Top 10 DTC鍝佺墝鏃犱竴娑夊強鐑彂浜у搧锛屾煋鍙戜篃浠ユ姢鑹蹭负涓婚潪鏌撹啅鈥斺€擝2B宸ュ巶鍙樊寮傚寲鍒囧叆</li>
+    <li><strong>绾噣/鍙寔缁?= 鏂板叆鍦哄埜锛?/strong>Briogeo銆乂egamour鐢–lean Beauty瀹氫綅绐佸洿锛屽凡鎴愪负鍑嗗叆闂ㄦ</li>
+    <li><strong>鍝佺墝鏁呬簨 > 浜у搧鍙傛暟锛?/strong>Gisou锛堝吇铚傚鏃忥級銆丱uai锛堟槑鏄熷彂鍨嬪笀锛夌敤IP鍜屾晠浜嬪缓绔嬫儏鎰熻繛鎺?/li>
+  </ul>
+</div>
+
+<!-- STRATEGY -->
+<div class="strategy-box">
+  <h3>馃幆 KAOJOE 鎴樼暐鍚ず</h3>
+  <ul style="list-style:none;padding:0;">
+    <li style="padding:6px 0;">1. <strong>鏌撶儷鍙岀嚎+璁よ瘉鑳屼功 = 鐙壒瀹氫綅锛?/strong>B2B绔炲搧涓笓娉ㄦ煋鑶?鐑彂鐨勭嫭绔嬬珯鏋佸皯锛堜粎#14-17锛夛紝KAOJOE鐨凢DA+ISO+GMP+SGS鍥涜璇佸彲褰㈡垚澹佸瀿</li>
+    <li style="padding:6px 0;">2. <strong>鍝佺墝鍖栧崌绾у鏍嘍TC锛?/strong>DTC鍝佺墝缃戠珯鐨勮瑙夌編瀛︺€佷骇鍝佸彊浜嬨€佸唴瀹硅惀閿€鍊煎緱KAOJOE鐙珛绔欏涔?/li>
+    <li style="padding:6px 0;">3. <strong>鏌撳悗鎶ょ悊鏄摑娴凤細</strong>DTC鍝佺墝鏌撳悗鎶ょ悊锛圕olor WOW銆丱laplex锛夊ぇ鐑紝KAOJOE鍙綔涓築2B宸紓鍖栦骇鍝佹帹鍑?/li>
+    <li style="padding:6px 0;">4. <strong>闊╁浗/娆ф床浠ｅ伐鏈夋孩浠风┖闂达細</strong>Saehan锛堥煩鍥斤級銆乀ricobiotos锛堟剰澶у埄锛夌瓑瀹氫环杩滈珮浜庝腑鍥藉伐鍘傦紝鏄崌绾ф柟鍚?/li>
+    <li style="padding:6px 0;">5. <strong>B2B鐙珛绔欑殑SEO鍜屽唴瀹归渶瑕佸姞寮猴細</strong>瀵规瘮Qyonz锛堟暟鎹┍鍔ㄥ彊浜嬶級锛屽ぇ澶氭暟B2B鐙珛绔欑己涔忓唴瀹规繁搴︼紝杩欐槸瓒呰秺鏈轰細</li>
+    <li style="padding:6px 0;">6. <strong>K-Beauty鏄祦閲忓瘑鐮侊細</strong>闊╁浗OEM宸ュ巶缃戠珯鑷甫K-Beauty鍝佺墝婧环鍏夌幆锛孠AOJOE鍙€熼壌鍏跺搧鐗屽寘瑁呯瓥鐣?/li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>KAOJOE HAIR BEAUTY | 缇庡彂浜у搧 鐙珛绔欑珵鍝佽皟鐮?| 2026骞?鏈?/p>
+  <p>鏁版嵁鏉ユ簮锛欸oogle Search銆?800DTC銆丮etro Private Label銆丅lackbird Skincare銆丼utton Commerce 绛夊叕寮€淇℃伅</p>
+</div>
+
+</div>
+</body>
+</html>
